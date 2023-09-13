@@ -1,15 +1,18 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
-import CardCheckStatus from './components/cardCheckStatus/CardCheckStatus'
+import Header from './components/header/Header'
 
 function App() {
-  // const [count, setCount] = useState(0)
+  const [isAutoSortOn, setIsAutoSortOn] = useState(false)
+
+  function handleAutoSortToggle() {
+    setIsAutoSortOn(!isAutoSortOn)
+  }
 
   return (
     <>
-      <CardCheckStatus />
+      <Header autoSortOn={isAutoSortOn} onAutoSortToggle={handleAutoSortToggle} />
     </>
   )
 }

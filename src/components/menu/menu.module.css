@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  margin-block-start: 3rem;
+  margin-block-end: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.container li {
+  display: flex;
+  flex-direction: column;
+  
+  gap: 0.625rem;
+}
+
+.container li > div {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.container svg {
+  flex-shrink: 0;
+
+  fill: var(--color-humble);
+}

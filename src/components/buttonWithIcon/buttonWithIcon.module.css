@@ -1,0 +1,31 @@
+.withIcon {
+  display: flex;
+  align-items: center;
+
+  height: 3rem;
+}
+
+.withIcon svg {
+  fill: var(--color-humble);
+}
+
+.withIcon span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.375rem;
+
+  font-family: var(--font-nunito);
+}
+
+.withIcon span span:first-child {
+  text-decoration: underline;
+}
+
+.withIcon:focus-visible svg {
+  fill: var(--color-base);
+}
+
+.withIcon:hover svg {
+  fill: var(--color-base);
+}

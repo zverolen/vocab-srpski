@@ -1,0 +1,10 @@
+.default {
+  padding: 0.5rem 0.625rem;
+
+  border: 0.0625rem solid var(--color-base);
+}
+
+.default:hover:not(:disabled) {
+  background-color: var(--color-base);
+  color: var(--color-secondary);
+}

@@ -1,0 +1,91 @@
+.container {
+  width: 4.5rem;
+  height: 3rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.container > div {
+  box-sizing: border-box;
+  width: 4.5rem;
+  height: 1.875rem;
+  padding: 0.1875rem 0.125rem;
+
+  display: flex;
+  align-items: center;
+
+  border: var(--border-default);
+  background-color: var(--color-secondary);
+}
+
+.container > div div {
+  box-sizing: border-box;
+  width: 1.25rem;
+  height: 1.625rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: var(--border-default);
+  background-color: var(--color-secondary);
+}
+
+.container svg {
+  stroke: var(--color-humble);
+}
+
+.container span {
+  margin-inline-start: 0.25rem;
+
+  font-size: var(--font-size-toggle);
+  text-transform: uppercase;
+}
+
+.container:hover > div {
+  background-color: var(--color-base);
+}
+
+.container:hover > div div {
+  border-color: var(--color-secondary);
+}
+
+.container:hover span {
+  color: var(--color-secondary);
+}
+
+.container:hover svg {
+  stroke: var(--color-base);
+}
+
+.container:is(.on) > div {
+  flex-direction: row-reverse;
+
+  background-color: var(--color-correctHumble);
+  border-color: var(--color-correct);
+}
+
+.container:is(.on) .caption {
+  margin-inline-start: 0;
+  margin-inline-end: 0.5625rem;
+  color: var(--color-correct);
+}
+
+.container:is(.on) > div div {
+  border-color: var(--color-correct);
+}
+
+.container:is(.on) svg {
+  stroke: var(--color-correct);
+}
+
+.container:is(.on):hover > div {
+  background-color: var(--color-correct);
+}
+
+.container:is(.on):hover span {
+  color: var(--color-secondary);
+}
+
+
