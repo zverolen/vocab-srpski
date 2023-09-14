@@ -19,5 +19,5 @@ export default function HideAndReveal({children}) {
 }
 
 HideAndReveal.propTypes = {
-  children: PropTypes
+  children: PropTypes.element
 }

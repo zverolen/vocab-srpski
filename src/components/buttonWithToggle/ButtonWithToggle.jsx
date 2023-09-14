@@ -6,14 +6,21 @@ import styles from './buttonWithToggle.module.css'
 export default function ButtonWithToggle({
   ariaDescribedby,
   isOn = false,
-  onToggle
+  handleToggle
 }) {
-  function handleClick() {
-    onToggle()
-  }
+  // function handleClick() {
+  //   onToggle()
+  // }
   
   return ( 
-    <button className={styles.toggle} type="button" aria-pressed={isOn} onClick={handleClick} aria-describedby={ariaDescribedby}>
+    <button 
+      className={styles.toggle} 
+      type="button" 
+      aria-pressed={isOn} 
+      onClick={handleToggle} 
+      aria-describedby={ariaDescribedby}
+      data-testid="button-toggle"
+    >
       Автоматическая сортировка карточек 
       <span data-testid="buttonToggle-status" className="visually-hidden">
         {isOn ? 'Включено': 'Выключено'}
@@ -26,5 +33,5 @@ export default function ButtonWithToggle({
 ButtonWithToggle.propTypes = {
   ariaDescribedby: PropTypes.string,
   isOn: PropTypes.bool.isRequired,
-  onToggle: PropTypes.func.isRequired
+  handleToggle: PropTypes.func.isRequired
 }
