@@ -11,7 +11,7 @@ export default function HideAndReveal({children}) {
   }
 
   return (
-    <div aria-live="polite">
+    <div data-testid="hide-and-reveal" aria-live="polite">
       <ButtonWithIcon isOpen={isExpanded} handleClick={handleExpand} />
       {isExpanded && children}
     </div>
