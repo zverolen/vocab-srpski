@@ -11,7 +11,7 @@ export default function Header({autoSortOn, onAutoSortToggle}) {
       <div>
         <HideAndReveal>
           <Menu>
-            <li>
+            <li aria-live="polite">
               <ButtonWithToggle ariaDescribedby="autosort-description" isOn={autoSortOn} handleToggle={onAutoSortToggle}/>
               <Hint />
             </li>
