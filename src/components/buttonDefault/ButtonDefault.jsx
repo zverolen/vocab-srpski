@@ -23,7 +23,7 @@ export default function ButtonDefault({
 }
 
 ButtonDefault.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string,
   handleClick: PropTypes.func.isRequired,
   test: PropTypes.string.isRequired,
   disabled: PropTypes.bool,

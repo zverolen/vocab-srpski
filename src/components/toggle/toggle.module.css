@@ -1,4 +1,4 @@
-.container {
+.toggle {
   width: 4.5rem;
   height: 3rem;
 
@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.container > div {
+.toggle > div {
   box-sizing: border-box;
   width: 4.5rem;
   height: 1.875rem;
@@ -19,7 +19,7 @@
   background-color: var(--color-secondary);
 }
 
-.container > div div {
+.toggle > div div {
   box-sizing: border-box;
   width: 1.25rem;
   height: 1.625rem;
@@ -32,59 +32,59 @@
   background-color: var(--color-secondary);
 }
 
-.container svg {
+.toggle svg {
   stroke: var(--color-humble);
 }
 
-.container span {
+.toggle span {
   margin-inline-start: 0.25rem;
 
   font-size: var(--font-size-toggle);
   text-transform: uppercase;
 }
 
-.container:hover > div {
+.toggle:hover > div {
   background-color: var(--color-base);
 }
 
-.container:hover > div div {
+.toggle:hover > div div {
   border-color: var(--color-secondary);
 }
 
-.container:hover span {
+.toggle:hover span {
   color: var(--color-secondary);
 }
 
-.container:hover svg {
+.toggle:hover svg {
   stroke: var(--color-base);
 }
 
-.container:is(.on) > div {
+.toggle:is(.on) > div {
   flex-direction: row-reverse;
 
   background-color: var(--color-correctHumble);
   border-color: var(--color-correct);
 }
 
-.container:is(.on) .caption {
+.toggle:is(.on) .caption {
   margin-inline-start: 0;
   margin-inline-end: 0.5625rem;
   color: var(--color-correct);
 }
 
-.container:is(.on) > div div {
+.toggle:is(.on) > div div {
   border-color: var(--color-correct);
 }
 
-.container:is(.on) svg {
+.toggle:is(.on) svg {
   stroke: var(--color-correct);
 }
 
-.container:is(.on):hover > div {
+.toggle:is(.on):hover > div {
   background-color: var(--color-correct);
 }
 
-.container:is(.on):hover span {
+.toggle:is(.on):hover span {
   color: var(--color-secondary);
 }
 

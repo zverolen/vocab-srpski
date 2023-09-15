@@ -4,9 +4,10 @@ import { useState } from "react"
 
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import CardCheckStatus from '../cardCheckStatus/CardCheckStatus'
+import styles from './cardsItem.module.css'
 
 
-export default function CardsItem({ data }) {
+export default function CardsItem({ data, onCheckStatusChange }) {
   const [ isRussian, setIsRussian ] = useState(true)
 
   let selfCheckHint
@@ -24,16 +25,16 @@ export default function CardsItem({ data }) {
 
   function handleReset() {
     setIsRussian(true);
-    dispatch(updateCorrectStatus({id: data.id, selfCheckStatus: 'unset'}))
+    onCheckStatusChange({id: data.id, selfCheckStatus: 'unset'})
   }
 
-  function handleCheck(result: string) {
-    dispatch(updateCorrectStatus({id: data.id, selfCheckStatus: result}))
+  function handleCardStatus(result) {
+    onCheckStatusChange({id: data.id, selfCheckStatus: result})
   }
 
   return (
     <div 
-      className={`${data.selfCheckStatus != 'unset' && data.selfCheckStatus} card`} 
+      className={`${data.selfCheckStatus != 'unset' && data.selfCheckStatus} ${styles.cardsItem}`} 
       key={data.id}
       data-testid="container-card"
     >
@@ -44,10 +45,10 @@ export default function CardsItem({ data }) {
       </h3>
 
       <div aria-live="off">
-        <Button test="button-answer" handleClick={handleChangeView} refEl={answerButtonRef}>
+        <ButtonDefault test="button-answer" handleClick={handleChangeView}>
           {isRussian ? 'Показать ответ' : 'Скрыть ответ'}
-        </Button>
-        {data.selfCheckStatus !== 'unset' && <CheckStatus status={data.selfCheckStatus}/>}
+        </ButtonDefault>
+        {data.selfCheckStatus !== 'unset' && <CardCheckStatus status={data.selfCheckStatus}/>}
       </div>
 
       <hr aria-hidden="true"></hr>
@@ -55,22 +56,22 @@ export default function CardsItem({ data }) {
       <div aria-live="polite">
         {data.selfCheckStatus === 'unset' && 
           <>
-            <Button 
+            <ButtonDefault
               test="button-correct" 
-              handleClick={() => handleCheck('correct')} 
+              handleClick={() => handleCardStatus('correct')} 
               disabled={isRussian || data.selfCheckStatus !== 'unset'}
               checkStatus="correct"
             >
               Верно
-            </Button>
-            <Button 
+            </ButtonDefault>
+            <ButtonDefault 
               test="button-wrong" 
-              handleClick={() => handleCheck('wrong')}  
+              handleClick={() => handleCardStatus('wrong')}  
               disabled={isRussian || data.selfCheckStatus !== 'unset'}
               checkStatus="wrong"
               >
                 Неверно
-            </Button>
+            </ButtonDefault>
           </>
         }
         {/* <p 
@@ -86,13 +87,13 @@ export default function CardsItem({ data }) {
           {selfCheckHint}
         </p>
         
-        <Button 
+        <ButtonDefault 
             test="button-reset" 
             handleClick={handleReset}
             hidden={data.selfCheckStatus === 'unset'}
           >
             Сбросить
-        </Button>
+        </ButtonDefault>
       </div>
 
     </div>
@@ -104,6 +105,8 @@ CardsItem.propTypes = {
     id: PropTypes.string,
     russian: PropTypes.string,
     serbian: PropTypes.string,
-    section: PropTypes.string
-  })
+    section: PropTypes.string,
+    selfCheckStatus: PropTypes.string
+  }),
+  onCheckStatusChange: PropTypes.func
 }
