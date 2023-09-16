@@ -1,20 +1,34 @@
 import PropTypes from 'prop-types';
+import { useMemo } from 'react';
 
 import CardsItem from '../cardsItem/CardsItem'
 import styles from './cardsContainer.module.css'
 
 export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange}) {
+  const unsetPhrases2 = useMemo(
+    () => phrases.filter(phrase => phrase.selfCheckStatus === 'unset'),
+    [phrases]
+  )
+  const correctPhrases2 = useMemo(
+    () => phrases.filter(phrase => phrase.selfCheckStatus === 'correct'),
+    [phrases]
+  )
+  const wrongPhrases2 = useMemo(
+    () => phrases.filter(phrase => phrase.selfCheckStatus === 'wrong'),
+    [phrases]
+  )
+  
   let content 
 
   if (autoSortOn) {
-    const uncheckedPhrases = phrases.filter(phrase => phrase.selfCheckStatus === 'unset')
-    const correctPhrases = phrases.filter(phrase => phrase.selfCheckStatus === 'correct')
-    const wrongPhrases = phrases.filter(phrase => phrase.selfCheckStatus === 'wrong')
+    // const uncheckedPhrases = phrases.filter(phrase => phrase.selfCheckStatus === 'unset')
+    // const correctPhrases = phrases.filter(phrase => phrase.selfCheckStatus === 'correct')
+    // const wrongPhrases = phrases.filter(phrase => phrase.selfCheckStatus === 'wrong')
     content = (
       <>
-        {uncheckedPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange}/>)}
-        {correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange}/>)}
-        {wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange}/>)}
+        {unsetPhrases2.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange}/>)}
+        {correctPhrases2.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange}/>)}
+        {wrongPhrases2.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange}/>)}
       </>
     )
   } else {
@@ -30,6 +44,11 @@ export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange
         <li>Если вы ответили правильно, нажмите “Верно”, если неправильно, нажмите “Неверно”.</li>
         <li>Чтобы поработать с карточкой ещё раз, нажмите “Скрыть ответ” или “Сбросить”.</li>
       </ol>
+      <div>
+        <div>Верно: <span>{correctPhrases2.length}</span></div>
+        <div>Неверно: <span>{wrongPhrases2.length}</span></div>
+        <div>Осталось: <span>{unsetPhrases2.length}</span></div>
+      </div>
       <div>
         <h2 className='visually-hidden'>Фразы</h2>
         <div className={styles.cardsContainer}>
