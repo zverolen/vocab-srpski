@@ -23,18 +23,16 @@ export default function CardsItem({ data, onCheckStatusChange }) {
     setIsRussian(!isRussian)
   }
 
-  function handleReset() {
-    setIsRussian(true);
-    onCheckStatusChange({id: data.id, selfCheckStatus: 'unset'})
-  }
-
-  function handleCardStatus(result) {
+  function handleCardStatusChange(result) {
     onCheckStatusChange({id: data.id, selfCheckStatus: result})
+    if (result === 'unset') {
+      setIsRussian(true);
+    }
   }
 
   return (
     <div 
-      className={`${data.selfCheckStatus != 'unset' && data.selfCheckStatus} ${styles.cardsItem}`} 
+      className={`${data.selfCheckStatus != 'unset' ? data.selfCheckStatus : ''} ${styles.cardsItem}`} 
       key={data.id}
       data-testid="container-card"
     >
@@ -58,7 +56,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
           <>
             <ButtonDefault
               test="button-correct" 
-              handleClick={() => handleCardStatus('correct')} 
+              handleClick={() => handleCardStatusChange('correct')} 
               disabled={isRussian || data.selfCheckStatus !== 'unset'}
               checkStatus="correct"
             >
@@ -66,7 +64,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
             </ButtonDefault>
             <ButtonDefault 
               test="button-wrong" 
-              handleClick={() => handleCardStatus('wrong')}  
+              handleClick={() => handleCardStatusChange('wrong')}  
               disabled={isRussian || data.selfCheckStatus !== 'unset'}
               checkStatus="wrong"
               >
@@ -89,7 +87,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
         
         <ButtonDefault 
             test="button-reset" 
-            handleClick={handleReset}
+            handleClick={() => handleCardStatusChange('unset')}
             hidden={data.selfCheckStatus === 'unset'}
           >
             Сбросить
