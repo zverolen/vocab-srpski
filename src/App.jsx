@@ -32,11 +32,14 @@ function App() {
   return (
     <>
       <Header autoSortOn={isAutoSortOn} onAutoSortToggle={handleAutoSortToggle} />
-      <CardsContainer 
-        autoSortOn={isAutoSortOn} 
-        onCheckStatusChange={handleCheckStatusChange}
-        phrases={allPhrases}
-        />
+      <main>
+        <h1>Сербский вслух</h1>
+        <CardsContainer 
+          autoSortOn={isAutoSortOn} 
+          onCheckStatusChange={handleCheckStatusChange}
+          phrases={allPhrases}
+          />
+      </main>
     </>
   )
 }
