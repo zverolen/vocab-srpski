@@ -1,3 +1,17 @@
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/nunito/nunito-variable.ttf');
+}
+
+@font-face {
+  font-family: 'Literata';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/literata/literata_variable.ttf');
+}
+
 :root {
   --color-base: hsl(0 0% 0% / 87%);
   --color-humble: hsl(0 0% 0% / 40%);
@@ -34,7 +48,7 @@
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: var(--font-primary), sans-serif;
   color: var(--color-base);
 
   font-size: var(--font-size-primary);
@@ -47,7 +61,7 @@ p {
 h1 {
   margin-block: 1em;
 
-  font-family: "Literata", serif;
+  font-family: var(--font-secondary), serif;
   font-size: clamp(1.25rem, 4vw, 3rem);
   text-align: center;
   text-transform: uppercase;
