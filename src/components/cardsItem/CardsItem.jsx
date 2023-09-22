@@ -39,7 +39,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
       
       <h3 aria-live="polite" id={data.id} data-testid="text-phrase">
         <span hidden={!isRussian}>{data.russian}</span>
-        <span hidden={isRussian}>{data.serbian}</span>
+        <span translate='no' lang="sr-RS" hidden={isRussian}>{data.serbian}</span>
       </h3>
 
       <div aria-live="off">
