@@ -23,27 +23,27 @@ describe('<CardsItem />', () => {
     cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
     
     // Check if the structure is the same
-    cy.get('[data-testid="container-card"]').children().should('have.length', 5)
+    cy.getByTest('container-card').children().should('have.length', 5)
 
-    cy.get('[data-testid="container-card"]').should('have.css', 'width', '248px')
-    cy.get('[data-testid="container-card"]').should('have.css', 'border-color', color_reference.primary)
-    cy.get('[data-testid="container-card"]').should('have.css', 'padding', '16px 20px')
+    cy.getByTest('container-card').should('have.css', 'width', '248px')
+    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.primary)
+    cy.getByTest('container-card').should('have.css', 'padding', '16px 20px')
 
     cy.get('hr + h4 + div').should('have.css', 'display', 'flex')
     cy.get('hr + h4 + div').should('have.css', 'gap', '16px')
 
-    cy.get('[data-testid="text-phrase"] span:first-child').should('have.text', 'Это твоя книга?')
-    cy.get('[data-testid="text-phrase"] span:last-child')
+    cy.getByTest('text-phrase').find('span:first-child').should('have.text', 'Это твоя книга?')
+    cy.getByTest('text-phrase').find('span:last-child')
       .should('have.text', 'Da li je ovo tvoja knjiga?')
       .and('not.be.visible')
     
-    cy.get('[data-testid="button-answer"]').should('have.text', 'Показать ответ')
-    cy.get('[data-testid="button-correct"]')
+    cy.getByTest('button-answer').should('have.text', 'Показать ответ')
+    cy.getByTest('button-correct')
       .should('exist')
       .and('have.text', 'Верно')
       .and('be.disabled')
       .and('have.class', 'correct')
-    cy.get('[data-testid="button-wrong"]')
+    cy.getByTest('button-wrong')
       .should('exist')
       .and('have.text', 'Неверно')
       .and('be.disabled')
@@ -54,22 +54,22 @@ describe('<CardsItem />', () => {
     cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
 
     // Reveal the phrase in serbian
-    cy.get('[data-testid="button-answer"]').click()
+    cy.getByTest('button-answer').click()
 
-    cy.get('[data-testid="text-phrase"] span:first-child').should('not.be.visible')
-    cy.get('[data-testid="text-phrase"] span:last-child').should('be.visible')
+    cy.getByTest('text-phrase').find('span:first-child').should('not.be.visible')
+    cy.getByTest('text-phrase').find('span:last-child').should('be.visible')
     
-    cy.get('[data-testid="button-answer"]').should('have.text', 'Скрыть ответ')
-    cy.get('[data-testid="button-correct"]').should('not.be.disabled')
-    cy.get('[data-testid="button-wrong"]').should('not.be.disabled')
+    cy.getByTest('button-answer').should('have.text', 'Скрыть ответ')
+    cy.getByTest('button-correct').should('not.be.disabled')
+    cy.getByTest('button-wrong').should('not.be.disabled')
     
     // Reveal the phrase in russian
-    cy.get('[data-testid="button-answer"]').click()
+    cy.getByTest('button-answer').click()
 
-    cy.get('[data-testid="text-phrase"] span:first-child').should('be.visible')
-    cy.get('[data-testid="text-phrase"] span:last-child').should('not.be.visible')
-    cy.get('[data-testid="button-correct"]').should('be.disabled')
-    cy.get('[data-testid="button-wrong"]').should('be.disabled')
+    cy.getByTest('text-phrase').find('span:first-child').should('be.visible')
+    cy.getByTest('text-phrase').find('span:last-child').should('not.be.visible')
+    cy.getByTest('button-correct').should('be.disabled')
+    cy.getByTest('button-wrong').should('be.disabled')
   })
 
   //!! Looks like some tests fail because it is a controlled element
@@ -78,37 +78,37 @@ describe('<CardsItem />', () => {
     cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
 
     // Clicked "correct" button
-    cy.get('[data-testid="button-answer"]').click()
-    cy.get('[data-testid="button-correct"]').click()
+    cy.getByTest('button-answer').click()
+    cy.getByTest('button-correct').click()
 
     // Check that the correct/wrong buttons disappear
     cy.get('hr + h4 + div').children().should('have.length', '2')
-    cy.get('[data-testid="button-reset"]').should('exist').and('have.text', 'Сбросить')
-    cy.get('[data-testid="container-card"]').should('have.css', 'border-color', color_reference.correct)
-    cy.get('[data-testid="check-status-correct"]').should('exist')
-    cy.get('[data-testid="check-status-correct"]').parent().parent().should('have.css', 'display', 'flex')
+    cy.getByTest('button-reset').should('exist').and('have.text', 'Сбросить')
+    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.correct)
+    cy.getByTest('check-status-correct').should('exist')
+    cy.getByTest('check-status-correct').parent().parent().should('have.css', 'display', 'flex')
 
 
     // Reset
-    cy.get('[data-testid="button-reset"]').click()
-    cy.get('[data-testid="text-phrase"]').should('have.text', 'Это твоя книга?')
-    cy.get('[data-testid="container-card"]').should('have.css', 'border-color', color_reference.primary)
-    cy.get('[data-testid="button-correct"]').should('exist')
-    cy.get('[data-testid="button-wrong"]').should('exist')
+    cy.getByTest('button-reset').click()
+    cy.getByTest('text-phrase').should('have.text', 'Это твоя книга?')
+    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.primary)
+    cy.getByTest('button-correct').should('exist')
+    cy.getByTest('button-wrong').should('exist')
 
     //Clicked "wrong" button
-    cy.get('[data-testid="button-answer"]').click()
-    cy.get('[data-testid="button-wrong"]').click()
+    cy.getByTest('button-answer').click()
+    cy.getByTest('button-wrong').click()
     cy.get('hr + h4 + div').children().should('have.length', '1')
-    cy.get('[data-testid="button-reset"]').should('exist').and('have.text', 'Сбросить')
-    cy.get('[data-testid="container-card"]').should('have.css', 'border-color', color_reference.wrong)
-    cy.get('[data-testid="check-status-wrong"]').should('exist')
-    cy.get('[data-testid="check-status-wrong"]').parent().parent().should('have.css', 'display', 'flex')
+    cy.getByTest('button-reset').should('exist').and('have.text', 'Сбросить')
+    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.wrong)
+    cy.getByTest('check-status-wrong').should('exist')
+    cy.getByTest('check-status-wrong').parent().parent().should('have.css', 'display', 'flex')
 
     //Reset
-    cy.get('[data-testid="button-reset"]').click()
-    cy.get('[data-testid="text-phrase"]').should('have.text', 'Это твоя книга?')
-    cy.get('[data-testid="container-card"]').should('have.css', 'border-color', color_reference.primary)
+    cy.getByTest('button-reset').click()
+    cy.getByTest('text-phrase').should('have.text', 'Это твоя книга?')
+    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.primary)
   })
   
   // Fail because of the same issue
@@ -116,40 +116,40 @@ describe('<CardsItem />', () => {
     cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
 
     // Card is "focused" when buttons are focused
-    cy.get('[data-testid="button-answer"]').focus()
-    cy.get('[data-testid="container-card"]')
+    cy.getByTest('button-answer').focus()
+    cy.getByTest('container-card')
       .should('have.css', 'box-shadow', `${color_reference.primary} 0px 0px 0px 8px`)
-    cy.get('[data-testid="button-answer"]').click()
+    cy.getByTest('button-answe').click()
 
-    cy.get('[data-testid="container-card"]')
+    cy.getByTest('container-card')
       .should('have.css', 'box-shadow', `${color_reference.primary} 0px 0px 0px 8px`)
-    cy.get('[data-testid="button-correct"]').click()
+    cy.getByTest('button-correc').click()
 
     // Check for the Correct button
-    cy.get('[data-testid="button-reset"]').should('be.focused')
-    cy.get('[data-testid="container-card"]')
+    cy.getByTest('button-reset').should('be.focused')
+    cy.getByTest('container-card')
       .should('have.css', 'box-shadow', `${color_reference.correct} 0px 0px 0px 8px`)
 
     //Reset
-    cy.get('[data-testid="button-reset"]').click()
-    cy.get('[data-testid="button-reset"]').should('not.be.visible').and('not.be.focused')
-    cy.get('[data-testid="container-card"]')
+    cy.getByTest('button-reset').click()
+    cy.getByTest('button-reset').should('not.be.visible').and('not.be.focused')
+    cy.getByTest('container-card')
       .should('have.css', 'box-shadow', `${color_reference.primary} 0px 0px 0px 8px`)
-    cy.get('[data-testid="button-answer"]').should('be.focused')
+    cy.getByTest('button-answer').should('be.focused')
 
     //Check for the Wrong button
-    cy.get('[data-testid="button-answer"]').click()
+    cy.getByTest('button-answer').click()
 
-    cy.get('[data-testid="button-wrong"]').click()
-    cy.get('[data-testid="button-reset"]').should('be.focused')
-    cy.get('[data-testid="container-card"]')
+    cy.getByTest('button-wrong').click()
+    cy.getByTest('button-reset').should('be.focused')
+    cy.getByTest('container-card')
     .should('have.css', 'box-shadow', `${color_reference.correct} 0px 0px 0px 8px`)
 
     //Reset
-    cy.get('[data-testid="button-reset"]').click()
-    cy.get('[data-testid="button-reset"]').should('not.be.visible').and('not.be.focused')
-    cy.get('[data-testid="container-card"]')
+    cy.getByTest('button-reset').click()
+    cy.getByTest('button-reset').should('not.be.visible').and('not.be.focused')
+    cy.getByTest('container-card')
       .should('have.css', 'box-shadow', `${color_reference.primary} 0px 0px 0px 8px`)
-    cy.get('[data-testid="button-answer"]').should('be.focused')
+    cy.getByTest('button-answer').should('be.focused')
   })
 })

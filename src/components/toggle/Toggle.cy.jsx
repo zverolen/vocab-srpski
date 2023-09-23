@@ -14,12 +14,12 @@ describe('<Toggle />', () => {
   it('OFF variant - renders correctly in all states', () => {
     cy.mount(<Toggle isOn={false}/>)
 
-    cy.get('[data-testid="toggle"] > div')
+    cy.getByTest('toggle').find('> div')
       .should('have.css', 'width', '72px')
       .and('have.css', 'height', '30px')
       .and('have.css', 'background-color', `${color_reference.secondary}`)
 
-    cy.get('[data-testid="toggle"] > div > div')
+    cy.getByTest('toggle').find('> div > div')
       .should('have.css', 'width', '20px')
       .and('have.css', 'height', '26px')
       .and('have.css', 'background-color', `${color_reference.secondary}`)
@@ -37,7 +37,7 @@ describe('<Toggle />', () => {
   it('ON variant - renders correctly in all states', () => {
     cy.mount(<Toggle isOn={true}/>)
 
-    cy.get('[data-testid="toggle"] > div')
+    cy.getByTest('toggle').find('> div')
       .should('have.css', 'background-color', `${color_reference.correctHumble}`)
       .and('have.css', 'border-color', `${color_reference.correct}`)
       .and('have.css', 'flex-direction', 'row-reverse')
@@ -49,7 +49,7 @@ describe('<Toggle />', () => {
     cy.get('svg')
       .should('have.css', 'stroke', `${color_reference.correct}`)
 
-    cy.get('[data-testid="toggle"] > div > div')
+    cy.getByTest('toggle').find('> div > div')
       .should('have.css', 'border-color', `${color_reference.correct}`)
   })
 })
