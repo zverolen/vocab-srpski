@@ -2,7 +2,7 @@ import Tab from './Tab'
 
 describe('<Tab />', () => {
   it('Selected tab is rendered correctly', () => {
-    cy.mount(<Tab id="1" name="Без ответа" isSelected={true}/>)
+    cy.mount(<Tab id="1"isSelected={true}>Без ответа</Tab>)
     cy.get('button')
       .should('have.text', 'Без ответа')
       .and('have.attr', 'id', 'tab-1')
@@ -12,7 +12,7 @@ describe('<Tab />', () => {
   })
 
   it('Not selected tab is rendered correctly', () => {
-    cy.mount(<Tab id="2" name="Верно" isSelected={false}/>)
+    cy.mount(<Tab id="2" isSelected={false}>Верно</Tab>)
     cy.get('button')
       .should('have.text', 'Верно')
       .and('have.attr', 'id', 'tab-2')

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import styles from './tab.module.css'
 
-export default function Tab({ id, name, isSelected }) {
+export default function Tab({ id, isSelected, children }) {
   return (
     <button
       id={`tab-${id}`}
@@ -12,13 +12,13 @@ export default function Tab({ id, name, isSelected }) {
       tabIndex={isSelected ? '0' : '-1' }
       className={styles.tab}
       >
-      <span>{ name }</span>
+      <span>{ children }</span>
     </button>
   )
 }
 
 Tab.propTypes = {
   id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
   isSelected: PropTypes.bool.isRequired
 }
