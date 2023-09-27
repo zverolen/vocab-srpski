@@ -4,6 +4,19 @@ import { useState } from 'react'
 import Header from './components/header/Header'
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
+import TabsContainer from './components/tabsContainer/TabsContainer'
+
+const tabsReference = [
+  { id: '1', caption: 'Без ответа' },
+  { id: '2', caption: 'Верно' },
+  { id: '3', caption: 'Неверно' }
+]
+
+const tabpanelReference = [
+  {id: '1', tempContent: 'CONTENT TABPANEL 1'},
+  {id: '2', tempContent: 'CONTENT TABPANEL 2'},
+  {id: '3', tempContent: 'CONTENT TABPANEL 3'}
+]
 
 function App() {
   const [isAutoSortOn, setIsAutoSortOn] = useState(false)
@@ -31,14 +44,15 @@ function App() {
 
   return (
     <>
-      <Header autoSortOn={isAutoSortOn} onAutoSortToggle={handleAutoSortToggle} />
+      <Header autoSortOn={ isAutoSortOn } onAutoSortToggle={ handleAutoSortToggle } />
       <main>
         <h1>Сербский вслух</h1>
-        <CardsContainer 
+        <TabsContainer tabs={ tabsReference } tabpanels={ tabpanelReference }/>
+        {/* <CardsContainer 
           autoSortOn={isAutoSortOn} 
           onCheckStatusChange={handleCheckStatusChange}
           phrases={allPhrases}
-          />
+          /> */}
       </main>
     </>
   )

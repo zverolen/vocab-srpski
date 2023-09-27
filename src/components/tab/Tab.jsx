@@ -11,6 +11,7 @@ export default function Tab({ id, isSelected, children }) {
       type='button'
       tabIndex={isSelected ? '0' : '-1' }
       className={styles.tab}
+      key={id}
       >
       <span>{ children }</span>
     </button>
@@ -19,6 +20,6 @@ export default function Tab({ id, isSelected, children }) {
 
 Tab.propTypes = {
   id: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired
 }
