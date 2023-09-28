@@ -1,9 +1,14 @@
 import PropTypes from 'prop-types'
 import styles from './tab.module.css'
 
-export default function Tab({ id, isSelected, children }) {
+export default function Tab({ id, isSelected, children, onSelect, onNavigation }) {
+  function handleKeyboardNavigation(event) {
+    onNavigation({id: id, key: event.key})
+  }
   return (
     <button
+      // onFocus={()=>{onSelect(id)}}
+      onKeyDown={(e) => {handleKeyboardNavigation(e)}}
       id={`tab-${id}`}
       role='tab'
       aria-selected={isSelected}
@@ -21,5 +26,7 @@ export default function Tab({ id, isSelected, children }) {
 Tab.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
-  isSelected: PropTypes.bool.isRequired
+  isSelected: PropTypes.bool.isRequired,
+  onSelect: PropTypes.func.isRequired,
+  onNavigation: PropTypes.func.isRequired
 }

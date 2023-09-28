@@ -15,6 +15,6 @@ export default function TabPanel({ children, id }) {
 }
 
 TabPanel.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 }
