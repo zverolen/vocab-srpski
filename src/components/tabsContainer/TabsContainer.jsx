@@ -13,16 +13,32 @@ export default function TabsContainer({ tabs, tabpanels }) {
   }
 
   function handleTabSelection({id, key}) {
+    const idNumber = Number(id)
+    const tabsNumber = tabs.length
+
     switch(key) {
       case 'Home': 
         setSelectedTab('1')
         break
       case 'End':
-        setSelectedTab(tabs.length - 1)
+        setSelectedTab(tabs.length.toString())
+        break
+      case 'ArrowRight':
+        // while ((idNumber + 1) <= tabsNumber) {
+        //   setSelectedTab((idNumber + 1).toString())
+        // }
+        console.log(idNumber)
+        setSelectedTab((idNumber + 1).toString())
+        break
+      case 'ArrowLeft':
+        // if (idNumber > 1) {
+        //   setSelectedTab((idNumber - 1).toString())
+        // }
+        break
+      default:
         break
     }
   }
-
   
   return (
     <div>

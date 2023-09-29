@@ -47,7 +47,7 @@ function App() {
       <Header autoSortOn={ isAutoSortOn } onAutoSortToggle={ handleAutoSortToggle } />
       <main>
         <h1>Сербский вслух</h1>
-        <TabsContainer tabs={ tabsReference } tabpanels={ tabpanelReference }/>
+        <TabsContainer tabs={ tabsReference } tabpanels={ tabpanelReference } />
         {/* <CardsContainer 
           autoSortOn={isAutoSortOn} 
           onCheckStatusChange={handleCheckStatusChange}
