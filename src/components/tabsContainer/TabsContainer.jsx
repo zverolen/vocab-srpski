@@ -35,9 +35,10 @@ export default function TabsContainer({ tabs, tabpanels }) {
         tab3.current.focus()
         break
       case 'ArrowRight':
-        
+        // if (idNumber < tabsNumber) 
         console.log(idNumber)
         setSelectedTab((idNumber + 1).toString())
+        
         break
       case 'ArrowLeft':
        
