@@ -5,13 +5,13 @@ import Tab from '../tab/Tab'
 import TabPanel from '../tabPanel/TabPanel'
 
 const tabsReference = [
-  { id: '1', caption: 'Без ответа' },
-  { id: '2', caption: 'Верно' },
-  { id: '3', caption: 'Неверно' }
+  { id: '0', caption: 'Без ответа' },
+  { id: '1', caption: 'Верно' },
+  { id: '2', caption: 'Неверно' }
 ]
 
 export default function TabsContainer({ tabs, tabpanels }) {
-  const [ selectedTab, setSelectedTab ] = useState('1')
+  const [ selectedTab, setSelectedTab ] = useState('0')
   const selectedTabpanel = tabpanels.find(tabpanel => tabpanel.id === selectedTab)
   const tab1 = useRef(null)
   const tab2 = useRef(null)
@@ -23,25 +23,31 @@ export default function TabsContainer({ tabs, tabpanels }) {
 
   function handleTabSelection({id, key}) {
     const idNumber = Number(id)
-    const tabsNumber = tabsReference.length
+    const tabLast = tabsReference.length - 1
+    const refList = [ tab1, tab2, tab3]
 
     switch(key) {
       case 'Home': 
-        setSelectedTab('1')
-        tab1.current.focus()
+        setSelectedTab('0')
+        refList[0].current.focus()
         break
       case 'End':
-        setSelectedTab(tabs.length.toString())
-        tab3.current.focus()
+        setSelectedTab((tabs.length - 1).toString())
+        refList[refList.length - 1].current.focus()
         break
       case 'ArrowRight':
-        // if (idNumber < tabsNumber) 
-        console.log(idNumber)
-        setSelectedTab((idNumber + 1).toString())
-        
+        if (idNumber < tabLast) {
+          console.log(idNumber)
+          setSelectedTab((idNumber + 1).toString())
+          refList[idNumber + 1].current.focus()
+        }
         break
       case 'ArrowLeft':
-       
+        if (idNumber > 0) {
+          console.log(idNumber)
+          setSelectedTab((idNumber - 1).toString())
+          refList[idNumber - 1].current.focus()
+        }
         break
       default:
         break

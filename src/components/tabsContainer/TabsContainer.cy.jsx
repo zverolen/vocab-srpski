@@ -2,15 +2,15 @@ import TabPanel from '../tabPanel/TabPanel'
 import TabsContainer from './TabsContainer'
 
 const tabsReference = [
-  { id: '1', caption: 'Без ответа' },
-  { id: '2', caption: 'Верно' },
-  { id: '3', caption: 'Неверно' }
+  { id: '0', caption: 'Без ответа' },
+  { id: '1', caption: 'Верно' },
+  { id: '2', caption: 'Неверно' }
 ]
 
 const tabpanelReference = [
-  {id: '1', tempContent: 'CONTENT TABPANEL 1'},
-  {id: '2', tempContent: 'CONTENT TABPANEL 2'},
-  {id: '3', tempContent: 'CONTENT TABPANEL 3'}
+  {id: '0', tempContent: 'CONTENT TABPANEL 1'},
+  {id: '1', tempContent: 'CONTENT TABPANEL 2'},
+  {id: '2', tempContent: 'CONTENT TABPANEL 3'}
 ]
 
 describe('<TabsContainer />', () => {
