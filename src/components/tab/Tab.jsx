@@ -1,3 +1,7 @@
+// Implementation details:
+// event.preventDefault() on click is used to keep the focus on tab when clicked
+// IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work
+
 import PropTypes from 'prop-types'
 import styles from './tab.module.css'
 import { forwardRef } from 'react'
@@ -10,8 +14,9 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation }, re
 
   return (
     <button
-      // onFocus={()=>{onSelect(id)}}
+      onFocus={()=>{onSelect(id)}}
       onKeyDown={(e) => {handleKeyboardNavigation(e)}}
+      onClick={(e) => {e.preventDefault()}}
       id={`tab-${id}`}
       role='tab'
       aria-selected={isSelected}
@@ -27,29 +32,6 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation }, re
   )
 })
 
-export default Tab
-// ({ id, isSelected, children, onSelect, onNavigation }) {
-//   function handleKeyboardNavigation(event) {
-//     onNavigation({id: id, key: event.key})
-//   }
-//   return (
-//     <button
-//       // onFocus={()=>{onSelect(id)}}
-//       onKeyDown={(e) => {handleKeyboardNavigation(e)}}
-//       id={`tab-${id}`}
-//       role='tab'
-//       aria-selected={isSelected}
-//       aria-controls={`tabpanel-${id}`}
-//       type='button'
-//       tabIndex={isSelected ? '0' : '-1' }
-//       className={styles.tab}
-//       key={id}
-//       >
-//       <span>{ children }</span>
-//     </button>
-//   )
-// }
-
 Tab.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
@@ -57,3 +39,5 @@ Tab.propTypes = {
   onSelect: PropTypes.func.isRequired,
   onNavigation: PropTypes.func.isRequired
 }
+
+export default Tab

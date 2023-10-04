@@ -42,6 +42,12 @@
   background-color: var(--color-secondary);
 }
 
+:focus {
+  outline: 0.38rem solid var(--color-secondary);
+  box-shadow: 0 0 0 0.5rem var(--color-base);
+  background-color: var(--color-secondary);
+}
+
 :disabled {
   --color-base: var(--color-humble) !important;
 }

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Header from './components/header/Header'
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
-import TabsContainer from './components/tabsContainer/TabsContainer'
+import TabsComponent from './components/TabsComponent/TabsComponent'
 
 const tabsReference = [
   { id: '0', caption: 'Без ответа' },
@@ -47,7 +47,7 @@ function App() {
       <Header autoSortOn={ isAutoSortOn } onAutoSortToggle={ handleAutoSortToggle } />
       <main>
         <h1>Сербский вслух</h1>
-        <TabsContainer tabs={ tabsReference } tabpanels={ tabpanelReference } />
+        <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } />
         {/* <CardsContainer 
           autoSortOn={isAutoSortOn} 
           onCheckStatusChange={handleCheckStatusChange}

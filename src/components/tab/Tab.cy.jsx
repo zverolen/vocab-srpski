@@ -14,10 +14,12 @@ describe('<Tab />', () => {
   it('Not selected tab is rendered correctly', () => {
     cy.mount(<Tab id="2" isSelected={false}>Верно</Tab>)
     cy.get('button')
-      .should('have.text', 'Верно')
-      .and('have.attr', 'id', 'tab-2')
+      .and('have.attr', 'role', 'tab')
       .and('have.attr', 'aria-selected', 'false')
       .and('have.attr', 'aria-controls', 'tabpanel-2')
       .and('have.attr', 'tabindex', '-1')
+      .should('have.text', 'Верно')
+      .and('have.attr', 'id', 'tab-2')
+      
   })
 })

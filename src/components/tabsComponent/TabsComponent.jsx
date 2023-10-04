@@ -1,3 +1,11 @@
+// Implementation details:
+// Using a keyboard and a mouse in the tabs component moves the focus to corresponding tabs.
+// The state changes depending on which element receives focus and not which element was activated
+// This was done because there are two types of events that activate tabs, but it's intended
+// that the state is changed in one place.
+// Focus-dependent behavior also facilitates compatibility with keyboard navigation and 
+// using screen readers.
+
 import PropTypes from 'prop-types'
 
 import { useRef, useState } from "react"
@@ -10,7 +18,7 @@ const tabsReference = [
   { id: '2', caption: 'Неверно' }
 ]
 
-export default function TabsContainer({ tabs, tabpanels }) {
+export default function TabsComponent({ tabs, tabpanels }) {
   const [ selectedTab, setSelectedTab ] = useState('0')
   const selectedTabpanel = tabpanels.find(tabpanel => tabpanel.id === selectedTab)
   const tab1 = useRef(null)
@@ -28,24 +36,22 @@ export default function TabsContainer({ tabs, tabpanels }) {
 
     switch(key) {
       case 'Home': 
-        setSelectedTab('0')
+        // setSelectedTab('0')
         refList[0].current.focus()
         break
       case 'End':
-        setSelectedTab((tabs.length - 1).toString())
+        // setSelectedTab((tabs.length - 1).toString())
         refList[refList.length - 1].current.focus()
         break
       case 'ArrowRight':
         if (idNumber < tabLast) {
-          console.log(idNumber)
-          setSelectedTab((idNumber + 1).toString())
+          // setSelectedTab((idNumber + 1).toString())
           refList[idNumber + 1].current.focus()
         }
         break
       case 'ArrowLeft':
         if (idNumber > 0) {
-          console.log(idNumber)
-          setSelectedTab((idNumber - 1).toString())
+          // setSelectedTab((idNumber - 1).toString())
           refList[idNumber - 1].current.focus()
         }
         break
@@ -56,7 +62,8 @@ export default function TabsContainer({ tabs, tabpanels }) {
   
   return (
     <div>
-      <div role="tablist" data-testid="tablist">
+      <h2 className="visually-hidden" id="tabs-heading">Фразы на сербском</h2>
+      <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
           id={ tabsReference[0].id } 
           isSelected={ tabsReference[0].id === selectedTab } 
@@ -92,7 +99,7 @@ export default function TabsContainer({ tabs, tabpanels }) {
   )
 }
 
-TabsContainer.propTypes = {
+TabsComponent.propTypes = {
   tabs: PropTypes.array.isRequired,
   tabpanels: PropTypes.array.isRequired
 }
