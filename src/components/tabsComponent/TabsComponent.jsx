@@ -93,7 +93,7 @@ export default function TabsComponent({ tabs, tabpanels }) {
         </Tab>
       </div>
       <TabPanel id={selectedTabpanel.id}>
-        {selectedTabpanel.tempContent}
+        <p>{selectedTabpanel.tempContent}</p>
       </TabPanel>
     </div>
   )
