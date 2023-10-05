@@ -4,19 +4,19 @@ import { useState } from 'react'
 import Header from './components/header/Header'
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
-import TabsComponent from './components/TabsComponent/TabsComponent'
+// import TabsComponent from './components/TabsComponent/TabsComponent'
 
-const tabsReference = [
-  { id: '0', caption: 'Без ответа' },
-  { id: '1', caption: 'Верно' },
-  { id: '2', caption: 'Неверно' }
-]
+// const tabsReference = [
+//   { id: '0', caption: 'Без ответа' },
+//   { id: '1', caption: 'Верно' },
+//   { id: '2', caption: 'Неверно' }
+// ]
 
-const tabpanelReference = [
-  {id: '0', tempContent: 'CONTENT TABPANEL 1'},
-  {id: '1', tempContent: 'CONTENT TABPANEL 2'},
-  {id: '2', tempContent: 'CONTENT TABPANEL 3'}
-]
+// const tabpanelReference = [
+//   {id: '0', tempContent: 'CONTENT TABPANEL 1'},
+//   {id: '1', tempContent: 'CONTENT TABPANEL 2'},
+//   {id: '2', tempContent: 'CONTENT TABPANEL 3'}
+// ]
 
 function App() {
   const [isAutoSortOn, setIsAutoSortOn] = useState(false)
@@ -47,12 +47,12 @@ function App() {
       <Header autoSortOn={ isAutoSortOn } onAutoSortToggle={ handleAutoSortToggle } />
       <main>
         <h1>Сербский вслух</h1>
-        <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } />
-        {/* <CardsContainer 
+        {/* <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } /> */}
+        <CardsContainer 
           autoSortOn={isAutoSortOn} 
           onCheckStatusChange={handleCheckStatusChange}
           phrases={allPhrases}
-          /> */}
+          />
       </main>
     </>
   )
