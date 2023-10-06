@@ -352,5 +352,29 @@ export const phrases = [
     serbian: '- Kako si? - Dobro sam.',
     russian: '- Как у тебя дела? - Хорошо.',
     section: 'R2'
+  },
+  {
+    id: '60',
+    serbian: 'Gde se sada nalazite?',
+    russian: 'Где вы сейчас находитесь?',
+    section: 'R2'
+  },
+  {
+    id: '61',
+    serbian: 'Da li se vaš stan nalazi u centru?',
+    russian: 'Ваша квартира находится в центре?',
+    section: 'R2'
+  },
+  {
+    id: '62',
+    serbian: 'Mi šetamo svaki dan.',
+    russian: 'Мы гуляем каждый день.',
+    section: 'R2'
+  },
+  {
+    id: '63',
+    serbian: 'Da li ste vi gladne?',
+    russian: 'Вы хотите есть? (множественное число, женский род)',
+    section: 'R2'
   }
 ];
