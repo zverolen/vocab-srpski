@@ -1,3 +1,16 @@
+@import url("./styles/reset.css");
+
+/* Visually hidden elements are visible to screen readers */
+.visually-hidden {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
@@ -53,15 +66,10 @@
 }
 
 body {
-  margin: 0;
   font-family: var(--font-primary), sans-serif;
   color: var(--color-base);
 
   font-size: var(--font-size-primary);
-}
-
-p {
-  margin: 0;
 }
 
 h1 {
@@ -73,35 +81,19 @@ h1 {
   text-transform: uppercase;
 }
 
-h3 {
-  margin: 0;
-  
+h3 {  
   font-weight: 400;
-  font-size: inherit;
-}
-
-span, a {
   font-size: inherit;
 }
 
 hr {
   width: 100%;
-  margin: 0;
   
   color: var(--color-humble);
 }
 
 ol {
   margin-block-end: 1.5em;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul li {
-  list-style: none;
 }
 
 button {
@@ -113,7 +105,6 @@ button {
   color: var(--color-base);
   background-color: var(--color-secondary);
   font-size: 1rem;
-  font-family: inherit;
 }
 
 button.correct {
@@ -184,14 +175,3 @@ div:is(.correct, .wrong) > h3 + div {
   border: var(--border-default);
 }
 
-
-
-.visually-hidden {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}

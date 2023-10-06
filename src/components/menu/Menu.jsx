@@ -5,7 +5,7 @@ export default function Menu({children}) {
   return (
     <>
       <h2 className="visually-hidden">Настройки отображения карточек</h2>
-      <ul className={styles.menu}>
+      <ul role="list" className={styles.menu}>
         {children}
       </ul>
     </>

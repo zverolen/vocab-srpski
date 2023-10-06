@@ -1,0 +1,19 @@
+/* Colors are in hex format because no color manipulations are used at this point */
+
+:root {
+  /* primitive */
+  --black: #212121;
+  --white: #FFFFFF;
+  --redLight: #FCF5F6;
+  --redDark: #80313F;
+  --greenLight: #F2FCFB;
+  --greenDark: #33544F;
+  --greyLight: #9E9E9E;
+  --greyDark: #454545;
+
+  /* Semantic */
+  --colorPrimary: var(--black);
+  --colorSecondary: var(--white);
+  --colorPrimaryInverted: var(--colorSecondary);
+  --colorSecondaryInverted: var(--colorPrimary);
+}
