@@ -1,21 +1,21 @@
 .toggle {
-  display: flex;
+  /* display: flex;
   gap: 1rem;
   justify-content: space-between;
   align-items: center;
 
   width: 100%;
 
-  font-size: var(--font-size-primary);
+  font-size: var(--font-size-primary); */
 }
 
 .toggle:hover {
-  background-color: var(--color-secondary);
+  /* background-color: var(--color-secondary);
   outline: var(--outline-on-focus);
-  box-shadow: var(--boxshadow-on-focus-default);
+  box-shadow: var(--boxshadow-on-focus-default); */
 }
 
 .toggle:focus-visible {
-  outline: var(--outline-on-focus);
-  box-shadow: var(--boxshadow-on-focus-default);
+  /* outline: var(--outline-on-focus);
+  box-shadow: var(--boxshadow-on-focus-default); */
 }

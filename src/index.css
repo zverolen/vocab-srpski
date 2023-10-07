@@ -1,4 +1,27 @@
 @import url("./styles/reset.css");
+@import url("./styles/tokens.css");
+
+@layer theme {
+  @layer light, dark;
+}
+
+@media (prefers-color-scheme: light) {
+  @layer theme.light {
+    :root {
+      --text-color: var(--colorPrimary);
+      --background-color: var(--colorPrimaryInverted);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  @layer theme.dark {
+    :root {
+      --text-color: var(--colorPrimaryInverted);
+      --background-color: var(--colorPrimary);
+    }
+  }
+}
 
 /* Visually hidden elements are visible to screen readers */
 .visually-hidden {
@@ -11,7 +34,12 @@
   width: 1px;
 }
 
-@font-face {
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
@@ -63,13 +91,14 @@
 
 :disabled {
   --color-base: var(--color-humble) !important;
-}
+} */
 
-body {
+/* body {
   font-family: var(--font-primary), sans-serif;
   color: var(--color-base);
 
   font-size: var(--font-size-primary);
+  background-color: var(--background-color);
 }
 
 h1 {
@@ -157,10 +186,10 @@ div:has( > button:not(:has(svg))):has( > div svg) {
 
 header button {
   margin-inline-start: auto;
-}
+} */
 
 /* Fallback for Firefox */
-div:is(.correct, .wrong) > h3 + div {
+/* div:is(.correct, .wrong) > h3 + div {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -173,5 +202,5 @@ div:is(.correct, .wrong) > h3 + div {
   margin-inline: auto;
 
   border: var(--border-default);
-}
+} */
 

@@ -1,13 +1,13 @@
 .toggle {
-  width: 4.5rem;
+  /* width: 4.5rem;
   height: 3rem;
 
   display: flex;
-  align-items: center;
+  align-items: center; */
 }
 
 .toggle > div {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   width: 4.5rem;
   height: 1.875rem;
   padding: 0.1875rem 0.125rem;
@@ -16,11 +16,11 @@
   align-items: center;
 
   border: var(--border-default);
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary); */
 }
 
 .toggle > div div {
-  box-sizing: border-box;
+  /* box-sizing: border-box;
   width: 1.25rem;
   height: 1.625rem;
 
@@ -29,63 +29,61 @@
   align-items: center;
 
   border: var(--border-default);
-  background-color: var(--color-secondary);
+  background-color: var(--color-secondary); */
 }
 
 .toggle svg {
-  stroke: var(--color-humble);
+  /* stroke: var(--color-humble); */
 }
 
 .toggle span {
-  margin-inline-start: 0.25rem;
+  /* margin-inline-start: 0.25rem;
 
   font-size: var(--font-size-toggle);
-  text-transform: uppercase;
+  text-transform: uppercase; */
 }
 
 .toggle:hover > div {
-  background-color: var(--color-base);
+  /* background-color: var(--color-base); */
 }
 
 .toggle:hover > div div {
-  border-color: var(--color-secondary);
+  /* border-color: var(--color-secondary); */
 }
 
 .toggle:hover span {
-  color: var(--color-secondary);
+  /* color: var(--color-secondary); */
 }
 
 .toggle:hover svg {
-  stroke: var(--color-base);
+  /* stroke: var(--color-base); */
 }
 
 .toggle:is(.on) > div {
-  flex-direction: row-reverse;
+  /* flex-direction: row-reverse;
 
   background-color: var(--color-correctHumble);
-  border-color: var(--color-correct);
+  border-color: var(--color-correct); */
 }
 
 .toggle:is(.on) .caption {
-  margin-inline-start: 0;
+  /* margin-inline-start: 0;
   margin-inline-end: 0.5625rem;
-  color: var(--color-correct);
+  color: var(--color-correct); */
 }
 
 .toggle:is(.on) > div div {
-  border-color: var(--color-correct);
+  /* border-color: var(--color-correct); */
 }
 
 .toggle:is(.on) svg {
-  stroke: var(--color-correct);
+  /* stroke: var(--color-correct); */
 }
 
 .toggle:is(.on):hover > div {
-  background-color: var(--color-correct);
+  /* background-color: var(--color-correct); */
 }
 
 .toggle:is(.on):hover span {
-  color: var(--color-secondary);
+  /* color: var(--color-secondary); */
 }
-
-

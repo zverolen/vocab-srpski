@@ -1,5 +1,5 @@
 .cardsItem {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
@@ -8,36 +8,36 @@
   width: 15.5rem;
   padding: 1rem 1.25rem;
 
-  border: var(--border-default);
+  border: var(--border-default); */
 }
 
 .cardsItem.correct {
-  border-color: var(--color-correct);
+  /* border-color: var(--color-correct); */
 }
 
 .cardsItem.wrong {
-  border-color: var(--color-wrong);
+  /* border-color: var(--color-wrong); */
 }
 
 .cardsItem:hover {
-  outline: var(--outline-on-focus);
-  box-shadow: var(--boxshadow-on-focus-default);
+  /* outline: var(--outline-on-focus);
+  box-shadow: var(--boxshadow-on-focus-default); */
 }
 
 .cardsItem:focus-within {
-  outline: var(--outline-on-focus);
-  box-shadow: var(--boxshadow-on-focus-default);
+  /* outline: var(--outline-on-focus);
+  box-shadow: var(--boxshadow-on-focus-default); */
 }
 
 .cardsItem.correct:focus-within {
-  box-shadow: var(--boxshadow-on-focus-correct);
+  /* box-shadow: var(--boxshadow-on-focus-correct); */
 }
 
 .cardsItem.wrong:focus-within {
-  box-shadow: var(--boxshadow-on-focus-wrong);
+  /* box-shadow: var(--boxshadow-on-focus-wrong); */
 }
 
 .cardsItem > hr + h4 + div {
-  display: flex;
-  gap: 1rem;
+  /* display: flex;
+  gap: 1rem; */
 }
