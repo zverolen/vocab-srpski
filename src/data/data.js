@@ -376,5 +376,17 @@ export const phrases = [
     serbian: 'Da li ste vi gladne?',
     russian: 'Вы хотите есть? (множественное число, женский род)',
     section: 'R2'
+  },
+  {
+    id: '64',
+    serbian: 'Obično nemam vremena da šetam posle posla.',
+    russian: 'Обычно у меня нет времени гулять после работы.',
+    section: 'R2'
+  },
+  {
+    id: '65',
+    serbian: 'Uvek moram da ustajem rano.',
+    russian: 'Мне всегда нужно рано вставать.',
+    section: 'R2'
   }
 ];
