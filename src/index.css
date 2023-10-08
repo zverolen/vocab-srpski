@@ -1,8 +1,15 @@
-@import url("./styles/reset.css");
-@import url("./styles/tokens.css");
+@import url("./styles/reset.css") layer(reset);
+@import url("./styles/tokens.css") layer(tokens);
 
 @layer theme {
   @layer light, dark;
+  /* Varian for arranging x-level vars*/
+
+  /* :root {
+    --button-background: var(--background-color);
+    --button-border: var(--text-color);
+    --button-color: var(--text-color);
+  } */
 }
 
 @media (prefers-color-scheme: light) {
@@ -10,6 +17,11 @@
     :root {
       --text-color: var(--colorPrimary);
       --background-color: var(--colorPrimaryInverted);
+
+      /* Repeating */
+      --button-background: var(--background-color);
+      --button-border: var(--text-color);
+      --button-color: var(--text-color);
     }
   }
 }
@@ -19,6 +31,11 @@
     :root {
       --text-color: var(--colorPrimaryInverted);
       --background-color: var(--colorPrimary);
+
+      /* Repeating */
+      --button-background: var(--background-color);
+      --button-border: var(--text-color);
+      --button-color: var(--text-color);
     }
   }
 }
@@ -37,6 +54,18 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+
+  font-family: Verdana, 'Trebuchet MS', Arial, Tahoma, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+button {
+  background-color: var(--button-background);
+  border: 1px solid var(--button-border);
+  color: var(--button-color);
 }
 
 /* @font-face {

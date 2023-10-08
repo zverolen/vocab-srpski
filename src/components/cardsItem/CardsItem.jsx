@@ -37,10 +37,10 @@ export default function CardsItem({ data, onCheckStatusChange }) {
       data-testid="container-card"
     >
       
-      <h3 aria-live="polite" id={data.id} data-testid="text-phrase">
+      <p aria-live="polite" id={data.id} data-testid="text-phrase">
         <span hidden={!isRussian}>{data.russian}</span>
         <span translate='no' lang="sr-RS" hidden={isRussian}>{data.serbian}</span>
-      </h3>
+      </p>
 
       <div aria-live="off">
         <ButtonDefault test="button-answer" handleClick={handleChangeView}>

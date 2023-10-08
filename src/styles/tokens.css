@@ -15,5 +15,4 @@
   --colorPrimary: var(--black);
   --colorSecondary: var(--white);
   --colorPrimaryInverted: var(--colorSecondary);
-  --colorSecondaryInverted: var(--colorPrimary);
 }
