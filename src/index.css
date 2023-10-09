@@ -1,8 +1,24 @@
+@layer reset, tokens, general, theme.light, theme.dark, overrides;
+
 @import url("./styles/reset.css") layer(reset);
 @import url("./styles/tokens.css") layer(tokens);
 
-@layer theme {
-  @layer light, dark;
+@layer overrides {
+  /* Visually hidden elements are visible to screen readers */
+  .visually-hidden {
+    clip-path: inset(100%);
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+  }
+}
+
+/* @layer theme {
+  
+  @layer light, dark; */
   /* Varian for arranging x-level vars*/
 
   /* :root {
@@ -10,7 +26,9 @@
     --button-border: var(--text-color);
     --button-color: var(--text-color);
   } */
-}
+
+  
+/* } */
 
 @media (prefers-color-scheme: light) {
   @layer theme.light {
@@ -19,9 +37,12 @@
       --background-color: var(--colorPrimaryInverted);
 
       /* Repeating */
-      --button-background: var(--background-color);
+      /* --button-background: var(--background-color);
       --button-border: var(--text-color);
       --button-color: var(--text-color);
+
+      --button-background-activated: var(--text-color);
+      --button-color-activated: var(--background-color); */
     }
   }
 }
@@ -33,40 +54,81 @@
       --background-color: var(--colorPrimary);
 
       /* Repeating */
-      --button-background: var(--background-color);
+      /* --button-background: var(--background-color);
       --button-border: var(--text-color);
       --button-color: var(--text-color);
+
+      --button-background-activated: var(--text-color);
+      --button-color-activated: var(--background-color); */
     }
   }
 }
 
-/* Visually hidden elements are visible to screen readers */
-.visually-hidden {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
+@layer general {
+  :root {
+    /* Color */
+    --button-background: var(--background-color);
+    --button-border: var(--text-color);
+    --button-color: var(--text-color);
+    --button-background-activated: var(--text-color);
+    --button-color-activated: var(--background-color);
+
+    /* Sizing */
+    --border-width: var(--border);
+    --button-padding-horiz: var(--paddingButtonHoriz);
+    --button-padding-vert: var(--paddingButtonVert);
+
+    /* Font */
+    --text-font: var(--sans-one), var(--sans-two), var(--sans-three), var(--sans-four), sans-serif;
+    --heading-font: var(--serif-one), var(--serif-two), serif;
+    --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
+    --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
+
+    /* Borders and outlines */
+    --focus-outline: var(--outlineOnFocus) solid var(--background-color);
+    --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
+    --border: var(--borderWidth) solid var(--button-border);
+  }
+
+  /* Not :focus-visible -> when focused on click, styles show only with :focus pseudo-class and don't show in :focus-visbile; used in tabs */
+  :focus {
+    outline: var(--focus-outline);
+    box-shadow: var(--focus-box-shadow);
+
+    background-color: var(--button-background-activated);
+
+    color: var(--button-color-activated);
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  
+    font-family: var(--text-font);
+    font-size: var(--text-font-size);
+  }
+  
+  h1, h2, h3 {
+    font-family: var(--heading-font);
+  }
+  
+  button {
+    padding: var(--button-padding-vert) var(--button-padding-horiz);
+
+    background-color: var(--button-background);
+    border: var(--border);
+    color: var(--button-color);
+
+    font-size: var(--control-font-size);
+  }
+
+  button:hover {
+    background-color: var(--button-background-activated);
+    color: var(--button-color-activated);
+  }
 }
 
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
 
-  font-family: Verdana, 'Trebuchet MS', Arial, Tahoma, sans-serif;
-}
-
-h1, h2, h3 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-button {
-  background-color: var(--button-background);
-  border: 1px solid var(--button-border);
-  color: var(--button-color);
-}
 
 /* @font-face {
   font-family: 'Nunito';

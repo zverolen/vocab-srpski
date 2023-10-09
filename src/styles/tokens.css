@@ -2,6 +2,8 @@
 
 :root {
   /* primitive */
+
+  /* Colors */
   --black: #212121;
   --white: #FFFFFF;
   --redLight: #FCF5F6;
@@ -10,6 +12,29 @@
   --greenDark: #33544F;
   --greyLight: #9E9E9E;
   --greyDark: #454545;
+
+  /* Sizing */
+  --borderWidth: calc(1 / 16 * 1rem);
+  --outlineOnFocus: calc(6 / 16 * 1rem);
+  --shadowOnFocus: calc(8 / 16 * 1rem);
+
+  --paddingButtonHoriz: 1.125em;
+  --paddingButtonVert: 0.875em;
+
+  --textMin: calc(18 / 16 * 1rem);
+  --textMax: calc(22 / 16 * 1rem);
+  --textIdeal: calc(22 / 1512 * 100 * 1vw);
+  --controlMin: 1rem;
+  --controlMax: calc(18 / 16 * 1rem);
+  --controlIdeal: calc(18 / 1512 * 100 * 1vw);
+
+  /* Fonts */
+  --sans-one: Verdana;
+  --sans-two: 'Trebuchet MS';
+  --sans-three: Arial;
+  --sans-four: Tahoma;
+  --serif-one: Georgia;
+  --serif-two: 'Times New Roman';
 
   /* Semantic */
   --colorPrimary: var(--black);
