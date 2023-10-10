@@ -1,4 +1,5 @@
-@layer reset, tokens, general, theme.light, theme.dark, overrides;
+/* probably should be general.styles, general.states, because all styles in general use final variables but have different specifity*/
+@layer reset, tokens, general.defaults, states.states, specific, theme.light, theme.dark, overrides;
 
 @import url("./styles/reset.css") layer(reset);
 @import url("./styles/tokens.css") layer(tokens);
@@ -16,33 +17,17 @@
   }
 }
 
-/* @layer theme {
-  
-  @layer light, dark; */
-  /* Varian for arranging x-level vars*/
-
-  /* :root {
-    --button-background: var(--background-color);
-    --button-border: var(--text-color);
-    --button-color: var(--text-color);
-  } */
-
-  
-/* } */
-
 @media (prefers-color-scheme: light) {
   @layer theme.light {
     :root {
       --text-color: var(--colorPrimary);
       --background-color: var(--colorPrimaryInverted);
-
-      /* Repeating */
-      /* --button-background: var(--background-color);
-      --button-border: var(--text-color);
-      --button-color: var(--text-color);
-
-      --button-background-activated: var(--text-color);
-      --button-color-activated: var(--background-color); */
+      --disabled-background-color: var(--colorDisabledLight);
+      
+      --correct-text-color: var(--colorSuccess);
+      --correct-background-color: var(--colorSuccessInverted);
+      --wrong-text-color: var(--colorError);
+      --wrong-background-color: var(--colorErrorInverted);
     }
   }
 }
@@ -52,85 +37,121 @@
     :root {
       --text-color: var(--colorPrimaryInverted);
       --background-color: var(--colorPrimary);
+      --disabled-background-color: var(--colorDisabledDark);
 
-      /* Repeating */
-      /* --button-background: var(--background-color);
-      --button-border: var(--text-color);
-      --button-color: var(--text-color);
-
-      --button-background-activated: var(--text-color);
-      --button-color-activated: var(--background-color); */
+      --correct-text-color: var(--colorSuccessInverted);
+      --correct-background-color: var(--colorSuccess);
+      --wrong-text-color: var(--colorErrorInverted);
+      --wrong-background-color: var(--colorError);
     }
   }
 }
 
+@layer specific {
+  .correct {
+    --button-background: var(--correct-background-color);
+    --button-border: var(--correct-text-color);
+    --button-color: var(--correct-text-color);
+    --button-background-activated: var(--correct-text-color);
+    --button-color-activated: var(--correct-background-color);
+  }
+
+  .wrong {
+    --button-background: var(--wrong-background-color);
+    --button-border: var(--wrong-text-color);
+    --button-color: var(--wrong-text-color);
+    --button-background-activated: var(--wrong-text-color);
+    --button-color-activated: var(--wrong-background-color);
+  }
+}
+
+/* universal? */
 @layer general {
-  :root {
-    /* Color */
-    --button-background: var(--background-color);
-    --button-border: var(--text-color);
-    --button-color: var(--text-color);
-    --button-background-activated: var(--text-color);
-    --button-color-activated: var(--background-color);
-
-    /* Sizing */
-    --border-width: var(--border);
-    --button-padding-horiz: var(--paddingButtonHoriz);
-    --button-padding-vert: var(--paddingButtonVert);
-
-    /* Font */
-    --text-font: var(--sans-one), var(--sans-two), var(--sans-three), var(--sans-four), sans-serif;
-    --heading-font: var(--serif-one), var(--serif-two), serif;
-    --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
-    --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
-
-    /* Borders and outlines */
-    --focus-outline: var(--outlineOnFocus) solid var(--background-color);
-    --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-    --border: var(--borderWidth) solid var(--button-border);
-  }
-
-  /* Not :focus-visible -> when focused on click, styles show only with :focus pseudo-class and don't show in :focus-visbile; used in tabs */
-  :focus {
-    outline: var(--focus-outline);
-    box-shadow: var(--focus-box-shadow);
-
-    background-color: var(--button-background-activated);
-
-    color: var(--button-color-activated);
-  }
-
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+  @layer defaults {
+    :root {
+      /* Color */
+      --button-background: var(--background-color);
+      --button-border: var(--text-color);
+      --button-color: var(--text-color);
+      --button-background-activated: var(--text-color);
+      --button-color-activated: var(--background-color);
+      --buttonDisabled-text: var(--colorDisabledMedium);
+      --buttonDisabled-background: var(--disabled-background-color);
+      --buttonCorrect-background: var(--correct-background-color);
+      --buttonCorrect-border: var(--correct-text-color);
+      --buttonCorrect-color: var(--correct-text-color);
+      --buttonWrong-background: var(--wrong-background-color);
+      --buttonWrong-border: var(--wrong-text-color);
+      --buttonWrong-color: var(--wrong-text-color);
   
-    font-family: var(--text-font);
-    font-size: var(--text-font-size);
-  }
+      /* Sizing */
+      --border-width: var(--border);
+      --button-padding-horiz: var(--paddingButtonHoriz);
+      --button-padding-vert: var(--paddingButtonVert);
   
-  h1, h2, h3 {
-    font-family: var(--heading-font);
-  }
+      /* Font */
+      --text-font: var(--sans-one), var(--sans-two), var(--sans-three), var(--sans-four), sans-serif;
+      --heading-font: var(--serif-one), var(--serif-two), serif;
+      --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
+      --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
   
-  button {
-    padding: var(--button-padding-vert) var(--button-padding-horiz);
-
-    background-color: var(--button-background);
-    border: var(--border);
-    color: var(--button-color);
-
-    font-size: var(--control-font-size);
+      /* Borders and outlines */
+      --focus-outline: var(--outlineOnFocus) solid var(--background-color);
+      --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
+      --border: var(--borderWidth) solid var(--button-border);
+    }
+  
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+    
+      font-family: var(--text-font);
+      font-size: var(--text-font-size);
+    }
+    
+    h1, h2, h3 {
+      font-family: var(--heading-font);
+    }
+    
+    button {
+      padding: var(--button-padding-vert) var(--button-padding-horiz);
+  
+      background-color: var(--button-background);
+      border: var(--borderWidth) solid var(--button-border);
+      color: var(--button-color);
+  
+      font-size: var(--control-font-size);
+    }
+  
+    button:hover {
+      background-color: var(--button-background-activated);
+      color: var(--button-color-activated);
+    }
   }
 
-  button:hover {
-    background-color: var(--button-background-activated);
-    color: var(--button-color-activated);
+  @layer states {
+    /* Not :focus-visible -> when focused on click, styles show only with :focus pseudo-class and don't show in :focus-visbile; used in tabs */
+    :focus {
+      outline: var(--outlineOnFocus) solid var(--background-color);
+      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
+
+      background-color: var(--button-background-activated);
+
+      color: var(--button-color-activated);
+    }
+    
+    :disabled {
+      background-color: var(--buttonDisabled-background);
+
+      color: var(--buttonDisabled-text);
+      border-color: var(--buttonDisabled-text);
+    }
   }
 }
 
 
 
-/* @font-face {
+ /* @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
@@ -182,7 +203,7 @@
 
 :disabled {
   --color-base: var(--color-humble) !important;
-} */
+}  */
 
 /* body {
   font-family: var(--font-primary), sans-serif;

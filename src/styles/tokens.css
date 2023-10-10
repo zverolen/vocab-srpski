@@ -6,12 +6,13 @@
   /* Colors */
   --black: #212121;
   --white: #FFFFFF;
-  --redLight: #FCF5F6;
   --redDark: #80313F;
-  --greenLight: #F2FCFB;
+  --redLight: #FCF5F6;
   --greenDark: #33544F;
-  --greyLight: #9E9E9E;
-  --greyDark: #454545;
+  --greenLight: #F2FCFB;
+  --greyLight: #EBEBEB;
+  --greyMedium: #858585;
+  --greyDark: #333333;
 
   /* Sizing */
   --borderWidth: calc(1 / 16 * 1rem);
@@ -40,4 +41,13 @@
   --colorPrimary: var(--black);
   --colorSecondary: var(--white);
   --colorPrimaryInverted: var(--colorSecondary);
+
+  --colorDisabledLight: var(--greyLight);
+  --colorDisabledDark: var(--greyDark);
+  --colorDisabledMedium: var(--greyMedium);
+
+  --colorSuccess: var(--greenDark);
+  --colorSuccessInverted: var(--greenLight);
+  --colorError: var(--redDark);
+  --colorErrorInverted: var(--redLight);
 }
