@@ -44,7 +44,6 @@ function App() {
 
   return (
     <>
-      <Header autoSortOn={ isAutoSortOn } onAutoSortToggle={ handleAutoSortToggle } />
       <main>
         <h1>Сербский вслух</h1>
         {/* <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } /> */}

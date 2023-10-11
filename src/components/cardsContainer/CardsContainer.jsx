@@ -36,7 +36,7 @@ export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange
   }
 
   return (
-    <div>
+    <div className="siteFrame">
       <h2 className="visually-hidden">Инструкция</h2>
       <ol>
         <li>Выберите и переведите фразу с русского языка на сербский.</li>

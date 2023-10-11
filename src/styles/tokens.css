@@ -19,8 +19,13 @@
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
 
+  --siteWidthMin: calc(280 / 16 * 1rem);
+  --siteWidthMax: calc(1464 / 16 * 1rem);
+  --siteWidthIdeal: 94%;
   --paddingButtonHoriz: 1.125em;
   --paddingButtonVert: 0.875em;
+
+  --marginCentering: auto;
 
   --textMin: calc(18 / 16 * 1rem);
   --textMax: calc(22 / 16 * 1rem);
@@ -28,6 +33,7 @@
   --controlMin: 1rem;
   --controlMax: calc(18 / 16 * 1rem);
   --controlIdeal: calc(18 / 1512 * 100 * 1vw);
+  --lineHeightBig: 1.5;
 
   /* Fonts */
   --sans-one: Verdana;

@@ -1,4 +1,3 @@
-/* probably should be general.styles, general.states, because all styles in general use final variables but have different specifity*/
 @layer reset, tokens, general.defaults, states.states, specific, theme.light, theme.dark, overrides;
 
 @import url("./styles/reset.css") layer(reset);
@@ -88,12 +87,15 @@
       --border-width: var(--border);
       --button-padding-horiz: var(--paddingButtonHoriz);
       --button-padding-vert: var(--paddingButtonVert);
+      --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
+      --content-margins: var(--marginCentering);
   
       /* Font */
       --text-font: var(--sans-one), var(--sans-two), var(--sans-three), var(--sans-four), sans-serif;
       --heading-font: var(--serif-one), var(--serif-two), serif;
       --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
       --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
+      --text-line-height: var(--lineHeightBig);
   
       /* Borders and outlines */
       --focus-outline: var(--outlineOnFocus) solid var(--background-color);
@@ -112,6 +114,10 @@
     h1, h2, h3 {
       font-family: var(--heading-font);
     }
+
+    p {
+      line-height: var(--text-line-height);
+    }
     
     button {
       padding: var(--button-padding-vert) var(--button-padding-horiz);
@@ -126,6 +132,11 @@
     button:hover {
       background-color: var(--button-background-activated);
       color: var(--button-color-activated);
+    }
+
+    .siteFrame {
+      width: var(--content-width);
+      margin-inline: var(--content-margins);
     }
   }
 
