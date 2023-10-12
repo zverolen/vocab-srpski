@@ -108,7 +108,8 @@
       color: var(--text-color);
     
       font-family: var(--text-font);
-      font-size: var(--text-font-size);
+      /* font-size: var(--text-font-size); */
+      font-size: 22px;
     }
     
     h1, h2, h3 {
@@ -117,16 +118,19 @@
 
     p {
       line-height: var(--text-line-height);
+      font-size: clamp(18px, 7.2cqw, 22px);
     }
     
     button {
-      padding: var(--button-padding-vert) var(--button-padding-horiz);
+      /* padding: var(--button-padding-vert) var(--button-padding-horiz); */
+      padding: 16px;
   
       background-color: var(--button-background);
       border: var(--borderWidth) solid var(--button-border);
       color: var(--button-color);
   
-      font-size: var(--control-font-size);
+      /* font-size: var(--control-font-size); */
+      font-size: 16px;
     }
   
     button:hover {
@@ -137,6 +141,40 @@
     .siteFrame {
       width: var(--content-width);
       margin-inline: var(--content-margins);
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+      gap: clamp(1rem, 2vmax, 1.5rem);
+    }
+
+    .card  {
+      container: card/inline-size;
+    }
+
+    .card > div {
+      width: 100%;
+      padding: clamp(8px, 5%, 24px);
+
+      display: flex;
+      flex-direction: column;
+      gap: clamp(24px, 9.4cqw, 48px);
+      /* gap: 8.4cqw; */
+
+      border: var(--border);
+    }
+
+    .card > div > div:first-child {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: clamp(8px, 4cqw, 16px);
+    }
+
+    .card > div > div:last-child {
+      display: flex;
+      gap: 16px;
     }
   }
 

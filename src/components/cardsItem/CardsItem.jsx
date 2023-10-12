@@ -32,66 +32,70 @@ export default function CardsItem({ data, onCheckStatusChange }) {
 
   return (
     <div 
-      className={`${data.selfCheckStatus != 'unset' ? data.selfCheckStatus : ''} ${styles.cardsItem}`} 
+      className={`${data.selfCheckStatus != 'unset' ? data.selfCheckStatus : ''} card`} 
       key={data.id}
       data-testid="container-card"
     >
       
-      <p aria-live="polite" id={data.id} data-testid="text-phrase">
-        <span hidden={!isRussian}>{data.russian}</span>
-        <span translate='no' lang="sr-RS" hidden={isRussian}>{data.serbian}</span>
-      </p>
+      <div>
+        <div>
+          <p aria-live="polite" id={data.id} data-testid="text-phrase">
+            <span hidden={!isRussian}>{data.russian}</span>
+            <span translate='no' lang="sr-RS" hidden={isRussian}>{data.serbian}</span>
+          </p>
 
-      <div aria-live="off">
-        <ButtonDefault test="button-answer" handleClick={handleChangeView}>
-          {isRussian ? 'Показать ответ' : 'Скрыть ответ'}
-        </ButtonDefault>
-        {data.selfCheckStatus !== 'unset' && <CardCheckStatus status={data.selfCheckStatus}/>}
-      </div>
+          <div aria-live="off">
+            <ButtonDefault test="button-answer" handleClick={handleChangeView}>
+              {isRussian ? 'Показать ответ' : 'Скрыть ответ'}
+            </ButtonDefault>
+            {/* {data.selfCheckStatus !== 'unset' && <CardCheckStatus status={data.selfCheckStatus}/>} */}
+          </div>
+        </div>
 
-      <hr aria-hidden="true"></hr>
-      <h4 className="visually-hidden">Самопроверка</h4>
-      <div aria-live="polite">
-        {data.selfCheckStatus === 'unset' && 
-          <>
-            <ButtonDefault
-              test="button-correct" 
-              handleClick={() => handleCardStatusChange('correct')} 
-              disabled={isRussian || data.selfCheckStatus !== 'unset'}
-              checkStatus="correct"
-            >
-              Верно
-            </ButtonDefault>
-            <ButtonDefault 
-              test="button-wrong" 
-              handleClick={() => handleCardStatusChange('wrong')}  
-              disabled={isRussian || data.selfCheckStatus !== 'unset'}
-              checkStatus="wrong"
-              >
-                Неверно
-            </ButtonDefault>
-          </>
-        }
-        {/* <p 
-          className="visually-hidden"
-          hidden={data.selfCheckStatus === 'unset'}
-          >
-         Отмечено как {data.selfCheckStatus === 'correct' ? 'верно' : 'неверно'}
-        </p> */}
-        <p 
-          className="visually-hidden"
-          >
-         
-          {selfCheckHint}
-        </p>
         
-        <ButtonDefault 
-            test="button-reset" 
-            handleClick={() => handleCardStatusChange('unset')}
+        <div aria-live="polite">
+          <h4 className="visually-hidden">Самопроверка</h4>
+          {data.selfCheckStatus === 'unset' && 
+            <>
+              <ButtonDefault
+                test="button-correct" 
+                handleClick={() => handleCardStatusChange('correct')} 
+                disabled={isRussian || data.selfCheckStatus !== 'unset'}
+                checkStatus="correct"
+              >
+                Верно
+              </ButtonDefault>
+              <ButtonDefault 
+                test="button-wrong" 
+                handleClick={() => handleCardStatusChange('wrong')}  
+                disabled={isRussian || data.selfCheckStatus !== 'unset'}
+                checkStatus="wrong"
+                >
+                  Неверно
+              </ButtonDefault>
+            </>
+          }
+          {/* <p 
+            className="visually-hidden"
             hidden={data.selfCheckStatus === 'unset'}
-          >
-            Сбросить
-        </ButtonDefault>
+            >
+          Отмечено как {data.selfCheckStatus === 'correct' ? 'верно' : 'неверно'}
+          </p> */}
+          <p 
+            className="visually-hidden"
+            >
+          
+            {selfCheckHint}
+          </p>
+          
+          <ButtonDefault 
+              test="button-reset" 
+              handleClick={() => handleCardStatusChange('unset')}
+              hidden={data.selfCheckStatus === 'unset'}
+            >
+              Сбросить
+          </ButtonDefault>
+        </div>
       </div>
 
     </div>

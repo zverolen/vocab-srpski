@@ -51,7 +51,8 @@ export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange
       </div>
       <div>
         <h2 className='visually-hidden'>Фразы</h2>
-        <div className={styles.cardsContainer}>
+        {/* <div className={styles.cardsContainer}> */}
+        <div className="cards-container">
           {content}
         </div>
       </div>
