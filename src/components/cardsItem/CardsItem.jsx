@@ -5,7 +5,7 @@ import { useState } from "react"
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import CardCheckStatus from '../cardCheckStatus/CardCheckStatus'
 import styles from './cardsItem.module.css'
-
+import { copy } from '../../data/copy';
 
 export default function CardsItem({ data, onCheckStatusChange }) {
   const [ isRussian, setIsRussian ] = useState(true)
@@ -46,7 +46,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
 
           <div aria-live="off">
             <ButtonDefault test="button-answer" handleClick={handleChangeView}>
-              {isRussian ? 'Показать ответ' : 'Скрыть ответ'}
+              {isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer}
             </ButtonDefault>
             {/* {data.selfCheckStatus !== 'unset' && <CardCheckStatus status={data.selfCheckStatus}/>} */}
           </div>
@@ -63,7 +63,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
                 disabled={isRussian || data.selfCheckStatus !== 'unset'}
                 checkStatus="correct"
               >
-                Верно
+                {copy.buttons.correct}
               </ButtonDefault>
               <ButtonDefault 
                 test="button-wrong" 
@@ -71,7 +71,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
                 disabled={isRussian || data.selfCheckStatus !== 'unset'}
                 checkStatus="wrong"
                 >
-                  Неверно
+                  {copy.buttons.wrong}
               </ButtonDefault>
             </>
           }
@@ -93,7 +93,7 @@ export default function CardsItem({ data, onCheckStatusChange }) {
               handleClick={() => handleCardStatusChange('unset')}
               hidden={data.selfCheckStatus === 'unset'}
             >
-              Сбросить
+              {copy.buttons.reset}
           </ButtonDefault>
         </div>
       </div>

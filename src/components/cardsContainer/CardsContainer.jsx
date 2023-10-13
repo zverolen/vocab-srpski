@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useMemo } from 'react';
 
 import CardsItem from '../cardsItem/CardsItem'
-import styles from './cardsContainer.module.css'
+import { copy } from '../../data/copy';
 
 export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange}) {
   const unsetPhrases2 = useMemo(
@@ -37,20 +37,22 @@ export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange
 
   return (
     <div className="siteFrame">
-      <h2 className="visually-hidden">Инструкция</h2>
+      <h2>{copy.instruction.heading}</h2>
       <ol>
-        <li>Выберите и переведите фразу с русского языка на сербский.</li>
-        <li>Нажмите “Показать ответ”, чтобы проверить себя.</li>
-        <li>Если вы ответили правильно, нажмите “Верно”, если неправильно, нажмите “Неверно”.</li>
-        <li>Чтобы поработать с карточкой ещё раз, нажмите “Скрыть ответ” или “Сбросить”.</li>
+        <li>{copy.instruction[1]}</li>
+        <li>{copy.instruction[2]}</li>
+        <li>{copy.instruction[3]}</li>
+        <li>{copy.instruction[4]}</li>
+        <li>{copy.instruction[5]}</li>
+        <li>{copy.instruction[6]}</li>
       </ol>
       <div>
-        <div>Верно: <span>{correctPhrases2.length}</span></div>
+        <div>{copy.correct}: <span>{correctPhrases2.length}</span></div>
         <div>Неверно: <span>{wrongPhrases2.length}</span></div>
         <div>Осталось: <span>{unsetPhrases2.length}</span></div>
       </div>
       <div>
-        <h2 className='visually-hidden'>Фразы</h2>
+        <h2 className='visually-hidden'>{copy.phrases.heading}</h2>
         {/* <div className={styles.cardsContainer}> */}
         <div className="cards-container">
           {content}

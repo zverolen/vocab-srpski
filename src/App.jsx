@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Header from './components/header/Header'
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
+import { copy } from './data/copy'
 // import TabsComponent from './components/TabsComponent/TabsComponent'
 
 // const tabsReference = [
@@ -45,7 +46,10 @@ function App() {
   return (
     <>
       <main>
-        <h1>Сербский вслух</h1>
+        <div>
+          <h1>{copy.title.heading}</h1>
+          <p>{copy.title.subheading}</p>
+        </div>
         {/* <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } /> */}
         <CardsContainer 
           autoSortOn={isAutoSortOn} 
