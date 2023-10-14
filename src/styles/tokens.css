@@ -42,8 +42,8 @@
   --gap-V: calc(48 / 16 * 1rem);
 
   /* Fonts */
-  --sans-one: Verdana;
-  --sans-two: 'Trebuchet MS';
+  --sans-one: 'Trebuchet MS';
+  --sans-two: Verdana;
   --sans-three: Arial;
   --sans-four: Tahoma;
   --serif-one: Georgia;
