@@ -82,6 +82,8 @@
       --buttonWrong-background: var(--wrong-background-color);
       --buttonWrong-border: var(--wrong-text-color);
       --buttonWrong-color: var(--wrong-text-color);
+
+      --button-withIcon-border: none;
   
       /* Sizing */
       --border-width: var(--border);
@@ -136,6 +138,21 @@
     button:hover {
       background-color: var(--button-background-activated);
       color: var(--button-color-activated);
+    }
+
+    button.withIcon {
+      border: var(--button-withIcon-border);
+    }
+
+    button.withIcon.default-icon span::after {
+      content: '';
+      display: inline-block;
+      margin-left: 16px;
+      width: 14px;
+      height: 12px;
+      background: var(--greyMedium);
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      transform: rotate(180deg);
     }
 
     .siteFrame {

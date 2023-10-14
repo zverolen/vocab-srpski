@@ -1,10 +1,4 @@
 import PropTypes from 'prop-types'
-import styles from './buttonWithIcon.module.css'
-
-const captions = {
-  default: 'Меню',
-  openedMenu: 'Закрыть меню'
-}
 
 const iconDefault = 
   (<svg aria-hidden="true" width="19" height="20" viewBox="0 0 19 20">
@@ -21,21 +15,39 @@ const iconOpenedMenu =
 
 export default function ButtonWithIcon({
   isOpen,
-  handleClick
+  handleClick,
+  captionWhenCollapsed,
+  captionWhenExpanded,
+  isDefault
 }) {
+  let caption
+  let icon
+
+  if (!isOpen) {
+    caption = captionWhenCollapsed
+    icon = iconDefault
+  } else {
+    caption = captionWhenExpanded || captionWhenCollapsed
+    icon = iconOpenedMenu
+  }
+
+
   return (
-    <button className={styles.withIcon} data-testid="button-menu" onClick={handleClick}>
+    <button className={`${isDefault && "default-icon"} withIcon`} data-testid="button-with-icon" onClick={handleClick}>
       <span>
-        <span>
-          {isOpen ? captions.openedMenu : captions.default}
-        </span>
-          {isOpen ? iconOpenedMenu : iconDefault}
+        {/* {isOpen ? caption : captionWhenExpanded || caption} */}
+        {caption}
       </span>
+        {/* {isOpen ? iconOpenedMenu : iconDefault} */}
+        {!isDefault && icon} 
     </button>
   )
 }
 
 ButtonWithIcon.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  handleClick: PropTypes.func.isRequired
+  handleClick: PropTypes.func.isRequired,
+  captionWhenCollapsed: PropTypes.string.isRequired,
+  captionWhenExpanded: PropTypes.string,
+  isDefault: PropTypes.bool.isRequired
 }

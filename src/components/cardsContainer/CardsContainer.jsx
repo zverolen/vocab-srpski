@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import PropTypes from 'prop-types'
+import { useMemo } from 'react'
 
 import CardsItem from '../cardsItem/CardsItem'
+import Instruction from '../instruction/Instruction'
 import { copy } from '../../data/copy';
 
 export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange}) {
@@ -38,14 +39,7 @@ export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange
   return (
     <div className="siteFrame">
       <h2>{copy.instruction.heading}</h2>
-      <ol>
-        <li>{copy.instruction[1]}</li>
-        <li>{copy.instruction[2]}</li>
-        <li>{copy.instruction[3]}</li>
-        <li>{copy.instruction[4]}</li>
-        <li>{copy.instruction[5]}</li>
-        <li>{copy.instruction[6]}</li>
-      </ol>
+      <Instruction />
       <div>
         <div>{copy.correct}: <span>{correctPhrases2.length}</span></div>
         <div>Неверно: <span>{wrongPhrases2.length}</span></div>
