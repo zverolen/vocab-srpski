@@ -1,11 +1,11 @@
-import HideAndReveal from './HideAndReveal'
+import Disclosure from './Disclosure'
 import Toggle from '../toggle/Toggle'
 
 const sample_children = <Toggle on={false}/>
 
-describe('<HideAndReveal />', () => {
+describe('<Disclusure />', () => {
   it('renders', () => {
-    cy.mount(<HideAndReveal>{sample_children}</HideAndReveal>)
+    cy.mount(<Disclosure>{sample_children}</Disclosure>)
     cy.getByTest('button-menu').should('have.text', 'Меню')
 
     cy.getByTest('button-menu').click()

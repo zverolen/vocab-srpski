@@ -78,7 +78,7 @@ describe('Working with the app, controls hidden in the menu', () => {
   it('Screen readers compatibility check', () => {
     cy.visit('/')
 
-    cy.getByTest('hide-and-reveal').should('have.attr', 'aria-live', 'polite')
+    cy.getByTest('disclusure').should('have.attr', 'aria-live', 'polite')
 
     // Generic reveal the menu content
     cy.getByTest('button-menu').click() 

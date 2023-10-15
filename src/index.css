@@ -144,7 +144,7 @@
       border: var(--button-withIcon-border);
     }
 
-    button.withIcon.default-icon span::after {
+    button.withIcon.default-collapsed span::after {
       content: '';
       display: inline-block;
       margin-left: 16px;
@@ -153,6 +153,17 @@
       background: var(--greyMedium);
       clip-path: polygon(50% 0, 100% 100%, 0 100%);
       transform: rotate(180deg);
+    }
+
+    button.withIcon.default-expanded span::after {
+      content: '';
+      display: inline-block;
+      margin-left: 16px;
+      width: 14px;
+      height: 12px;
+      background: var(--greyMedium);
+      clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      transform: rotate(0deg);
     }
 
     .siteFrame {

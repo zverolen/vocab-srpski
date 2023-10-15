@@ -38,7 +38,6 @@ export default function CardsContainer({phrases, autoSortOn, onCheckStatusChange
 
   return (
     <div className="siteFrame">
-      <h2>{copy.instruction.heading}</h2>
       <Instruction />
       <div>
         <div>{copy.correct}: <span>{correctPhrases2.length}</span></div>

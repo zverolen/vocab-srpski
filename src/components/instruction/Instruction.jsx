@@ -1,9 +1,9 @@
-import HideAndReveal from "../hideAndReveal/HideAndReveal"
+import Disclosure from "../disclosure/Disclosure"
 import { copy } from "../../data/copy"
 
 export default function Instruction() {
   return (
-    <HideAndReveal isDefault={true} captionWhenCollapsed="Инструкция">
+    <Disclosure isDefault={true} captionWhenCollapsed={copy.instruction.heading}>
       <ol>
         <li>{copy.instruction[1]}</li>
         <li>{copy.instruction[2]}</li>
@@ -12,6 +12,6 @@ export default function Instruction() {
         <li>{copy.instruction[5]}</li>
         <li>{copy.instruction[6]}</li>
       </ol>
-    </HideAndReveal>
+    </Disclosure>
   )
 }
