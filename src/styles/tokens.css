@@ -62,6 +62,7 @@
 
   /* Degrees */
   --turnUpSideDown: 180deg;
+  --turnReset: 0deg;
 
   /* Semantic */
   --colorPrimary: var(--black);

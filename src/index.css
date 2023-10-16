@@ -111,6 +111,7 @@
       --disclosure-control-icon-height: var(--iconTriangleHeight);
       --disclosure-control-icon-background: var(--inheritedColor);
       --disclosure-control-icon-flip: var(--turnUpSideDown);
+      --disclosure-control-icon-unflip: var(--turnReset);
       --disclosure-control-icon-shape: var(--clipPathTriangle);
   
       /* Borders and outlines */
@@ -172,7 +173,7 @@
       text-decoration: var(--button-withIcon-text-decoration);
     }
 
-    button.withIcon.default-collapsed span::after {
+    button.withIcon[aria-expanded] span::after {
       content: '';
       width: var(--disclosure-control-icon-width);
       height: var(--disclosure-control-icon-height);
@@ -181,12 +182,8 @@
       transform: rotate(var(--disclosure-control-icon-flip));
     }
 
-    button.withIcon.default-expanded span::after {
-      content: '';
-      width: var(--disclosure-control-icon-width);
-      height: var(--disclosure-control-icon-height);
-      background-color: var(--disclosure-control-icon-background);
-      clip-path: var(--disclosure-control-icon-shape);
+    button.withIcon[aria-expanded="true"] span::after {
+      transform: rotate(var(--disclosure-control-icon-unflip));
     }
 
     .siteFrame {

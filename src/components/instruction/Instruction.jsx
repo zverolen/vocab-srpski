@@ -3,7 +3,7 @@ import { copy } from "../../data/copy"
 
 export default function Instruction() {
   return (
-    <Disclosure isDefault={true} captionWhenCollapsed={copy.instruction.heading}>
+    <Disclosure captionWhenCollapsed={copy.instruction.heading}>
       <ol>
         <li>{copy.instruction[1]}</li>
         <li>{copy.instruction[2]}</li>
