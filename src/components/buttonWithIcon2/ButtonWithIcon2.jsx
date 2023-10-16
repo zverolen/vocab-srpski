@@ -2,14 +2,12 @@ import PropTypes from 'prop-types'
 
 export default function ButtonWithIcon2({icon, isDefault, handleClick, type, children}) {
   return (
-    <div>
       <button className={`${type} withIcon`} data-testid="button-with-icon" onClick={handleClick}>
       <span>
         {children}
       </span>
         {!isDefault && icon} 
     </button>
-    </div>
   )
 }
 

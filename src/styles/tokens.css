@@ -14,6 +14,8 @@
   --greyMedium: #858585;
   --greyDark: #333333;
 
+  --inheritedColor: currentcolor;
+
   /* Sizing */
   --borderWidth: calc(1 / 16 * 1rem);
   --outlineOnFocus: calc(6 / 16 * 1rem);
@@ -33,7 +35,11 @@
   --controlMin: 1rem;
   --controlMax: calc(18 / 16 * 1rem);
   --controlIdeal: calc(18 / 1512 * 100 * 1vw);
+
   --lineHeightBig: 1.5;
+
+  --fontWeightMin: 400;
+  --fontWeightMax: 600;
 
   --gap-I: calc(8 / 16 * 1rem);
   --gap-II: 1rem;
@@ -41,13 +47,21 @@
   --gap-IV: calc(32 /  16 * 1rem);
   --gap-V: calc(48 / 16 * 1rem);
 
+  --iconTriangleWidth: calc(14 / 16 * 1rem);
+  --iconTriangleHeight: calc(12 / 16 * 1rem);
+
   /* Fonts */
-  --sans-one: 'Trebuchet MS';
-  --sans-two: Verdana;
-  --sans-three: Arial;
-  --sans-four: Tahoma;
-  --serif-one: Georgia;
-  --serif-two: 'Times New Roman';
+  --sans-I: 'Trebuchet MS';
+  --sans-II: Verdana;
+  --sans-III: Arial;
+  --sans-IV: Tahoma;
+  --serif-I: Georgia;
+  --serif-II: 'Times New Roman';
+
+  --underlinedNoBorder: underline;
+
+  /* Degrees */
+  --turnUpSideDown: 180deg;
 
   /* Semantic */
   --colorPrimary: var(--black);
@@ -62,4 +76,6 @@
   --colorSuccessInverted: var(--greenLight);
   --colorError: var(--redDark);
   --colorErrorInverted: var(--redLight);
+
+  --clipPathTriangle: polygon(50% 0, 100% 100%, 0 100%);
 }

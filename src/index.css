@@ -66,7 +66,9 @@
 
 /* universal? */
 @layer general {
+
   @layer defaults {
+
     :root {
       /* Color */
       --button-background: var(--background-color);
@@ -93,11 +95,23 @@
       --content-margins: var(--marginCentering);
   
       /* Font */
-      --text-font: var(--sans-one), var(--sans-two), var(--sans-three), var(--sans-four), sans-serif;
-      --heading-font: var(--serif-one), var(--serif-two), serif;
+      --text-font: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
+      --heading-font: var(--serif-I), var(--serif-II), serif;
+      --button-withIcon-font: var(--text-font);
+
       --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
       --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
+      --button-withIcon-font-size: var(--control-font-size);
+
       --text-line-height: var(--lineHeightBig);
+      --button-withIcon-text-decoration: var(--underlinedNoBorder);
+
+      /* Icons */
+      --disclosure-control-icon-width: var(--iconTriangleWidth);
+      --disclosure-control-icon-height: var(--iconTriangleHeight);
+      --disclosure-control-icon-background: var(--inheritedColor);
+      --disclosure-control-icon-flip: var(--turnUpSideDown);
+      --disclosure-control-icon-shape: var(--clipPathTriangle);
   
       /* Borders and outlines */
       --focus-outline: var(--outlineOnFocus) solid var(--background-color);
@@ -118,9 +132,17 @@
       font-family: var(--heading-font);
     }
 
+    h1 {
+      text-align: center;
+    }
+
     p {
       line-height: var(--text-line-height);
       font-size: clamp(18px, 7.2cqw, 22px);
+    }
+
+    h1 + p {
+      text-align: center;
     }
     
     button {
@@ -138,32 +160,33 @@
     button:hover {
       background-color: var(--button-background-activated);
       color: var(--button-color-activated);
+
+      cursor: pointer;
     }
 
     button.withIcon {
       border: var(--button-withIcon-border);
+
+      font-family: var(--button-withIcon-font);
+      font-size: var(--button-withIcon-font-size);
+      text-decoration: var(--button-withIcon-text-decoration);
     }
 
     button.withIcon.default-collapsed span::after {
       content: '';
-      display: inline-block;
-      margin-left: 16px;
-      width: 14px;
-      height: 12px;
-      background: var(--greyMedium);
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-      transform: rotate(180deg);
+      width: var(--disclosure-control-icon-width);
+      height: var(--disclosure-control-icon-height);
+      background-color: var(--disclosure-control-icon-background);
+      clip-path: var(--disclosure-control-icon-shape);
+      transform: rotate(var(--disclosure-control-icon-flip));
     }
 
     button.withIcon.default-expanded span::after {
       content: '';
-      display: inline-block;
-      margin-left: 16px;
-      width: 14px;
-      height: 12px;
-      background: var(--greyMedium);
-      clip-path: polygon(50% 0, 100% 100%, 0 100%);
-      transform: rotate(0deg);
+      width: var(--disclosure-control-icon-width);
+      height: var(--disclosure-control-icon-height);
+      background-color: var(--disclosure-control-icon-background);
+      clip-path: var(--disclosure-control-icon-shape);
     }
 
     .siteFrame {
