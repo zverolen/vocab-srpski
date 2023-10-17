@@ -24,10 +24,17 @@
   --siteWidthMin: calc(280 / 16 * 1rem);
   --siteWidthMax: calc(1352 / 16 * 1rem);
   --siteWidthIdeal: 94%;
-  --paddingButtonHoriz: 1.125em;
-  --paddingButtonVert: 0.875em;
+  /* --paddingButtonHoriz: 1.125em;
+  --paddingButtonVert: 0.875em; */
+  --paddingButtonHoriz: 0;
+  --paddingButtonVert: 0;
+  
+  --fullWidth: 100%;
+
+  --concealer-height: calc(2 / 16 *1rem);
 
   --marginCentering: auto;
+  --marginCorrection-I: calc(-1 / 16 * 1rem);
 
   --textMin: calc(18 / 16 * 1rem);
   --textMax: calc(22 / 16 * 1rem);
@@ -35,8 +42,10 @@
   --controlMin: 1rem;
   --controlMax: calc(18 / 16 * 1rem);
   --controlIdeal: calc(18 / 1512 * 100 * 1vw);
+  --emodjiMax: calc(24 / 16 * 1rem);
 
   --lineHeightBig: 1.5;
+  --lineHeightEmodji: 1;
 
   --fontWeightMin: 400;
   --fontWeightMax: 600;
@@ -63,6 +72,19 @@
   /* Degrees */
   --turnUpSideDown: 180deg;
   --turnReset: 0deg;
+
+  /* Position */
+  --positionInFlow: relative;
+  --positionOutOfFlow: absolute;
+
+  --shiftDownConcealer: calc(-2 / 16 * 1rem);
+  --shiftLeftConcealer: 0;
+
+  /* Layers */
+  --layerLower-I: -1;
+
+  /* Resets */
+  --reset: none;
 
   /* Semantic */
   --colorPrimary: var(--black);

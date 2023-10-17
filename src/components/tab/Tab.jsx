@@ -3,7 +3,7 @@
 // IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work
 
 import PropTypes from 'prop-types'
-import styles from './tab.module.css'
+import { copy } from '../../data/copy'
 import { forwardRef } from 'react'
 
 const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation }, ref) => {
@@ -23,11 +23,12 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation }, re
       aria-controls={`tabpanel-${id}`}
       type='button'
       tabIndex={isSelected ? '0' : '-1' }
-      className={styles.tab}
       key={id}
       ref={ref}
       >
-      <span>{ children }</span>
+      <span>
+        <span>{copy.tabs.emodjiCorrect}</span><span>{ children }</span><span>: 50</span>
+      </span>
     </button>
   )
 })

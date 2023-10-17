@@ -1,7 +1,9 @@
-@layer reset, tokens, general.defaults, states.states, specific, theme.light, theme.dark, overrides;
+@layer reset, tokens, general.defaults, general.states, specific, theme.light, theme.dark, overrides;
 
 @import url("./styles/reset.css") layer(reset);
 @import url("./styles/tokens.css") layer(tokens);
+@import url("./styles/defaults.css") layer(general.defaults);
+
 
 @layer overrides {
   /* Visually hidden elements are visible to screen readers */
@@ -68,65 +70,13 @@
 @layer general {
 
   @layer defaults {
-
-    :root {
-      /* Color */
-      --button-background: var(--background-color);
-      --button-border: var(--text-color);
-      --button-color: var(--text-color);
-      --button-background-activated: var(--text-color);
-      --button-color-activated: var(--background-color);
-      --buttonDisabled-text: var(--colorDisabledMedium);
-      --buttonDisabled-background: var(--disabled-background-color);
-      --buttonCorrect-background: var(--correct-background-color);
-      --buttonCorrect-border: var(--correct-text-color);
-      --buttonCorrect-color: var(--correct-text-color);
-      --buttonWrong-background: var(--wrong-background-color);
-      --buttonWrong-border: var(--wrong-text-color);
-      --buttonWrong-color: var(--wrong-text-color);
-
-      --button-withIcon-border: none;
-  
-      /* Sizing */
-      --border-width: var(--border);
-      --button-padding-horiz: var(--paddingButtonHoriz);
-      --button-padding-vert: var(--paddingButtonVert);
-      --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
-      --content-margins: var(--marginCentering);
-  
-      /* Font */
-      --text-font: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
-      --heading-font: var(--serif-I), var(--serif-II), serif;
-      --button-withIcon-font: var(--text-font);
-
-      --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
-      --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
-      --button-withIcon-font-size: var(--control-font-size);
-
-      --text-line-height: var(--lineHeightBig);
-      --button-withIcon-text-decoration: var(--underlinedNoBorder);
-
-      /* Icons */
-      --disclosure-control-icon-width: var(--iconTriangleWidth);
-      --disclosure-control-icon-height: var(--iconTriangleHeight);
-      --disclosure-control-icon-background: var(--inheritedColor);
-      --disclosure-control-icon-flip: var(--turnUpSideDown);
-      --disclosure-control-icon-unflip: var(--turnReset);
-      --disclosure-control-icon-shape: var(--clipPathTriangle);
-  
-      /* Borders and outlines */
-      --focus-outline: var(--outlineOnFocus) solid var(--background-color);
-      --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-      --border: var(--borderWidth) solid var(--button-border);
-    }
   
     body {
       background-color: var(--background-color);
       color: var(--text-color);
     
       font-family: var(--text-font);
-      /* font-size: var(--text-font-size); */
-      font-size: 22px;
+      font-size: var(--text-font-size);
     }
     
     h1, h2, h3 {
@@ -147,15 +97,13 @@
     }
     
     button {
-      /* padding: var(--button-padding-vert) var(--button-padding-horiz); */
-      padding: 16px;
+      padding: var(--button-padding-vert) var(--button-padding-horiz);
   
       background-color: var(--button-background);
       border: var(--borderWidth) solid var(--button-border);
       color: var(--button-color);
   
-      /* font-size: var(--control-font-size); */
-      font-size: 16px;
+      font-size: var(--control-font-size);
     }
   
     button:hover {
@@ -189,6 +137,48 @@
     .siteFrame {
       width: var(--content-width);
       margin-inline: var(--content-margins);
+    }
+
+    [role="tablist"] button {
+      border-bottom: var(--tab-bottom-border);
+      position: var(--tab-position);
+    }
+
+    [role="tablist"] button:not(:first-child) {
+      margin-inline-start: var(--tab-left-margin);
+    }
+
+    [role="tablist"] button[aria-selected="true"] {
+      padding-top: var(--current-tab-gap);
+    }
+
+    [role="tablist"] button[aria-selected="true"]::after {
+      content: '';
+      display: var(--tabpanel-concealer-display);
+
+      position: var(--tab-concealer-position);
+      left: var(--tab-concealer-left);
+      bottom: var(--tab-concealer-bottom);
+
+      width: var(--tab-concealer-width);
+      height: var(--tab-concealer-height);
+      
+      background-color: var(--tab-concealer-background);
+    }
+
+    [role="tablist"] button > span {
+      display: block;
+    }
+
+    [role="tablist"] button[aria-selected="true"] > span {
+      border-top: var(--border);
+    }
+
+    [role="tabpanel"] {
+      position: var(--tabpanel-position);
+      z-index: var(--tabpanel-z-index);
+
+      border: var(--border); 
     }
 
     .cards-container {
@@ -231,10 +221,43 @@
     :focus {
       outline: var(--outlineOnFocus) solid var(--background-color);
       box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
+    }
 
+    button:focus {
       background-color: var(--button-background-activated);
-
       color: var(--button-color-activated);
+    }
+
+    [role="tablist"] button:focus {
+      background-color: var(--tab-background);
+      color: var(--tab-color);
+      border-bottom: var(--tab-bottom-border);
+      /*Temporary removed*/
+      box-shadow: unset;
+      outline: unset;
+    }
+
+    [role="tablist"] button:hover {
+      background-color: var(--tab-background);
+    }
+
+    [role="tablist"] button:hover > span {
+      background-color: var(--tab-background-hover);
+      color: var(--tab-color-hover)
+    }
+
+    [role="tablist"] button:nth-child(2):hover > span {
+      background-color: var(--tab-correct-background-hover);
+      color: var(--tab-correct-color-hover);
+    }
+
+    [role="tablist"] button:nth-child(3):hover > span {
+      background-color: var(--tab-wrong-background-hover);
+      color: var(--tab-wrong-color-hover);
+    }
+
+    [role="tabpanel"]:focus {
+      background-color: var(--tabpanel-background);
     }
     
     :disabled {

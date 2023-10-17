@@ -14,9 +14,12 @@ export const copy = {
     wrong: 'Учу'
   },
   tabs: {
+    withoutAnswer: 'Без ответа',
     correct: 'Знаю',
     wrong: 'Учу',
-    noAnswer: 'Без ответа'
+    emodjiWithoutAnswer: '🥹',
+    emodjiCorrect: '🧐',
+    emodjiWrong: '🤔'
   },
   instruction: {
     heading: 'Инструкция',

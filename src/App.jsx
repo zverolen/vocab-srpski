@@ -5,19 +5,19 @@ import Header from './components/header/Header'
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
 import { copy } from './data/copy'
-// import TabsComponent from './components/TabsComponent/TabsComponent'
+import TabsComponent from './components/TabsComponent/TabsComponent'
 
-// const tabsReference = [
-//   { id: '0', caption: 'Без ответа' },
-//   { id: '1', caption: 'Верно' },
-//   { id: '2', caption: 'Неверно' }
-// ]
+const tabsReference = [
+  { id: '0', caption: copy.tabs.withoutAnswer },
+  { id: '1', caption: copy.tabs.correct },
+  { id: '2', caption: copy.tabs.wrong }
+]
 
-// const tabpanelReference = [
-//   {id: '0', tempContent: 'CONTENT TABPANEL 1'},
-//   {id: '1', tempContent: 'CONTENT TABPANEL 2'},
-//   {id: '2', tempContent: 'CONTENT TABPANEL 3'}
-// ]
+const tabpanelReference = [
+  {id: '0', tempContent: 'CONTENT TABPANEL 1'},
+  {id: '1', tempContent: 'CONTENT TABPANEL 2'},
+  {id: '2', tempContent: 'CONTENT TABPANEL 3'}
+]
 
 function App() {
   const [isAutoSortOn, setIsAutoSortOn] = useState(false)
@@ -50,7 +50,7 @@ function App() {
           <h1>{copy.title.heading}</h1>
           <p>{copy.title.subheading}</p>
         </div>
-        {/* <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } /> */}
+        <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } />
         <CardsContainer 
           autoSortOn={isAutoSortOn} 
           onCheckStatusChange={handleCheckStatusChange}

@@ -1,0 +1,83 @@
+
+:root {
+  /* Color */
+
+  --button-background: var(--background-color);
+  --button-border: var(--text-color);
+  --button-color: var(--text-color);
+  --button-background-activated: var(--text-color);
+  --button-color-activated: var(--background-color);
+  --buttonDisabled-text: var(--colorDisabledMedium);
+  --buttonDisabled-background: var(--disabled-background-color);
+  --buttonCorrect-background: var(--correct-background-color);
+  --buttonCorrect-border: var(--correct-text-color);
+  --buttonCorrect-color: var(--correct-text-color);
+  --buttonWrong-background: var(--wrong-background-color);
+  --buttonWrong-border: var(--wrong-text-color);
+  --buttonWrong-color: var(--wrong-text-color);
+
+  --button-withIcon-border: none;
+
+  --tab-background: var(--background-color);
+  --tab-color: var(--text-color);
+  --tab-background-hover: var(--text-color);
+  --tab-color-hover: var(--background-color);
+  --tab-correct-background-hover: var(--correct-text-color);
+  --tab-correct-color-hover: var(--correct-background-color);
+  --tab-wrong-background-hover: var(--wrong-text-color);
+  --tab-wrong-color-hover: var(--wrong-background-color);
+  --tab-concealer-background: var(--background-color);
+  
+  /* Sizing */
+  --border-width: var(--border);
+  --button-padding-horiz: var(--paddingButtonHoriz);
+  --button-padding-vert: var(--paddingButtonVert);
+  --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
+  --content-margins: var(--marginCentering);
+
+  --current-tab-gap: var(--gap-I);
+  --tab-left-margin: var(--marginCorrection-I);
+  --tabpanel-background: var(--background-color);
+  --tab-concealer-width: var(--fullWidth);
+  --tab-concealer-height: var(--concealer-height);
+
+  /* Font */
+  --text-font: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
+  --heading-font: var(--serif-I), var(--serif-II), serif;
+  --button-withIcon-font: var(--text-font);
+
+  --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
+  --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
+  --button-withIcon-font-size: var(--control-font-size);
+
+  --text-line-height: var(--lineHeightBig);
+  --button-withIcon-text-decoration: var(--underlinedNoBorder);
+
+  /* Icons */
+  --disclosure-control-icon-width: var(--iconTriangleWidth);
+  --disclosure-control-icon-height: var(--iconTriangleHeight);
+  --disclosure-control-icon-background: var(--inheritedColor);
+  --disclosure-control-icon-flip: var(--turnUpSideDown);
+  --disclosure-control-icon-unflip: var(--turnReset);
+  --disclosure-control-icon-shape: var(--clipPathTriangle);
+
+  /* Borders and outlines */
+  --focus-outline: var(--outlineOnFocus) solid var(--background-color);
+  --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
+  --border: var(--borderWidth) solid var(--button-border);
+  --tab-bottom-border: var(--reset);
+
+  /* Position */
+  --tabpanel-position: var(--positionInFlow);
+  --tab-position: var(--positionInFlow);
+  --tab-concealer-position: var(--positionOutOfFlow);
+
+  --tab-concealer-bottom: var(--shiftDownConcealer);
+  --tab-concealer-left: var(--shiftLeftConcealer);
+
+  /* Layers */
+  --tabpanel-z-index: var(--layerLower-I);
+
+  /* Display */
+  --tabpanel-concealer-display: block;
+}
