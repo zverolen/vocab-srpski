@@ -77,7 +77,13 @@
     
       font-family: var(--text-font);
       font-size: var(--text-font-size);
+      font-weight: var(--body-font-weight);
     }
+
+    /* ol li {
+      font-weight: var(--instruction-font-weight);
+    } */
+
     
     h1, h2, h3 {
       font-family: var(--heading-font);
@@ -139,6 +145,10 @@
       margin-inline: var(--content-margins);
     }
 
+    .instruction li {
+      font-weight: var(--instruction-font-weight);
+    }
+
     [role="tablist"] button {
       border-bottom: var(--tab-bottom-border);
       position: var(--tab-position);
@@ -167,11 +177,17 @@
     }
 
     [role="tablist"] button > span {
-      display: block;
+      display: flex;
+      align-items: center;
     }
 
     [role="tablist"] button[aria-selected="true"] > span {
       border-top: var(--border);
+    }
+
+    [role="tablist"] button > span >span:first-child {
+      font-size: var(--tab-icon-size);
+      line-height: var(--tab-icon-line-height);
     }
 
     [role="tabpanel"] {
@@ -435,4 +451,3 @@ header button {
 
   border: var(--border-default);
 } */
-

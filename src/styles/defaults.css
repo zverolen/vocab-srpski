@@ -47,11 +47,15 @@
   --button-withIcon-font: var(--text-font);
 
   --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
-  --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax));
+  /* --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax)); */
+  --control-font-size: var(--controlMin);
   --button-withIcon-font-size: var(--control-font-size);
 
   --text-line-height: var(--lineHeightBig);
   --button-withIcon-text-decoration: var(--underlinedNoBorder);
+
+  --body-font-weight: var(--fontWeightMax);
+  --instruction-font-weight: var(--fontWeightMin);
 
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);
@@ -60,6 +64,8 @@
   --disclosure-control-icon-flip: var(--turnUpSideDown);
   --disclosure-control-icon-unflip: var(--turnReset);
   --disclosure-control-icon-shape: var(--clipPathTriangle);
+  --tab-icon-size: var(--emodjiMax);
+  --tab-icon-line-height: var(--lineHeightEmodji);
 
   /* Borders and outlines */
   --focus-outline: var(--outlineOnFocus) solid var(--background-color);

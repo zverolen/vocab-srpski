@@ -16,15 +16,6 @@ figure, blockquote, dl, dd, hr, ul {
   margin: 0;
 }
 
-h2:has(> button) {
-  font-weight: 400;
-}
-
-/* Temp fix for Firefox */
-[data-testid="disclosure"] h2 {
-  font-weight: 400;
-}
-
 ul {
   padding: 0;
 }
