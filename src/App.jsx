@@ -1,34 +1,18 @@
+// Implementation details:
+//1) Global state is kept high because the learning part might change with the 2d release dramatically
+//2) Props drilling is left unattended for now
 import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import Header from './components/header/Header'
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
 import { copy } from './data/copy'
-import TabsComponent from './components/TabsComponent/TabsComponent'
 import Footer from './components/footer/Footer'
 
-const tabsReference = [
-  { id: '0', caption: copy.tabs.withoutAnswer },
-  { id: '1', caption: copy.tabs.correct },
-  { id: '2', caption: copy.tabs.wrong }
-]
-
-const tabpanelReference = [
-  {id: '0', tempContent: 'CONTENT TABPANEL 1'},
-  {id: '1', tempContent: 'CONTENT TABPANEL 2'},
-  {id: '2', tempContent: 'CONTENT TABPANEL 3'}
-]
-
 function App() {
-  const [isAutoSortOn, setIsAutoSortOn] = useState(false)
   const [allPhrases, setAllPhrases] = useState(phrases.map(phrase => {
     return {...phrase, selfCheckStatus: 'unset'} 
   }))
-
-  function handleAutoSortToggle() {
-    setIsAutoSortOn(!isAutoSortOn)
-  }
 
   function handleCheckStatusChange(phraseData) {
     const result = allPhrases.map(phrase => {
@@ -51,12 +35,7 @@ function App() {
           <h1>{copy.title.heading}</h1>
           <p>{copy.title.subheading}</p>
         </div>
-        {/* <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } /> */}
-        <CardsContainer 
-          autoSortOn={isAutoSortOn} 
-          onCheckStatusChange={handleCheckStatusChange}
-          phrases={allPhrases}
-          />
+        <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} />
       </main>
       <Footer />
     </>

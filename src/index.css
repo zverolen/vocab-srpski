@@ -197,9 +197,6 @@
     }
 
     [role="tabpanel"] {
-      position: var(--tabpanel-position);
-      z-index: var(--tabpanel-z-index);
-
       border: var(--border); 
     }
 

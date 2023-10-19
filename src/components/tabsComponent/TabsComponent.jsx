@@ -15,20 +15,11 @@ import TabPanel from '../tabPanel/TabPanel'
 import CardsItem from '../cardsItem/CardsItem'
 import { copy } from '../../data/copy'
 
-export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong, allPhrases, correctPhrases, wrongPhrases }) {
+export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong, withoutAnswerPhrases, correctPhrases, wrongPhrases, onCheckStatusChange }) {
   const [ selectedTab, setSelectedTab ] = useState('0')
   const tab1 = useRef(null)
   const tab2 = useRef(null)
   const tab3 = useRef(null)
-
-  // console.log(allPhrases)
-  console.log(typeof selectedTab)
-
-  let content
-
-  if (selectedTab === "0") {
-    content === allPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)
-  }
 
   function handleSelect(id) {
     setSelectedTab(id)
@@ -101,11 +92,10 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
         </Tab>
       </div>
       <TabPanel id={selectedTab}>
-        {/* <p>{selectedTabpanel.tempContent}</p> */}
         <div className="cards-container">
-          {selectedTab === '0' && allPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)}
-          {selectedTab === '1' && correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)}
-          {selectedTab === '2' && wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)}
+          {selectedTab === '0' && withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />)}
+          {selectedTab === '1' && correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />)}
+          {selectedTab === '2' && wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />)}
         </div>
       </TabPanel>
     </>
@@ -117,7 +107,8 @@ TabsComponent.propTypes = {
   scoreAll: PropTypes.string,
   scoreCorrect: PropTypes.string,
   scoreWrong: PropTypes.string,
-  allPhrases: PropTypes.array,
+  withoutAnswerPhrases: PropTypes.array,
   correctPhrases: PropTypes.array,
-  wrongPhrases: PropTypes.array
+  wrongPhrases: PropTypes.array,
+  onCheckStatusChange: PropTypes.func
 }

@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types';
-
 import { useState } from "react"
 
 import ButtonDefault from '../buttonDefault/ButtonDefault'
-import CardCheckStatus from '../cardCheckStatus/CardCheckStatus'
-import styles from './cardsItem.module.css'
 import { copy } from '../../data/copy';
 
 export default function CardsItem({ data, onCheckStatusChange }) {
@@ -48,7 +45,6 @@ export default function CardsItem({ data, onCheckStatusChange }) {
             <ButtonDefault test="button-answer" handleClick={handleChangeView}>
               {isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer}
             </ButtonDefault>
-            {/* {data.selfCheckStatus !== 'unset' && <CardCheckStatus status={data.selfCheckStatus}/>} */}
           </div>
         </div>
 

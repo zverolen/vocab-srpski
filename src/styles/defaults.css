@@ -79,7 +79,6 @@
   --tab-bottom-border: var(--reset);
 
   /* Position */
-  --tabpanel-position: var(--positionInFlow);
   --tab-position: var(--positionInFlow);
   --tab-concealer-position: var(--positionOutOfFlow);
 
@@ -87,7 +86,6 @@
   --tab-concealer-left: var(--shiftLeftConcealer);
 
   /* Layers */
-  --tabpanel-z-index: var(--layerLower-I);
 
   /* Display */
   --tabpanel-concealer-display: block;
