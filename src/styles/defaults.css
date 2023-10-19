@@ -69,8 +69,8 @@
   --disclosure-control-icon-flip: var(--turnUpSideDown);
   --disclosure-control-icon-unflip: var(--turnReset);
   --disclosure-control-icon-shape: var(--clipPathTriangle);
-  --tab-icon-size: var(--emodjiMax);
-  --tab-icon-line-height: var(--lineHeightEmodji);
+  --tab-icon-size: var(--emojiMax);
+  --tab-icon-line-height: var(--lineHeightEmoji);
 
   /* Borders and outlines */
   --focus-outline: var(--outlineOnFocus) solid var(--background-color);

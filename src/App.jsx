@@ -51,7 +51,7 @@ function App() {
           <h1>{copy.title.heading}</h1>
           <p>{copy.title.subheading}</p>
         </div>
-        <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } />
+        {/* <TabsComponent tabs={ tabsReference } tabpanels={ tabpanelReference } /> */}
         <CardsContainer 
           autoSortOn={isAutoSortOn} 
           onCheckStatusChange={handleCheckStatusChange}

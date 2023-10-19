@@ -42,10 +42,10 @@
   --controlMin: 1rem;
   --controlMax: calc(18 / 16 * 1rem);
   --controlIdeal: calc(18 / 1512 * 100 * 1vw);
-  --emodjiMax: calc(24 / 16 * 1rem);
+  --emojiMax: calc(24 / 16 * 1rem);
 
   --lineHeightBig: 1.5;
-  --lineHeightEmodji: 1;
+  --lineHeightEmoji: 1;
 
   --fontWeightMin: 400;
   --fontWeightMax: 600;

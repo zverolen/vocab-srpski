@@ -4,26 +4,31 @@
 // This was done because there are two types of events that activate tabs, but it's intended
 // that the state is changed in one place.
 // Focus-dependent behavior also facilitates compatibility with keyboard navigation and 
-// using screen readers.
+// using screen readers. 
+// Tabs are implemented manually and are not generated to make it possible to control the focus. This is intentional
 
 import PropTypes from 'prop-types'
 
 import { useRef, useState } from "react"
 import Tab from '../tab/Tab'
 import TabPanel from '../tabPanel/TabPanel'
+import CardsItem from '../cardsItem/CardsItem'
+import { copy } from '../../data/copy'
 
-const tabsReference = [
-  { id: '0', caption: 'Без ответа' },
-  { id: '1', caption: 'Верно' },
-  { id: '2', caption: 'Неверно' }
-]
-
-export default function TabsComponent({ tabs, tabpanels }) {
+export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong, allPhrases, correctPhrases, wrongPhrases }) {
   const [ selectedTab, setSelectedTab ] = useState('0')
-  const selectedTabpanel = tabpanels.find(tabpanel => tabpanel.id === selectedTab)
   const tab1 = useRef(null)
   const tab2 = useRef(null)
   const tab3 = useRef(null)
+
+  // console.log(allPhrases)
+  console.log(typeof selectedTab)
+
+  let content
+
+  if (selectedTab === "0") {
+    content === allPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)
+  }
 
   function handleSelect(id) {
     setSelectedTab(id)
@@ -31,7 +36,7 @@ export default function TabsComponent({ tabs, tabpanels }) {
 
   function handleTabSelection({id, key}) {
     const idNumber = Number(id)
-    const tabLast = tabsReference.length - 1
+    const tabLast = tabs.length - 1
     const refList = [ tab1, tab2, tab3]
 
     switch(key) {
@@ -61,45 +66,58 @@ export default function TabsComponent({ tabs, tabpanels }) {
   }
   
   return (
-    <div>
-      <h2 className="visually-hidden" id="tabs-heading">Фразы на сербском</h2>
+    <>
+      <h2 className="visually-hidden" id="tabs-heading">{copy.phrases.heading}</h2>
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
-          id={ tabsReference[0].id } 
-          isSelected={ tabsReference[0].id === selectedTab } 
+          id="0" 
+          isSelected={ selectedTab === 0} 
           onNavigation={ handleTabSelection } 
           onSelect={ handleSelect }
           ref={ tab1 }
+          score={scoreAll}
         >
-          { tabsReference[0].caption }
+          { tabs[0] }
         </Tab>
         <Tab 
-          id={ tabsReference[1].id } 
-          isSelected={ tabsReference[1].id === selectedTab } 
+          id="1"
+          isSelected={ selectedTab === 1} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
           ref={ tab2 }
+          score={scoreCorrect}
         >
-          { tabsReference[1].caption }
+          { tabs[1] }
         </Tab>
         <Tab 
-          id={ tabsReference[2].id } 
-          isSelected={ tabsReference[2].id === selectedTab } 
+          id="2" 
+          isSelected={ selectedTab === 2} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
           ref={ tab3 }
+          score={scoreWrong}
         >
-          { tabsReference[2].caption }
+          { tabs[2] }
         </Tab>
       </div>
-      <TabPanel id={selectedTabpanel.id}>
-        <p>{selectedTabpanel.tempContent}</p>
+      <TabPanel id={selectedTab}>
+        {/* <p>{selectedTabpanel.tempContent}</p> */}
+        <div className="cards-container">
+          {selectedTab === '0' && allPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)}
+          {selectedTab === '1' && correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)}
+          {selectedTab === '2' && wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}}/>)}
+        </div>
       </TabPanel>
-    </div>
+    </>
   )
 }
 
 TabsComponent.propTypes = {
   tabs: PropTypes.array.isRequired,
-  tabpanels: PropTypes.array.isRequired
+  scoreAll: PropTypes.string,
+  scoreCorrect: PropTypes.string,
+  scoreWrong: PropTypes.string,
+  allPhrases: PropTypes.array,
+  correctPhrases: PropTypes.array,
+  wrongPhrases: PropTypes.array
 }

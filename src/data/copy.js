@@ -17,9 +17,9 @@ export const copy = {
     withoutAnswer: 'Без ответа',
     correct: 'Знаю',
     wrong: 'Учу',
-    emodjiWithoutAnswer: '🥹',
-    emodjiCorrect: '🧐',
-    emodjiWrong: '🤔'
+    emojiWithoutAnswer: '🥹',
+    emojiCorrect: '🧐',
+    emojiWrong: '🤔'
   },
   instruction: {
     heading: 'Инструкция',
