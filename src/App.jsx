@@ -6,6 +6,7 @@ import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
 import { copy } from './data/copy'
 import TabsComponent from './components/TabsComponent/TabsComponent'
+import Footer from './components/footer/Footer'
 
 const tabsReference = [
   { id: '0', caption: copy.tabs.withoutAnswer },
@@ -57,6 +58,7 @@ function App() {
           phrases={allPhrases}
           />
       </main>
+      <Footer />
     </>
   )
 }

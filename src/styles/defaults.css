@@ -30,8 +30,10 @@
   
   /* Sizing */
   --border-width: var(--border);
-  --button-padding-horiz: var(--paddingButtonHoriz);
-  --button-padding-vert: var(--paddingButtonVert);
+  /* --button-padding-horiz: var(--paddingButtonHoriz);
+  --button-padding-vert: var(--paddingButtonVert); */
+  --button-padding-horiz: 0;
+  --button-padding-vert: 0;
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
   --content-margins: var(--marginCentering);
 
@@ -49,13 +51,16 @@
   --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
   /* --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax)); */
   --control-font-size: var(--controlMin);
-  --button-withIcon-font-size: var(--control-font-size);
+  --button-withIcon-font-size: var(--controlMin);
+  --subheading-font-size: var(--text-font-size);
+  --subheading-text-transform: uppercase;
 
   --text-line-height: var(--lineHeightBig);
   --button-withIcon-text-decoration: var(--underlinedNoBorder);
 
   --body-font-weight: var(--fontWeightMax);
   --instruction-font-weight: var(--fontWeightMin);
+  --footer-font-weight: var(--fontWeightMin);
 
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);

@@ -12,11 +12,11 @@ html {
 }
 
 body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd, hr, ul {
+figure, blockquote, dl, dd, hr, ul, ol {
   margin: 0;
 }
 
-ul {
+ul, ol {
   padding: 0;
 }
 
