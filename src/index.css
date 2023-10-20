@@ -79,6 +79,16 @@
       font-size: var(--text-font-size);
       font-weight: var(--body-font-weight);
     }
+
+    main, footer {
+      width: var(--content-width);
+      margin-inline: var(--content-margins);
+    }
+
+    footer {
+      font-weight: var(--footer-font-weight);
+      border-top: var(--border);
+    }
     
     h1, h2, h3 {
       font-family: var(--heading-font);
@@ -89,8 +99,12 @@
     }
 
     p {
-      line-height: var(--text-line-height);
+      
       font-size: clamp(18px, 7.2cqw, 22px);
+    }
+
+    p:is(:not(.card p)) {
+      line-height: var(--text-line-height);
     }
 
     h1 + p {
@@ -104,13 +118,21 @@
     }
     
     button {
-      padding: var(--button-padding-vert) var(--button-padding-horiz);
-  
       background-color: var(--button-background);
       border: var(--borderWidth) solid var(--button-border);
       color: var(--button-color);
   
       font-size: var(--control-font-size);
+    }
+
+    /* button:is(:not([role="tab"])) {
+      padding-inline: var(--button-padding-inline);
+      padding-block: var(--button-padding-block);
+    } */
+
+    button:not([role="tab"]) {
+      padding-inline: var(--button-padding-inline);
+      padding-block: var(--button-padding-block);
     }
   
     button:hover {
@@ -141,14 +163,14 @@
       transform: rotate(var(--disclosure-control-icon-unflip));
     }
 
-    footer {
-      font-weight: var(--footer-font-weight);
-      border-top: var(--border);
+    #root {
+      gap: var(--root-gap);
     }
 
-    .siteFrame {
-      width: var(--content-width);
-      margin-inline: var(--content-margins);
+    .content {
+      display: var(--site-frame-display);
+      flex-direction: var(--site-frame-flex-direction);
+      gap: var(--site-frame-gap);
     }
 
     .instruction li {
@@ -156,8 +178,9 @@
     }
 
     [role="tablist"] button {
-      border-bottom: var(--tab-bottom-border);
       position: var(--tab-position);
+
+      border-bottom: var(--tab-bottom-border);
     }
 
     [role="tablist"] button:not(:first-child) {
@@ -175,6 +198,7 @@
       position: var(--tab-concealer-position);
       left: var(--tab-concealer-left);
       bottom: var(--tab-concealer-bottom);
+      z-index: var(--tab-concealer-z-index);
 
       width: var(--tab-concealer-width);
       height: var(--tab-concealer-height);
@@ -185,6 +209,9 @@
     [role="tablist"] button > span {
       display: flex;
       align-items: center;
+
+      padding-inline: var(--tab-padding-inline);
+      padding-block: var(--tab-padding-block);
     }
 
     [role="tablist"] button[aria-selected="true"] > span {
@@ -197,6 +224,7 @@
     }
 
     [role="tabpanel"] {
+      padding: var(--tabpanel-padding);
       border: var(--border); 
     }
 
@@ -204,7 +232,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
       /* gap: clamp(1rem, 2vmax, 1.5rem); */
-      gap: 0;
+      gap: var(--cards-container-gap);
       grid-auto-rows: auto;
       align-items: center;
     }
@@ -213,28 +241,33 @@
       container: card/inline-size;
       /* Make cards same size */
       height: 100%;
+      padding: var(--card-padding);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      border: var(--border);
     }
 
-    .card > div {
-      width: 100%;
+    /* .card > div { */
+      /* width: 100%; */
       /* padding: clamp(8px, 5%, 24px); */
-      padding: 0;
+      /* padding: 0; */
 
       
       /* gap: clamp(24px, 9.4cqw, 48px); */
       /* gap: 0; */
       /* gap: 8.4cqw; */
 
-      border: var(--border);
+      
 
       /* Make cards same size */
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
+      /* height: 100%; */
+      
+    /* } */
 
-    .card > div > div:first-child {
+    .card > div:first-child {
       
       /* align-items: flex-start; */
       

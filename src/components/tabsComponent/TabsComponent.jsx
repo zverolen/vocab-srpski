@@ -72,7 +72,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
           id="0" 
-          isSelected={ selectedTab === 0} 
+          isSelected={ selectedTab === '0'} 
           onNavigation={ handleTabSelection } 
           onSelect={ handleSelect }
           ref={ tab1 }
@@ -82,7 +82,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
         </Tab>
         <Tab 
           id="1"
-          isSelected={ selectedTab === 1} 
+          isSelected={ selectedTab === '1'} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
           ref={ tab2 }
@@ -92,7 +92,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
         </Tab>
         <Tab 
           id="2" 
-          isSelected={ selectedTab === 2} 
+          isSelected={ selectedTab === '2'} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
           ref={ tab3 }

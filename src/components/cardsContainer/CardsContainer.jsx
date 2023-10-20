@@ -23,7 +23,7 @@ export default function CardsContainer({ phrases, onCheckStatusChange }) {
   
 
   return (
-    <div className="siteFrame">
+    <div className="content">
       <Instruction />
       <div>
         <h2 className='visually-hidden'>{copy.phrases.heading}</h2>

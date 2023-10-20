@@ -46,6 +46,7 @@
 
   --lineHeightBig: 1.5;
   --lineHeightEmoji: 1;
+  --lineHeightReset: normal;
 
   --fontWeightMin: 400;
   --fontWeightMax: 600;
@@ -82,6 +83,7 @@
 
   /* Layers */
   --layerLower-I: -1;
+  --layerHigher-I: 1;
 
   /* Resets */
   --reset: none;

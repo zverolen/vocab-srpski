@@ -46,6 +46,10 @@ footer {
   margin-top: auto;
 }
 
+button:is([role="tab"]) {
+  padding: 0;
+}
+
 a:not([class]) {
   text-decoration-skip-ink: auto;
   color: currentColor;

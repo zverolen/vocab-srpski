@@ -2,6 +2,8 @@
 :root {
   /* Color */
 
+  --site-frame-gap: var(--gap-I);
+
   --button-background: var(--background-color);
   --button-border: var(--text-color);
   --button-color: var(--text-color);
@@ -29,9 +31,13 @@
   --tab-concealer-background: var(--background-color);
   
   /* Sizing */
+  --root-gap: var(--gap-I);
+  --site-frame-gap: var(--gap-I);
   --border-width: var(--border);
   /* --button-padding-horiz: var(--paddingButtonHoriz);
   --button-padding-vert: var(--paddingButtonVert); */
+  --button-padding-inline: var(--gap-I);
+  --button-padding-block: var(--gap-I);
   --button-padding-horiz: 0;
   --button-padding-vert: 0;
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
@@ -39,9 +45,15 @@
 
   --current-tab-gap: var(--gap-I);
   --tab-left-margin: var(--marginCorrection-I);
-  --tabpanel-background: var(--background-color);
   --tab-concealer-width: var(--fullWidth);
   --tab-concealer-height: var(--concealer-height);
+  --tab-padding-inline: var(--gap-I) var(--gap-I);
+  --tab-padding-block: var(--gap-I) var(--gap-I);
+  --tabpanel-padding: var(--gap-I);
+
+  --card-padding: var(--gap-I);
+  --cards-container-gap: var(--gap-I);
+  --cards-line-height: var(--lineHeightReset);
 
   /* Font */
   --text-font: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
@@ -72,6 +84,9 @@
   --tab-icon-size: var(--emojiMax);
   --tab-icon-line-height: var(--lineHeightEmoji);
 
+  /* Color */
+  --tabpanel-background: var(--background-color);
+
   /* Borders and outlines */
   --focus-outline: var(--outlineOnFocus) solid var(--background-color);
   --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
@@ -86,7 +101,13 @@
   --tab-concealer-left: var(--shiftLeftConcealer);
 
   /* Layers */
+  --tab-concealer-z-index: var(--layerHigher-I);
 
   /* Display */
   --tabpanel-concealer-display: block;
+
+  /* Alignment */
+  --site-frame-display: flex;
+  --site-frame-flex-direction: column;
+
 }
