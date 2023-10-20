@@ -21,6 +21,16 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
   const tab2 = useRef(null)
   const tab3 = useRef(null)
 
+  let content
+
+  if (selectedTab === '0') {
+    content = withoutAnswerPhrases.length ? withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : copy.tabs.emptyWithouthAnswer
+  } else if (selectedTab === '1') {
+    content = correctPhrases.length ? correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : copy.tabs.emptyCorrect
+  } else if (selectedTab === '2') {
+    content = wrongPhrases.length ? wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : copy.tabs.emptyWrong
+  }
+
   function handleSelect(id) {
     setSelectedTab(id)
   }
@@ -93,9 +103,11 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
       </div>
       <TabPanel id={selectedTab}>
         <div className="cards-container">
-          {selectedTab === '0' && withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />)}
-          {selectedTab === '1' && correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />)}
-          {selectedTab === '2' && wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />)}
+          {content}
+          {/* Hack to make the grid consistent with few cards */}
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
       </TabPanel>
     </>

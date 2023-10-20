@@ -49,7 +49,7 @@
 }
 
 @layer specific {
-  .correct {
+  button.correct {
     --button-background: var(--correct-background-color);
     --button-border: var(--correct-text-color);
     --button-color: var(--correct-text-color);
@@ -57,7 +57,7 @@
     --button-color-activated: var(--correct-background-color);
   }
 
-  .wrong {
+  button.wrong {
     --button-background: var(--wrong-background-color);
     --button-border: var(--wrong-text-color);
     --button-color: var(--wrong-text-color);

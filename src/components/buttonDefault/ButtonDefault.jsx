@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import styles from './buttonDefault.module.css'
 
 export default function ButtonDefault({
   children,
@@ -14,7 +13,7 @@ export default function ButtonDefault({
         onClick={handleClick}
         data-testid={test}
         disabled={disabled}
-        className={`${checkStatus} ${styles.default}`}
+        className={`${checkStatus}`}
         hidden={hidden}
       >
         {children}   

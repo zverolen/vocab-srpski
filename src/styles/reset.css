@@ -27,9 +27,23 @@ ol[role='list'] {
 
 body {
   min-height: 100vh;
-
+ 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 2;
+}
+
+footer {
+  margin-top: auto;
 }
 
 a:not([class]) {
