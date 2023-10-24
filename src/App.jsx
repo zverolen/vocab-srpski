@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <main>
-        <div>
+        <div className="title">
           <h1>{copy.title.heading}</h1>
           <p>{copy.title.subheading}</p>
         </div>

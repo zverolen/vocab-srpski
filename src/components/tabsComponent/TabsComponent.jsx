@@ -24,11 +24,11 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
   let content
 
   if (selectedTab === '0') {
-    content = withoutAnswerPhrases.length ? withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : copy.tabs.emptyWithouthAnswer
+    content = withoutAnswerPhrases.length ? withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : <p>{copy.tabs.emptyWithouthAnswer}</p>
   } else if (selectedTab === '1') {
-    content = correctPhrases.length ? correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : copy.tabs.emptyCorrect
+    content = correctPhrases.length ? correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : <p>{copy.tabs.emptyCorrect}</p>
   } else if (selectedTab === '2') {
-    content = wrongPhrases.length ? wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : copy.tabs.emptyWrong
+    content = wrongPhrases.length ? wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : <p>{copy.tabs.emptyWrong}</p>
   }
 
   function handleSelect(id) {

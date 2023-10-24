@@ -84,11 +84,6 @@
       width: var(--content-width);
       margin-inline: var(--content-margins);
     }
-
-    footer {
-      font-weight: var(--footer-font-weight);
-      border-top: var(--border);
-    }
     
     h1, h2, h3 {
       font-family: var(--heading-font);
@@ -118,6 +113,7 @@
     }
     
     button {
+      min-width: var(--button-min-width);
       background-color: var(--button-background);
       border: var(--borderWidth) solid var(--button-border);
       color: var(--button-color);
@@ -154,6 +150,8 @@
       content: '';
       width: var(--disclosure-control-icon-width);
       height: var(--disclosure-control-icon-height);
+      margin-left: var(--disclosure-control-icon-gap);
+
       background-color: var(--disclosure-control-icon-background);
       clip-path: var(--disclosure-control-icon-shape);
       transform: rotate(var(--disclosure-control-icon-flip));
@@ -167,10 +165,18 @@
       gap: var(--root-gap);
     }
 
+    .title {
+      margin-top: var(--title-margin-top);
+    }
+
     .content {
       display: var(--site-frame-display);
       flex-direction: var(--site-frame-flex-direction);
       gap: var(--site-frame-gap);
+    }
+
+    .instruction {
+      margin-block: var(--instruction-margin-block);
     }
 
     .instruction li {
@@ -219,6 +225,7 @@
     }
 
     [role="tablist"] button > span >span:first-child {
+      margin-right: var(--tab-icon-gap);
       font-size: var(--tab-icon-size);
       line-height: var(--tab-icon-line-height);
     }
@@ -230,20 +237,30 @@
 
     .cards-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+      grid-template-columns: var(--cards-container-template);
       /* gap: clamp(1rem, 2vmax, 1.5rem); */
       gap: var(--cards-container-gap);
       grid-auto-rows: auto;
       align-items: center;
     }
 
+    .cards-container > p {
+      grid-column: var(--tabpanel-empty-grid-column);
+
+      font-weight: var(--tabpanel-empty-fontweight);
+    }
+
     .card  {
       container: card/inline-size;
+
+      display: flex;
+      gap: var(--card-gap);
+
       /* Make cards same size */
       height: 100%;
       padding: var(--card-padding);
 
-      display: flex;
+      
       flex-direction: column;
       justify-content: space-between;
 
@@ -273,16 +290,31 @@
       
       /* gap: clamp(8px, 4cqw, 16px); */
       /* gap: 0; */
-      /* Make cards same size */
       display: flex;
+      gap: var(--card-phrase-gap);
+      /* Make cards same size */
+
       flex: 2;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .card > div > div:last-child {
-      /* display: flex; */
-      /* gap: 0; */
+    .card > div:last-child {
+      display: flex;
+      gap: var(--card-check-gap);
+    }
+
+    footer {
+      margin-bottom: var(--footer-margin-bottom);
+      margin-top: var(--footer-margin-top);
+
+      font-weight: var(--footer-font-weight);
+
+      border-top: var(--border);
+    }
+
+    footer h2 {
+      margin-bottom: var(--footer-heading-margin-bottom);
     }
   }
 

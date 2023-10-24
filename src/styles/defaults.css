@@ -40,8 +40,16 @@
   --button-padding-block: var(--gap-I);
   --button-padding-horiz: 0;
   --button-padding-vert: 0;
+  --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
+
+  --title-margin-top: var(--gap-I);
+
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
   --content-margins: var(--marginCentering);
+
+  --disclosure-control-icon-gap: var(--gap-I);
+
+  --instruction-margin-block: var(--gap-I);
 
   --current-tab-gap: var(--gap-I);
   --tab-left-margin: var(--marginCorrection-I);
@@ -50,10 +58,20 @@
   --tab-padding-inline: var(--gap-I) var(--gap-I);
   --tab-padding-block: var(--gap-I) var(--gap-I);
   --tabpanel-padding: var(--gap-I);
+  --tab-icon-gap: var(--gap-I);
 
   --card-padding: var(--gap-I);
+  /* --card-gap: var(--gap-I); */
+  --card-gap: var(--gap-III);
   --cards-container-gap: var(--gap-I);
   --cards-line-height: var(--lineHeightReset);
+  /* --card-check-gap: var(--gap-I); */
+  --card-check-gap: var(--gap-II);
+  --card-phrase-gap: var(--gap-I);
+
+  --footer-margin-bottom: var(--gap-I);
+  --footer-heading-margin-bottom: var(--gap-I);
+  --footer-heading-margin-top: var(--gap-I);
 
   /* Font */
   --text-font: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
@@ -73,6 +91,7 @@
   --body-font-weight: var(--fontWeightMax);
   --instruction-font-weight: var(--fontWeightMin);
   --footer-font-weight: var(--fontWeightMin);
+  --tabpanel-empty-fontweight: var(--fontWeightMin);
 
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);
@@ -109,5 +128,7 @@
   /* Alignment */
   --site-frame-display: flex;
   --site-frame-flex-direction: column;
+  --tabpanel-empty-grid-column: var(--first-three-columns);
+  --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
 
 }
