@@ -113,6 +113,9 @@
       text-align: var(--subheading-text-alignment);
       line-height: var(--subheading-line-height);
       font-size: clamp(18px, 5vw, 24px);
+      margin-inline: auto;
+      text-wrap: pretty;
+      width: 71%;
     }
 
     h2:is(footer h2) {
@@ -120,6 +123,7 @@
       text-transform: var(--heading-text-transform);
       letter-spacing: var(--heading-letter-spacing);
       margin-bottom: var(--footer-heading-margin-bottom);
+      margin-top: var(--footer-heading-margin-top);
 
       font-size: clamp(18px, 4vw, 22px);
     }
@@ -135,18 +139,15 @@
       color: var(--button-color);
   
       font-size: var(--control-font-size);
-    }
-
-    /* button:is(:not([role="tab"])) {
-      padding-inline: var(--button-padding-inline);
-      padding-block: var(--button-padding-block);
-    } */
-
-    button:not([role="tab"]) {
       padding-inline: var(--button-padding-inline);
       padding-block: var(--button-padding-block);
     }
-  
+
+    /* button:not([role="tab"]) {
+      padding-inline: var(--button-padding-inline);
+      padding-block: var(--button-padding-block);
+    }
+   */
     button:hover {
       background-color: var(--button-background-activated);
       color: var(--button-color-activated);
@@ -162,6 +163,10 @@
       text-decoration: var(--button-withIcon-text-decoration);
     }
 
+    button.withIcon span {
+      vertical-align: super;
+    }
+
     button.withIcon[aria-expanded] span::after {
       content: '';
       width: var(--disclosure-control-icon-width);
@@ -171,6 +176,8 @@
       background-color: var(--disclosure-control-icon-background);
       clip-path: var(--disclosure-control-icon-shape);
       transform: rotate(var(--disclosure-control-icon-flip));
+
+      vertical-align: middle;
     }
 
     button.withIcon[aria-expanded="true"] span::after {
@@ -196,15 +203,25 @@
     }
 
     .instruction {
-      margin-block: var(--instruction-margin-block);
+      margin-block-start: var(--instruction-margin-block);
+      margin-block-end: 24px;
     }
 
     .instruction li {
       font-weight: var(--instruction-font-weight);
     }
 
+    .instruction li p:not(li:last-child p) {
+      margin-bottom: 0.44em;
+    }
+
+    /* .instruction li p {
+      margin-bottom: 0.44em;
+    } */
+
     [role="tablist"] button {
       position: var(--tab-position);
+      padding-inline: 16px;
 
       border-bottom: var(--tab-bottom-border);
     }
@@ -214,7 +231,9 @@
     }
 
     [role="tablist"] button[aria-selected="true"] {
-      padding-top: var(--current-tab-gap);
+      /* padding-top: var(--current-tab-gap); */
+      padding-top: 12px;
+      border-width: 2px;
     }
 
     [role="tablist"] button[aria-selected="true"]::after {
@@ -236,13 +255,13 @@
       display: flex;
       align-items: center;
 
-      padding-inline: var(--tab-padding-inline);
-      padding-block: var(--tab-padding-block);
+      /* padding-inline: var(--tab-padding-inline);
+      padding-block: var(--tab-padding-block); */
     }
 
-    [role="tablist"] button[aria-selected="true"] > span {
+    /* [role="tablist"] button[aria-selected="true"] > span {
       border-top: var(--border);
-    }
+    } */
 
     [role="tablist"] button > span >span:first-child {
       margin-right: var(--tab-icon-gap);
@@ -254,7 +273,7 @@
       padding: var(--tabpanel-padding);
       padding: clamp(0.5rem, 1.5vmax, 1.5rem);
       border: var(--border); 
-
+      border-width: 2px;
 
        /* Experimental */
        /* padding-bottom: 0; */
@@ -382,6 +401,13 @@
       /*Temporary removed*/
       box-shadow: unset;
       outline: unset;
+      border-width: 2px;
+      padding-top: 12px;
+    }
+
+    [role="tablist"] button:focus > span {
+      outline: calc(2 / 16 * 1rem) solid var(--background-color);
+      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--button-border);
     }
 
     [role="tablist"] button:hover {
@@ -396,6 +422,10 @@
     [role="tablist"] button:nth-child(2):hover > span {
       background-color: var(--tab-correct-background-hover);
       color: var(--tab-correct-color-hover);
+    }
+
+    [role="tablist"] button:nth-child(2):focus > span {
+      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--tab-correct-background-hover);
     }
 
     [role="tablist"] button:nth-child(3):hover > span {
