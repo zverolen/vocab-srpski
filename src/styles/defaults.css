@@ -4,6 +4,8 @@
 
   --site-frame-gap: var(--gap-I);
 
+  --ordered-list-left-gap: var(--widthTwoLetters);
+
   --button-background: var(--background-color);
   --button-border: var(--text-color);
   --button-color: var(--text-color);
@@ -19,6 +21,7 @@
   --buttonWrong-color: var(--wrong-text-color);
 
   --button-withIcon-border: none;
+  --disclosure-button-left-padding: 0;
 
   --tab-background: var(--background-color);
   --tab-color: var(--text-color);
@@ -42,7 +45,8 @@
   --button-padding-vert: 0;
   --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
 
-  --title-margin-top: var(--gap-I);
+  --title-margin-top: var(--gap-III);
+  --title-gap: var(--gap-I);
 
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
   --content-margins: var(--marginCentering);
@@ -55,19 +59,19 @@
   --tab-left-margin: var(--marginCorrection-I);
   --tab-concealer-width: var(--fullWidth);
   --tab-concealer-height: var(--concealer-height);
-  --tab-padding-inline: var(--gap-I) var(--gap-I);
+  --tab-padding-inline: var(--gap-II) var(--gap-II);
   --tab-padding-block: var(--gap-I) var(--gap-I);
   --tabpanel-padding: var(--gap-I);
   --tab-icon-gap: var(--gap-I);
 
   --card-padding: var(--gap-I);
   /* --card-gap: var(--gap-I); */
-  --card-gap: var(--gap-III);
+  --card-gap: var(--gap-IV);
   --cards-container-gap: var(--gap-I);
   --cards-line-height: var(--lineHeightReset);
   /* --card-check-gap: var(--gap-I); */
   --card-check-gap: var(--gap-II);
-  --card-phrase-gap: var(--gap-I);
+  --card-phrase-gap: var(--gap-II);
 
   --footer-margin-bottom: var(--gap-I);
   --footer-heading-margin-bottom: var(--gap-I);
@@ -83,15 +87,22 @@
   --control-font-size: var(--controlMin);
   --button-withIcon-font-size: var(--controlMin);
   --subheading-font-size: var(--text-font-size);
-  --subheading-text-transform: uppercase;
+  --heading-text-transform: uppercase;
 
   --text-line-height: var(--lineHeightBig);
   --button-withIcon-text-decoration: var(--underlinedNoBorder);
+  --heading-line-height: var(--lineHeightSmallLargeFont);
+  --subheading-line-height: var(--lineHeightSmall);
 
   --body-font-weight: var(--fontWeightMax);
   --instruction-font-weight: var(--fontWeightMin);
   --footer-font-weight: var(--fontWeightMin);
   --tabpanel-empty-fontweight: var(--fontWeightMin);
+
+  --heading-text-alignment: center;
+  --subheading-text-alignment: center;
+
+  --heading-letter-spacing: var(--letterSpacingCaps);
 
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);
@@ -128,7 +139,8 @@
   /* Alignment */
   --site-frame-display: flex;
   --site-frame-flex-direction: column;
-  --tabpanel-empty-grid-column: var(--first-three-columns);
+  --tabpanel-empty-grid-column: var(--allColumns);
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
+  --grid-fix-template: 2 / var(--lastColumn);
 
 }

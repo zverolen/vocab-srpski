@@ -12,7 +12,7 @@ export default function Disclosure({ children, captionWhenCollapsed, captionWhen
   }
 
   return (
-    <div data-testid="disclosure" aria-live="polite">
+    <div className="disclosure" data-testid="disclosure" aria-live="polite">
      <h2>
       {/* <ButtonWithIcon 
         isOpen={isExpanded} 

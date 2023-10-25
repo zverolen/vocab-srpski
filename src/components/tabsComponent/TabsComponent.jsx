@@ -68,7 +68,6 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
   
   return (
     <>
-      <h2 className="visually-hidden" id="tabs-heading">{copy.phrases.heading}</h2>
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
           id="0" 

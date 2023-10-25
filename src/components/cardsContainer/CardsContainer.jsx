@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 
 import Instruction from '../instruction/Instruction'
 import { copy } from '../../data/copy';
-import TabsComponent from '../TabsComponent/TabsComponent';
+import TabsComponent from '../tabsComponent/TabsComponent';
 
 const tabsReference = [copy.tabs.withoutAnswer, copy.tabs.correct, copy.tabs.wrong];
 
