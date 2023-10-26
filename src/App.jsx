@@ -30,13 +30,11 @@ function App() {
 
   return (
     <>
-      <main>
-        <div className="title">
-          <h1>{copy.title.heading}</h1>
-          <p>{copy.title.subheading}</p>
-        </div>
-        <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} />
-      </main>
+      <header className="title">
+        <h1>{copy.title.heading}</h1>
+        <p>{copy.title.subheading}</p>
+      </header>
+      <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} />
       <Footer />
     </>
   )

@@ -73,7 +73,6 @@
   .card.correct:not(.card button) {
     --button-border: var(--correct-text-color);
   }
-
   
 }
 
@@ -91,9 +90,16 @@
       font-weight: var(--body-font-weight);
     }
 
-    main, footer {
+    header, main, footer {
       width: var(--content-width);
       margin-inline: var(--content-margins);
+      padding-inline: 8px;
+      /* margin-inline: min(10px, 2%); */
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
     }
     
     h1, h2, h3 {
@@ -115,7 +121,7 @@
     }
 
     p:where(:not(.card p)) {
-      font-size: clamp(18px, 4vw, 22px);
+      font-size: clamp(18px, 4vw, 20px);
       line-height: var(--text-line-height);
       font-weight: 400;
     }
@@ -145,6 +151,15 @@
 
     ol {
       padding-left: var(--ordered-list-left-gap);
+    }
+
+    header {
+      margin-top: 24px;
+      margin-bottom: min(1.4vw, 16px);
+    }
+
+    main {
+      margin-bottom: 32px;
     }
     
     button {
@@ -194,19 +209,15 @@
       transform: rotate(var(--disclosure-control-icon-unflip));
     }
 
-    #root {
-      gap: var(--root-gap);
-    }
+    /* #root {
+      width: 
+    } */
 
-    .title {
-      margin-top: var(--title-margin-top);
-    }
-
-    .content {
-      display: var(--site-frame-display);
-      flex-direction: var(--site-frame-flex-direction);
-      gap: var(--site-frame-gap);
-    }
+    /* .content { */
+      /* display: var(--site-frame-display);
+      flex-direction: var(--site-frame-flex-direction); */
+      /* gap: var(--site-frame-gap); */
+    /* } */
 
     .instruction {
       margin-block-start: var(--instruction-margin-block);
@@ -218,7 +229,7 @@
     }
 
     .instruction li p:not(li:last-child p) {
-      margin-bottom: 0.44em;
+      margin-bottom: 0.3em;
     }
 
     /* .instruction li p {
@@ -311,6 +322,7 @@
       padding: clamp(0.5rem, 1.5vmax, 1.5rem);
       border: var(--border); 
       border-width: 2px;
+      flex: 2;
 
        /* Experimental */
        /* padding-bottom: 0; */
@@ -417,7 +429,7 @@
 
   @layer states {
     /* Not :focus-visible -> when focused on click, styles show only with :focus pseudo-class and don't show in :focus-visbile; used in tabs */
-    :focus {
+    :focus-visible {
       outline: var(--outlineOnFocus) solid var(--background-color);
       box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
     }

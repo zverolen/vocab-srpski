@@ -22,6 +22,7 @@
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
 
+  /* --siteWidthMin: calc(280 / 16 * 1rem); */
   --siteWidthMin: calc(280 / 16 * 1rem);
   --siteWidthMax: calc(1352 / 16 * 1rem);
   --siteWidthIdeal: 94%;
@@ -49,7 +50,7 @@
   --emojiMax: calc(24 / 16 * 1rem);
   --widthTwoLetters: 2ch;
 
-  --lineHeightBig: 1.4;
+  --lineHeightBig: 1.3;
   --lineHeightSmall: 1.1;
   --lineHeightSmallLargeFont: 0.9;
   --lineHeightEmoji: 1;

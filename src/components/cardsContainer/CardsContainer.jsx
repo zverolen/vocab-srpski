@@ -23,22 +23,20 @@ export default function CardsContainer({ phrases, onCheckStatusChange }) {
   
 
   return (
-    <div className="content">
+    <main className="content">
       <Instruction />
-      <div>
-        <h2 className='visually-hidden'>{copy.phrases.heading}</h2>
-        <TabsComponent 
-          tabs={ tabsReference } 
-          scoreAll={unsetPhrases.length.toString()} 
-          scoreCorrect={correctPhrases.length.toString()} 
-          scoreWrong={wrongPhrases.length.toString()}
-          withoutAnswerPhrases={unsetPhrases}
-          correctPhrases={correctPhrases}
-          wrongPhrases={wrongPhrases}
-          onCheckStatusChange={onCheckStatusChange}
-        /> 
-      </div>
-    </div>
+      <h2 className='visually-hidden'>{copy.phrases.heading}</h2>
+      <TabsComponent 
+        tabs={ tabsReference } 
+        scoreAll={unsetPhrases.length.toString()} 
+        scoreCorrect={correctPhrases.length.toString()} 
+        scoreWrong={wrongPhrases.length.toString()}
+        withoutAnswerPhrases={unsetPhrases}
+        correctPhrases={correctPhrases}
+        wrongPhrases={wrongPhrases}
+        onCheckStatusChange={onCheckStatusChange}
+      /> 
+    </main>
   )
 }
 
