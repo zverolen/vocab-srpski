@@ -55,6 +55,11 @@
     --button-color: var(--correct-text-color);
     --button-background-activated: var(--correct-text-color);
     --button-color-activated: var(--correct-background-color);
+    --border-color: var(var(--correct-text-color));
+  }
+
+  .card.wrong:is(div) {
+    --button-border: var(--wrong-text-color);
   }
 
   button.wrong {
@@ -64,6 +69,12 @@
     --button-background-activated: var(--wrong-text-color);
     --button-color-activated: var(--wrong-background-color);
   }
+
+  .card.correct:not(.card button) {
+    --button-border: var(--correct-text-color);
+  }
+
+  
 }
 
 /* universal? */
@@ -118,6 +129,10 @@
       width: 71%;
     }
 
+    h2:is(.disclosure h2) {
+      margin-bottom: 8px;
+    }
+
     h2:is(footer h2) {
       font-size: var(--subheading-font-size);
       text-transform: var(--heading-text-transform);
@@ -148,14 +163,9 @@
       padding-block: var(--button-padding-block);
     }
    */
-    button:hover {
-      background-color: var(--button-background-activated);
-      color: var(--button-color-activated);
-
-      cursor: pointer;
-    }
 
     button.withIcon {
+      padding-inline: 0;
       border: var(--button-withIcon-border);
 
       font-family: var(--button-withIcon-font);
@@ -167,7 +177,7 @@
       vertical-align: super;
     }
 
-    button.withIcon[aria-expanded] span::after {
+    button.withIcon[aria-expanded]:is(.disclosure button) span::after {
       content: '';
       width: var(--disclosure-control-icon-width);
       height: var(--disclosure-control-icon-height);
@@ -180,12 +190,8 @@
       vertical-align: middle;
     }
 
-    button.withIcon[aria-expanded="true"] span::after {
+    button.withIcon[aria-expanded="true"]:is(.disclosure button) span::after {
       transform: rotate(var(--disclosure-control-icon-unflip));
-    }
-
-    button.withIcon:is(.disclosure button) {
-      padding-left: var(--disclosure-button-left-padding);
     }
 
     #root {
@@ -219,9 +225,14 @@
       margin-bottom: 0.44em;
     } */
 
+    [role="tablist"] {
+      container: tablist / inline-size;
+    }
+
     [role="tablist"] button {
       position: var(--tab-position);
-      padding-inline: 16px;
+      /* padding-inline: 16px; */
+      padding: 6px 8px;
 
       border-bottom: var(--tab-bottom-border);
     }
@@ -230,10 +241,22 @@
       margin-inline-start: var(--tab-left-margin);
     }
 
+    [role="tablist"] button:not([aria-selected="true"]) {
+      border-width: var(--borderWidthSecondary);
+    }
+
     [role="tablist"] button[aria-selected="true"] {
       /* padding-top: var(--current-tab-gap); */
-      padding-top: 12px;
+      padding-top: 10px;
       border-width: 2px;
+    }
+
+    [role="tablist"] button[aria-selected="true"]:is(:nth-child(2)) {
+      border-color: var(--colorSuccess);
+    }
+
+    [role="tablist"] button[aria-selected="true"]:is(:nth-child(3)) {
+      border-color: var(--colorError);
     }
 
     [role="tablist"] button[aria-selected="true"]::after {
@@ -254,6 +277,7 @@
     [role="tablist"] button > span {
       display: flex;
       align-items: center;
+      padding: 2px;
 
       /* padding-inline: var(--tab-padding-inline);
       padding-block: var(--tab-padding-block); */
@@ -267,6 +291,19 @@
       margin-right: var(--tab-icon-gap);
       font-size: var(--tab-icon-size);
       line-height: var(--tab-icon-line-height);
+    }
+
+    @container tablist (width < calc(430 / 16 * 1rem)) {
+      [role="tablist"] button > span >span:first-child {
+        display: none;
+      }
+    }
+
+    @container tablist (width < calc(330 / 16 * 1rem)) {
+      [role="tablist"] button > span {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
 
     [role="tabpanel"] {
@@ -325,10 +362,7 @@
       flex-direction: column;
       /* justify-content: space-between; */
 
-      border: var(--border);
-    }
-
-    .card [aria-live="polite"] {
+      border: var(--borderWidth) solid var(--button-border);
     }
 
     /* .card:is(:only-child) {
@@ -374,7 +408,6 @@
 
     footer {
       margin-bottom: var(--footer-margin-bottom);
-      margin-top: var(--footer-margin-top);
 
       font-weight: var(--footer-font-weight);
 
@@ -389,20 +422,47 @@
       box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
     }
 
-    button:focus {
+    button:focus:not(.withIcon) {
       background-color: var(--button-background-activated);
       color: var(--button-color-activated);
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    button:hover:not(.withIcon) {
+      background-color: var(--button-background-activated);
+      color: var(--button-color-activated);
+    }
+
+    button.withIcon:hover {
+      outline: var(--outlineOnFocus) solid var(--background-color);
+      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
+    }
+
+    a:hover, a:focus {
+      outline: var(--outlineOnFocus) solid var(--background-color);
+      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
     }
 
     [role="tablist"] button:focus {
       background-color: var(--tab-background);
       color: var(--tab-color);
-      border-bottom: var(--tab-bottom-border);
-      /*Temporary removed*/
+      /* border-bottom: var(--tab-bottom-border); */
+      
       box-shadow: unset;
       outline: unset;
-      border-width: 2px;
-      padding-top: 12px;
+    }
+
+    [role="tablist"] button:nth-child(2):focus {
+      /* border-color: var(--colorSuccess); */
+      color: var(--colorSuccess);
+    }
+
+    [role="tablist"] button:nth-child(3):focus {
+      /* border-color: var(--colorError); */
+      color: var(--colorError);
     }
 
     [role="tablist"] button:focus > span {
@@ -416,16 +476,20 @@
 
     [role="tablist"] button:hover > span {
       background-color: var(--tab-background-hover);
-      color: var(--tab-color-hover)
+      color: var(--tab-color-hover);
+      /* colors for correct/wrong */
+      outline: calc(2 / 16 * 1rem) solid var(--background-color);
+      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--button-border);
     }
 
+    /* make vars like for correct buttons etc., no rewrite here*/
     [role="tablist"] button:nth-child(2):hover > span {
       background-color: var(--tab-correct-background-hover);
       color: var(--tab-correct-color-hover);
     }
 
     [role="tablist"] button:nth-child(2):focus > span {
-      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--tab-correct-background-hover);
+      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--colorSuccess);
     }
 
     [role="tablist"] button:nth-child(3):hover > span {
@@ -433,8 +497,25 @@
       color: var(--tab-wrong-color-hover);
     }
 
+    [role="tablist"] button:nth-child(3):focus > span {
+      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--colorError);
+    }
+
     [role="tabpanel"]:focus {
       background-color: var(--tabpanel-background);
+    }
+
+    #tabpanel-1 {
+      border-color: var(--colorSuccess);
+    }
+
+    #tabpanel-2 {
+      border-color: var(--colorError);
+    }
+
+    .card:focus-within {
+      outline: var(--outlineOnFocus) solid var(--background-color);
+      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
     }
     
     :disabled {
@@ -445,170 +526,3 @@
     }
   }
 }
-
-
-
- /* @font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./assets/fonts/nunito/nunito-variable.ttf');
-}
-
-@font-face {
-  font-family: 'Literata';
-  font-style: normal;
-  font-weight: 600;
-  src: url('./assets/fonts/literata/literata_variable.ttf');
-}
-
-:root {
-  --color-base: hsl(0 0% 0% / 87%);
-  --color-humble: hsl(0 0% 0% / 40%);
-  --color-secondary: hsl(0 0% 100%);
-  --color-correct: hsl(140 24% 32%);
-  --color-wrong: hsl(0 43% 45%);
-  --color-correctHumble: hsl(140 50% 93%);
-  --color-wrongHumble: hsl(0 50% 93%);
-
-  --font-size-primary: 1.125rem;
-  --font-size-button: 1rem;
-  --font-size-toggle: 0.875rem;
-  --font-primary: 'Nunito';
-  --font-secondary: 'Literata';
-
-  --border-default: 0.0625rem solid var(--color-base);
-  --outline-on-focus: 0.38rem solid var(--color-secondary);
-  --boxshadow-on-focus-default: 0 0 0 0.5rem var(--color-base);
-  --boxshadow-on-focus-correct: 0 0 0 0.5rem var(--color-correct);
-  --boxshadow-on-focus-wrong: 0 0 0 0.5rem var(--color-wrong);
-
-  --site-frame: clamp(16.875rem, 93%, 69rem);
-}
-
-:focus-visible {
-  outline: 0.38rem solid var(--color-secondary);
-  box-shadow: 0 0 0 0.5rem var(--color-base);
-  background-color: var(--color-secondary);
-}
-
-:focus {
-  outline: 0.38rem solid var(--color-secondary);
-  box-shadow: 0 0 0 0.5rem var(--color-base);
-  background-color: var(--color-secondary);
-}
-
-:disabled {
-  --color-base: var(--color-humble) !important;
-}  */
-
-/* body {
-  font-family: var(--font-primary), sans-serif;
-  color: var(--color-base);
-
-  font-size: var(--font-size-primary);
-  background-color: var(--background-color);
-}
-
-h1 {
-  margin-block: 1em;
-
-  font-family: var(--font-secondary), serif;
-  font-size: clamp(1.25rem, 4vw, 3rem);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-h3 {  
-  font-weight: 400;
-  font-size: inherit;
-}
-
-hr {
-  width: 100%;
-  
-  color: var(--color-humble);
-}
-
-ol {
-  margin-block-end: 1.5em;
-}
-
-button {
-  padding: 0;
-
-  border-radius: 0;
-  border: none;
-
-  color: var(--color-base);
-  background-color: var(--color-secondary);
-  font-size: 1rem;
-}
-
-button.correct {
-  --color-base: var(--color-correct);
-}
-
-button.wrong {
-  --color-base: var(--color-wrong);
-}
-
-button.correct:focus-visible {
-  box-shadow: var(--boxshadow-on-focus-correct);
-}
-
-button.wrong:focus-visible {
-  box-shadow: var(--boxshadow-on-focus-wrong);
-}
-
-header {
-  width: 100%;
-  margin-block-end: 0.5rem;
-  padding: 1rem 0;
-
-  border-bottom: var(--border-default);
-  background-color: var(--color-secondary);
-}
-
-header > div {
-  display: flex;
-  justify-content: flex-start;
-
-  width: var(--site-frame);
-  margin-inline: auto;
-}
-
-header > div > div {
-  width: 100%;
-  
-  display: flex;
-  flex-direction: column;
-}
-
-div:has( > button:not(:has(svg))):has( > div svg) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-}
-
-header button {
-  margin-inline-start: auto;
-} */
-
-/* Fallback for Firefox */
-/* div:is(.correct, .wrong) > h3 + div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 100%;
-}
-
-.content {
-  width: var(--site-frame);
-  margin-inline: auto;
-
-  border: var(--border-default);
-} */

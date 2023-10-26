@@ -71,9 +71,9 @@
   --card-check-gap: var(--gap-II);
   --card-phrase-gap: var(--gap-II);
 
-  --footer-margin-bottom: var(--gap-V);
+  --footer-margin-bottom: var(--gap-IV);
   --footer-heading-margin-top: var(--gap-I);
-  --footer-heading-margin-bottom: var(--gap-II);
+  --footer-heading-margin-bottom: var(--gap-I);
   --footer-heading-margin-top: var(--gap-I);
 
   /* Font */

@@ -37,7 +37,7 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
       ref={ref}
       >
       <span>
-        <span>{emoji}</span><span>{ children }</span><span>: {score}</span>
+        <span>{ emoji }</span><span>{ children }:&nbsp;</span><span>{score}</span>
       </span>
     </button>
   )
