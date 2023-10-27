@@ -320,7 +320,7 @@
     [role="tabpanel"] {
       padding: var(--tabpanel-padding);
       padding: clamp(0.5rem, 1.5vmax, 1.5rem);
-      border: var(--border); 
+      border: var(--borderWidth) solid var(--button-border);
       border-width: 2px;
       flex: 2;
 
@@ -423,7 +423,7 @@
 
       font-weight: var(--footer-font-weight);
 
-      border-top: var(--border);
+      border-top: var(--borderWidth) solid var(--button-border);
     }
   }
 
