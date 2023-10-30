@@ -1,8 +1,8 @@
-@layer reset, tokens, general.defaults, general.states, specific, theme.light, theme.dark, overrides;
+@layer reset, tokens, general, specific, states, theme.light, theme.dark, overrides;
 
 @import url("./styles/reset.css") layer(reset);
 @import url("./styles/tokens.css") layer(tokens);
-@import url("./styles/defaults.css") layer(general.defaults);
+@import url("./styles/defaults.css") layer(general);
 
 
 @layer overrides {
@@ -24,7 +24,8 @@
       --text-color: var(--colorPrimary);
       --background-color: var(--colorPrimaryInverted);
       --disabled-background-color: var(--colorDisabledLight);
-      
+      --disabled-text-color: var(--colorDisabledMedium);
+
       --correct-text-color: var(--colorSuccess);
       --correct-background-color: var(--colorSuccessInverted);
       --wrong-text-color: var(--colorError);
@@ -39,6 +40,7 @@
       --text-color: var(--colorPrimaryInverted);
       --background-color: var(--colorPrimary);
       --disabled-background-color: var(--colorDisabledDark);
+      --disabled-text-color: var(--colorDisabledMedium);
 
       --correct-text-color: var(--colorSuccessInverted);
       --correct-background-color: var(--colorSuccess);
@@ -48,38 +50,7 @@
   }
 }
 
-@layer specific {
-  button.correct {
-    --button-background: var(--correct-background-color);
-    --button-border: var(--correct-text-color);
-    --button-color: var(--correct-text-color);
-    --button-background-activated: var(--correct-text-color);
-    --button-color-activated: var(--correct-background-color);
-    --border-color: var(var(--correct-text-color));
-  }
-
-  .card.wrong:is(div) {
-    --button-border: var(--wrong-text-color);
-  }
-
-  button.wrong {
-    --button-background: var(--wrong-background-color);
-    --button-border: var(--wrong-text-color);
-    --button-color: var(--wrong-text-color);
-    --button-background-activated: var(--wrong-text-color);
-    --button-color-activated: var(--wrong-background-color);
-  }
-
-  .card.correct:not(.card button) {
-    --button-border: var(--correct-text-color);
-  }
-  
-}
-
-/* universal? */
 @layer general {
-
-  @layer defaults {
   
     body {
       background-color: var(--background-color);
@@ -94,12 +65,24 @@
       width: var(--content-width);
       margin-inline: var(--content-margins);
       padding-inline: 8px;
-      /* margin-inline: min(10px, 2%); */
     }
 
     main {
       display: flex;
       flex-direction: column;
+    }
+
+    ol {
+      padding-left: var(--ordered-list-left-gap);
+    }
+
+    header {
+      margin-top: 24px;
+      margin-bottom: min(1.4vw, 16px);
+    }
+
+    main {
+      margin-bottom: 32px;
     }
     
     h1, h2, h3 {
@@ -149,35 +132,18 @@
       font-size: clamp(18px, 4vw, 22px);
     }
 
-    ol {
-      padding-left: var(--ordered-list-left-gap);
-    }
-
-    header {
-      margin-top: 24px;
-      margin-bottom: min(1.4vw, 16px);
-    }
-
-    main {
-      margin-bottom: 32px;
-    }
-    
     button {
       min-width: var(--button-min-width);
-      background-color: var(--button-background);
-      border: var(--borderWidth) solid var(--button-border);
-      color: var(--button-color);
-  
-      font-size: var(--control-font-size);
       padding-inline: var(--button-padding-inline);
       padding-block: var(--button-padding-block);
-    }
 
-    /* button:not([role="tab"]) {
-      padding-inline: var(--button-padding-inline);
-      padding-block: var(--button-padding-block);
+      font-size: var(--control-font-size);
+
+      /* COLORS */
+      background-color: var(--background-color);
+      border: var(--borderWidth) solid var(--text-color);
+      color: var(--button-color);
     }
-   */
 
     button.withIcon {
       padding-inline: 0;
@@ -198,26 +164,18 @@
       height: var(--disclosure-control-icon-height);
       margin-left: var(--disclosure-control-icon-gap);
 
-      background-color: var(--disclosure-control-icon-background);
       clip-path: var(--disclosure-control-icon-shape);
       transform: rotate(var(--disclosure-control-icon-flip));
 
       vertical-align: middle;
+
+      /* COLOR */
+      background-color: var(--text-color);
     }
 
     button.withIcon[aria-expanded="true"]:is(.disclosure button) span::after {
       transform: rotate(var(--disclosure-control-icon-unflip));
     }
-
-    /* #root {
-      width: 
-    } */
-
-    /* .content { */
-      /* display: var(--site-frame-display);
-      flex-direction: var(--site-frame-flex-direction); */
-      /* gap: var(--site-frame-gap); */
-    /* } */
 
     .instruction {
       margin-block-start: var(--instruction-margin-block);
@@ -232,17 +190,12 @@
       margin-bottom: 0.3em;
     }
 
-    /* .instruction li p {
-      margin-bottom: 0.44em;
-    } */
-
     [role="tablist"] {
       container: tablist / inline-size;
     }
 
     [role="tablist"] button {
       position: var(--tab-position);
-      /* padding-inline: 16px; */
       padding: 6px 8px;
 
       border-bottom: var(--tab-bottom-border);
@@ -257,17 +210,8 @@
     }
 
     [role="tablist"] button[aria-selected="true"] {
-      /* padding-top: var(--current-tab-gap); */
       padding-top: 10px;
       border-width: 2px;
-    }
-
-    [role="tablist"] button[aria-selected="true"]:is(:nth-child(2)) {
-      border-color: var(--colorSuccess);
-    }
-
-    [role="tablist"] button[aria-selected="true"]:is(:nth-child(3)) {
-      border-color: var(--colorError);
     }
 
     [role="tablist"] button[aria-selected="true"]::after {
@@ -377,27 +321,6 @@
       border: var(--borderWidth) solid var(--button-border);
     }
 
-    /* .card:is(:only-child) {
-      grid-column: 1 / 2;
-    } */
-
-    /* .card > div { */
-      /* width: 100%; */
-      /* padding: clamp(8px, 5%, 24px); */
-      /* padding: 0; */
-
-      
-      /* gap: clamp(24px, 9.4cqw, 48px); */
-      /* gap: 0; */
-      /* gap: 8.4cqw; */
-
-      
-
-      /* Make cards same size */
-      /* height: 100%; */
-      
-    /* } */
-
     .card > div:first-child {
       
       /* align-items: flex-start; */
@@ -425,116 +348,151 @@
 
       border-top: var(--borderWidth) solid var(--button-border);
     }
+}
+
+@layer specific {
+  button.correct:not([role="tablist"] button) {
+    background-color: var(--correct-background-color);
+    color: var(--correct-text-color);
+    border-color: var(--correct-text-color);
   }
 
-  @layer states {
-    /* Not :focus-visible -> when focused on click, styles show only with :focus pseudo-class and don't show in :focus-visbile; used in tabs */
-    :focus-visible {
-      outline: var(--outlineOnFocus) solid var(--background-color);
-      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-    }
+  [role="tablist"] button.correct[aria-selected="true"] {
+    border-color: var(--correct-text-color);
+  }
 
-    button:focus:not(.withIcon) {
-      background-color: var(--button-background-activated);
-      color: var(--button-color-activated);
-    }
+ 
+  .card.wrong:is(div) {
+    --button-border: var(--wrong-text-color);
+  }
 
-    button:hover {
-      cursor: pointer;
-    }
+  button.wrong:not([role="tablist"] button) {
+    background-color: var(--wrong-background-color);
+    color: var(--wrong-text-color);
+    border-color: var(--wrong-text-color);
+  }
 
-    button:hover:not(.withIcon) {
-      background-color: var(--button-background-activated);
-      color: var(--button-color-activated);
-    }
+  [role="tablist"] button.wrong[aria-selected="true"] {
+    border-color: var(--wrong-text-color);
+  }
 
-    button.withIcon:hover {
-      outline: var(--outlineOnFocus) solid var(--background-color);
-      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-    }
+  .card.correct:not(.card button) {
+    --button-border: var(--correct-text-color);
+  }
+}
 
-    a:hover, a:focus {
-      outline: var(--outlineOnFocus) solid var(--background-color);
-      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-    }
+@layer states {
+  :focus-visible {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
 
-    [role="tablist"] button:focus {
-      background-color: var(--tab-background);
-      color: var(--tab-color);
-      /* border-bottom: var(--tab-bottom-border); */
-      
-      box-shadow: unset;
-      outline: unset;
-    }
+  button:focus-visible:not(.withIcon) {
+   background-color: var(--text-color);
+   color: var(--background-color);
+  }
 
-    [role="tablist"] button:nth-child(2):focus {
-      /* border-color: var(--colorSuccess); */
-      color: var(--colorSuccess);
-    }
+  button.correct:focus-visible {
+    background-color: var(--correct-text-color);
+    color: var(--correct-background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--correct-text-color);
+  }
 
-    [role="tablist"] button:nth-child(3):focus {
-      /* border-color: var(--colorError); */
-      color: var(--colorError);
-    }
+  button.wrong:focus-visible {
+    background-color: var(--wrong-text-color);
+    color: var(--wrong-background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
+  }
 
-    [role="tablist"] button:focus > span {
-      outline: calc(2 / 16 * 1rem) solid var(--background-color);
-      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--button-border);
-    }
+  button:hover {
+    cursor: pointer;
+  }
 
-    [role="tablist"] button:hover {
-      background-color: var(--tab-background);
-    }
+  button:hover:not(.withIcon) {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
 
-    [role="tablist"] button:hover > span {
-      background-color: var(--tab-background-hover);
-      color: var(--tab-color-hover);
-      /* colors for correct/wrong */
-      outline: calc(2 / 16 * 1rem) solid var(--background-color);
-      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--button-border);
-    }
+  button.withIcon:hover {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
 
-    /* make vars like for correct buttons etc., no rewrite here*/
-    [role="tablist"] button:nth-child(2):hover > span {
-      background-color: var(--tab-correct-background-hover);
-      color: var(--tab-correct-color-hover);
-    }
+  a:hover, a:focus {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
 
-    [role="tablist"] button:nth-child(2):focus > span {
-      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--colorSuccess);
-    }
+  [role="tablist"] button:focus {
+    box-shadow: unset;
+    outline: unset;
+  }
 
-    [role="tablist"] button:nth-child(3):hover > span {
-      background-color: var(--tab-wrong-background-hover);
-      color: var(--tab-wrong-color-hover);
-    }
+  [role="tablist"] button.correct:focus {
+    color: var(--correct-text-color);
+  }
 
-    [role="tablist"] button:nth-child(3):focus > span {
-      box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--colorError);
-    }
+  [role="tablist"] button.wrong:focus {
+    color: var(--wrong-text-color);
+  }
 
-    [role="tabpanel"]:focus {
-      background-color: var(--tabpanel-background);
-    }
+  [role="tablist"] button:focus > span {
+    outline: calc(2 / 16 * 1rem) solid var(--background-color);
+    box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--text-color);
+  }
 
-    #tabpanel-1 {
-      border-color: var(--colorSuccess);
-    }
+  [role="tablist"] button.correct:focus > span {
+    box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--correct-text-color);
+  }
 
-    #tabpanel-2 {
-      border-color: var(--colorError);
-    }
+  [role="tablist"] button.wrong:focus > span {
+    box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--wrong-text-color);
+  }
 
-    .card:focus-within {
-      outline: var(--outlineOnFocus) solid var(--background-color);
-      box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-    }
-    
-    :disabled {
-      background-color: var(--buttonDisabled-background);
+  [role="tablist"] button:hover {
+    background-color: var(--background-color);
+  }
 
-      color: var(--buttonDisabled-text);
-      border-color: var(--buttonDisabled-text);
-    }
+  [role="tablist"] button:hover > span {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    outline: calc(2 / 16 * 1rem) solid var(--background-color);
+    box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--text-color);
+  }
+
+  [role="tablist"] button.correct:hover > span {
+    background-color: var(--correct-text-color);
+    color: var(--correct-background-color);
+    box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--correct-text-color);
+  }
+
+  [role="tablist"] button.wrong:hover > span {
+    background-color: var(--wrong-text-color);
+    color: var(--wrong-background-color);
+    box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--wrong-text-color);
+  }
+
+  [role="tabpanel"]:focus-visible {
+    background-color: var(--background-color);
+  }
+
+  #tabpanel-1 {
+    border-color: var(--correct-text-color);
+  }
+
+  #tabpanel-2 {
+    border-color: var(--wrong-text-color);
+  }
+
+  .card:focus-within {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
+  
+  :disabled {
+    background-color: var(--disabled-background-color);
+
+    color: var(--disabled-text-color);
+    border-color: var(--disabled-text-color);
   }
 }

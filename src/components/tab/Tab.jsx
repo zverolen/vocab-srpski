@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 import { copy } from '../../data/copy'
 import { forwardRef } from 'react'
 
-const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, score }, ref) => {
+const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, score, className }, ref) => {
 
   let emoji 
 
@@ -24,6 +24,7 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
 
   return (
     <button
+      className={className}
       onFocus={()=>{onSelect(id)}}
       onKeyDown={(e) => {handleKeyboardNavigation(e)}}
       onClick={(e) => {e.preventDefault()}}
@@ -44,6 +45,7 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
 })
 
 Tab.propTypes = {
+  className: PropTypes.string,
   id: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,

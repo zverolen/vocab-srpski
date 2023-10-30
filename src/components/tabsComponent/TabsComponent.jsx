@@ -70,7 +70,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
     <>
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
-          id="0" 
+          id="0"
           isSelected={ selectedTab === '0'} 
           onNavigation={ handleTabSelection } 
           onSelect={ handleSelect }
@@ -81,6 +81,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
         </Tab>
         <Tab 
           id="1"
+          className="correct"
           isSelected={ selectedTab === '1'} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
@@ -90,7 +91,8 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
           { tabs[1] }
         </Tab>
         <Tab 
-          id="2" 
+          id="2"
+          className="wrong"
           isSelected={ selectedTab === '2'} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
