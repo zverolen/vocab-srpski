@@ -1,35 +1,9 @@
 
 :root {
-  /* Color */
-
   --ordered-list-left-gap: var(--widthTwoLetters);
-
-  --button-background: var(--background-color);
-  --button-border: var(--text-color);
-  --button-color: var(--text-color);
-  --button-background-activated: var(--text-color);
-  --button-color-activated: var(--background-color);
-  --buttonDisabled-text: var(--colorDisabledMedium);
-  --buttonDisabled-background: var(--disabled-background-color);
-  --buttonCorrect-background: var(--correct-background-color);
-  --buttonCorrect-border: var(--correct-text-color);
-  --buttonCorrect-color: var(--correct-text-color);
-  --buttonWrong-background: var(--wrong-background-color);
-  --buttonWrong-border: var(--wrong-text-color);
-  --buttonWrong-color: var(--wrong-text-color);
 
   --button-withIcon-border: none;
   --disclosure-button-left-padding: 0;
-
-  --tab-background: var(--background-color);
-  --tab-color: var(--text-color);
-  --tab-background-hover: var(--text-color);
-  --tab-color-hover: var(--background-color);
-  --tab-correct-background-hover: var(--correct-text-color);
-  --tab-correct-color-hover: var(--correct-background-color);
-  --tab-wrong-background-hover: var(--wrong-text-color);
-  --tab-wrong-color-hover: var(--wrong-background-color);
-  --tab-concealer-background: var(--background-color);
   
   /* Sizing */
   --root-gap: var(--gap-IV);
@@ -106,20 +80,14 @@
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);
   --disclosure-control-icon-height: var(--iconTriangleHeight);
-  --disclosure-control-icon-background: var(--inheritedColor);
   --disclosure-control-icon-flip: var(--turnUpSideDown);
   --disclosure-control-icon-unflip: var(--turnReset);
   --disclosure-control-icon-shape: var(--clipPathTriangle);
   --tab-icon-size: var(--emojiMax);
   --tab-icon-line-height: var(--lineHeightEmoji);
 
-  /* Color */
-  --tabpanel-background: var(--background-color);
-
   /* Borders and outlines */
-  --focus-outline: var(--outlineOnFocus) solid var(--background-color);
-  --focus-box-shadow: 0 0 0 var(--shadowOnFocus) var(--button-border);
-  --border: var(--borderWidth) solid var(--button-border);
+  --border: var(--borderWidth) solid var(--text-color);
   --tab-bottom-border: var(--reset);
 
   /* Position */

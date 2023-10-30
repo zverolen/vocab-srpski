@@ -142,7 +142,7 @@
       /* COLORS */
       background-color: var(--background-color);
       border: var(--borderWidth) solid var(--text-color);
-      color: var(--button-color);
+      color: var(--text-color);
     }
 
     button.withIcon {
@@ -226,21 +226,14 @@
       width: var(--tab-concealer-width);
       height: var(--tab-concealer-height);
       
-      background-color: var(--tab-concealer-background);
+      background-color: var(--background-color);
     }
 
     [role="tablist"] button > span {
       display: flex;
       align-items: center;
       padding: 2px;
-
-      /* padding-inline: var(--tab-padding-inline);
-      padding-block: var(--tab-padding-block); */
     }
-
-    /* [role="tablist"] button[aria-selected="true"] > span {
-      border-top: var(--border);
-    } */
 
     [role="tablist"] button > span >span:first-child {
       margin-right: var(--tab-icon-gap);
@@ -264,7 +257,7 @@
     [role="tabpanel"] {
       padding: var(--tabpanel-padding);
       padding: clamp(0.5rem, 1.5vmax, 1.5rem);
-      border: var(--borderWidth) solid var(--button-border);
+      border: var(--borderWidth) solid var(--text-color);
       border-width: 2px;
       flex: 2;
 
@@ -318,7 +311,7 @@
       flex-direction: column;
       /* justify-content: space-between; */
 
-      border: var(--borderWidth) solid var(--button-border);
+      border: var(--borderWidth) solid var(--text-color);
     }
 
     .card > div:first-child {
@@ -346,7 +339,7 @@
 
       font-weight: var(--footer-font-weight);
 
-      border-top: var(--borderWidth) solid var(--button-border);
+      border-top: var(--borderWidth) solid var(--text-color);
     }
 }
 
@@ -363,7 +356,7 @@
 
  
   .card.wrong:is(div) {
-    --button-border: var(--wrong-text-color);
+    border-color: var(--wrong-text-color);
   }
 
   button.wrong:not([role="tablist"] button) {
@@ -377,7 +370,7 @@
   }
 
   .card.correct:not(.card button) {
-    --button-border: var(--correct-text-color);
+    border-color: var(--correct-text-color);
   }
 }
 
@@ -487,6 +480,14 @@
   .card:focus-within {
     outline: var(--outlineOnFocus) solid var(--background-color);
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
+
+  .card.correct:focus-within {
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--correct-text-color);
+  }
+
+  .card.wrong:focus-within {
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
   }
   
   :disabled {
