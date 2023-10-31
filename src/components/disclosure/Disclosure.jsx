@@ -14,13 +14,6 @@ export default function Disclosure({ children, captionWhenCollapsed, captionWhen
   return (
     <div className="disclosure" data-testid="disclosure" aria-live="polite">
      <h2>
-      {/* <ButtonWithIcon 
-        isOpen={isExpanded} 
-        handleClick={handleExpand} 
-        isDefault={isDefault} 
-        captionWhenCollapsed={captionWhenCollapsed} 
-        captionWhenExpanded={captionWhenExpanded}
-      /> */}
       <ButtonWithIcon2 handleClick={handleExpand} isExpanded={isExpanded}>
         {isExpanded ? captionWhenExpanded || captionWhenCollapsed : captionWhenCollapsed}
       </ButtonWithIcon2>
