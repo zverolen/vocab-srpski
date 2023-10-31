@@ -235,7 +235,7 @@
       padding: 2px;
     }
 
-    button[role="tab"] > span >span:first-child {
+    button[role="tab"] > span > span:first-child {
       margin-right: var(--tab-icon-gap);
       font-size: var(--tab-icon-size);
       line-height: var(--tab-icon-line-height);
@@ -274,18 +274,6 @@
       grid-auto-rows: auto;
       align-items: center;
     }
-
-    /* .cards-container::after {
-      content: '';
-      grid-column: var(--grid-fix-template);
-    } */
-
-    /* .cards-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(0.5rem, 2vmax, 2rem);
-      justify-content: space-between;
-    } */
 
     .cards-container > p {
       grid-column: var(--tabpanel-empty-grid-column);
@@ -379,7 +367,7 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
   }
 
-  button:focus-visible:not(.withIcon) {
+  button:focus-visible:not(.withIcon):not([role="tab"]) {
    background-color: var(--text-color);
    color: var(--background-color);
   }
@@ -390,7 +378,7 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--correct-text-color);
   }
 
-  button.wrong:focus-visible {
+  button.wrong:focus-visible:not([role="tab"]) {
     background-color: var(--wrong-text-color);
     color: var(--wrong-background-color);
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
@@ -415,7 +403,7 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
   }
 
-   button[role="tab"]:focus {
+   button[role="tab"]:is(:focus, :focus-visible) {
     box-shadow: unset;
     outline: unset;
   }

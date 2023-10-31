@@ -51,7 +51,7 @@ Tab.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   onSelect: PropTypes.func.isRequired,
   onNavigation: PropTypes.func.isRequired,
-  score: PropTypes.string
+  score: PropTypes.string.isRequired
 }
 
 export default Tab
