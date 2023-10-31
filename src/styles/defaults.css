@@ -8,17 +8,20 @@
   /* Sizing */
   --root-gap: var(--gap-IV);
   --site-frame-gap: var(--gap-I);
+  --landmark-padding-inline: var(--gap-I);
+
   --border-width: var(--border);
-  /* --button-padding-horiz: var(--paddingButtonHoriz);
-  --button-padding-vert: var(--paddingButtonVert); */
   --button-padding-inline: var(--gap-I);
   --button-padding-block: var(--gap-I);
   --button-padding-horiz: 0;
   --button-padding-vert: 0;
   --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
 
-  --title-margin-top: var(--gap-III);
-  --title-gap: var(--gap-I);
+  --header-margin-block: var(--gap-III) min(var(--headerMarginMin), var(--gap-II));
+
+  --main-margin-bottom: var(--gap-IV);
+
+  --heading-margin-bottom: var(--gap-I);
 
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
   --content-margins: var(--marginCentering);
@@ -37,11 +40,9 @@
   --tab-icon-gap: var(--gap-I);
 
   --card-padding: var(--gap-I);
-  /* --card-gap: var(--gap-I); */
   --card-gap: var(--gap-IV);
   --cards-container-gap: var(--gap-I);
   --cards-line-height: var(--lineHeightReset);
-  /* --card-check-gap: var(--gap-I); */
   --card-check-gap: var(--gap-II);
   --card-phrase-gap: var(--gap-II);
 
@@ -51,15 +52,17 @@
   --footer-heading-margin-top: var(--gap-I);
 
   /* Font */
-  --text-font: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
-  --heading-font: var(--serif-I), var(--serif-II), serif;
-  --button-withIcon-font: var(--text-font);
+  --text-font-family: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
+  --heading-font-family: var(--serif-I), var(--serif-II), serif;
+  --button-withIcon-font-family: var(--text-font-family);
 
   --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
-  /* --control-font-size: clamp(var(--controlMin), var(--controlIdeal), var(--controlMax)); */
   --control-font-size: var(--controlMin);
   --button-withIcon-font-size: var(--controlMin);
+  --heading-font-size: clamp(var(--headingMin), var(--headingIdeal), var(--headingMax));
   --subheading-font-size: var(--text-font-size);
+  --card-text-font-size: clamp(var(--textCardMin), var(--textCardIdeal), var(--textCardMax));
+
   --heading-text-transform: uppercase;
 
   --text-line-height: var(--lineHeightBig);
@@ -103,8 +106,10 @@
   /* Display */
   --tabpanel-concealer-display: block;
 
-  /* Alignment */
+  /* Layout */
   --site-frame-display: flex;
+  --main-display: flex;
+  --main-direction: column;
   --site-frame-flex-direction: column;
   --tabpanel-empty-grid-column: var(--allColumns);
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));

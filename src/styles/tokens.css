@@ -55,9 +55,19 @@
   --textMin: calc(18 / 16 * 1rem);
   --textMax: calc(22 / 16 * 1rem);
   --textIdeal: calc(22 / 1512 * 100 * 1vw);
+
+  --textCardMin: calc(18 / 16 * 1rem);
+  --textCardMax: calc(22 / 16 * 1rem);
+  --textCardIdeal: 7.2cqw;
+
   --controlMin: 1rem;
   --controlMax: calc(18 / 16 * 1rem);
   --controlIdeal: calc(18 / 1512 * 100 * 1vw);
+
+  --headingMin: calc(24 / 16 * 1rem);
+  --headingMax: calc(44 / 16 * 1rem);
+  --headingIdeal: 7vw;
+
   --emojiMax: calc(24 / 16 * 1rem);
   --widthTwoLetters: 2ch;
 
@@ -82,6 +92,9 @@
   --iconTriangleHeight: calc(12 / 16 * 1rem);
 
   --wordLengthMin: 5ch;
+
+  /*Sizing: Formally abstracted */
+  --headerMarginMin: 1.4vw;
 
   /* Fonts */
   --sans-I: 'Trebuchet MS';

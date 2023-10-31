@@ -56,7 +56,7 @@
       background-color: var(--background-color);
       color: var(--text-color);
     
-      font-family: var(--text-font);
+      font-family: var(--text-font-family);
       font-size: var(--text-font-size);
       font-weight: var(--body-font-weight);
     }
@@ -64,12 +64,14 @@
     header, main, footer {
       width: var(--content-width);
       margin-inline: var(--content-margins);
-      padding-inline: 8px;
+      padding-inline: var(--landmark-padding-inline);
     }
 
     main {
-      display: flex;
-      flex-direction: column;
+      display: var(--main-display);
+      flex-direction: var(--main-direction);
+
+      margin-block-end: var(--main-margin-bottom);
     }
 
     ol {
@@ -77,30 +79,25 @@
     }
 
     header {
-      margin-top: 24px;
-      margin-bottom: min(1.4vw, 16px);
-    }
-
-    main {
-      margin-bottom: 32px;
+      margin-block: var(--header-margin-block);
     }
     
     h1, h2, h3 {
-      font-family: var(--heading-font);
+      font-family: var(--heading-font-family);
     }
 
     h1 {
-      margin-bottom: var(--title-gap);
+      margin-block-end: var(--heading-margin-bottom);
 
+      font-size: var(--heading-font-size);
       text-align: var(--heading-text-alignment);
       line-height: var(--heading-line-height);
       text-transform: var(--heading-text-transform);
       letter-spacing: var(--heading-letter-spacing);
-      font-size: clamp(24px, 7vw, 44px);
     }
 
     p:is(.card p) {
-      font-size: clamp(18px, 7.2cqw, 22px);
+      font-size: var(--card-text-font-size);
     }
 
     p:where(:not(.card p)) {
@@ -143,13 +140,18 @@
       background-color: var(--background-color);
       border: var(--borderWidth) solid var(--text-color);
       color: var(--text-color);
+
+      /* Animations */
+      /* transition: all 0.3s ease-out; */
+      /* outline-width: 0px; */
+      transition: box-shadow 0s ease-out, outline 0s, background-color 0.3s ease-out;
     }
 
     button.withIcon {
       padding-inline: 0;
       border: var(--button-withIcon-border);
 
-      font-family: var(--button-withIcon-font);
+      font-family: var(--button-withIcon-font-family);
       font-size: var(--button-withIcon-font-size);
       text-decoration: var(--button-withIcon-text-decoration);
     }
@@ -171,6 +173,9 @@
 
       /* COLOR */
       background-color: var(--text-color);
+
+      /* Animations */
+      transition: all 0.3s ease-out;
     }
 
     button.withIcon[aria-expanded="true"]:is(.disclosure button) span::after {
@@ -189,6 +194,19 @@
     .instruction li p:not(li:last-child p) {
       margin-bottom: 0.3em;
     }
+
+    /* .disclosure-content{ */
+      /* Animations */
+      /* transition: height 3s;
+    } */
+
+    /* .disclosure-content.visible {
+      opacity: 1;
+    }
+
+    .disclosure-content.hidden {
+      opacity: 0;
+    } */
 
     [role="tablist"] {
       container: tablist / inline-size;
@@ -233,6 +251,9 @@
       display: flex;
       align-items: center;
       padding: 2px;
+
+      /* Animations */
+      transition: background-color 0.3s ease-out;
     }
 
     button[role="tab"] > span > span:first-child {
@@ -365,6 +386,9 @@
   :focus-visible {
     outline: var(--outlineOnFocus) solid var(--background-color);
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+    
+    /* Animations */
+    transition: box-shadow 0.3s ease-out, outline 0.3s ease-out;
   }
 
   button:focus-visible:not(.withIcon):not([role="tab"]) {
@@ -386,6 +410,9 @@
 
   button:hover {
     cursor: pointer;
+
+    /* Animations */
+    transition: background-color 0.3s ease-out;
   }
 
   button:hover:not(.withIcon) {
