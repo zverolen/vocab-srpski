@@ -5,7 +5,7 @@
 
   /* Colors */
   --black: #212121;
-  --white: #f2f2f2;
+  --white: #FAFAFA;
   --redDarkTheme: #f55fae;
   --redLightTheme: #d42882;
   --greenDarkTheme: #1bc498;
@@ -13,17 +13,6 @@
   --greyLight: #EBEBEB;
   --greyMedium: #858585;
   --greyDark: #333333;
-
-  --blueColdDark: #4a20d4;
-  --blueColdLight: #e9e3ff;
-  --blueWarmDark: #006ad6;
-  --blueWarmLight: #e3f1ff;
-  --pinkDark: #9816a9;
-  --pinkLight: #fde3ff;
-  --pinkOriginal: #bf1ed4;
-  --violetDark: #8520d4;
-  --violetLight: #f3e3ff;
-  --violentLightAlt: var(--pinkLight);
 
   --inheritedColor: currentcolor;
 

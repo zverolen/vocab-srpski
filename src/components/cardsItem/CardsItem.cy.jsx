@@ -9,13 +9,15 @@ const example = {
 }
 
 const color_reference = {
-  primary: 'rgba(0, 0, 0, 0.87)',
-  secondary: 'rgb(255, 255, 255)',
-  humble: 'rgba(0, 0, 0, 0.4)',
-  correct: 'rgb(62, 101, 75)',
-  wrong: 'rgb(164, 65, 65)',
-  correctHumble: 'rgb(228, 246, 234)',
-  wrongHumble: 'rgb(246, 228, 228)'
+  black: 'rgb(33, 33, 33)',
+  white: 'rgb(250, 250, 250)',
+  greyDark: 'rgb(51, 51, 51)',
+  greyMedium: 'rgb(133, 133, 133)',
+  greyLight: 'rgb(235, 235, 235)',
+  greenDarkTheme: 'rgb(27, 196, 152)',
+  greenLightTheme: 'rgb(9, 130, 104)',
+  redDarkTheme: 'rgb(245, 95, 174)',
+  redLightTheme: 'rgb(212, 40, 130)'
 }
 
 describe('<CardsItem />', () => {

@@ -2,14 +2,14 @@ import ButtonDefault from "./ButtonDefault"
 
 const color_reference = {
   black: 'rgb(33, 33, 33)',
-  white: 'rgb(255, 255, 255)',
+  white: 'rgb(250, 250, 250)',
   greyDark: 'rgb(51, 51, 51)',
   greyMedium: 'rgb(133, 133, 133)',
   greyLight: 'rgb(235, 235, 235)',
-  greenDark: 'rgb(51, 84, 79)',
-  greenLight: 'rgb(242, 252, 251)',
-  redDark: 'rgb(128, 49, 63)',
-  redLight: 'rgb(252, 245, 246)'
+  greenDarkTheme: 'rgb(27, 196, 152)',
+  greenLightTheme: 'rgb(9, 130, 104)',
+  redDarkTheme: 'rgb(245, 95, 174)',
+  redLightTheme: 'rgb(212, 40, 130)'
 }
 
 describe('<ButtonDefault />', () => {
@@ -35,29 +35,29 @@ describe('<ButtonDefault />', () => {
   it('Correct button renders correctly (default and focus)', () => {
     cy.mount(<ButtonDefault test="button-answer" checkStatus="correct" handleClick={()=>{}}>Верно</ButtonDefault>)
     cy.get('button')
-      .should('have.css', 'color', color_reference.greenLight)
-      .and('have.css', 'border-color', color_reference.greenLight)
-      .and('have.css', 'background-color', color_reference.greenDark)
+      .should('have.css', 'color', color_reference.greenDarkTheme)
+      .and('have.css', 'border-color', color_reference.greenDarkTheme)
+      .and('have.css', 'background-color', color_reference.black)
 
     cy.get('button').focus()
     cy.get('button')
-      .should('have.css', 'box-shadow', `${color_reference.greenLight} 0px 0px 0px 8px`)
-      .and('have.css', 'background-color', color_reference.greenLight)
-      .and('have.css', 'color', color_reference.greenDark)
+      .should('have.css', 'box-shadow', `${color_reference.greenDarkTheme} 0px 0px 0px 8px`)
+      .and('have.css', 'background-color', color_reference.greenDarkTheme)
+      .and('have.css', 'color', color_reference.black)
   })
 
   it('Wrong button renders correctly (default and focus)', () => {
     cy.mount(<ButtonDefault test="button-answer" checkStatus="wrong" handleClick={()=>{}}>Неверно</ButtonDefault>)
     cy.get('button')
-      .should('have.css', 'color', color_reference.redLight)
-      .and('have.css', 'border-color', color_reference.redLight)
-      .and('have.css', 'background-color', color_reference.redDark)
+      .should('have.css', 'color', color_reference.redDarkTheme)
+      .and('have.css', 'border-color', color_reference.redDarkTheme)
+      .and('have.css', 'background-color', color_reference.black)
 
     cy.get('button').focus()
     cy.get('button')
-      .should('have.css', 'box-shadow', `${color_reference.redLight} 0px 0px 0px 8px`)
-      .and('have.css', 'background-color', color_reference.redLight)
-      .and('have.css', 'color', color_reference.redDark)
+      .should('have.css', 'box-shadow', `${color_reference.redDarkTheme} 0px 0px 0px 8px`)
+      .and('have.css', 'background-color', color_reference.redDarkTheme)
+      .and('have.css', 'color', color_reference.black)
   })
 
   it('Default disabled button is rendered correctly', () => {
