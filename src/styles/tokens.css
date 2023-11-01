@@ -5,11 +5,11 @@
 
   /* Colors */
   --black: #212121;
-  --white: #FFFFFF;
-  --redDark: #80313F;
-  --redLight: #FCF5F6;
-  --greenDark: #33544F;
-  --greenLight: #F2FCFB;
+  --white: #f2f2f2;
+  --redDarkTheme: #f55fae;
+  --redLightTheme: #d42882;
+  --greenDarkTheme: #1bc498;
+  --greenLightTheme: #098268;
   --greyLight: #EBEBEB;
   --greyMedium: #858585;
   --greyDark: #333333;
@@ -138,10 +138,10 @@
   --colorDisabledDark: var(--greyDark);
   --colorDisabledMedium: var(--greyMedium);
 
-  --colorSuccess: var(--greenDark);
-  --colorSuccessInverted: var(--greenLight);
-  --colorError: var(--redDark);
-  --colorErrorInverted: var(--redLight);
+  --colorSuccessDarkTheme: var(--greenDarkTheme);
+  --colorSuccessLightTheme: var(--greenLightTheme);
+  --colorErrorDarkTheme: var(--redDarkTheme);
+  --colorErrorLightTheme: var(--redLightTheme);
 
   --clipPathTriangle: polygon(50% 0, 100% 100%, 0 100%);
 }

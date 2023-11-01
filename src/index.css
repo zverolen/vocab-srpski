@@ -26,10 +26,10 @@
       --disabled-background-color: var(--colorDisabledLight);
       --disabled-text-color: var(--colorDisabledMedium);
 
-      --correct-text-color: var(--colorSuccess);
-      --correct-background-color: var(--colorSuccessInverted);
-      --wrong-text-color: var(--colorError);
-      --wrong-background-color: var(--colorErrorInverted);
+      --correct-text-color: var(--colorSuccessLightTheme);
+      --correct-background-color: var(--background-color);
+      --wrong-text-color: var(--colorErrorLightTheme);
+      --wrong-background-color: var(--background-color);
     }
   }
 }
@@ -42,10 +42,10 @@
       --disabled-background-color: var(--colorDisabledDark);
       --disabled-text-color: var(--colorDisabledMedium);
 
-      --correct-text-color: var(--colorSuccessInverted);
-      --correct-background-color: var(--colorSuccess);
-      --wrong-text-color: var(--colorErrorInverted);
-      --wrong-background-color: var(--colorError);
+      --correct-text-color: var(--colorSuccessDarkTheme);
+      --correct-background-color: var(--background-color);
+      --wrong-text-color: var(--colorErrorDarkTheme);
+      --wrong-background-color: var(--background-color);
     }
   }
 }
@@ -377,6 +377,14 @@
     border-color: var(--wrong-text-color);
   }
 
+  #tabpanel-1 {
+    border-color: var(--correct-text-color);
+  }
+
+  #tabpanel-2 {
+    border-color: var(--wrong-text-color);
+  }
+
   .card.correct:not(.card button) {
     border-color: var(--correct-text-color);
   }
@@ -408,28 +416,6 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
   }
 
-  button:hover {
-    cursor: pointer;
-
-    /* Animations */
-    transition: background-color 0.3s ease-out;
-  }
-
-  button:hover:not(.withIcon) {
-    background-color: var(--text-color);
-    color: var(--background-color);
-  }
-
-  button.withIcon:hover {
-    outline: var(--outlineOnFocus) solid var(--background-color);
-    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
-  }
-
-  a:hover, a:focus {
-    outline: var(--outlineOnFocus) solid var(--background-color);
-    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
-  }
-
    button[role="tab"]:is(:focus, :focus-visible) {
     box-shadow: unset;
     outline: unset;
@@ -456,6 +442,53 @@
     box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--wrong-text-color);
   }
 
+  [role="tabpanel"]:focus-visible {
+    background-color: var(--background-color);
+  }
+
+  .card:focus-within {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
+
+  .card.correct:focus-within {
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--correct-text-color);
+  }
+
+  .card.wrong:focus-within {
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
+  }
+
+  a:hover, a:focus {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
+
+  button:hover {
+    cursor: pointer;
+
+    /* Animations */
+    transition: background-color 0.3s ease-out;
+  }
+
+  button:hover:not(.withIcon) {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  }
+
+  button.withIcon:hover {
+    outline: var(--outlineOnFocus) solid var(--background-color);
+    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  }
+
+  button.correct:not([role="tab"]):hover {
+    background-color: var(--correct-text-color);
+  }
+
+  button.wrong:not([role="tab"]):hover {
+    background-color: var(--wrong-text-color);
+  }
+
   button[role="tab"]:hover {
     background-color: var(--background-color);
   }
@@ -477,31 +510,6 @@
     background-color: var(--wrong-text-color);
     color: var(--wrong-background-color);
     box-shadow: 0 0 0 calc(4 / 16 * 1rem) var(--wrong-text-color);
-  }
-
-  [role="tabpanel"]:focus-visible {
-    background-color: var(--background-color);
-  }
-
-  #tabpanel-1 {
-    border-color: var(--correct-text-color);
-  }
-
-  #tabpanel-2 {
-    border-color: var(--wrong-text-color);
-  }
-
-  .card:focus-within {
-    outline: var(--outlineOnFocus) solid var(--background-color);
-    box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
-  }
-
-  .card.correct:focus-within {
-    box-shadow: 0 0 0 var(--shadowOnFocus) var(--correct-text-color);
-  }
-
-  .card.wrong:focus-within {
-    box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
   }
   
   :disabled {
