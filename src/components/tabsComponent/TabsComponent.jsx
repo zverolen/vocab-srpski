@@ -1,4 +1,4 @@
-// Implementation details:
+// Implementation details: 
 // Using a keyboard and a mouse in the tabs component moves the focus to corresponding tabs.
 // The state changes depending on which element receives focus and not which element was activated
 // This was done because there are two types of events that activate tabs, but it's intended
@@ -15,7 +15,17 @@ import TabPanel from '../tabPanel/TabPanel'
 import CardsItem from '../cardsItem/CardsItem'
 import { copy } from '../../data/copy'
 
-export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong, withoutAnswerPhrases, correctPhrases, wrongPhrases, onCheckStatusChange }) {
+export default function TabsComponent({ 
+    tabs, 
+    scoreAll, 
+    scoreCorrect, 
+    scoreWrong, 
+    withoutAnswerPhrases, 
+    correctPhrases, 
+    wrongPhrases, 
+    onCheckStatusChange,
+    updatedTab
+  }) {
   const [ selectedTab, setSelectedTab ] = useState('0')
   const tab1 = useRef(null)
   const tab2 = useRef(null)
@@ -71,6 +81,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
           id="0"
+          className={updatedTab === 'unset' ? 'unset updated' : 'unset'}
           isSelected={ selectedTab === '0'} 
           onNavigation={ handleTabSelection } 
           onSelect={ handleSelect }
@@ -81,7 +92,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
         </Tab>
         <Tab 
           id="1"
-          className="correct"
+          className={updatedTab === 'correct' ? 'correct updated' : 'correct'}
           isSelected={ selectedTab === '1'} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
@@ -92,7 +103,7 @@ export default function TabsComponent({ tabs, scoreAll, scoreCorrect, scoreWrong
         </Tab>
         <Tab 
           id="2"
-          className="wrong"
+          className={updatedTab === 'wrong' ? 'wrong updated' : 'wrong'}
           isSelected={ selectedTab === '2'} 
           onNavigation={handleTabSelection} 
           onSelect={ handleSelect }
@@ -123,5 +134,6 @@ TabsComponent.propTypes = {
   withoutAnswerPhrases: PropTypes.array,
   correctPhrases: PropTypes.array,
   wrongPhrases: PropTypes.array,
-  onCheckStatusChange: PropTypes.func
+  onCheckStatusChange: PropTypes.func,
+  updatedTab: PropTypes.string.isRequired
 }

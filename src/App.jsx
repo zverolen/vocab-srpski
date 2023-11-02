@@ -13,6 +13,7 @@ function App() {
   const [allPhrases, setAllPhrases] = useState(phrases.map(phrase => {
     return {...phrase, selfCheckStatus: 'unset'} 
   }))
+  const [updatedTab, setUpdatedTab] = useState('unset');
 
   function handleCheckStatusChange(phraseData) {
     const result = allPhrases.map(phrase => {
@@ -26,6 +27,8 @@ function App() {
       }
     })
     setAllPhrases(result)
+    setUpdatedTab(phraseData.selfCheckStatus)
+    console.log(updatedTab)
   }
 
   return (
@@ -34,7 +37,7 @@ function App() {
         <h1>{copy.title.heading}</h1>
         <p>{copy.title.subheading}</p>
       </header>
-      <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} />
+      <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} updatedTab={updatedTab}/>
       <Footer />
     </>
   )

@@ -7,7 +7,7 @@ import TabsComponent from '../tabsComponent/TabsComponent';
 
 const tabsReference = [copy.tabs.withoutAnswer, copy.tabs.correct, copy.tabs.wrong];
 
-export default function CardsContainer({ phrases, onCheckStatusChange }) {
+export default function CardsContainer({ phrases, onCheckStatusChange, updatedTab }) {
   const unsetPhrases = useMemo(
     () => phrases.filter(phrase => phrase.selfCheckStatus === 'unset'),
     [phrases]
@@ -35,6 +35,7 @@ export default function CardsContainer({ phrases, onCheckStatusChange }) {
         correctPhrases={correctPhrases}
         wrongPhrases={wrongPhrases}
         onCheckStatusChange={onCheckStatusChange}
+        updatedTab={updatedTab}
       /> 
     </main>
   )
@@ -42,5 +43,6 @@ export default function CardsContainer({ phrases, onCheckStatusChange }) {
 
 CardsContainer.propTypes = {
   phrases: PropTypes.array.isRequired,
-  onCheckStatusChange: PropTypes.func.isRequired
+  onCheckStatusChange: PropTypes.func.isRequired,
+  updatedTab: PropTypes.string.isRequired
 }

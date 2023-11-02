@@ -87,11 +87,11 @@
     }
 
     h1 {
-      margin-block-end: var(--heading-margin-bottom);
+      margin-block-end: var(--title-margin-bottom);
 
-      font-size: var(--heading-font-size);
-      text-align: var(--heading-text-alignment);
-      line-height: var(--heading-line-height);
+      font-size: var(--title-font-size);
+      text-align: var(--title-text-alignment);
+      line-height: var(--title-line-height);
       text-transform: var(--heading-text-transform);
       letter-spacing: var(--heading-letter-spacing);
     }
@@ -101,32 +101,31 @@
     }
 
     p:where(:not(.card p)) {
-      font-size: clamp(18px, 4vw, 20px);
       line-height: var(--text-line-height);
-      font-weight: 400;
+      font-weight: var(--text-font-weight);
     }
 
     h1 + p {
+      width: var(--title-subheading-width);
+      margin-inline: var(--title-subheading-margin);
+    
       text-align: var(--subheading-text-alignment);
       line-height: var(--subheading-line-height);
-      font-size: clamp(18px, 5vw, 24px);
-      margin-inline: auto;
-      text-wrap: pretty;
-      width: 71%;
+      font-size: var(--title-subheading-text-size);
+      
+      text-wrap: var(--title-subheading-text-wrap);  
     }
 
     h2:is(.disclosure h2) {
-      margin-bottom: 8px;
+      margin-inline-end: var(--disclosure-button-margin-bottom);
     }
 
     h2:is(footer h2) {
+      margin-block: var(--footer-subheading-margin);
+
       font-size: var(--subheading-font-size);
       text-transform: var(--heading-text-transform);
       letter-spacing: var(--heading-letter-spacing);
-      margin-bottom: var(--footer-heading-margin-bottom);
-      margin-top: var(--footer-heading-margin-top);
-
-      font-size: clamp(18px, 4vw, 22px);
     }
 
     button {
@@ -142,13 +141,11 @@
       color: var(--text-color);
 
       /* Animations */
-      /* transition: all 0.3s ease-out; */
-      /* outline-width: 0px; */
-      transition: box-shadow 0s ease-out, outline 0s, background-color 0.3s ease-out;
+      transition: var(--button-transition);
     }
 
     button.withIcon {
-      padding-inline: 0;
+      padding-inline: var(--button-with-icon-inline-padding);
       border: var(--button-withIcon-border);
 
       font-family: var(--button-withIcon-font-family);
@@ -157,7 +154,7 @@
     }
 
     button.withIcon span {
-      vertical-align: super;
+      vertical-align: var(--button-with-icon-vertical-align);
     }
 
     button.withIcon[aria-expanded]:is(.disclosure button) span::after {
@@ -169,17 +166,17 @@
       clip-path: var(--disclosure-control-icon-shape);
       transform: rotate(var(--disclosure-control-icon-flip));
 
-      vertical-align: middle;
+      vertical-align: var(--button-with-icon-icon-vertical-align);
 
       /* COLOR */
       background-color: var(--text-color);
 
       /* Animations */
-      transition: all 0.3s ease-out;
+      transition: var(--disclosure-button-icon-transition);
     }
 
     button.withIcon[aria-expanded="true"]:is(.disclosure button) span::after {
-      transform: rotate(var(--disclosure-control-icon-unflip));
+      transform: var(--disclosure-button-icon-transform);
     }
 
     .instruction {
@@ -187,26 +184,9 @@
       margin-block-end: 24px;
     }
 
-    .instruction li {
-      font-weight: var(--instruction-font-weight);
-    }
-
     .instruction li p:not(li:last-child p) {
       margin-bottom: 0.3em;
     }
-
-    /* .disclosure-content{ */
-      /* Animations */
-      /* transition: height 3s;
-    } */
-
-    /* .disclosure-content.visible {
-      opacity: 1;
-    }
-
-    .disclosure-content.hidden {
-      opacity: 0;
-    } */
 
     [role="tablist"] {
       container: tablist / inline-size;
@@ -253,7 +233,7 @@
       padding: 2px;
 
       /* Animations */
-      transition: background-color 0.3s ease-out;
+      transition: background-color 0.1s ease-out;
     }
 
     button[role="tab"] > span > span:first-child {
@@ -298,19 +278,15 @@
 
     .cards-container > p {
       grid-column: var(--tabpanel-empty-grid-column);
-
-      font-weight: var(--tabpanel-empty-fontweight);
     }
 
     .card  {
-      /* width: min(100%, 190px); */
-      /* width: clamp(190px, 20%, 320px); */
       container: card/inline-size;
 
       display: flex;
       gap: var(--card-gap);
 
-      /* Make cards same size */
+      /* Make cards same height */
       height: 100%;
       padding: var(--card-padding);
       padding: clamp(0.5rem, 6.5%, 1.5rem);
@@ -345,8 +321,6 @@
 
     footer {
       margin-bottom: var(--footer-margin-bottom);
-
-      font-weight: var(--footer-font-weight);
 
       border-top: var(--borderWidth) solid var(--text-color);
     }
@@ -388,6 +362,22 @@
   .card.correct:not(.card button) {
     border-color: var(--correct-text-color);
   }
+
+  .updated {
+    animation-duration: 1s;
+    animation-name: updated;
+    animation-iteration-count: 1;
+  }
+
+  @keyframes updated {
+    from {
+      background-color: var(--text-color);
+    }
+
+    to {
+      background-color: var(--background-color);
+    }
+  }
 }
 
 @layer states {
@@ -396,7 +386,7 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
     
     /* Animations */
-    transition: box-shadow 0.3s ease-out, outline 0.3s ease-out;
+    transition: box-shadow 0.2s ease-out, outline 0.2s ease-out;
   }
 
   button:focus-visible:not(.withIcon):not([role="tab"]) {
@@ -468,7 +458,7 @@
     cursor: pointer;
 
     /* Animations */
-    transition: background-color 0.3s ease-out;
+    transition: background-color 0.1s ease-out;
   }
 
   button:hover:not(.withIcon) {

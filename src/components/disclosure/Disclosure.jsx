@@ -18,7 +18,7 @@ export default function Disclosure({ children, captionWhenCollapsed, captionWhen
         {isExpanded ? captionWhenExpanded || captionWhenCollapsed : captionWhenCollapsed}
       </ButtonWithIcon2>
      </h2>
-      {isExpanded && children}
+        {isExpanded && children}
     </div>
   )
 }

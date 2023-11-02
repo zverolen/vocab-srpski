@@ -11,21 +11,27 @@
   --landmark-padding-inline: var(--gap-I);
 
   --border-width: var(--border);
+
+  --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
   --button-padding-inline: var(--gap-I);
   --button-padding-block: var(--gap-I);
   --button-padding-horiz: 0;
   --button-padding-vert: 0;
-  --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
+  
+  --button-with-icon-inline-padding: 0;
 
   --header-margin-block: var(--gap-III) min(var(--headerMarginMin), var(--gap-II));
 
   --main-margin-bottom: var(--gap-IV);
 
-  --heading-margin-bottom: var(--gap-I);
+  --title-margin-bottom: var(--gap-I);
+  --title-subheading-margin: var(--marginCentering);
+  --title-subheading-width: var(--titleSubheadingWidth);
 
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
   --content-margins: var(--marginCentering);
 
+  --disclosure-button-margin-bottom: var(--gap-I);
   --disclosure-control-icon-gap: var(--gap-I);
 
   --instruction-margin-block: var(--gap-I);
@@ -46,10 +52,8 @@
   --card-check-gap: var(--gap-II);
   --card-phrase-gap: var(--gap-II);
 
+  --footer-subheading-margin: var(--gap-I) var(--gap-I);
   --footer-margin-bottom: var(--gap-III);
-  --footer-heading-margin-top: var(--gap-I);
-  --footer-heading-margin-bottom: var(--gap-I);
-  --footer-heading-margin-top: var(--gap-I);
 
   /* Font */
   --text-font-family: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
@@ -59,26 +63,31 @@
   --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
   --control-font-size: var(--controlMin);
   --button-withIcon-font-size: var(--controlMin);
-  --heading-font-size: clamp(var(--headingMin), var(--headingIdeal), var(--headingMax));
-  --subheading-font-size: var(--text-font-size);
+  --title-font-size: clamp(var(--titleMin), var(--titleIdeal), var(--titleMax));
+  --title-subheading-text-size: clamp(var(--titleSubheadingMin), var(--titleSubheadingIdeal), var(--titleSubheadingMax));
+  --subheading-font-size: clamp(var(--subheadingMin), var(--subheadingIdeal), var(--subheadingMax));
   --card-text-font-size: clamp(var(--textCardMin), var(--textCardIdeal), var(--textCardMax));
 
   --heading-text-transform: uppercase;
 
   --text-line-height: var(--lineHeightBig);
   --button-withIcon-text-decoration: var(--underlinedNoBorder);
-  --heading-line-height: var(--lineHeightSmallLargeFont);
+  --title-line-height: var(--lineHeightSmallLargeFont);
   --subheading-line-height: var(--lineHeightSmall);
 
   --body-font-weight: var(--fontWeightMax);
-  --instruction-font-weight: var(--fontWeightMin);
-  --footer-font-weight: var(--fontWeightMin);
   --tabpanel-empty-fontweight: var(--fontWeightMin);
+  --text-font-weight: var(--fontWeightMin);
 
-  --heading-text-alignment: center;
+  --title-text-alignment: center;
   --subheading-text-alignment: center;
 
   --heading-letter-spacing: var(--letterSpacingCaps);
+  
+  --title-subheading-text-wrap: pretty;
+
+  --button-with-icon-vertical-align: super;
+  --button-with-icon-icon-vertical-align: middle;
 
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);
@@ -115,4 +124,10 @@
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
   --grid-fix-template: 2 / var(--lastColumn);
 
+  /* Transform */
+  --disclosure-button-icon-transform: rotate(var(--disclosure-control-icon-unflip));
+
+  /* Animations */
+  --button-transition: box-shadow 0s ease-out, outline 0s, background-color 0.1s ease-out;
+  --disclosure-button-icon-transition: all 0.2s ease-out;
 }

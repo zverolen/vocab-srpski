@@ -33,6 +33,8 @@
   
   --fullWidth: 100%;
 
+  --titleSubheadingWidth: 71%;
+
   /* --cardWidthMin: calc(190 / 16 * 1rem); */
   --cardWidthMin: calc(220 / 16 * 1rem);
 
@@ -42,8 +44,8 @@
   --marginCorrection-I: calc(-1 / 16 * 1rem);
 
   --textMin: calc(18 / 16 * 1rem);
-  --textMax: calc(22 / 16 * 1rem);
-  --textIdeal: calc(22 / 1512 * 100 * 1vw);
+  --textMax: calc(20 / 16 * 1rem);
+  --textIdeal: 4vw;
 
   --textCardMin: calc(18 / 16 * 1rem);
   --textCardMax: calc(22 / 16 * 1rem);
@@ -53,9 +55,17 @@
   --controlMax: calc(18 / 16 * 1rem);
   --controlIdeal: calc(18 / 1512 * 100 * 1vw);
 
-  --headingMin: calc(24 / 16 * 1rem);
-  --headingMax: calc(44 / 16 * 1rem);
-  --headingIdeal: 7vw;
+  --titleMin: calc(24 / 16 * 1rem);
+  --titleMax: calc(44 / 16 * 1rem);
+  --titleIdeal: 7vw;
+
+  --titleSubheadingMin: var(--textMin);
+  --titleSubheadingMax: calc(24 / 16 * 1rem);
+  --titleSubheadingIdeal: 5vw;
+
+  --subheadingMin: var(--textMin);
+  --subheadingMax: calc(22 / 16 * 1rem);
+  --subheadingIdeal: var(--textIdeal);
 
   --emojiMax: calc(24 / 16 * 1rem);
   --widthTwoLetters: 2ch;
