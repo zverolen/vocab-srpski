@@ -388,5 +388,101 @@ export const phrases = [
     serbian: 'Uvek moram da ustajem rano.',
     russian: 'Мне всегда нужно рано вставать.',
     section: 'R2'
-  }
+  },
+  {
+    id: '66',
+    serbian: 'Mi treba da idemo na kafu.',
+    russian: 'Мне нужно пойти пить кофе. (Меня ждут)',
+    section: 'R2'
+  },
+  {
+    id: '67',
+    serbian: 'Slušam te (Ja tebe slušam).',
+    russian: 'Я тебя слушаю',
+    section: 'R2'
+  },
+  {
+    id: '68',
+    serbian: 'Vidim ga (Ja njega vidim).',
+    russian: 'Я его вижу.',
+    section: 'R2'
+  },
+  {
+    id: '69',
+    serbian: 'Da li ti hoćeš pivo?',
+    russian: 'Ты хочушь сок?',
+    section: 'R2'
+  },
+  {
+    id: '70',
+    serbian: 'Hoću vodu.',
+    russian: 'Я хочу воду.',
+    section: 'R2'
+  },
+  {
+    id: '71',
+    serbian: 'Da li znaš novog profesora?',
+    russian: 'Ты знаешь нового учителя?',
+    section: 'R2'
+  },
+  {
+    id: '72',
+    serbian: 'Mi čekamo našeg druga.',
+    russian: 'Мы ждём нашего друга',
+    section: 'R2'
+  },
+  {
+    id: '73',
+    serbian: 'Da li treba da radiš uveče?',
+    russian: 'Тебе нужно вечером работать?',
+    section: 'R2'
+  },
+  {
+    id: '74',
+    serbian: 'Da li imaš vremena danas?',
+    russian: 'У тебя сегодня есть время?',
+    section: 'R2'
+  },
+  {
+    id: '75',
+    serbian: 'Danas smo zauzet.',
+    russian: 'Мы сейчас заняты.',
+    section: 'R2'
+  },
+  {
+    id: '76',
+    serbian: 'Da li imate vremena sledeće nedelje?',
+    russian: 'У вас есть время на следующей неделе?',
+    section: 'R2'
+  },
+  {
+    id: '77',
+    serbian: 'Sutra sam slobodna.',
+    russian: 'Завтра я свободна.',
+    section: 'R2'
+  },
+  {
+    id: '78',
+    serbian: 'Vikendom spremamo stan i pravimo ručak.',
+    russian: 'В выходные мы прибираем в квартире и готовим обед.',
+    section: 'R2'
+  },
+  {
+    id: '79',
+    serbian: 'Uveče čitam knjigu.',
+    russian: 'Вечером я читаю книгу.',
+    section: 'R2'
+  },
+  {
+    id: '80',
+    serbian: 'Kada imam vremena obično gledam filmove.',
+    russian: 'Когда у меня есть время, я обычно смотрю фильмы.',
+    section: 'R2'
+  },
+  {
+    id: '81',
+    serbian: 'U mojoj ulici ima mnogo restorana.',
+    russian: 'На моей улице много ресторанов.',
+    section: 'R2'
+  },
 ];
