@@ -28,7 +28,6 @@ function App() {
     })
     setAllPhrases(result)
     setUpdatedTab(phraseData.selfCheckStatus)
-    console.log(updatedTab)
   }
 
   return (

@@ -351,6 +351,57 @@
     border-color: var(--wrong-text-color);
   }
 
+  button[role="tab"]::before {
+    /* content: "";
+    display: block;
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: var(--text-color); */
+    /* transition: transform .3s ease; */
+
+    /* transform: scaleX(0);
+    transform-origin: bottom right;
+
+    animation-duration: 1s;
+    animation-name: updated;
+    animation-iteration-count: 1; */
+
+  }
+
+  button.updated {
+    animation-duration: 1s;
+    animation-name: updated;
+    animation-iteration-count: 1;
+  }
+  
+  button[role="tab"].updated::before {
+    /* transform: scaleX(1);
+    transform-origin: bottom left; */
+
+    /* animation-duration: 1s;
+    animation-name: updated;
+    animation-iteration-count: 1; */
+  }
+
+
+  @keyframes updated {
+    0% {
+      color: black;
+      /* background-color: var(--text-color); */
+    }
+
+    50% {
+      color: red;
+      /* background-color: var(--background-color); */
+    }
+
+    100% {
+      color: black;
+      /* background-color: var(--text-color); */
+    }
+
+  } 
+
   #tabpanel-1 {
     border-color: var(--correct-text-color);
   }
@@ -363,21 +414,7 @@
     border-color: var(--correct-text-color);
   }
 
-  .updated {
-    animation-duration: 1s;
-    animation-name: updated;
-    animation-iteration-count: 1;
-  }
-
-  @keyframes updated {
-    from {
-      background-color: var(--text-color);
-    }
-
-    to {
-      background-color: var(--background-color);
-    }
-  }
+  
 }
 
 @layer states {
