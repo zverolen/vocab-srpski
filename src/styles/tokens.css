@@ -17,25 +17,24 @@
   --inheritedColor: currentcolor;
 
   /* Sizing */
-  --borderWidth: calc(1 / 16 * 1rem);
-  --borderWidthSecondary: calc(1 / 16 * 1rem);
+  --borderWidthPrimary: calc(1 / 16 * 1rem);
+  --borderWidthSecondary: calc(2 / 16 * 1rem);
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
 
-  /* --siteWidthMin: calc(280 / 16 * 1rem); */
+  --fullWidth: 100%;
+
   --siteWidthMin: calc(280 / 16 * 1rem);
   --siteWidthMax: calc(1352 / 16 * 1rem);
   --siteWidthIdeal: 94%;
-  /* --paddingButtonHoriz: 1.125em;
-  --paddingButtonVert: 0.875em; */
+
   --paddingButtonHoriz: 0;
   --paddingButtonVert: 0;
   
-  --fullWidth: 100%;
-
   --titleSubheadingWidth: 71%;
 
-  /* --cardWidthMin: calc(190 / 16 * 1rem); */
+  --instructionTextGap: 0.3em;
+
   --cardWidthMin: calc(220 / 16 * 1rem);
 
   --concealer-height: calc(2 / 16 * 1rem);
@@ -89,6 +88,10 @@
 
   --iconTriangleWidth: calc(14 / 16 * 1rem);
   --iconTriangleHeight: calc(12 / 16 * 1rem);
+
+  --tabBlockPadding: calc(6 / 16 * 1rem);
+  --tabBlockPaddingCurrent: calc(10 / 16 * 1rem);
+  --tabCaptionPadding: calc(2 / 16 * 1rem);
 
   --wordLengthMin: 5ch;
 

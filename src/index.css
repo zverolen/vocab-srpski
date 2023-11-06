@@ -137,7 +137,7 @@
 
       /* COLORS */
       background-color: var(--background-color);
-      border: var(--borderWidth) solid var(--text-color);
+      border: var(--borderWidthPrimary) solid var(--text-color);
       color: var(--text-color);
 
       /* Animations */
@@ -180,12 +180,11 @@
     }
 
     .instruction {
-      margin-block-start: var(--instruction-margin-block);
-      margin-block-end: 24px;
+      margin-block: var(--instruction-margin-block);
     }
 
     .instruction li p:not(li:last-child p) {
-      margin-bottom: 0.3em;
+      margin-block-end: var(--instruction-item-margin);
     }
 
     [role="tablist"] {
@@ -194,7 +193,7 @@
 
     button[role="tab"] {
       position: var(--tab-position);
-      padding: 6px 8px;
+      padding: var(--tab-padding);
 
       border-bottom: var(--tab-bottom-border);
     }
@@ -204,12 +203,12 @@
     }
 
     button[role="tab"]:not([aria-selected="true"]) {
-      border-width: var(--borderWidthSecondary);
+      border-width: var(--tab-border);
     }
 
     button[role="tab"][aria-selected="true"] {
-      padding-top: 10px;
-      border-width: 2px;
+      padding-block-start: var(--tab-padding-current);
+      border-width: var(--current-tab-border-width);
     }
 
     button[role="tab"][aria-selected="true"]::after {
@@ -228,12 +227,13 @@
     }
 
     button[role="tab"] > span {
-      display: flex;
-      align-items: center;
-      padding: 2px;
+      display: var(--tab-caption-layout);
+      align-items: var(--tab-caption-centering);
+      
+      padding: var(--tab-caption-padding);
 
       /* Animations */
-      transition: background-color 0.1s ease-out;
+      transition: var(--tab-caption-transition);
     }
 
     button[role="tab"] > span > span:first-child {
@@ -242,21 +242,16 @@
       line-height: var(--tab-icon-line-height);
     }
 
-    button[role="tab"] > span > span:last-child {
-      position: relative;
-      z-index: 1;
-
-      width: 2ch;
-    }
-
     @container tablist (width < calc(430 / 16 * 1rem)) {
       button[role="tab"] > span >span:first-child {
-        display: none;
+        display: var(--hide-emoji);
       }
     }
 
     @container tablist (width < calc(330 / 16 * 1rem)) {
       button[role="tab"] > span {
+        flex-direction: var(--tab-caption-direction-narrow-screen);
+        
         flex-direction: column;
         align-items: flex-start;
       }
@@ -265,7 +260,7 @@
     [role="tabpanel"] {
       padding: var(--tabpanel-padding);
       padding: clamp(0.5rem, 1.5vmax, 1.5rem);
-      border: var(--borderWidth) solid var(--text-color);
+      border: var(--borderWidthPrimary) solid var(--text-color);
       border-width: 2px;
       flex: 2;
     }
@@ -300,7 +295,7 @@
       flex-direction: column;
       /* justify-content: space-between; */
 
-      border: var(--borderWidth) solid var(--text-color);
+      border: var(--borderWidthPrimary) solid var(--text-color);
     }
 
     .card > div:first-child {
@@ -326,7 +321,7 @@
     footer {
       margin-bottom: var(--footer-margin-bottom);
 
-      border-top: var(--borderWidth) solid var(--text-color);
+      border-top: var(--borderWidthPrimary) solid var(--text-color);
     }
 }
 
