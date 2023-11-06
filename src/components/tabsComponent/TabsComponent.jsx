@@ -81,6 +81,7 @@ export default function TabsComponent({
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
           id="0"
+          isUpdated={updatedTab === 'unset'}
           className={updatedTab === 'unset' ? 'unset updated' : 'unset'}
           isSelected={ selectedTab === '0'} 
           onNavigation={ handleTabSelection } 
@@ -92,6 +93,7 @@ export default function TabsComponent({
         </Tab>
         <Tab 
           id="1"
+          isUpdated={updatedTab === 'correct'}
           className={updatedTab === 'correct' ? 'correct updated' : 'correct'}
           isSelected={ selectedTab === '1'} 
           onNavigation={handleTabSelection} 
@@ -103,6 +105,7 @@ export default function TabsComponent({
         </Tab>
         <Tab 
           id="2"
+          isUpdated={updatedTab === 'wrong'}
           className={updatedTab === 'wrong' ? 'wrong updated' : 'wrong'}
           isSelected={ selectedTab === '2'} 
           onNavigation={handleTabSelection} 

@@ -1,24 +1,26 @@
 // Implementation details:
 // event.preventDefault() on click is used to keep the focus on tab when clicked
 // IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work 
-import { useEffect } from 'react'
+import { useEffect, forwardRef, useRef } from 'react'
 
 import PropTypes from 'prop-types'
 import { copy } from '../../data/copy'
-import { forwardRef } from 'react'
 
-const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, score, className }, ref) => {
+const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, score, className, isUpdated }, ref) => {
+
+  let oldScore = useRef(0)
 
   useEffect(() => {
-    if(className.includes('updated')) {
+    if(score > oldScore.current) {
+      ref.current.classList.add('updated')
       setTimeout(() => {
         ref.current.classList.remove('updated')
-        // console.log(className)
       }, 1000)
     }
-  }, [className])
+    oldScore.current = score
+  }, [score])
 
-  console.log(className)
+  // console.log(isUpdated)
   
   let emoji 
 
@@ -58,6 +60,7 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
 
 Tab.propTypes = {
   className: PropTypes.string,
+  isUpdated: PropTypes.bool,
   id: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,

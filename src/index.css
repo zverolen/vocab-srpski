@@ -375,15 +375,11 @@
   @keyframes updated {
     0% {
       color: var(--text-color);
-    }
-
-    
+    }  
 
     50% {
-      color: var(--accent-color, var(--text-color));
+      color: var(--disabled-background-color);
     }
-
-    
 
     100% {
       color: var(--text-color);
