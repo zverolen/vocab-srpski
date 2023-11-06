@@ -12,11 +12,14 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
   useEffect(() => {
     if(className.includes('updated')) {
       setTimeout(() => {
-        console.log("Delayed for 1 second.");
+        ref.current.classList.remove('updated')
+        // console.log(className)
       }, 1000)
     }
   }, [className])
 
+  console.log(className)
+  
   let emoji 
 
   if (id === '0') {
