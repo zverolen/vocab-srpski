@@ -1,19 +1,20 @@
 import PropTypes from 'prop-types'; 
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import { copy } from '../../data/copy';
 
 export default function CardsItem({ data, onCheckStatusChange }) {
   const [ isRussian, setIsRussian ] = useState(true)
+  let cardRef = useRef(null)
 
   let selfCheckHint
   if (data.selfCheckStatus === 'unset') {
     selfCheckHint = 'Без ответа'
   } else if (data.selfCheckStatus === 'correct') {
-    selfCheckHint = 'Отмечено как верно'
+    selfCheckHint = 'Отмечено как знаю'
   } else {
-    selfCheckHint = 'Отмечено как неверно'
+    selfCheckHint = 'Отмечено как учу'
   }
   
   function handleChangeView() {
@@ -22,16 +23,19 @@ export default function CardsItem({ data, onCheckStatusChange }) {
 
   function handleCardStatusChange(result) {
     onCheckStatusChange({id: data.id, selfCheckStatus: result})
+    cardRef.current.classList.add(result, 'updated')
     if (result === 'unset') {
       setIsRussian(true);
+      cardRef.current.classList.remove('correct', 'wrong')
     }
   }
 
   return (
     <div 
-      className={`${data.selfCheckStatus != 'unset' ? data.selfCheckStatus : ''} card`} 
+      className={`${data.selfCheckStatus != 'unset' ? data.selfCheckStatus : ''} card`}
       key={data.id}
       data-testid="container-card"
+      ref={cardRef}
     >
       
       <div>

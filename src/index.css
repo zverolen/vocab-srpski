@@ -268,9 +268,7 @@
     .cards-container {
       display: grid;
       grid-template-columns: var(--cards-container-template);
-      /* gap: clamp(1rem, 2vmax, 1.5rem); */
       gap: clamp(0.5rem, 1.5vmax, 1.5rem);
-      /* gap: var(--cards-container-gap); */
       grid-auto-rows: auto;
       align-items: center;
     }
@@ -281,6 +279,8 @@
 
     .card  {
       container: card/inline-size;
+
+      position: relative;
 
       display: flex;
       gap: var(--card-gap);
@@ -293,17 +293,12 @@
 
       
       flex-direction: column;
-      /* justify-content: space-between; */
 
       border: var(--borderWidthPrimary) solid var(--text-color);
     }
 
     .card > div:first-child {
       
-      /* align-items: flex-start; */
-      
-      /* gap: clamp(8px, 4cqw, 16px); */
-      /* gap: 0; */
       display: flex;
       gap: var(--card-phrase-gap);
       /* Make cards same size */
@@ -317,6 +312,80 @@
       display: flex;
       gap: var(--card-check-gap);
     }
+
+    .card.updated {
+      border: none;
+    }
+
+    .card.updated div {
+      opacity: 0;
+    }
+
+    .card.updated::before, .card.updated::after {
+      position: absolute;
+
+      pointer-events: none;
+
+      opacity: 0;
+      animation-duration: 1.5s;
+      animation-name: updatedCard;
+      animation-iteration-count: 1; 
+    }
+
+    .card.updated::before {
+      content: 'Без ответа';
+
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+
+      width: 100cqw;
+
+      font-size: var(--title-font-size);
+      font-family: var(--heading-font-family);
+      text-align: center;   
+    }
+
+    .card.updated.correct::before {
+      content: 'Знаю!';
+      color: var(--correct-text-color);
+    }
+
+    .card.updated.wrong::before {
+      content: 'Учу!';
+      color: var(--wrong-text-color);
+    }
+
+    .card.updated::after {
+      content: '';
+      
+      inset: 0;
+
+      border: 6px solid var(--text-color); 
+      background-color: var(--background-color);
+    }
+
+    .card.updated.correct::after {
+      border-color: var(--correct-text-color);
+    }
+
+    .card.updated.wrong::after {
+      border-color: var(--wrong-text-color);
+    }
+  
+    @keyframes updatedCard {
+      0% {
+        opacity: 0;
+      }  
+  
+      50% {
+        opacity: 1;
+      }
+  
+      100% {
+        opacity: 0;
+      }
+    } 
 
     footer {
       margin-bottom: var(--footer-margin-bottom);
@@ -361,13 +430,11 @@
 
   button.updated {
     animation-duration: 1s;
-    animation-name: updated;
+    animation-name: updatedTab;
     animation-iteration-count: 1;
   }
-  
 
-
-  @keyframes updated {
+  @keyframes updatedTab {
     0% {
       color: var(--text-color);
     }  
@@ -392,8 +459,6 @@
   .card.correct:not(.card button) {
     border-color: var(--correct-text-color);
   }
-
-  
 }
 
 @layer states {
@@ -452,16 +517,16 @@
     background-color: var(--background-color);
   }
 
-  .card:focus-within {
+  .card:not(.updated):focus-within {
     outline: var(--outlineOnFocus) solid var(--background-color);
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
   }
 
-  .card.correct:focus-within {
+  .card.correct:not(.updated):focus-within {
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--correct-text-color);
   }
 
-  .card.wrong:focus-within {
+  .card.wrong:not(.updated):focus-within {
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
   }
 
@@ -523,5 +588,7 @@
 
     color: var(--disabled-text-color);
     border-color: var(--disabled-text-color);
+
+    cursor: not-allowed;
   }
 }

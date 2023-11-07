@@ -26,8 +26,12 @@ function App() {
         }
       }
     })
-    setAllPhrases(result)
-    setUpdatedTab(phraseData.selfCheckStatus)
+
+    setTimeout(() => {
+      setAllPhrases(result)
+      setUpdatedTab(phraseData.selfCheckStatus)
+    }, 1500)
+    
   }
 
   return (
