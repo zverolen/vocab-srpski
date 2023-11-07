@@ -237,13 +237,22 @@
     }
 
     button[role="tab"] > span > span:first-child {
+      order: 2;
+    }
+
+    button[role="tab"] > span > span:nth-child(2) {
+      order: 1;
       margin-right: var(--tab-icon-gap);
       font-size: var(--tab-icon-size);
       line-height: var(--tab-icon-line-height);
     }
 
+    button[role="tab"] > span > span:last-child {
+      order: 2;
+    }
+
     @container tablist (width < calc(430 / 16 * 1rem)) {
-      button[role="tab"] > span >span:first-child {
+      button[role="tab"] > span > span:nth-child(2) {
         display: var(--hide-emoji);
       }
     }

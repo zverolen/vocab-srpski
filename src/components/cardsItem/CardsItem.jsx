@@ -53,7 +53,6 @@ export default function CardsItem({ data, onCheckStatusChange }) {
 
       
       <div aria-live="polite">
-        <h4 className="visually-hidden">Самопроверка</h4>
         {data.selfCheckStatus === 'unset' && 
           <>
             <ButtonDefault
