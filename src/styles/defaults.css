@@ -18,24 +18,24 @@
   
   --button-with-icon-inline-padding: 0;
 
-  --header-margin-block: var(--gap-III) min(var(--headerMarginMin), var(--gap-II));
+  --header-margin-block: var(--gap-IV) min(var(--headerMarginMin), var(--gap-II));
 
   --main-margin-bottom: var(--gap-IV);
 
-  --title-margin-bottom: var(--gap-I);
+  --title-margin-bottom: var(--gap-II);
   --title-subheading-margin: var(--marginCentering);
   --title-subheading-width: var(--titleSubheadingWidth);
 
   --content-width: clamp(var(--siteWidthMin), var(--siteWidthIdeal), var(--siteWidthMax));
   --content-margins: var(--marginCentering);
 
-  --disclosure-button-margin-bottom: var(--gap-I);
+  --disclosure-button-margin-bottom: var(--gap-II);
   --disclosure-control-icon-gap: var(--gap-I);
 
   --instruction-margin-block: var(--gap-I) var(--gap-III);
   --instruction-item-margin: var(--instructionTextGap);
 
-  --tab-padding: var(--tabBlockPadding) var(--gap-I);
+  --tab-padding: var(--gap-I);
   --tab-padding-current: var(--tabBlockPaddingCurrent);
   --tab-left-margin: var(--marginCorrection-I);
   --tab-concealer-width: var(--fullWidth);
@@ -43,6 +43,7 @@
   --tabpanel-padding: var(--gap-I);
   --tab-icon-gap: var(--gap-I);
   --tab-caption-padding: var(--tabCaptionPadding);
+  --tab-caption-gap: var(--tabCaptionGap);
 
   --card-padding: var(--gap-I);
   --card-gap: var(--gap-IV);
@@ -126,6 +127,8 @@
 
   --tab-caption-layout: flex;
   --tab-caption-centering: center;
+  --tab-caption-direction: column;
+  --tab-caption-align-items: flex-start;
   --tabpanel-empty-grid-column: var(--allColumns);
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
 

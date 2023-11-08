@@ -116,8 +116,8 @@
       text-wrap: var(--title-subheading-text-wrap);  
     }
 
-    h2:is(.disclosure h2) {
-      margin-inline-end: var(--disclosure-button-margin-bottom);
+    button.withIcon:is(.disclosure button.withIcon) {
+      margin-block-end: var(--disclosure-button-margin-bottom);
     }
 
     h2:is(footer h2) {
@@ -228,7 +228,9 @@
 
     button[role="tab"] > span {
       display: var(--tab-caption-layout);
-      align-items: var(--tab-caption-centering);
+      flex-direction: var(--tab-caption-direction);
+      align-items: var(--tab-caption-align-items);
+      gap: var(--tab-caption-gap);
       
       padding: var(--tab-caption-padding);
 
@@ -236,26 +238,24 @@
       transition: var(--tab-caption-transition);
     }
 
-    button[role="tab"] > span > span:first-child {
-      order: 2;
+    button[role="tab"] > span > span:last-child {
+      font-weight: 400;
     }
 
-    button[role="tab"] > span > span:nth-child(2) {
+    /* button[role="tab"] > span > span:nth-child(2) {
       order: 1;
       margin-right: var(--tab-icon-gap);
       font-size: var(--tab-icon-size);
       line-height: var(--tab-icon-line-height);
-    }
+    } */
 
-    button[role="tab"] > span > span:last-child {
-      order: 2;
-    }
+   
 
-    @container tablist (width < calc(430 / 16 * 1rem)) {
+    /* @container tablist (width < calc(430 / 16 * 1rem)) {
       button[role="tab"] > span > span:nth-child(2) {
         display: var(--hide-emoji);
       }
-    }
+    } */
 
     @container tablist (width < calc(330 / 16 * 1rem)) {
       button[role="tab"] > span {

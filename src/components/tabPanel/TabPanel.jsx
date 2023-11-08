@@ -8,6 +8,7 @@ export default function TabPanel({ children, id }) {
       tabIndex="0"
       aria-labelledby={`tab-${id}`}
       data-testid="tabpanel"
+      aria-live="off"
       >
       { children }
     </div>

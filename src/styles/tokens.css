@@ -89,14 +89,15 @@
   --iconTriangleWidth: calc(14 / 16 * 1rem);
   --iconTriangleHeight: calc(12 / 16 * 1rem);
 
-  --tabBlockPadding: calc(6 / 16 * 1rem);
-  --tabBlockPaddingCurrent: calc(10 / 16 * 1rem);
-  --tabCaptionPadding: calc(2 / 16 * 1rem);
+  /* --tabBlockPadding: calc(4 / 16 * 1rem); */
+  --tabBlockPaddingCurrent: calc(12 / 16 * 1rem);
+  --tabCaptionPadding: calc(6 / 16 * 1rem);
+  --tabCaptionGap: calc(6 / 16 * 1rem);
 
   --wordLengthMin: 5ch;
 
   /*Sizing: Formally abstracted */
-  --headerMarginMin: 1.4vw;
+  --headerMarginMin: 2vw;
 
   /* Fonts */
   --sans-I: 'Trebuchet MS';
