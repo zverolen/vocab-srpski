@@ -14,17 +14,19 @@ The project is using Vite.js. The tests are run by Cypress. The styles are writt
 The UI is being designed in Figma using components.
 
 ## Planned Features
-1. Sorting and arranging the cards.
-2. A counter for the correct and incorrect answers.
-3. Improved UI and the usage of design tokens.
-4. Feedback.
+1. Experienced user mode.
+2. No motion / no delay mode.
+3. Button to switch between light and dark theme.
+4. Skipping or hiding phrases.
+5. Shuffling phrases.
+6. Deviding phrases into smaller packs.
 
 ## Other ideas
-1. A more sustainable way of adding the phrases.
-2. More elaborated system of phrases and difficulty levels.
-3. Personalisation of the experience of a particular user.
+1. Redesing of UI so that working with phrases became more convenient for mouse, keyboard and screen-reader users.
+2. Moving phrases to a headless CMS.
+3. Personalisation of the experience of a particular user: history, progress, etc.
 4. Autocheck of typed-in phrases and announcement of phrases in Serbian. Maybe even checking the spoken phrases 🫢.
-5. Personalisation of user's experience. Suggesting phrases.
+5. Deeper personalisation: user can add their own phrases for themselves and suggest phrases for the app.
 
 ## Me
 Hi, I'm Elena. I'm a fronted developer and my level is middl-ish. In my work I focus on usability and accessibility and a huge part of my process consists of manual testing in screen-readers and writing automatic tests for the UI components. Also, I try to use the Modern CSS features as much as possible and learning those takes a big part of my process as well. A lot has changed since I last worked.
