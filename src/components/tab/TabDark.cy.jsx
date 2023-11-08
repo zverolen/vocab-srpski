@@ -14,7 +14,7 @@ const color_reference = {
 
 describe('<Tab />', () => {
   it('Selected tab (without answer) is rendered correctly', () => {
-    cy.mount(<Tab id="1" isSelected={ true } onSelect={() => {}} onNavigation={() => {}} score="34">Без ответа</Tab>)
+    cy.mount(<Tab id="1" isSelected={ true } onSelect={() => {}} onNavigation={() => {}} score={34} >Без ответа</Tab>)
 
     cy.get('button')
       .should('have.attr', 'id', 'tab-1')

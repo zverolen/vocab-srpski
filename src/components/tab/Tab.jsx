@@ -20,17 +20,16 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
     oldScore.current = score
   }, [score])
 
-  // console.log(isUpdated)
   
-  // let emoji 
+  let emoji 
 
-  // if (id === '0') {
-  //   emoji = copy.tabs.emojiWithoutAnswer
-  // } else if (id === '1') {
-  //   emoji = copy.tabs.emojiCorrect
-  // } else {
-  //   emoji = copy.tabs.emojiWrong
-  // }
+  if (id === '0') {
+    emoji = copy.tabs.emojiWithoutAnswer
+  } else if (id === '1') {
+    emoji = copy.tabs.emojiCorrect
+  } else {
+    emoji = copy.tabs.emojiWrong
+  }
 
   function handleKeyboardNavigation(event) {
     onNavigation({id: id, key: event.key})
@@ -52,9 +51,9 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
       ref={ref}
       >
       <span>
-        {/* <span>{ children }:&nbsp;</span><span>{score}</span> */}
-        <span>{ children }</span>
-        <span>Фраз: {score}</span>
+        <span aria-hidden="true">{emoji}</span>
+        <span>{ children }:&nbsp;</span>
+        <span>{score}</span>
       </span>
     </button>
   )

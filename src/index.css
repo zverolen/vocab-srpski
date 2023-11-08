@@ -197,7 +197,7 @@
 
     button[role="tab"] {
       position: var(--tab-position);
-      padding: var(--tab-padding);
+      padding-block: var(--tab-padding);
 
       border-bottom: var(--tab-bottom-border);
     }
@@ -232,30 +232,24 @@
 
     button[role="tab"] > span {
       display: var(--tab-caption-layout);
-      flex-direction: var(--tab-caption-direction);
-      align-items: var(--tab-caption-align-items);
-      gap: var(--tab-caption-gap);
-      
+      align-items: var(--tab-caption-centering);
       padding: var(--tab-caption-padding);
 
       /* Animations */
       transition: var(--tab-caption-transition);
     }
 
-    /* button[role="tab"] > span > span:nth-child(2) {
-      order: 1;
+    button[role="tab"] > span > span:nth-child(1) {
       margin-right: var(--tab-icon-gap);
       font-size: var(--tab-icon-size);
       line-height: var(--tab-icon-line-height);
-    } */
+    }
 
-   
-
-    /* @container tablist (width < calc(430 / 16 * 1rem)) {
-      button[role="tab"] > span > span:nth-child(2) {
+    @container tablist (width < calc(430 / 16 * 1rem)) {
+      button[role="tab"] > span > span:nth-child(1) {
         display: var(--hide-emoji);
       }
-    } */
+    }
 
     @container tablist (width < calc(330 / 16 * 1rem)) {
       button[role="tab"] > span {

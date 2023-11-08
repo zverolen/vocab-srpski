@@ -14,9 +14,9 @@ export const copy = {
     wrong: 'Учу'
   },
   tabs: {
-    withoutAnswer: 'Без ответа.',
-    correct: 'Знаю!',
-    wrong: 'Учу!',
+    withoutAnswer: 'Без ответа',
+    correct: 'Знаю',
+    wrong: 'Учу',
     emojiWithoutAnswer: '🥹',
     emojiCorrect: '🧐',
     emojiWrong: '🤔',

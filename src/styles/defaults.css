@@ -35,7 +35,8 @@
   --instruction-margin-block: var(--gap-I) var(--gap-III);
   --instruction-item-margin: var(--instructionTextGap);
 
-  --tab-padding: var(--gap-I);
+  /* --tab-padding: var(--tabBlockPadding); */
+  --tab-padding: var(--tabBlockPadding);
   --tab-padding-current: var(--tabBlockPaddingCurrent);
   --tab-left-margin: var(--marginCorrection-I);
   --tab-concealer-width: var(--fullWidth);
@@ -127,8 +128,6 @@
 
   --tab-caption-layout: flex;
   --tab-caption-centering: center;
-  --tab-caption-direction: column;
-  --tab-caption-align-items: flex-start;
   --tabpanel-empty-grid-column: var(--allColumns);
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
 
