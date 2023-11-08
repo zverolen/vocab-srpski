@@ -1,10 +1,10 @@
 # VOCAB-SRPSKI
 
-The latest public version is hosted here: [https://voc-srpski.vercel.app/](https://voc-srpski.vercel.app/).
+The latest public version is hosted here: [https://zverolen.github.io/](https://zverolen.github.io/).
 
 This is a small project I started to enforce my learning process. The main idea is to self-check how good you can say something in Serbian. The phrases allow one to practice both their vocabulary and grammar.
 
-The tool for that are cards that originally show a phrase in Russian and provide a way to see it in Serbian and mark it as "correct" or "incorrect".
+The tool for that are cards that originally show a phrase in Russian and provide a way to see it in Serbian and mark it as "correct" or "incorrect". In the UI those groups are called "I know" and "I am learning" to avoid negative emotions when the answer is wrong.
 
 The project is in its early stage and more useful features are on their way. Currently all phrases are kept in the file system and added manualy.
 
@@ -12,6 +12,19 @@ The project is in its early stage and more useful features are on their way. Cur
 The project is using Vite.js. The tests are run by Cypress. The styles are written in vanilla CSS and heavily rely on the Modern CSS features and intrinsic design.
 
 The UI is being designed in Figma using components.
+
+## Accessibility
+I do my best to make this app to comply with all WCAG 2.2 success criteria. Most things are considered during the development and full audit is performed before the end of each development stage.
+The app is manually tested using screen readers. I don't like how it is working right now. There are a few major issues with the UX. Those issues are probably affecting the visual usage of the app. But, to address them, the full interface has to be redesigned. Which I'm planning to do at some point. Meahwhile, the app is as accessible and as usable as I could do it.
+
+## Testing
+I heavily rely on automatic testing during my development process. I don't use full-scale TDD but in many cases I start making a feature with writing a test. I also try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design.
+
+## Tasks remaining
+1. Updating tests.
+2. Writing missing tests.
+3. Updating CSS and design tokens.
+4. Documenting everything in the design system in Penpot.
 
 ## Planned Features
 1. Experienced user mode.
