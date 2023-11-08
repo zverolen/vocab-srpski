@@ -17,8 +17,8 @@ describe('<Alert />', () => {
     cy.mount(<Alert phraseTab="unset" isVisible={true} />)
 
     cy.get('[role="alert"]')
-      .should('have.css', 'border', `1px solid ${color_reference.black}`)
-      .and('have.css', 'color', color_reference.black)
+      .should('have.css', 'border', `1px solid ${color_reference.white}`)
+      .and('have.css', 'color', color_reference.white)
       .and('have.text', 'Фраза отправлена в группу "Без ответа."')
 
     cy.get('[role="alert"]').find('p')
@@ -29,8 +29,8 @@ describe('<Alert />', () => {
     cy.mount(<Alert phraseTab="correct" isVisible={true} />)
 
     cy.get('[role="alert"]')
-      .should('have.css', 'border', `1px solid ${color_reference.greenLightTheme}`)
-      .and('have.css', 'color', color_reference.greenLightTheme)
+      .should('have.css', 'border', `1px solid ${color_reference.greenDarkTheme}`)
+      .and('have.css', 'color', color_reference.greenDarkTheme)
       .and('have.text', 'Фраза отправлена в группу "Знаю!"')
   })
 
@@ -38,8 +38,8 @@ describe('<Alert />', () => {
     cy.mount(<Alert phraseTab="wrong" isVisible={true} />)
 
     cy.get('[role="alert"]')
-      .should('have.css', 'border', `1px solid ${color_reference.redLightTheme}`)
-      .and('have.css', 'color', color_reference.redLightTheme)
+      .should('have.css', 'border', `1px solid ${color_reference.redDarkTheme}`)
+      .and('have.css', 'color', color_reference.redDarkTheme)
       .and('have.text', 'Фраза отправлена в группу "Учу!"')
   })
 })

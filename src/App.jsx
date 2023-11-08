@@ -8,12 +8,14 @@ import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
 import { copy } from './data/copy'
 import Footer from './components/footer/Footer'
+import Alert from './components/alert/Alert'
 
 function App() {
   const [allPhrases, setAllPhrases] = useState(phrases.map(phrase => {
     return {...phrase, selfCheckStatus: 'unset'} 
   }))
-  const [updatedTab, setUpdatedTab] = useState('unset');
+  const [updatedTab, setUpdatedTab] = useState('unset')
+  const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   function handleCheckStatusChange(phraseData) {
     const result = allPhrases.map(phrase => {
@@ -30,7 +32,12 @@ function App() {
     setTimeout(() => {
       setAllPhrases(result)
       setUpdatedTab(phraseData.selfCheckStatus)
-    }, 1500)
+      setIsAlertVisible(true)
+    }, 1000)
+
+    setTimeout(() => {
+      setIsAlertVisible(false)
+    }, 3500)
     
   }
 
@@ -42,6 +49,7 @@ function App() {
       </header>
       <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} updatedTab={updatedTab}/>
       <Footer />
+      <Alert phraseTab={updatedTab} isVisible={isAlertVisible} />
     </>
   )
 }
