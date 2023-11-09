@@ -1,12 +1,12 @@
 // Implementation details:
 // event.preventDefault() on click is used to keep the focus on tab when clicked
-// IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work 
+// IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work  
 import { useEffect, forwardRef, useRef } from 'react'
 
 import PropTypes from 'prop-types'
 import { copy } from '../../data/copy'
 
-const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, score, className, isUpdated }, ref) => {
+const Tab = forwardRef(({ id, isSelected, children, onSelect, onKeyboardNavigation, score, className }, ref) => {
 
   let oldScore = useRef(0)
 
@@ -32,7 +32,7 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
   }
 
   function handleKeyboardNavigation(event) {
-    onNavigation({id: id, key: event.key})
+    onKeyboardNavigation({id: id, key: event.key})
   }
 
   return (
@@ -40,7 +40,7 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
       className={className}
       onFocus={()=>{onSelect(id)}}
       onKeyDown={(e) => {handleKeyboardNavigation(e)}}
-      onClick={(e) => {e.preventDefault()}}
+      onClick={() => {onSelect(id)}}
       id={`tab-${id}`}
       role='tab'
       aria-selected={isSelected}
@@ -61,12 +61,11 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onNavigation, scor
 
 Tab.propTypes = {
   className: PropTypes.string,
-  isUpdated: PropTypes.bool,
   id: PropTypes.string.isRequired,
   children: PropTypes.string.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onSelect: PropTypes.func.isRequired,
-  onNavigation: PropTypes.func.isRequired,
+  onKeyboardNavigation: PropTypes.func.isRequired,
   score: PropTypes.string.isRequired
 }
 

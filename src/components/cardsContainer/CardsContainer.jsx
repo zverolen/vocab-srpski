@@ -21,7 +21,6 @@ export default function CardsContainer({ phrases, onCheckStatusChange, updatedTa
     [phrases]
   )
   
-
   return (
     <main className="content">
       <Instruction />

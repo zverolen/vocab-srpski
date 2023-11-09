@@ -1,11 +1,13 @@
 // Implementation details: 
-// Using a keyboard and a mouse in the tabs component moves the focus to corresponding tabs.
+// Using a keyboard and mouse in the tabs component moves the focus to corresponding tabs. Using touch
+// also triggers tabpanel change.
 // The state changes depending on which element receives focus and not which element was activated
-// This was done because there are two types of events that activate tabs, but it's intended
-// that the state is changed in one place.
+// The initial idea was to keep events received from mouse and keyboard in on place, hence one
+// event handler (FocusEvent) instead on separate event handlers for mouse and keyboard.
+// However, this doesn't work for touch events. To solve this, the click event handler was also added.
 // Focus-dependent behavior also facilitates compatibility with keyboard navigation and 
 // using screen readers. 
-// Tabs are implemented manually and are not generated to make it possible to control the focus. This is intentional
+// Tabs are implemented manually and are not generated to make it possible to control the focus. This is intentional.
 
 import PropTypes from 'prop-types'
 
@@ -45,35 +47,35 @@ export default function TabsComponent({
     setSelectedTab(id)
   }
 
-  function handleTabSelection({id, key}) {
+  function handleTabSelectionKeyboard({id, key}) {
     const idNumber = Number(id)
     const tabLast = tabs.length - 1
     const refList = [ tab1, tab2, tab3]
 
     switch(key) {
       case 'Home': 
-        // setSelectedTab('0')
         refList[0].current.focus()
         break
       case 'End':
-        // setSelectedTab((tabs.length - 1).toString())
         refList[refList.length - 1].current.focus()
         break
       case 'ArrowRight':
         if (idNumber < tabLast) {
-          // setSelectedTab((idNumber + 1).toString())
           refList[idNumber + 1].current.focus()
         }
         break
       case 'ArrowLeft':
         if (idNumber > 0) {
-          // setSelectedTab((idNumber - 1).toString())
           refList[idNumber - 1].current.focus()
         }
         break
       default:
         break
     }
+  }
+
+  function handleTouchNavigation() {
+    console.log('hi')
   }
   
   return (
@@ -84,8 +86,8 @@ export default function TabsComponent({
           isUpdated={updatedTab === 'unset'}
           className={updatedTab === 'unset' ? 'unset updated' : 'unset'}
           isSelected={ selectedTab === '0'} 
-          onNavigation={ handleTabSelection } 
-          onSelect={ handleSelect }
+          onKeyboardNavigation={handleTabSelectionKeyboard}
+          onSelect={handleSelect}
           ref={ tab1 }
           score={scoreAll}
         >
@@ -96,7 +98,7 @@ export default function TabsComponent({
           isUpdated={updatedTab === 'correct'}
           className={updatedTab === 'correct' ? 'correct updated' : 'correct'}
           isSelected={ selectedTab === '1'} 
-          onNavigation={handleTabSelection} 
+          onKeyboardNavigation={handleTabSelectionKeyboard}
           onSelect={ handleSelect }
           ref={ tab2 }
           score={scoreCorrect}
@@ -108,7 +110,7 @@ export default function TabsComponent({
           isUpdated={updatedTab === 'wrong'}
           className={updatedTab === 'wrong' ? 'wrong updated' : 'wrong'}
           isSelected={ selectedTab === '2'} 
-          onNavigation={handleTabSelection} 
+          onKeyboardNavigation={handleTabSelectionKeyboard}
           onSelect={ handleSelect }
           ref={ tab3 }
           score={scoreWrong}

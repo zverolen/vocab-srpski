@@ -2,14 +2,60 @@ import TabsComponent from './TabsComponent'
 
 const tabsReference = [
   { id: '0', caption: 'Без ответа' },
-  { id: '1', caption: 'Верно' },
-  { id: '2', caption: 'Неверно' }
+  { id: '1', caption: 'Знаю' },
+  { id: '2', caption: 'Учу' }
 ]
 
 const tabpanelReference = [
-  {id: '0', tempContent: 'CONTENT TABPANEL 1'},
-  {id: '1', tempContent: 'CONTENT TABPANEL 2'},
-  {id: '2', tempContent: 'CONTENT TABPANEL 3'}
+  {
+      "id": "1",
+      "serbian": "Da li je ovo tvoja knjiga?",
+      "russian": "Это твоя книга?",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  },
+  {
+      "id": "2",
+      "serbian": "To nije njegov sat.",
+      "russian": "Это не его часы.",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  },
+  {
+      "id": "3",
+      "serbian": "To je moje dete.",
+      "russian": "Это мой ребёнок.",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  },
+  {
+      "id": "4",
+      "serbian": "To je tvoja sestra.",
+      "russian": "Это твоя сестра.",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  },
+  {
+      "id": "5",
+      "serbian": "To je njegova kuća.",
+      "russian": "Это его дом.",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  },
+  {
+      "id": "6",
+      "serbian": "Ovo je moj dobar drug.",
+      "russian": "Это мой хороший друг.",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  },
+  {
+      "id": "7",
+      "serbian": "Šta je tvoja sestra?",
+      "russian": "Кем работает твоя сестра?",
+      "section": "R1",
+      "selfCheckStatus": "unset"
+  }
 ]
 
 describe('<TabsComponent />', () => {
