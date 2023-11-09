@@ -23,8 +23,9 @@ I heavily rely on automatic testing during my development process. I don't use f
 ## Tasks remaining
 1. Updating tests.
 2. Writing missing tests.
-3. Updating CSS and design tokens.
-4. Documenting everything in the design system in Penpot.
+3. Simplifying cascade system.
+4. Updating CSS and design tokens.
+5. Documenting everything in the design system in Penpot.
 
 ## Planned Features
 1. Experienced user mode.

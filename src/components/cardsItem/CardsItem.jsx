@@ -73,16 +73,9 @@ export default function CardsItem({ data, onCheckStatusChange }) {
             </ButtonDefault>
           </>
         }
-        {/* <p 
-          className="visually-hidden"
-          hidden={data.selfCheckStatus === 'unset'}
-          >
-        Отмечено как {data.selfCheckStatus === 'correct' ? 'верно' : 'неверно'}
-        </p> */}
         <p 
           className="visually-hidden"
           >
-        
           {selfCheckHint}
         </p>
         

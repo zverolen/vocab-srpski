@@ -211,7 +211,10 @@
     }
 
     button[role="tab"][aria-selected="true"] {
+      z-index: var(--tab-current-z-index);
+
       padding-block-start: var(--tab-padding-current);
+
       border-width: var(--current-tab-border-width);
     }
 
@@ -261,19 +264,19 @@
     }
 
     [role="tabpanel"] {
+      flex: var(--tabpanel-flex);
+
       padding: var(--tabpanel-padding);
-      padding: clamp(0.5rem, 1.5vmax, 1.5rem);
-      border: var(--borderWidthPrimary) solid var(--text-color);
-      border-width: 2px;
-      flex: 2;
+
+      border: var(--tabpanel-border) solid var(--text-color);
     }
 
     .cards-container {
-      display: grid;
+      display: var(--card-container-layout);
       grid-template-columns: var(--cards-container-template);
-      gap: clamp(0.5rem, 1.5vmax, 1.5rem);
-      grid-auto-rows: auto;
-      align-items: center;
+      gap: var(--cards-container-gap);
+      grid-auto-rows: var(--cards-container-auto-rows);
+      align-items: var(--cards-container-align-items);
     }
 
     .cards-container > p {
@@ -283,69 +286,75 @@
     .card  {
       container: card/inline-size;
 
-      position: relative;
+      position: var(--card-position);
 
-      display: flex;
+      display: var(--card-layout);
       gap: var(--card-gap);
 
       /* Make cards same height */
-      height: 100%;
+      height: var(--card-height);
       padding: var(--card-padding);
-      padding: clamp(0.5rem, 6.5%, 1.5rem);
-      padding: min(5%, 22px);
 
-      
-      flex-direction: column;
+      flex-direction: var(--card-flex-direction);
 
       border: var(--borderWidthPrimary) solid var(--text-color);
     }
 
     .card > div:first-child {
       
-      display: flex;
+      display: var(--card-phrase-layout);
       gap: var(--card-phrase-gap);
-      /* Make cards same size */
 
-      flex: 2;
-      flex-direction: column;
-      justify-content: space-between;
+      /* Make cards same size */
+      flex: var(--card-phrase-flex);
+      flex-direction: var(--card-phrase-flex-direction);
+      justify-content: var(--card-phrase-justify-content);
     }
 
     .card > div:last-child {
-      display: flex;
+      display: var(--card-check-layout);
       gap: var(--card-check-gap);
     }
 
     .card.updated {
-      border: none;
+      border: var(--updated-card-border);
     }
 
     .card.updated div {
-      opacity: 0;
+      opacity: var(--updated-card-content-opacity);
     }
 
     .card.updated::before, .card.updated::after {
-      position: absolute;
+      position: var(--updated-card-cover-position);
 
-      pointer-events: none;
+      pointer-events: var(--updated-card-cover-pointer-events);
 
-      opacity: 0;
-      animation-duration: 1.5s;
+      opacity: var(--updated-card-cover-opacity);
+
+      /* Animations */
+      animation-duration: var(--updated-card-cover-animation-duration);
       animation-name: updatedCard;
-      animation-iteration-count: 1; 
+      animation-iteration-count: var(--updated-card-cover-animation-repeats);
     }
 
     .card.updated::before {
       content: 'Без ответа';
 
+      top: var(--updated-card-cover-vertical-shift);
       top: 50%;
+      top: var(--updated-card-cover-vertical-shift-correction);
       transform: translateY(-50%);
+      z-index: var(--updated-card-cover-layer);
       z-index: 1;
 
-      width: 100cqw;
+      width: var(--updated-card-cover-width);
+      width: calc(100% - min(5%, 22px));
 
+      font-size: var(--updated-card-cover-font-size);
       font-size: var(--title-font-size);
+      font-family: var(--updated-card-cover-font-family);
       font-family: var(--heading-font-family);
+      text-align: var(--updated-card-cover-text-align); 
       text-align: center;   
     }
 
@@ -596,14 +605,14 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
   }
 
-  button:hover {
+  button:not(:disabled):hover {
     cursor: pointer;
 
     /* Animations */
     transition: background-color 0.1s ease-out;
   }
 
-  button:hover:not(.withIcon) {
+  button:hover:where(:not(.withIcon):not(:disabled)) {
     background-color: var(--text-color);
     color: var(--background-color);
   }
@@ -613,11 +622,11 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
   }
 
-  button.correct:not([role="tab"]):hover {
+  button.correct:not([role="tab"]):not(:disabled):hover {
     background-color: var(--correct-text-color);
   }
 
-  button.wrong:not([role="tab"]):hover {
+  button.wrong:not([role="tab"]):not(:disabled):hover {
     background-color: var(--wrong-text-color);
   }
 
@@ -649,7 +658,9 @@
 
     color: var(--disabled-text-color);
     border-color: var(--disabled-text-color);
+  }
 
+  :disabled:hover {
     cursor: not-allowed;
   }
 }

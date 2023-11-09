@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 
 export default function ButtonWithIcon2({icon, isDefault, handleClick, type, children, isExpanded}) {
+
+  const typeClassName = type ? `${type} ` : ''
   return (
       <button 
-        className={`${type && type} withIcon`} 
+        className={`${typeClassName}withIcon`} 
         data-testid="button-with-icon" 
         onClick={handleClick}
         aria-expanded={isExpanded}

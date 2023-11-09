@@ -13,7 +13,7 @@ export default function ButtonDefault({
         onClick={handleClick}
         data-testid={test}
         disabled={disabled}
-        className={`${checkStatus}`}
+        className={checkStatus && checkStatus}
         hidden={hidden}
       >
         {children}   

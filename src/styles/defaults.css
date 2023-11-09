@@ -41,14 +41,14 @@
   --tab-left-margin: var(--marginCorrection-I);
   --tab-concealer-width: var(--fullWidth);
   --tab-concealer-height: var(--concealer-height);
-  --tabpanel-padding: var(--gap-I);
+  --tabpanel-padding: clamp(0.5rem, 1.5vmax, 1.5rem);
   --tab-icon-gap: var(--gap-I);
   --tab-caption-padding: var(--tabCaptionPadding);
-  --tab-caption-gap: var(--tabCaptionGap);
 
-  --card-padding: var(--gap-I);
+  --cards-container-gap: clamp(var(--cardsContainerGapMin), var(--cardsContainerGapIdeal), var(--cardsContainerGapMax));
+  --card-padding: min(var(--cardPaddingMin), var(--cardPaddingMax));
   --card-gap: var(--gap-IV);
-  --cards-container-gap: var(--gap-I);
+  --card-height: var(--fullHeight);
   --cards-line-height: var(--lineHeightReset);
   --card-check-gap: var(--gap-II);
   --card-phrase-gap: var(--gap-II);
@@ -101,10 +101,13 @@
 
   /* Borders and outlines */
   --border: var(--borderWidthPrimary) solid var(--text-color);
+
   --tab-bottom-border: var(--reset);
-  
   --tab-border: var(--borderWidthPrimary);
   --current-tab-border-width: var(--borderWidthSecondary);
+  --tabpanel-border: var(--borderWidthSecondary);
+
+  --updated-card-border: var(--reset);
 
   /* Position */
   --tab-position: var(--positionInFlow);
@@ -113,8 +116,14 @@
   --tab-concealer-bottom: var(--shiftDownConcealer);
   --tab-concealer-left: var(--shiftLeftConcealer);
 
+  --card-position: relative;
+
+  --updated-card-cover-position: absolute;
+  --updated-card-cover-vertical-shift: var(--half);
+
   /* Layers */
   --tab-concealer-z-index: var(--layerHigher-I);
+  --tab-current-z-index: var(--layerHigher-I);
 
   /* Display */
   --tabpanel-concealer-display: block;
@@ -129,15 +138,38 @@
   --tab-caption-layout: flex;
   --tab-caption-centering: center;
   --tabpanel-empty-grid-column: var(--allColumns);
+  --tabpanel-flex: 2;
+
+  --card-container-layout: grid;
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
+  --cards-container-auto-rows: auto;
+  --cards-container-align-items: center;
+
+  --card-layout: flex;
+  --card-flex-direction: column;
+  --card-phrase-layout: flex;
+  --card-phrase-flex: 2;
+  --card-phrase-flex-direction: column;
+  --card-phrase-justify-content: space-between;
+  --card-check-layout: flex;
 
   --grid-fix-template: 2 / var(--lastColumn);
+
+  /* Opacity */
+  --updated-card-content-opacity: 0;
+  --updated-card-cover-opacity: 0;
 
   /* Transform */
   --disclosure-button-icon-transform: rotate(var(--disclosure-control-icon-unflip));
 
   /* Animations */
+  --updated-card-cover-animation-duration: var(--animationDuration);
+  --updated-card-cover-animation-repeats: var(--once);
+
   --button-transition: box-shadow 0s ease-out, outline 0s, background-color 0.1s ease-out;
   --disclosure-button-icon-transition: all 0.2s ease-out;
   --tab-caption-transition: background-color 0.1s ease-out;
+
+  /* Interactive */
+  --updated-card-cover-pointer-events: var(--noEvents);
 }
