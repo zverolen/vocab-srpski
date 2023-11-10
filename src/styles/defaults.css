@@ -35,7 +35,6 @@
   --instruction-margin-block: var(--gap-I) var(--gap-III);
   --instruction-item-margin: var(--instructionTextGap);
 
-  /* --tab-padding: var(--tabBlockPadding); */
   --tab-padding: var(--tabBlockPadding);
   --tab-padding-current: var(--tabBlockPaddingCurrent);
   --tab-left-margin: var(--marginCorrection-I);
@@ -53,8 +52,13 @@
   --card-check-gap: var(--gap-II);
   --card-phrase-gap: var(--gap-II);
 
+  --updated-card-cover-width: calc(var(--fullWidth) - (var(--card-padding) * 2));
+
   --footer-subheading-margin: var(--gap-I) var(--gap-I);
   --footer-margin-bottom: var(--gap-III);
+
+  --alert-max-width: var(--alerWidthMax);
+  --alert-padding: var(--gap-I);
 
   /* Font */
   --text-font-family: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
@@ -90,6 +94,15 @@
   --button-with-icon-vertical-align: super;
   --button-with-icon-icon-vertical-align: middle;
 
+  --updated-card-cover-font-size: var(--title-font-size);
+  --updated-card-cover-font-family: var(--heading-font-family);
+  --updated-card-cover-text-align: center;
+
+  --alert-font-size: var(--control-font-size);
+  --alert-line-height: var(--text-line-height);
+  --alert-font-weight: var(--fontWeightMax);
+  --alert-text-wrap: pretty;
+
   /* Icons */
   --disclosure-control-icon-width: var(--iconTriangleWidth);
   --disclosure-control-icon-height: var(--iconTriangleHeight);
@@ -108,6 +121,9 @@
   --tabpanel-border: var(--borderWidthSecondary);
 
   --updated-card-border: var(--reset);
+  --updated-card-cover-border-width: var(--updatedCardCoverBorder);
+
+  --alert-border-width: var(--borderWidthPrimary);
 
   /* Position */
   --tab-position: var(--positionInFlow);
@@ -120,14 +136,22 @@
 
   --updated-card-cover-position: absolute;
   --updated-card-cover-vertical-shift: var(--half);
+  --updated-card-cover-inset: var(--resetNumber);
+
+  --alert-position: fixed;
+  --alert-bottom: var(--alertInset);
+  --alert-left: var(--alertInset);
 
   /* Layers */
   --tab-concealer-z-index: var(--layerHigher-I);
   --tab-current-z-index: var(--layerHigher-I);
+  --updated-card-cover-layer: var(--layerHigher-I);
+  --alert-z-index: var(--layerHigher-I);
 
   /* Display */
   --tabpanel-concealer-display: block;
   --hide-emoji: none;
+  --empty-alert-display: none;
 
   /* Layout */
   --site-frame-display: flex;
@@ -161,14 +185,30 @@
 
   /* Transform */
   --disclosure-button-icon-transform: rotate(var(--disclosure-control-icon-unflip));
+  --updated-card-cover-vertical-shift-correction: translateY(var(--halfReverse));
 
   /* Animations */
-  --updated-card-cover-animation-duration: var(--animationDuration);
-  --updated-card-cover-animation-repeats: var(--once);
 
   --button-transition: box-shadow 0s ease-out, outline 0s, background-color 0.1s ease-out;
   --disclosure-button-icon-transition: all 0.2s ease-out;
   --tab-caption-transition: background-color 0.1s ease-out;
+  --focus-transition: box-shadow 0.2s ease-out, outline 0.2s ease-out;
+
+  --updated-tab-animation-duration: var(--animationDuration-III);
+  --updated-tab-repeats: var(--once);
+
+  --updated-card-cover-animation-duration: var(--animationDuration-I);
+  --updated-card-cover-animation-repeats: var(--once);
+  --updated-card-cover-starting-opacity: var(--invisible);
+  --updated-card-cover-middle-opacity: var(--visible);
+  --updated-card-cover-finishing-opacity: var(--invisible);
+
+  --alert-opacity: var(--invisible);
+  --alert-animation-duration: var(--animationDuration-II);
+  --alert-animation-repeats: var(--once);
+  --alert-starting-opacity: var(--invisible);
+  --alert-middle-opacity: var(--visible);
+  --alert-finishing-opacity: var(--invisible);
 
   /* Interactive */
   --updated-card-cover-pointer-events: var(--noEvents);

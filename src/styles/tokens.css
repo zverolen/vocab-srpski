@@ -21,10 +21,12 @@
   --borderWidthSecondary: calc(2 / 16 * 1rem);
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
+  --updatedCardCoverBorder: calc(6 / 16 * 1rem);
 
   --fullWidth: 100%;
   --fullHeight: 100%;
   --half: 50%;
+  --halfReverse: -50%;
 
   --siteWidthMin: calc(280 / 16 * 1rem);
   --siteWidthMax: calc(1352 / 16 * 1rem);
@@ -103,6 +105,9 @@
 
   --wordLengthMin: 5ch;
 
+  --alertInset: calc(24 / 16 * 1rem);
+  --alerWidthMax: calc(200 / 16 * 1rem);
+
   /*Sizing: Formally abstracted */
   --headerMarginMin: 2vw;
 
@@ -137,12 +142,19 @@
   --allColumns: 1 / -1;
 
   /* Animations */
-  --animationDuration: 1.5s;
+  --animationDuration-I: 1.5s;
+  --animationDuration-II: 3.5s;
+  --animationDuration-III: 1s;
   --once: 1;
+
+  /* Opacity */
+  --invisible: 0;
+  --visible:1;
 
   /* Resets */
   --reset: none;
   --noEvents: none;
+  --resetNumber: 0;
 
   /* Semantic */
   --colorPrimary: var(--black);

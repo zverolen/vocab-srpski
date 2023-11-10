@@ -37,7 +37,7 @@ function App() {
 
     setTimeout(() => {
       setIsAlertVisible(false)
-    }, 3500)
+    }, 4500)
     
   }
 
