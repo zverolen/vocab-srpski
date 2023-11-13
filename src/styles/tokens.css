@@ -22,6 +22,8 @@
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
   --updatedCardCoverBorder: calc(6 / 16 * 1rem);
+  --innerOutlineOnFocus: calc(2 / 16 * 1rem);
+  --innerShadowOnFocus: calc(4 / 16 * 1rem);
 
   --fullWidth: 100%;
   --fullHeight: 100%;
@@ -146,6 +148,9 @@
   --animationDuration-II: 3.5s;
   --animationDuration-III: 1s;
   --once: 1;
+  --transitionDuration-I: 0.1s;
+  --transitionDuration-II: 0.2s;
+  --transitionDurationNone: 0s;
 
   /* Opacity */
   --invisible: 0;

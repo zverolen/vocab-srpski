@@ -119,6 +119,10 @@
   --tab-border: var(--borderWidthPrimary);
   --current-tab-border-width: var(--borderWidthSecondary);
   --tabpanel-border: var(--borderWidthSecondary);
+  --tab-shadow-on-focus: unset;
+  --tab-outline-on-focus: unset;
+  --tab-inner-outline: var(--innerOutlineOnFocus);
+  --tab-inner-shadow: var(--innerShadowOnFocus);
 
   --updated-card-border: var(--reset);
   --updated-card-cover-border-width: var(--updatedCardCoverBorder);
@@ -189,10 +193,12 @@
 
   /* Animations */
 
-  --button-transition: box-shadow 0s ease-out, outline 0s, background-color 0.1s ease-out;
-  --disclosure-button-icon-transition: all 0.2s ease-out;
-  --tab-caption-transition: background-color 0.1s ease-out;
-  --focus-transition: box-shadow 0.2s ease-out, outline 0.2s ease-out;
+  /* --button-transition: ;  */
+  --button-transition: box-shadow var(--transitionDurationNone) ease-out, outline var(--transitionDurationNone), background-color var(--transitionDuration-I) ease-out;
+  --disclosure-button-icon-transition: all var(--transitionDuration-II) ease-out;
+  --tab-caption-transition: background-color var(--transitionDuration-I) ease-out;
+  --focus-transition: box-shadow var(--transitionDuration-II) ease-out, outline var(--transitionDuration-II) ease-out;
+  --button-transition-on-hover: background-color var(--transitionDuration-I) ease-out;
 
   --updated-tab-animation-duration: var(--animationDuration-III);
   --updated-tab-repeats: var(--once);
@@ -212,4 +218,6 @@
 
   /* Interactive */
   --updated-card-cover-pointer-events: var(--noEvents);
+  --button-cursor: pointer;
+  --disabled-cursor: not-allowed;
 }
