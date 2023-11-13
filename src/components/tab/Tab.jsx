@@ -1,6 +1,6 @@
 // Implementation details:
 // event.preventDefault() on click is used to keep the focus on tab when clicked
-// IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work  
+// IMPORTAINT: when focused by mouse, the :focus pseudo-class is needed; :focus-visible doesn't work 
 import { useEffect, forwardRef, useRef } from 'react'
 
 import PropTypes from 'prop-types'
