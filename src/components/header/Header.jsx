@@ -1,21 +1,10 @@
-import PropTypes from 'prop-types'
-
-// import HideAndReveal from "../hideAndReveal/HideAndReveal";
-// import ButtonWithToggle from "../buttonWithToggle/ButtonWithToggle";
-// import Menu from "../menu/Menu";
-// import Hint from '../hint/Hint';
-
-export default function Header({autoSortOn, onAutoSortToggle}) {
+import { copy
+ } from "../../data/copy"
+export default function Header() {
   return (
-    <header>
-      <div>
-        
-      </div>
+    <header className="title">
+      <h1>{copy.title.heading}</h1>
+      <p>{copy.title.subheading}</p>
     </header>
   )
-}
-
-Header.propTypes = {
-  autoSortOn: PropTypes.bool,
-  onAutoSortToggle: PropTypes.func
 }

@@ -6,9 +6,9 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg' 
 import CardsContainer from './components/cardsContainer/CardsContainer'
 import { phrases } from './data/data'
-import { copy } from './data/copy'
 import Footer from './components/footer/Footer'
 import Alert from './components/alert/Alert'
+import Header from './components/header/Header'
 
 function App() {
   const [allPhrases, setAllPhrases] = useState(phrases.map(phrase => {
@@ -43,10 +43,7 @@ function App() {
 
   return (
     <>
-      <header className="title">
-        <h1>{copy.title.heading}</h1>
-        <p>{copy.title.subheading}</p>
-      </header>
+      <Header></Header>
       <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} updatedTab={updatedTab}/>
       <Footer />
       <Alert phraseTab={updatedTab} isVisible={isAlertVisible} />
