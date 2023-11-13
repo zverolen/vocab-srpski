@@ -56,6 +56,7 @@
 
   --footer-subheading-margin: var(--gap-I) var(--gap-I);
   --footer-margin-bottom: var(--gap-III);
+  --footer-text-margin-bottom: var(--instruction-item-margin);
 
   --alert-max-width: var(--alerWidthMax);
   --alert-padding: var(--gap-I);

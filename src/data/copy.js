@@ -37,5 +37,9 @@ export const copy = {
     heading: 'Обратная связь',
     text: 'Если вы заметили ошибку, сообщите об этом на электронную почту',
     email: 'fakeemail@fakeemailserver.com'
+  },
+  github: {
+    text: 'Ссылка на проект на Github:',
+    link: 'https://github.com/zverolen/vocab-srpski'
   }
 }

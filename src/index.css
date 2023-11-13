@@ -398,6 +398,10 @@
       border-top: var(--borderWidthPrimary) solid var(--text-color);
     }
 
+    footer p:not(p:last-child) {
+      margin-block-end: var(--footer-text-margin-bottom);
+    }
+
     div[role="alert"]:is(:empty) {
       display: var(--empty-alert-display);
     }
