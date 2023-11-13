@@ -1,4 +1,4 @@
-import ButtonWithIcon2 from './ButtonWithIcon2'
+import ButtonWithIcon from './ButtonWithIcon'
 
 const color_reference = {
   black: 'rgb(33, 33, 33)',
@@ -12,13 +12,13 @@ const color_reference = {
   redLightTheme: 'rgb(212, 40, 130)'
 }
 
-describe('<ButtonWithIcon2 />', () => {
+describe('<ButtonWithIcon />', () => {
   it.only('Default variant renders correctly in all states', () => {
     cy.mount(
       <div className='disclosure'>
-        <ButtonWithIcon2 handleClick={() => {}} isExpanded={false}>
+        <ButtonWithIcon handleClick={() => {}} isExpanded={false}>
           Инструкция
-        </ButtonWithIcon2>
+        </ButtonWithIcon>
       </div>
     )
     cy.get('button').should('have.text', 'Инструкция')

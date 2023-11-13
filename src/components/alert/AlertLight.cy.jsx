@@ -19,7 +19,7 @@ describe('<Alert />', () => {
     cy.get('[role="alert"]')
       .should('have.css', 'border', `1px solid ${color_reference.black}`)
       .and('have.css', 'color', color_reference.black)
-      .and('have.text', 'Фраза отправлена в группу "Без ответа."')
+      .and('have.text', 'Фраза отправлена в группу "Без ответа"')
 
     cy.get('[role="alert"]').find('p')
       .should('have.css', 'font-weight', '600')
@@ -31,7 +31,7 @@ describe('<Alert />', () => {
     cy.get('[role="alert"]')
       .should('have.css', 'border', `1px solid ${color_reference.greenLightTheme}`)
       .and('have.css', 'color', color_reference.greenLightTheme)
-      .and('have.text', 'Фраза отправлена в группу "Знаю!"')
+      .and('have.text', 'Фраза отправлена в группу "Знаю"')
   })
 
   it('Wrong <Alert /> enders correctly', () => {
@@ -40,6 +40,6 @@ describe('<Alert />', () => {
     cy.get('[role="alert"]')
       .should('have.css', 'border', `1px solid ${color_reference.redLightTheme}`)
       .and('have.css', 'color', color_reference.redLightTheme)
-      .and('have.text', 'Фраза отправлена в группу "Учу!"')
+      .and('have.text', 'Фраза отправлена в группу "Учу"')
   })
 })

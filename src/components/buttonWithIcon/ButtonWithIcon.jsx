@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-export default function ButtonWithIcon2({icon, isDefault, handleClick, type, children, isExpanded}) {
+export default function ButtonWithIcon({icon, isDefault, handleClick, type, children, isExpanded}) {
 
   const typeClassName = type ? `${type} ` : ''
   return (
@@ -18,7 +18,7 @@ export default function ButtonWithIcon2({icon, isDefault, handleClick, type, chi
   )
 }
 
-ButtonWithIcon2.propTypes = {
+ButtonWithIcon.propTypes = {
   handleClick: PropTypes.func.isRequired,
   isDefault: PropTypes.bool,
   type: PropTypes.string,

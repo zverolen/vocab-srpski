@@ -1,18 +1,18 @@
 import Disclosure from './Disclosure'
-import Toggle from '../toggle/Toggle'
 
-const sample_children = <Toggle on={false}/>
+const sample_children = <p>Sample content</p>
 
 describe('<Disclusure />', () => {
   it('renders', () => {
-    cy.mount(<Disclosure>{sample_children}</Disclosure>)
-    cy.getByTest('button-menu').should('have.text', 'Меню')
+    cy.mount(<Disclosure captionWhenCollapsed="Инструкция">{sample_children}</Disclosure>)
+    cy.getByTest('button-with-icon').should('have.text', 'Инструкция')
+    cy.getByTest('disclosure').should('have.text', 'ИнструкцияИнструкция')
 
-    cy.getByTest('button-menu').click()
-    cy.getByTest('button-menu').should('have.text', 'Закрыть меню')
-    cy.getByTest('toggle').should('exist')
+    cy.getByTest('button-with-icon').click()
+    cy.getByTest('disclosure').find('p').should('exist')
+    cy.getByTest('disclosure').should('have.text', 'ИнструкцияИнструкцияSample content')
 
-    cy.getByTest('button-menu').click()
-    cy.getByTest('button-menu').should('have.text', 'Меню')
+    cy.getByTest('button-with-icon').click()
+    cy.getByTest('disclosure').should('have.text', 'ИнструкцияИнструкция')
   })
 })
