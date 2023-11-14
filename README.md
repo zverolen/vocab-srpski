@@ -21,11 +21,9 @@ The app is manually tested using screen readers. I don't like how it is working 
 I heavily rely on automatic testing during my development process. I don't use full-scale TDD but in many cases I start making a feature with writing a test. I also try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design.
 
 ## Tasks remaining
-1. Updating tests.
-2. Writing missing tests.
-3. Simplifying cascade system.
-4. Updating CSS and design tokens.
-5. Documenting everything in the design system in Penpot.
+1. Simplifying cascade system.
+2. Updating CSS and design tokens.
+3. Documenting everything in the design system in Penpot.
 
 ## Planned Features
 1. Experienced user mode.
