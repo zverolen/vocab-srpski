@@ -52,8 +52,8 @@ const Tab = forwardRef(({ id, isSelected, children, onSelect, onKeyboardNavigati
       >
       <span>
         <span aria-hidden="true">{emoji}</span>
-        <span>{ children }:&nbsp;</span>
-        <span>{score}</span>
+        <span data-testid="tab-caption">{ children }:&nbsp;</span>
+        <span data-testid="tab-score">{score}</span>
       </span>
     </button>
   )
