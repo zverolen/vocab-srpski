@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types'
 import { useState, useRef } from "react"
 
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import { copy } from '../../data/copy';
 
-export default function CardsItem({ data, onCheckStatusChange }) {
+export default function CardsItem({ data, onCheckStatusChange, onLanguageChange  }) {
   const [ isRussian, setIsRussian ] = useState(true)
   let cardRef = useRef(null)
 
@@ -18,16 +18,24 @@ export default function CardsItem({ data, onCheckStatusChange }) {
   }
   
   function handleChangeView() {
-    setIsRussian(!isRussian)
+    // setIsRussian(!isRussian)
+    handleLanguageChange(!data.isRussian)
   }
 
   function handleCardStatusChange(result) {
     onCheckStatusChange({id: data.id, selfCheckStatus: result})
+    // onLanguageChange({id: data.id, isRussian: true})
+
     cardRef.current.classList.add(result, 'updated')
     if (result === 'unset') {
-      setIsRussian(true);
+      // setIsRussian(true);
       cardRef.current.classList.remove('correct', 'wrong')
+      // onLanguageChange({id: data.id, isRussian: true})
     }
+  }
+
+  function handleLanguageChange() {
+    onLanguageChange({id: data.id, isRussian: !data.isRussian})
   }
 
   return (
@@ -40,13 +48,14 @@ export default function CardsItem({ data, onCheckStatusChange }) {
       
       <div>
         <div aria-live="polite" id={data.id} data-testid="text-phrase">
-          <p hidden={!isRussian}>{data.russian}</p>
-          <p translate='no' lang="sr-RS" hidden={isRussian}>{data.serbian}</p>
+          <p hidden={!data.isRussian}>{data.russian}</p>
+          <p translate='no' lang="sr-RS" hidden={data.isRussian}>{data.serbian}</p>
         </div>
 
         <div aria-live="off">
-          <ButtonDefault test="button-answer" handleClick={handleChangeView}>
-            {isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer}
+          <ButtonDefault test="button-answer" handleClick={handleLanguageChange}>
+            {/* {isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer} */}
+            {data.isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer}
           </ButtonDefault>
         </div>
       </div>
@@ -58,7 +67,8 @@ export default function CardsItem({ data, onCheckStatusChange }) {
             <ButtonDefault
               test="button-correct" 
               handleClick={() => handleCardStatusChange('correct')} 
-              disabled={isRussian || data.selfCheckStatus !== 'unset'}
+              // disabled={isRussian || data.selfCheckStatus !== 'unset'}
+              disabled={data.isRussian || data.selfCheckStatus !== 'unset'}
               checkStatus="correct"
             >
               {copy.buttons.correct}
@@ -66,7 +76,8 @@ export default function CardsItem({ data, onCheckStatusChange }) {
             <ButtonDefault 
               test="button-wrong" 
               handleClick={() => handleCardStatusChange('wrong')}  
-              disabled={isRussian || data.selfCheckStatus !== 'unset'}
+              // disabled={isRussian || data.selfCheckStatus !== 'unset'}
+              disabled={data.isRussian || data.selfCheckStatus !== 'unset'}
               checkStatus="wrong"
               >
                 {copy.buttons.wrong}
@@ -98,7 +109,9 @@ CardsItem.propTypes = {
     russian: PropTypes.string,
     serbian: PropTypes.string,
     section: PropTypes.string,
-    selfCheckStatus: PropTypes.string
+    selfCheckStatus: PropTypes.string,
+    isRussian: PropTypes.bool
   }),
-  onCheckStatusChange: PropTypes.func
+  onCheckStatusChange: PropTypes.func,
+  onLanguageChange: PropTypes.func
 }

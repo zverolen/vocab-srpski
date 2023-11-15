@@ -12,7 +12,7 @@ import Header from './components/header/Header'
 
 function App() {
   const [allPhrases, setAllPhrases] = useState(phrases.map(phrase => {
-    return {...phrase, selfCheckStatus: 'unset'} 
+    return {...phrase, selfCheckStatus: 'unset', isRussian: true} 
   }))
   const [updatedTab, setUpdatedTab] = useState('unset')
   const [isAlertVisible, setIsAlertVisible] = useState(false)
@@ -24,7 +24,8 @@ function App() {
       } else {
         return {
           ...phrase,
-          selfCheckStatus: phraseData.selfCheckStatus
+          selfCheckStatus: phraseData.selfCheckStatus,
+          isRussian: phraseData.selfCheckStatus === 'unset' ? true : phraseData.isRussian
         }
       }
     })
@@ -38,13 +39,31 @@ function App() {
     setTimeout(() => {
       setIsAlertVisible(false)
     }, 4500)
-    
+  }
+
+  function handleLanguageChange(phraseData) {
+    const result = allPhrases.map(phrase => {
+      if (phrase.id !== phraseData.id) {
+        return phrase
+      } else {
+        return {
+          ...phrase,
+          isRussian: phraseData.isRussian
+        }
+      }
+    })
+    setAllPhrases(result)
   }
 
   return (
     <>
       <Header></Header>
-      <CardsContainer phrases={allPhrases} onCheckStatusChange={handleCheckStatusChange} updatedTab={updatedTab}/>
+      <CardsContainer 
+        phrases={allPhrases} 
+        onCheckStatusChange={handleCheckStatusChange} 
+        updatedTab={updatedTab}
+        onLanguageChange={handleLanguageChange}
+      />
       <Footer />
       <Alert phraseTab={updatedTab} isVisible={isAlertVisible} />
     </>

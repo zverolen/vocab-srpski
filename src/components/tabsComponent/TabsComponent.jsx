@@ -26,6 +26,7 @@ export default function TabsComponent({
     correctPhrases, 
     wrongPhrases, 
     onCheckStatusChange,
+    onLanguageChange,
     updatedTab
   }) {
   const [ selectedTab, setSelectedTab ] = useState('0')
@@ -36,11 +37,11 @@ export default function TabsComponent({
   let content
 
   if (selectedTab === '0') {
-    content = withoutAnswerPhrases.length ? withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : <p>{copy.tabs.emptyWithouthAnswer}</p>
+    content = withoutAnswerPhrases.length ? withoutAnswerPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} onLanguageChange={onLanguageChange} />) : <p>{copy.tabs.emptyWithouthAnswer}</p>
   } else if (selectedTab === '1') {
-    content = correctPhrases.length ? correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : <p>{copy.tabs.emptyCorrect}</p>
+    content = correctPhrases.length ? correctPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} onLanguageChange={onLanguageChange} />) : <p>{copy.tabs.emptyCorrect}</p>
   } else if (selectedTab === '2') {
-    content = wrongPhrases.length ? wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} />) : <p>{copy.tabs.emptyWrong}</p>
+    content = wrongPhrases.length ? wrongPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={onCheckStatusChange} onLanguageChange={onLanguageChange} />) : <p>{copy.tabs.emptyWrong}</p>
   }
 
   function handleSelect(id) {
@@ -72,10 +73,6 @@ export default function TabsComponent({
       default:
         break
     }
-  }
-
-  function handleTouchNavigation() {
-    console.log('hi')
   }
   
   return (
@@ -140,5 +137,6 @@ TabsComponent.propTypes = {
   correctPhrases: PropTypes.array,
   wrongPhrases: PropTypes.array,
   onCheckStatusChange: PropTypes.func,
+  onLanguageChange: PropTypes.func,
   updatedTab: PropTypes.string.isRequired
 }

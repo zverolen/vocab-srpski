@@ -274,11 +274,13 @@ describe('The basic user flow, click-based but with focus', () => {
     cy.get('[role="tablist"]').find('button:nth-child(2)').focus()
     cy.get('.cards-container').children().should('have.length', '5')
     cy.get('.card:nth-child(1)').should('have.css', 'border-color', color_reference.greenDarkTheme)
-    cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:first-child')
-      .should('have.text', 'Это твоя книга?')
-      cy.get('.card:nth-child(2)').should('have.css', 'border-color', color_reference.greenDarkTheme)
-    cy.get('.card:nth-child(2)').find('[data-testid="text-phrase"] > p:first-child')
-      .should('have.text', 'Кем работает твоя сестра?')
+    cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:nth-child(2)')
+      .should('have.text', 'Da li je ovo tvoja knjiga?')
+      .and('be.visible')
+    cy.get('.card:nth-child(2)').should('have.css', 'border-color', color_reference.greenDarkTheme)
+    cy.get('.card:nth-child(2)').find('[data-testid="text-phrase"] > p:nth-child(2)')
+      .should('have.text', 'Šta je tvoja sestra?')
+      .and('be.visible')
 
     //Reset the first card
     cy.get('.card:nth-child(1)').find('[data-testid="button-reset"]').focus()
@@ -299,7 +301,7 @@ describe('The basic user flow, click-based but with focus', () => {
      cy.get('[role="tablist"]').find('button:nth-child(2)').find('[data-testid="tab-score"]').contains('1')
  
      //New first card
-     cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:first-child').should('have.text', 'Кем работает твоя сестра?')
+     cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:nth-child(2)').should('have.text', 'Šta je tvoja sestra?')
 
      //Reset the new first card
     cy.get('.card:nth-child(1)').find('[data-testid="button-reset"]').focus()
@@ -326,11 +328,13 @@ describe('The basic user flow, click-based but with focus', () => {
     cy.get('[role="tablist"]').find('button:nth-child(3)').focus()
     cy.get('.cards-container').children().should('have.length', '5')
     cy.get('.card:nth-child(1)').should('have.css', 'border-color', color_reference.redDarkTheme)
-    cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:first-child')
-      .should('have.text', 'Это не его часы.')
-      cy.get('.card:nth-child(2)').should('have.css', 'border-color', color_reference.redDarkTheme)
-    cy.get('.card:nth-child(2)').find('[data-testid="text-phrase"] > p:first-child')
-      .should('have.text', 'Это его дом.')
+    cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:nth-child(2)')
+      .should('have.text', 'To nije njegov sat.')
+      .and('be.visible')
+    cy.get('.card:nth-child(2)').should('have.css', 'border-color', color_reference.redDarkTheme)
+    cy.get('.card:nth-child(2)').find('[data-testid="text-phrase"] > p:nth-child(2)')
+      .should('have.text', 'To je njegova kuća.')
+      .and('be.visible')
 
     //Reset the first card
     cy.get('.card:nth-child(1)').find('[data-testid="button-reset"]').focus()
@@ -351,7 +355,7 @@ describe('The basic user flow, click-based but with focus', () => {
      cy.get('[role="tablist"]').find('button:nth-child(3)').find('[data-testid="tab-score"]').contains('1')
  
      //New first card
-     cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:first-child').should('have.text', 'Это его дом.')
+     cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:nth-child(2)').should('have.text', 'To je njegova kuća.')
 
      //Reset the new first card
     cy.get('.card:nth-child(1)').find('[data-testid="button-reset"]').focus()
@@ -373,6 +377,22 @@ describe('The basic user flow, click-based but with focus', () => {
  
      //Empty tabpanel text
      cy.get('[role="tabpanel"]').should('have.text', 'Здесь появятся фразы, над которыми стоит ещё поработать')
+
+    // Check the all phrases tab
+    cy.get('[role="tablist"]').find('button:nth-child(1)').focus()
+
+    cy.get('.card:nth-child(1)').find('[data-testid="text-phrase"] > p:nth-child(1)')
+     .should('have.text', 'Это твоя книга?')
+     .and('be.visible')
+   cy.get('.card:nth-child(2)').find('[data-testid="text-phrase"] > p:nth-child(1)')
+     .should('have.text', 'Это не его часы.')
+     .and('be.visible')
+   cy.get('.card:nth-child(5)').find('[data-testid="text-phrase"] > p:nth-child(1)')
+     .should('have.text', 'Это его дом.')
+     .and('be.visible')
+   cy.get('.card:nth-child(7)').find('[data-testid="text-phrase"] > p:nth-child(1)')
+     .should('have.text', 'Кем работает твоя сестра?')
+     .and('be.visible')
 
      //Checking out the footer
      cy.get('footer').find('h2').should('have.text', 'Обратная связь')

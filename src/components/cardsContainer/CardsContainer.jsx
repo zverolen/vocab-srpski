@@ -3,11 +3,16 @@ import { useMemo } from 'react'
 
 import Instruction from '../instruction/Instruction'
 import { copy } from '../../data/copy';
-import TabsComponent from '../tabsComponent/TabsComponent';
+import TabsComponent from '../tabsComponent/TabsComponent'
 
 const tabsReference = [copy.tabs.withoutAnswer, copy.tabs.correct, copy.tabs.wrong];
 
-export default function CardsContainer({ phrases, onCheckStatusChange, updatedTab }) {
+export default function CardsContainer({ 
+    phrases, 
+    onCheckStatusChange,
+    onLanguageChange,
+    updatedTab
+  }) {
   const unsetPhrases = useMemo(
     () => phrases.filter(phrase => phrase.selfCheckStatus === 'unset'),
     [phrases]
@@ -34,6 +39,7 @@ export default function CardsContainer({ phrases, onCheckStatusChange, updatedTa
         correctPhrases={correctPhrases}
         wrongPhrases={wrongPhrases}
         onCheckStatusChange={onCheckStatusChange}
+        onLanguageChange={onLanguageChange}
         updatedTab={updatedTab}
       /> 
     </main>
@@ -43,5 +49,6 @@ export default function CardsContainer({ phrases, onCheckStatusChange, updatedTa
 CardsContainer.propTypes = {
   phrases: PropTypes.array.isRequired,
   onCheckStatusChange: PropTypes.func.isRequired,
+  onLanguageChange: PropTypes.func.isRequired,
   updatedTab: PropTypes.string.isRequired
 }
