@@ -14,8 +14,6 @@
   --greyMedium: #858585;
   --greyDark: #333333;
 
-  --inheritedColor: currentcolor;
-
   /* Sizing */
   --borderWidthPrimary: calc(1 / 16 * 1rem);
   --borderWidthSecondary: calc(2 / 16 * 1rem);
@@ -33,9 +31,6 @@
   --siteWidthMin: calc(280 / 16 * 1rem);
   --siteWidthMax: calc(1352 / 16 * 1rem);
   --siteWidthIdeal: 94%;
-
-  --paddingButtonHoriz: 0;
-  --paddingButtonVert: 0;
   
   --titleSubheadingWidth: 71%;
 
@@ -142,7 +137,6 @@
   --layerHigher-I: 1;
 
   /* Grid */
-  --firstThreeColumns: 1 / 3;
   --lastColumn: -1;
   --allColumns: 1 / -1;
 

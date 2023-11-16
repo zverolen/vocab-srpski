@@ -3,11 +3,8 @@
   --ordered-list-left-gap: var(--widthTwoLetters);
 
   --button-withIcon-border: none;
-  --disclosure-button-left-padding: 0;
   
   /* Sizing */
-  --root-gap: var(--gap-IV);
-  --site-frame-gap: var(--gap-I);
   --landmark-padding-inline: var(--gap-I);
 
   --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
@@ -86,7 +83,7 @@
   --text-font-weight: var(--fontWeightMin);
 
   --title-text-alignment: center;
-  --subheading-text-alignment: center;
+  --title-subheading-text-alignment: center;
 
   --heading-letter-spacing: var(--letterSpacingCaps);
   
@@ -110,12 +107,11 @@
   --disclosure-control-icon-flip: var(--turnUpSideDown);
   --disclosure-control-icon-unflip: var(--turnReset);
   --disclosure-control-icon-shape: var(--clipPathTriangle);
+
   --tab-icon-size: var(--emojiMax);
   --tab-icon-line-height: var(--lineHeightEmoji);
 
   /* Borders and outlines */
-  --border: var(--borderWidthPrimary) solid var(--text-color);
-
   --tab-bottom-border: var(--reset);
   --tab-border: var(--borderWidthPrimary);
   --current-tab-border-width: var(--borderWidthSecondary);
@@ -159,10 +155,8 @@
   --empty-alert-display: none;
 
   /* Layout */
-  --site-frame-display: flex;
   --main-display: flex;
   --main-direction: column;
-  --site-frame-flex-direction: column;
 
   --tab-caption-layout: flex;
   --tab-caption-centering: center;
@@ -182,8 +176,6 @@
   --card-phrase-justify-content: space-between;
   --card-check-layout: flex;
 
-  --grid-fix-template: 2 / var(--lastColumn);
-
   /* Opacity */
   --updated-card-content-opacity: 0;
   --updated-card-cover-opacity: 0;
@@ -194,7 +186,6 @@
 
   /* Animations */
 
-  /* --button-transition: ;  */
   --button-transition: box-shadow var(--transitionDurationNone) ease-out, outline var(--transitionDurationNone), background-color var(--transitionDuration-I) ease-out;
   --disclosure-button-icon-transition: all var(--transitionDuration-II) ease-out;
   --tab-caption-transition: background-color var(--transitionDuration-I) ease-out;

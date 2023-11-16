@@ -113,7 +113,7 @@
       width: var(--title-subheading-width);
       margin-inline: var(--title-subheading-margin);
     
-      text-align: var(--subheading-text-alignment);
+      text-align: var(--title-subheading-text-alignment);
       line-height: var(--subheading-line-height);
       font-size: var(--title-subheading-text-size);
       
