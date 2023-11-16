@@ -22,8 +22,8 @@
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
   --updatedCardCoverBorder: calc(6 / 16 * 1rem);
-  --innerOutlineOnFocus: calc(2 / 16 * 1rem);
-  --innerShadowOnFocus: calc(4 / 16 * 1rem);
+  --innerOutlineOnFocus: calc(1 / 16 * 1rem);
+  --innerShadowOnFocus: calc(5 / 16 * 1rem);
 
   --fullWidth: 100%;
   --fullHeight: 100%;
@@ -90,16 +90,18 @@
   --gap-IV: calc(32 /  16 * 1rem);
   --gap-V: calc(48 / 16 * 1rem);
 
+  --headerMarginMin: 2vw;
+
   --iconTriangleWidth: calc(14 / 16 * 1rem);
   --iconTriangleHeight: calc(12 / 16 * 1rem);
 
-  --tabBlockPadding: calc(6 / 16 * 1rem);
-  --tabBlockPaddingCurrent: calc(10 / 16 * 1rem);
-  --tabCaptionPadding: calc(2 / 16 * 1rem);
+  --tabBlockPadding: calc(8 / 16 * 1rem);
+  --tabCaptionPadding: calc(1 / 16 * 1rem);
+  --tabBlockPaddingCurrent: calc(12 / 16 * 1rem);
 
-  --cardsContainerGapMin: calc(8 / 16 * 1rem);
+  --cardsContainerGapMin: var(--gap-I);
   --cardsContainerGapIdeal: 1.5vmax;
-  --cardsContainerGapMax: calc(24 / 16 * 1rem);
+  --cardsContainerGapMax: var(--gap-III);
 
   --cardWidthMin: calc(220 / 16 * 1rem);
   --cardPaddingMin: 5%;
@@ -109,9 +111,6 @@
 
   --alertInset: calc(24 / 16 * 1rem);
   --alerWidthMax: calc(200 / 16 * 1rem);
-
-  /*Sizing: Formally abstracted */
-  --headerMarginMin: 2vw;
 
   /* Fonts */
   --sans-I: 'Trebuchet MS';

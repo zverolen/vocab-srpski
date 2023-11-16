@@ -553,7 +553,7 @@
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--wrong-text-color);
   }
 
-   button[role="tab"]:is(:focus, :focus-visible) {
+   /* button[role="tab"]:is(:focus, :focus-visible) {
     box-shadow: var(--tab-shadow-on-focus);
     outline: var(--tab-outline-on-focus);
   }
@@ -577,7 +577,34 @@
 
   button[role="tab"].wrong:focus > span {
     box-shadow: 0 0 0 var(--tab-inner-shadow) var(--wrong-text-color);
+  } */
+
+  button[role="tab"]:is(:focus-visible) {
+    box-shadow: var(--tab-shadow-on-focus);
+    outline: var(--tab-outline-on-focus);
   }
+
+  button[role="tab"].correct:focus-visible {
+    color: var(--correct-text-color);
+  }
+
+  button[role="tab"].wrong:focus-visible {
+    color: var(--wrong-text-color);
+  }
+
+  button[role="tab"]:focus-visible > span {
+    outline: var(--tab-inner-outline) solid var(--background-color);
+    box-shadow: 0 0 0 var(--tab-inner-shadow) var(--text-color);
+  }
+
+  button[role="tab"].correct:focus-visible > span {
+    box-shadow: 0 0 0 var(--tab-inner-shadow) var(--correct-text-color);
+  }
+
+  button[role="tab"].wrong:focus-visible > span {
+    box-shadow: 0 0 0 var(--tab-inner-shadow) var(--wrong-text-color);
+  }
+  /**/
 
   [role="tabpanel"]:focus-visible {
     background-color: var(--background-color);
@@ -631,21 +658,24 @@
   }
 
   button[role="tab"]:hover > span {
-    background-color: var(--text-color);
-    color: var(--background-color);
+    /* background-color: var(--text-color); */
+    /* color: var(--background-color); */
+    color: var(--text-color);
     outline: var(--tab-inner-outline) solid var(--background-color);
     box-shadow: 0 0 0 var(--tab-inner-shadow) var(--text-color);
   }
 
   button[role="tab"].correct:hover > span {
-    background-color: var(--correct-text-color);
-    color: var(--correct-background-color);
+    /* background-color: var(--correct-text-color); */
+    color: var(--correct-text-color);
+    /* color: var(--correct-background-color); */
     box-shadow: 0 0 0 var(--tab-inner-shadow) var(--correct-text-color);
   }
 
   button[role="tab"].wrong:hover > span {
-    background-color: var(--wrong-text-color);
-    color: var(--wrong-background-color);
+    /* background-color: var(--wrong-text-color); */
+    /* color: var(--wrong-background-color); */
+    color: var(--wrong-text-color);
     box-shadow: 0 0 0 var(--tab-inner-shadow) var(--wrong-text-color);
   }
   
