@@ -95,9 +95,13 @@
   --iconTriangleWidth: calc(14 / 16 * 1rem);
   --iconTriangleHeight: calc(12 / 16 * 1rem);
 
-  --tabBlockPadding: calc(8 / 16 * 1rem);
-  --tabCaptionPadding: calc(1 / 16 * 1rem);
+  --tabBlockPadding: var(--gap-I);
   --tabBlockPaddingCurrent: calc(12 / 16 * 1rem);
+  --tabCaptionPadding: calc(1 / 16 * 1rem);
+  
+  --tabpanelPaddingMin: var(--gap-I);
+  --tabpanelPaddingIdeal: 1.5vmax;
+  --tabpanelPaddingMax: var(--gap-III);
 
   --cardsContainerGapMin: var(--gap-I);
   --cardsContainerGapIdeal: 1.5vmax;
@@ -109,7 +113,7 @@
 
   --wordLengthMin: 5ch;
 
-  --alertInset: calc(24 / 16 * 1rem);
+  --alertInset: var(--gap-III);
   --alerWidthMax: calc(200 / 16 * 1rem);
 
   /* Fonts */
