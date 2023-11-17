@@ -19,7 +19,7 @@
   --borderWidthSecondary: calc(2 / 16 * 1rem);
   --outlineOnFocus: calc(6 / 16 * 1rem);
   --shadowOnFocus: calc(8 / 16 * 1rem);
-  --updatedCardCoverBorder: calc(6 / 16 * 1rem);
+  --updatedCardCoverBorder: calc(4 / 16 * 1rem);
   --innerOutlineOnFocus: calc(1 / 16 * 1rem);
   --innerShadowOnFocus: calc(5 / 16 * 1rem);
 

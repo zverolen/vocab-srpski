@@ -506,7 +506,8 @@
     }  
 
     50% {
-      color: var(--accent-color, var(--disabled-background-color));
+      /* color: var(--accent-color, var(--disabled-background-color)); */
+      color: var(--disabled-background-color);
     }
 
     100% {
