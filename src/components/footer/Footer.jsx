@@ -1,4 +1,4 @@
-import { copy } from "../../data/copy"
+import { copy } from '../../data/copy'
 
 export default function Footer() {
   return(

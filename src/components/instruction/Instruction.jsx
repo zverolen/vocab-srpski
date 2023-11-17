@@ -1,5 +1,5 @@
-import Disclosure from "../disclosure/Disclosure"
-import { copy } from "../../data/copy"
+import Disclosure from '../disclosure/Disclosure'
+import { copy } from '../../data/copy'
 
 export default function Instruction() {
   return (

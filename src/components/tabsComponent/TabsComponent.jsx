@@ -11,7 +11,7 @@
 
 import PropTypes from 'prop-types'
 
-import { useRef, useState } from "react"
+import { useRef, useState } from 'react'
 import Tab from '../tab/Tab'
 import TabPanel from '../tabPanel/TabPanel'
 import CardsItem from '../cardsItem/CardsItem'

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import Toggle from "../toggle/Toggle"
+import Toggle from '../toggle/Toggle'
 import styles from './buttonWithToggle.module.css'
 
 export default function ButtonWithToggle({

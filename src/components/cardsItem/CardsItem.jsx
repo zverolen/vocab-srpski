@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useState, useRef } from "react"
+import { useState, useRef } from 'react'
 
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import { copy } from '../../data/copy';

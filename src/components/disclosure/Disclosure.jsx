@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { useState } from "react"
+import { useState } from 'react'
 // import ButtonWithIcon from '../buttonWithIcon/ButtonWithIcon';
 import ButtonWithIcon from '../buttonWithIcon/ButtonWithIcon';
 import { copy } from '../../data/copy';

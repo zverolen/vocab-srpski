@@ -1,5 +1,4 @@
-import { copy
- } from "../../data/copy"
+import { copy } from '../../data/copy'
 export default function Header() {
   return (
     <header className="title">
