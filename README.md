@@ -18,7 +18,7 @@ I do my best to make this app to comply with all WCAG 2.2 success criteria. Most
 The app is manually tested using screen readers. I don't like how it is working right now. There are a few major issues with the UX. Those issues are probably affecting the visual usage of the app. But, to address them, the full interface has to be redesigned. Which I'm planning to do at some point. Meahwhile, the app is as accessible and as usable as I could do it.
 
 ## Testing
-I heavily rely on automatic testing during my development process. I don't use full-scale TDD but in many cases I start making a feature with writing a test. I also try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design.
+I rely a lot on automatic testing during my development process (Cypress). I don't use full-scale TDD but in many cases I start making a feature with writing a test. I try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design and help to design and develop in isolation.
 
 ## Tasks remaining
 1. Simplifying cascade system.
