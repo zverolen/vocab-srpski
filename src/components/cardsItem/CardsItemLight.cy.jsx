@@ -1,11 +1,41 @@
+//Developement Note: I wasn't able to stub the methods that make changes in the card, for now.
+// The actual behavior is tested in the end-to-end test of the app.
 import CardsItem from './CardsItem'
 
-const example = {
+const defaultPhraseRu = {
   id: '1',
   serbian: 'Da li je ovo tvoja knjiga?',
   russian: 'Это твоя книга?',
   section: 'R1',
-  selfCheckStatus: 'unset'
+  selfCheckStatus: 'unset',
+  isRussian: true
+}
+
+const defaultPhraseRs = {
+  id: '1',
+  serbian: 'Da li je ovo tvoja knjiga?',
+  russian: 'Это твоя книга?',
+  section: 'R1',
+  selfCheckStatus: 'unset',
+  isRussian: false
+}
+
+const correctPhraseRs = {
+  id: '1',
+  serbian: 'Da li je ovo tvoja knjiga?',
+  russian: 'Это твоя книга?',
+  section: 'R1',
+  selfCheckStatus: 'correct',
+  isRussian: false
+}
+
+const wrongPhraseRs = {
+  id: '1',
+  serbian: 'Da li je ovo tvoja knjiga?',
+  russian: 'Это твоя книга?',
+  section: 'R1',
+  selfCheckStatus: 'wrong',
+  isRussian: false
 }
 
 const color_reference = {
@@ -22,7 +52,9 @@ const color_reference = {
 
 describe('<CardsItem />', () => {
   it('Renders correctly', () => {
-    cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
+    const onLanguageChangeSpy = cy.spy().as('onLanguageChangeSpy')
+    
+    cy.mount(<CardsItem data={defaultPhraseRu} onCheckStatusChange={()=>{}} onLanguageChange={onLanguageChangeSpy} />)
     
     // Check if the structure is the same
     cy.getByTest('container-card').children().should('have.length', 2)
@@ -45,61 +77,69 @@ describe('<CardsItem />', () => {
       .and('have.text', 'Учу')
       .and('be.disabled')
       .and('have.class', 'wrong')
+
+    cy.getByTest('button-reset').should('not.be.visible')
+
+    cy.getByTest('button-answer').click()
+    cy.get('@onLanguageChangeSpy').should('have.been.called')
+
   })
 
-  it('Shows and hides the answer', () => {
-    cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
+  it('Renders correctly when "Show answer" button has been clicked', () => {
+    const onCheckStatusChangeSpy = cy.spy().as('onCheckStatusChangeSpy')
 
-    // Reveal the phrase in serbian
-    cy.getByTest('button-answer').click()
+    cy.mount(<CardsItem data={defaultPhraseRs} onCheckStatusChange={onCheckStatusChangeSpy} onLanguageChange={()=>{}} />)
+
+    cy.getByTest('text-phrase').find('p:first-child').should('not.be.visible')
+    cy.getByTest('text-phrase').find('p:last-child')
+      .should('have.text', 'Da li je ovo tvoja knjiga?')
+      .and('be.visible')
+    
+    cy.getByTest('button-answer').should('have.text', 'Скрыть ответ')
+    cy.getByTest('button-correct')
+      .should('exist')
+      .and('not.be.disabled')
+    cy.getByTest('button-wrong')
+      .should('exist')
+      .and('not.be.disabled')
+    
+    cy.getByTest('button-correct').click()
+    cy.get('@onCheckStatusChangeSpy').should('have.been.called')
+    cy.getByTest('button-wrong').click()
+    cy.get('@onCheckStatusChangeSpy').should('have.been.called')
+  })
+
+  it('Renders correctly after "Correct" button has been clicked', () => {
+    cy.mount(<CardsItem data={correctPhraseRs} onCheckStatusChange={()=>{}} onLanguageChange={()=>{}} />)
 
     cy.getByTest('text-phrase').find('p:first-child').should('not.be.visible')
     cy.getByTest('text-phrase').find('p:last-child').should('be.visible')
     
     cy.getByTest('button-answer').should('have.text', 'Скрыть ответ')
-    cy.getByTest('button-correct').should('not.be.disabled')
-    cy.getByTest('button-wrong').should('not.be.disabled')
+    cy.getByTest('button-reset').should('be.visible')
+    cy.get('.card').should('have.css', 'border-color', color_reference.greenLightTheme)
+  })
+
+  it('Renders correctly after "Wrong" button has been clicked', () => {
+    const onCheckStatusChangeSpy = cy.spy().as('onCheckStatusChangeSpy')
+    cy.mount(<CardsItem data={wrongPhraseRs} onCheckStatusChange={onCheckStatusChangeSpy} onLanguageChange={()=>{}} />)
+
+    cy.getByTest('text-phrase').find('p:first-child').should('not.be.visible')
+    cy.getByTest('text-phrase').find('p:last-child').should('be.visible')
     
-    // Reveal the phrase in russian
-    cy.getByTest('button-answer').click()
-
-    cy.getByTest('text-phrase').find('p:first-child').should('be.visible')
-    cy.getByTest('text-phrase').find('p:last-child').should('not.be.visible')
-    cy.getByTest('button-correct').should('be.disabled')
-    cy.getByTest('button-wrong').should('be.disabled')
-  })
-
-  it('Marks card as correct with click', () => {
-    cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
-
-    // Clicked "correct" button
-    cy.getByTest('button-answer').click()
-    cy.getByTest('button-correct').click()
-
-    // Check that the correct/wrong buttons disappear
-    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.greenLightTheme)
-  })
-
-  it('Marks card as wrong with click', () => {
-    cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
-
-    // Clicked "wrong" button
-    cy.getByTest('button-answer').click()
-    cy.getByTest('button-wrong').click()
-
-    // Check that the correct/wrong buttons disappear
-    cy.getByTest('container-card').should('have.css', 'border-color', color_reference.redLightTheme)
+    cy.getByTest('button-answer').should('have.text', 'Скрыть ответ')
+    cy.getByTest('button-reset').should('be.visible')
+    cy.get('.card').should('have.css', 'border-color', color_reference.redLightTheme)
+    
+    cy.getByTest('button-reset').click()
+    cy.get('@onCheckStatusChangeSpy').should('have.been.called')
   })
   
   it('Focus state is emulated correctly', () => {
-    cy.mount(<CardsItem data={example} onCheckStatusChange={()=>{}} />)
+    cy.mount(<CardsItem data={defaultPhraseRu} onCheckStatusChange={()=>{}} onLanguageChange={()=>{}} />)
 
     // Card is "focused" when buttons are focused
     cy.getByTest('button-answer').focus()
-    cy.getByTest('container-card')
-      .should('have.css', 'box-shadow', `${color_reference.black} 0px 0px 0px 8px`)
-    cy.getByTest('button-answer').click()
-
     cy.getByTest('container-card')
       .should('have.css', 'box-shadow', `${color_reference.black} 0px 0px 0px 8px`)
   })

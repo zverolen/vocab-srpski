@@ -50,7 +50,7 @@ describe('The basic user flow, click-based but with focus', () => {
     cy.get('[role="tablist"]').find('button:nth-child(2)').should('have.css', 'border-color', color_reference.greenLightTheme)
     //Green inner border and color
     cy.get('[role="tablist"]').find('button:nth-child(2)').find('> span')
-      .should('have.css', 'box-shadow', `${color_reference.greenLightTheme} 0px 0px 0px 4px`)
+      .should('have.css', 'box-shadow', `${color_reference.greenLightTheme} 0px 0px 0px 5px`)
       .and('have.css', 'color', color_reference.greenLightTheme)
     //Green tabpanel border and text
     cy.get('[role="tabpanel"]')
@@ -62,7 +62,7 @@ describe('The basic user flow, click-based but with focus', () => {
     cy.get('[role="tablist"]').find('button:nth-child(3)').should('have.css', 'border-color', color_reference.redLightTheme)
     //Red inner border and color
     cy.get('[role="tablist"]').find('button:nth-child(3)').find('> span')
-      .should('have.css', 'box-shadow', `${color_reference.redLightTheme} 0px 0px 0px 4px`)
+      .should('have.css', 'box-shadow', `${color_reference.redLightTheme} 0px 0px 0px 5px`)
       .and('have.css', 'color', color_reference.redLightTheme)
     //Red tabpanel border and text
     cy.get('[role="tabpanel"]')
@@ -74,7 +74,7 @@ describe('The basic user flow, click-based but with focus', () => {
     cy.get('[role="tablist"]').find('button:nth-child(1)').should('have.css', 'border-color', color_reference.black)
     //Black inner border and color
     cy.get('[role="tablist"]').find('button:nth-child(1)').find('> span')
-      .should('have.css', 'box-shadow', `${color_reference.black} 0px 0px 0px 4px`)
+      .should('have.css', 'box-shadow', `${color_reference.black} 0px 0px 0px 5px`)
       .and('have.css', 'color', color_reference.black)
     //Black tabpanel border
     cy.get('[role="tabpanel"]')
