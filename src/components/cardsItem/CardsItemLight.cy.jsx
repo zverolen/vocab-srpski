@@ -7,7 +7,7 @@ const defaultPhraseRu = {
   serbian: 'Da li je ovo tvoja knjiga?',
   russian: 'Это твоя книга?',
   section: 'R1',
-  selfCheckStatus: 'unset',
+  selfCheckStatus: 'withoutAnswer',
   isRussian: true
 }
 
@@ -16,7 +16,7 @@ const defaultPhraseRs = {
   serbian: 'Da li je ovo tvoja knjiga?',
   russian: 'Это твоя книга?',
   section: 'R1',
-  selfCheckStatus: 'unset',
+  selfCheckStatus: 'withoutAnswer',
   isRussian: false
 }
 

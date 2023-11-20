@@ -13,8 +13,8 @@ export default function CardsContainer({
     onLanguageChange,
     updatedTab
   }) {
-  const unsetPhrases = useMemo(
-    () => phrases.filter(phrase => phrase.selfCheckStatus === 'unset'),
+  const withoutAnswerPhrases = useMemo(
+    () => phrases.filter(phrase => phrase.selfCheckStatus === 'withoutAnswer'),
     [phrases]
   )
   const correctPhrases = useMemo(
@@ -32,10 +32,10 @@ export default function CardsContainer({
       <h2 className='visually-hidden'>{copy.phrases.heading}</h2>
       <TabsComponent 
         tabs={ tabsReference } 
-        scoreAll={unsetPhrases.length.toString()} 
+        scoreAll={withoutAnswerPhrases.length.toString()} 
         scoreCorrect={correctPhrases.length.toString()} 
         scoreWrong={wrongPhrases.length.toString()}
-        withoutAnswerPhrases={unsetPhrases}
+        withoutAnswerPhrases={withoutAnswerPhrases}
         correctPhrases={correctPhrases}
         wrongPhrases={wrongPhrases}
         onCheckStatusChange={onCheckStatusChange}

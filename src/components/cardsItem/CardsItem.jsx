@@ -9,7 +9,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
   let cardRef = useRef(null)
 
   let selfCheckHint
-  if (data.selfCheckStatus === 'unset') {
+  if (data.selfCheckStatus === 'withoutAnswer') {
     selfCheckHint = 'Без ответа'
   } else if (data.selfCheckStatus === 'correct') {
     selfCheckHint = 'Отмечено как знаю'
@@ -27,7 +27,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
     // onLanguageChange({id: data.id, isRussian: true})
 
     cardRef.current.classList.add(result, 'updated')
-    if (result === 'unset') {
+    if (result === 'withoutAnswer') {
       // setIsRussian(true);
       cardRef.current.classList.remove('correct', 'wrong')
       // onLanguageChange({id: data.id, isRussian: true})
@@ -40,7 +40,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
 
   return (
     <div 
-      className={`${data.selfCheckStatus != 'unset' ? data.selfCheckStatus : ''} card`}
+      className={`${data.selfCheckStatus != 'withoutAnswer' ? data.selfCheckStatus : ''} card`}
       key={data.id}
       data-testid="container-card"
       ref={cardRef}
@@ -62,13 +62,13 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
 
       
       <div aria-live="polite">
-        {data.selfCheckStatus === 'unset' && 
+        {data.selfCheckStatus === 'withoutAnswer' && 
           <>
             <ButtonDefault
               test="button-correct" 
               handleClick={() => handleCardStatusChange('correct')} 
-              // disabled={isRussian || data.selfCheckStatus !== 'unset'}
-              disabled={data.isRussian || data.selfCheckStatus !== 'unset'}
+              // disabled={isRussian || data.selfCheckStatus !== 'withoutAnswer'}
+              disabled={data.isRussian || data.selfCheckStatus !== 'withoutAnswer'}
               checkStatus="correct"
             >
               {copy.buttons.correct}
@@ -76,8 +76,8 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
             <ButtonDefault 
               test="button-wrong" 
               handleClick={() => handleCardStatusChange('wrong')}  
-              // disabled={isRussian || data.selfCheckStatus !== 'unset'}
-              disabled={data.isRussian || data.selfCheckStatus !== 'unset'}
+              // disabled={isRussian || data.selfCheckStatus !== 'withoutAnswer'}
+              disabled={data.isRussian || data.selfCheckStatus !== 'withoutAnswer'}
               checkStatus="wrong"
               >
                 {copy.buttons.wrong}
@@ -92,8 +92,8 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
         
         <ButtonDefault 
             test="button-reset" 
-            handleClick={() => handleCardStatusChange('unset')}
-            hidden={data.selfCheckStatus === 'unset'}
+            handleClick={() => handleCardStatusChange('withoutAnswer')}
+            hidden={data.selfCheckStatus === 'withoutAnswer'}
           >
             {copy.buttons.reset}
         </ButtonDefault>

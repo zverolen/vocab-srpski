@@ -20,9 +20,9 @@ function App() {
   // }, [])
 
   const [allPhrases, setAllPhrases] = useState(phrases.map(phrase => {
-    return {...phrase, selfCheckStatus: 'unset', isRussian: true} 
+    return {...phrase, selfCheckStatus: 'withoutAnswer', isRussian: true} 
   }))
-  const [updatedTab, setUpdatedTab] = useState('unset')
+  const [updatedTab, setUpdatedTab] = useState('withoutAnswer')
   const [isAlertVisible, setIsAlertVisible] = useState(false)
 
   function handleCheckStatusChange(phraseData) {
@@ -33,7 +33,7 @@ function App() {
         return {
           ...phrase,
           selfCheckStatus: phraseData.selfCheckStatus,
-          isRussian: phraseData.selfCheckStatus === 'unset' ? true : phraseData.isRussian
+          isRussian: phraseData.selfCheckStatus === 'withoutAnswer' ? true : phraseData.isRussian
         }
       }
     })

@@ -16,7 +16,7 @@ export default function Alert({ phraseTab, isVisible }) {
   } else if (phraseTab === 'wrong') {
     tab = copy.tabs.wrong
     alertClassName = 'wrong'
-  } else if (phraseTab === 'unset') {
+  } else if (phraseTab === 'withoutAnswer') {
     tab = copy.tabs.withoutAnswer
     alertClassName = 'withoutAnswer'
   }

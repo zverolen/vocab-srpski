@@ -14,7 +14,7 @@ const color_reference = {
 
 describe('<Alert />', () => {
   it('<Alert /> without answer renders correctly', () => {
-    cy.mount(<Alert phraseTab="unset" isVisible={true} />)
+    cy.mount(<Alert phraseTab="withoutAnswer" isVisible={true} />)
 
     cy.get('[role="alert"]')
       .should('have.css', 'border', `1px solid ${color_reference.white}`)

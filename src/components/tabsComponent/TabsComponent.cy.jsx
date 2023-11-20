@@ -12,49 +12,49 @@ const tabpanelReference1 = [
       "serbian": "Da li je ovo tvoja knjiga?",
       "russian": "Это твоя книга?",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "2",
       "serbian": "To nije njegov sat.",
       "russian": "Это не его часы.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "3",
       "serbian": "To je moje dete.",
       "russian": "Это мой ребёнок.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "4",
       "serbian": "To je tvoja sestra.",
       "russian": "Это твоя сестра.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "5",
       "serbian": "To je njegova kuća.",
       "russian": "Это его дом.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "6",
       "serbian": "Ovo je moj dobar drug.",
       "russian": "Это мой хороший друг.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "7",
       "serbian": "Šta je tvoja sestra?",
       "russian": "Кем работает твоя сестра?",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   }
 ]
 
@@ -64,42 +64,42 @@ const tabpanelReference2 = [
       "serbian": "To nije njegov sat.",
       "russian": "Это не его часы.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "3",
       "serbian": "To je moje dete.",
       "russian": "Это мой ребёнок.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "4",
       "serbian": "To je tvoja sestra.",
       "russian": "Это твоя сестра.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "5",
       "serbian": "To je njegova kuća.",
       "russian": "Это его дом.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "6",
       "serbian": "Ovo je moj dobar drug.",
       "russian": "Это мой хороший друг.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "7",
       "serbian": "Šta je tvoja sestra?",
       "russian": "Кем работает твоя сестра?",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   }
 ]
 
@@ -109,35 +109,35 @@ const tabpanelReference3 = [
       "serbian": "Da li je ovo tvoja knjiga?",
       "russian": "Это твоя книга?",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "2",
       "serbian": "To nije njegov sat.",
       "russian": "Это не его часы.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "3",
       "serbian": "To je moje dete.",
       "russian": "Это мой ребёнок.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "4",
       "serbian": "To je tvoja sestra.",
       "russian": "Это твоя сестра.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   },
   {
       "id": "5",
       "serbian": "To je njegova kuća.",
       "russian": "Это его дом.",
       "section": "R1",
-      "selfCheckStatus": "unset"
+      "selfCheckStatus": "withoutAnswer"
   }
 ]
 

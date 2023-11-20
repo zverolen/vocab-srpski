@@ -80,8 +80,8 @@ export default function TabsComponent({
       <div role="tablist" data-testid="tablist" aria-labelledby="tabs-heading">
         <Tab 
           id="0"
-          isUpdated={updatedTab === 'unset'}
-          className={updatedTab === 'unset' ? 'unset updated' : 'unset'}
+          isUpdated={updatedTab === 'withoutAnswer'}
+          className={updatedTab === 'withoutAnswer' ? 'withoutAnswer updated' : 'withoutAnswer'}
           isSelected={ selectedTab === '0'} 
           onKeyboardNavigation={handleTabSelectionKeyboard}
           onSelect={handleSelect}
