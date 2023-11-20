@@ -532,9 +532,13 @@
   :focus-visible {
     outline: var(--outlineOnFocus) solid var(--background-color);
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
-    
-    /* Animations */
-    transition: var(--focus-transition);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    :focus-visible {
+      /* Animations */
+      transition: var(--focus-transition-scaling);
+    }
   }
 
   button:focus-visible:not(.withIcon):not([role="tab"]) {

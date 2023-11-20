@@ -189,7 +189,7 @@
   --button-transition: box-shadow var(--transitionDurationNone) ease-out, outline var(--transitionDurationNone), background-color var(--transitionDuration-I) ease-out;
   --disclosure-button-icon-transition: all var(--transitionDuration-II) ease-out;
   --tab-caption-transition: background-color var(--transitionDuration-I) ease-out;
-  --focus-transition: box-shadow var(--transitionDuration-II) ease-out, outline var(--transitionDuration-II) ease-out;
+  --focus-transition-scaling: box-shadow var(--transitionDuration-III) ease-out, outline var(--transitionDuration-III) ease-out;
   --button-transition-on-hover: background-color var(--transitionDuration-I) ease-out;
 
   --updated-tab-animation-duration: var(--animationDuration-III);

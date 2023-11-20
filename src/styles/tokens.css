@@ -147,6 +147,7 @@
   --once: 1;
   --transitionDuration-I: 0.1s;
   --transitionDuration-II: 0.2s;
+  --transitionDuration-III: 0.25s;
   --transitionDurationNone: 0s;
 
   /* Opacity */
