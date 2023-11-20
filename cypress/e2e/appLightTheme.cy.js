@@ -413,5 +413,4 @@ describe('The basic user flow, click-based but with focus', () => {
   // it('Screen readers compatibility check', () => {
   //   cy.visit('/')
   // })
-  
 })
