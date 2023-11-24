@@ -39,7 +39,7 @@ export const copy = {
     email: 'fakeemail@fakeemailserver.com'
   },
   github: {
-    text: 'Ссылка на проект на Github:',
+    text: 'Ссылка на проект на',
     link: 'https://github.com/zverolen/vocab-srpski'
   }
 }

@@ -63,6 +63,8 @@
       font-family: var(--text-font-family);
       font-size: var(--text-font-size);
       font-weight: var(--body-font-weight);
+      letter-spacing: var(--text-letter-spacing);
+      word-spacing: var(--text-word-spacing);
     }
 
     header, main, footer {
@@ -138,6 +140,8 @@
       padding-block: var(--button-padding-block);
 
       font-size: var(--control-font-size);
+      letter-spacing: var(--button-letter-spacing);
+      word-spacing: var(--button-word-spacing);
 
       /* COLORS */
       background-color: var(--background-color);
@@ -184,6 +188,7 @@
     }
 
     .instruction {
+      max-width: var(--instruction-max-width);
       margin-block: var(--instruction-margin-block);
     }
 
@@ -396,6 +401,10 @@
       margin-bottom: var(--footer-margin-bottom);
 
       border-top: var(--borderWidthPrimary) solid var(--text-color);
+    }
+
+    footer p {
+      max-width: var(--footer-text-max-width);
     }
 
     footer p:not(p:last-child) {

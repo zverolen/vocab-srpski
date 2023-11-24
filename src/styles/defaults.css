@@ -29,8 +29,9 @@
   --disclosure-button-margin-bottom: var(--gap-II);
   --disclosure-control-icon-gap: var(--gap-I);
 
-  --instruction-margin-block: var(--gap-I) var(--gap-III);
+  --instruction-margin-block: var(--gap-I) var(--gap-IV);
   --instruction-item-margin: var(--instructionTextGap);
+  --instruction-max-width: var(--optimalReadingWidth);
 
   --tab-padding: var(--tabBlockPadding);
   --tab-padding-current: var(--tabBlockPaddingCurrent);
@@ -54,6 +55,7 @@
   --footer-subheading-margin: var(--gap-I) var(--gap-I);
   --footer-margin-bottom: var(--gap-III);
   --footer-text-margin-bottom: var(--instruction-item-margin);
+  --footer-text-max-width: var(--optimalReadingWidth);
 
   --alert-max-width: var(--alerWidthMax);
   --alert-padding: var(--gap-I);
@@ -86,6 +88,10 @@
   --title-subheading-text-alignment: center;
 
   --heading-letter-spacing: var(--letterSpacingCaps);
+  --text-letter-spacing: var(--letterSpacingWCAG);
+  --text-word-spacing: var(--wordSpacingWCAG);
+  --button-letter-spacing: var(--text-letter-spacing);
+  --button-word-spacing: var(--text-word-spacing);
   
   --title-subheading-text-wrap: pretty;
 
