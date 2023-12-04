@@ -20,6 +20,7 @@ describe('<ButtonDefault />', () => {
       .should('have.css', 'border', `1px solid ${color_reference.black}`)
       .and('have.css', 'color', color_reference.black)
       .and('have.css', 'background-color', color_reference.white)
+      .and('have.css', 'min-height', '44px')
   })
 
   it('Has styles on focus', () => {

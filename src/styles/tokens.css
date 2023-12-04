@@ -28,6 +28,7 @@
   --half: 50%;
   --halfReverse: -50%;
   --optimalReadingWidth: 80ch;
+  --minDimentionWCAG-AAA: calc(44 / 16 * 1rem);
 
   --siteWidthMin: calc(280 / 16 * 1rem);
   --siteWidthMax: calc(1352 / 16 * 1rem);

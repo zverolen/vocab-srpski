@@ -8,6 +8,7 @@
   --landmark-padding-inline: var(--gap-I);
 
   --button-min-width: calc(var(--wordLengthMin) + (var(--button-padding-inline) * 2));
+  --button-min-height: var(--minDimentionWCAG-AAA);
   --button-padding-inline: var(--gap-I);
   --button-padding-block: var(--gap-I);
   --button-padding-horiz: 0;
@@ -44,11 +45,13 @@
 
   --cards-container-gap: clamp(var(--cardsContainerGapMin), var(--cardsContainerGapIdeal), var(--cardsContainerGapMax));
   --card-padding: min(var(--cardPaddingMin), var(--cardPaddingMax));
-  --card-gap: var(--gap-IV);
+  --card-gap: var(--gap-II);
+  /* --card-gap: var(--gap-III); */
   --card-height: var(--fullHeight);
   --cards-line-height: var(--lineHeightReset);
   --card-check-gap: var(--gap-II);
-  --card-phrase-gap: var(--gap-II);
+  --card-phrase-gap: var(--gap-IV);
+  /* --card-phrase-gap: var(--gap-II); */
 
   --updated-card-cover-width: calc(var(--fullWidth) - (var(--card-padding) * 2));
 

@@ -16,7 +16,7 @@ export default function ButtonDefault({
         className={checkStatus && checkStatus}
         hidden={hidden}
       >
-        {children}   
+        <span>{children}</span>
       </button>
   )
 }

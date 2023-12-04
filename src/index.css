@@ -132,9 +132,10 @@
       font-size: var(--subheading-font-size);
       text-transform: var(--heading-text-transform);
       letter-spacing: var(--heading-letter-spacing);
-    }
+    }    
 
     button {
+      min-height: var(--button-min-height);
       min-width: var(--button-min-width);
       padding-inline: var(--button-padding-inline);
       padding-block: var(--button-padding-block);
