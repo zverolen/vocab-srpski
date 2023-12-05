@@ -24,17 +24,33 @@ describe('<ButtonWithIcon />', () => {
     cy.get('button').should('have.text', 'Инструкция')
     
     cy.get('button')
-      .should('have.css', 'border', `0px ${color_reference.black}`)
+      .should('have.css', 'border', `1px solid ${color_reference.black}`)
+      .and('have.css', 'color', color_reference.black)
       .and('have.css', 'background-color', color_reference.white)
+      .and('have.css', 'min-height', '44px')
 
-    cy.get('span').should('have.css', 'text-decoration', `${color_reference.black}`)
+    cy.get('button').find('circle')
+      .should('have.css', 'stroke', color_reference.black)
+    
+    cy.get('button').find('rect:nth-of-type(1)')
+      .should('have.css', 'fill', color_reference.redLightTheme)
+
+    cy.get('button').find('rect:nth-of-type(2)')
+      .should('have.css', 'fill', color_reference.black)
     
     cy.get('button').focus()
 
+    cy.wait(300)
     cy.get('button')
-      .should('have.css', 'outline-color', color_reference.white)
+      .should('have.css', 'outline', `${color_reference.white} solid 6px`)
       .and('have.css', 'box-shadow', `${color_reference.black} 0px 0px 0px 8px`)
-      .and('have.css', 'background-color', color_reference.white)
-      .and('have.css', 'color', color_reference.black)
+      .and('have.css', 'background-color', color_reference.black)
+      .and('have.css', 'color', color_reference.white)
+
+    cy.get('button').find('circle')
+      .should('have.css', 'stroke', color_reference.white)
+
+    cy.get('button').find('rect:nth-of-type(2)')
+      .should('have.css', 'fill', color_reference.white)
   })
 })

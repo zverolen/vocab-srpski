@@ -28,7 +28,7 @@
   --content-margins: var(--marginCentering);
 
   --disclosure-button-margin-bottom: var(--gap-II);
-  --disclosure-control-icon-gap: var(--gap-I);
+  --disclosure-control-icon-gap: var(--gap-II);
 
   --instruction-margin-block: var(--gap-I) var(--gap-IV);
   --instruction-item-margin: var(--instructionTextGap);
@@ -66,11 +66,11 @@
   /* Font */
   --text-font-family: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
   --heading-font-family: var(--serif-I), var(--serif-II), serif;
-  --button-withIcon-font-family: var(--text-font-family);
+  /* --button-withIcon-font-family: var(--text-font-family); */
 
   --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
   --control-font-size: var(--controlMin);
-  --button-withIcon-font-size: var(--controlMin);
+  /* --button-withIcon-font-size: var(--controlMin); */
   --title-font-size: clamp(var(--titleMin), var(--titleIdeal), var(--titleMax));
   --title-subheading-text-size: clamp(var(--titleSubheadingMin), var(--titleSubheadingIdeal), var(--titleSubheadingMax));
   --subheading-font-size: clamp(var(--subheadingMin), var(--subheadingIdeal), var(--subheadingMax));
@@ -79,7 +79,7 @@
   --heading-text-transform: uppercase;
 
   --text-line-height: var(--lineHeightBig);
-  --button-withIcon-text-decoration: var(--underlinedNoBorder);
+  /* --button-withIcon-text-decoration: var(--underlinedNoBorder); */
   --title-line-height: var(--lineHeightSmallLargeFont);
   --subheading-line-height: var(--lineHeightSmall);
 
@@ -166,6 +166,10 @@
   /* Layout */
   --main-display: flex;
   --main-direction: column;
+
+  --disclosure-button-layout: flex;
+  --disclosure-button-horizontal-aling: center;
+  --disclosure-button-icon-layout: inline-flex;
 
   --tab-caption-layout: flex;
   --tab-caption-centering: center;

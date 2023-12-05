@@ -122,9 +122,9 @@
       text-wrap: var(--title-subheading-text-wrap);  
     }
 
-    button.withIcon:is(.disclosure button.withIcon) {
+    /* button.withIcon:is(.disclosure button.withIcon) {
       margin-block-end: var(--disclosure-button-margin-bottom);
-    }
+    } */
 
     h2:is(footer h2) {
       margin-block: var(--footer-subheading-margin);
@@ -153,20 +153,51 @@
       transition: var(--button-transition);
     }
 
+    circle {
+      stroke: var(--text-color);
+    }
+
+    .plus rect:nth-of-type(1) {
+      fill: var(--wrong-text-color);
+    }
+
+    .plus rect:nth-of-type(2) {
+      fill: var(--text-color);
+    }
+
+    .minus rect {
+      fill: var(--wrong-text-color);
+    }
+
     button.withIcon {
+      display: var(--disclosure-button-layout);
+      align-items: var(--disclosure-button-horizontal-aling);
+
+      margin-block-end: var(--disclosure-button-margin-bottom);
+    }
+
+    button.withIcon span:not([hidden]) {
+      display: var(--disclosure-button-icon-layout);
+    }
+
+    button.withIcon span {
+      margin-inline-start: var(--disclosure-control-icon-gap);
+    }
+
+    /* button.withIcon {
       padding-inline: var(--button-with-icon-inline-padding);
       border: var(--button-withIcon-border);
 
       font-family: var(--button-withIcon-font-family);
       font-size: var(--button-withIcon-font-size);
       text-decoration: var(--button-withIcon-text-decoration);
-    }
+    } */
 
-    button.withIcon span {
+    /* button.withIcon span {
       vertical-align: var(--button-with-icon-vertical-align);
-    }
+    } */
 
-    button.withIcon[aria-expanded]:is(.disclosure button) span::after {
+    /* button.withIcon[aria-expanded]:is(.disclosure button) span::after {
       content: '';
       width: var(--disclosure-control-icon-width);
       height: var(--disclosure-control-icon-height);
@@ -177,16 +208,21 @@
 
       vertical-align: var(--button-with-icon-icon-vertical-align);
 
-      /* COLOR */
       background-color: var(--text-color);
 
-      /* Animations */
       transition: var(--disclosure-button-icon-transition);
     }
 
     button.withIcon[aria-expanded="true"]:is(.disclosure button) span::after {
       transform: var(--disclosure-button-icon-transform);
-    }
+    } */
+
+    /* button svg {
+      margin-left: 8px;
+      margin-top: 6px;
+      position: relative;
+      top: 3px;
+    } */
 
     .instruction {
       max-width: var(--instruction-max-width);
@@ -551,9 +587,22 @@
     }
   }
 
-  button:focus-visible:not(.withIcon):not([role="tab"]) {
+  /* button:focus-visible:not(.withIcon):not([role="tab"]) {
    background-color: var(--text-color);
    color: var(--background-color);
+  } */
+
+  button:focus-visible:not([role="tab"]) {
+    background-color: var(--text-color);
+    color: var(--background-color);
+   }
+
+  button:focus-visible circle {
+    stroke: var(--background-color);
+  }
+
+  button:focus-visible .plus rect:nth-of-type(2) {
+    fill: var(--background-color);
   }
 
   button.correct:focus-visible:not([role="tab"]) {
@@ -619,7 +668,6 @@
   button[role="tab"].wrong:focus-visible > span {
     box-shadow: 0 0 0 var(--tab-inner-shadow) var(--wrong-text-color);
   }
-  /**/
 
   [role="tabpanel"]:focus-visible {
     background-color: var(--background-color);
@@ -650,14 +698,27 @@
     transition: var(--button-transition-on-hover);
   }
 
-  button:hover:where(:not(.withIcon):not(:disabled)) {
+  /* button:hover:where(:not(.withIcon):not(:disabled)) {
+    background-color: var(--text-color);
+    color: var(--background-color);
+  } */
+
+  button:hover:where(:not(:disabled)) {
     background-color: var(--text-color);
     color: var(--background-color);
   }
 
-  button.withIcon:hover {
+  /* button.withIcon:hover {
     outline: var(--outlineOnFocus) solid var(--background-color);
     box-shadow: 0 0 0 var(--shadowOnFocus) var(--text-color);
+  } */
+
+  button:hover circle {
+    stroke: var(--background-color);
+  }
+
+  button:hover .plus rect:nth-of-type(2) {
+    fill: var(--background-color);
   }
 
   button.correct:not([role="tab"]):not(:disabled):hover {
