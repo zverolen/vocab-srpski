@@ -13,7 +13,7 @@ const color_reference = {
 }
 
 describe('<Button />', () => {
-  it.only('Default variant renders correctly in all states', () => {
+  it('Default variant renders correctly in all states', () => {
     cy.mount(
       <div className='disclosure'>
         <ButtonWithIcon handleClick={() => {}} isExpanded={false}>
@@ -52,5 +52,17 @@ describe('<Button />', () => {
 
     cy.get('button').find('rect:nth-of-type(2)')
       .should('have.css', 'fill', color_reference.black)
+  })
+
+  it('Renders correctly whith expanded state (opened disclosure)', () => {
+    cy.mount(
+      <div className='disclosure'>
+        <ButtonWithIcon handleClick={() => {}} isExpanded={true}>
+          Инструкция
+        </ButtonWithIcon>
+      </div>
+    )
+  
+    cy.get('svg').should('have.class', 'minus')
   })
 })
