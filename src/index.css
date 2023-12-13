@@ -235,13 +235,19 @@
 
     [role="tablist"] {
       container: tablist / inline-size;
+
+      display: flex;
+      align-items: flex-end;
     }
 
     button[role="tab"] {
       position: var(--tab-position);
       padding-block: var(--tab-padding);
 
-      border-bottom: var(--tab-bottom-border);
+      /* border-bottom: var(--tab-bottom-border); */
+      
+      /* bottom: -1px; */
+      /* bottom: 1px; */
     }
 
     button[role="tab"]:not(:first-child) {
@@ -250,6 +256,10 @@
 
     button[role="tab"]:not([aria-selected="true"]) {
       border-width: var(--tab-border);
+
+      /* border-bottom-width: 2px;
+      border-bottom-color: rgba(0,0,0,0); */
+      border-bottom: var(--tab-bottom-border);
     }
 
     button[role="tab"][aria-selected="true"] {
@@ -258,6 +268,14 @@
       padding-block-start: var(--tab-padding-current);
 
       border-width: var(--current-tab-border-width);
+      
+      /* border-bottom-width: 3px;
+      box-shadow: 0px 2px 0 0px var(--background-color);
+      border-bottom-color: transparent !important; */
+      box-shadow: 0px 5px 0 -2px var(--background-color);
+      padding-bottom: 10px;
+      border-bottom-width: 2px;
+      border-bottom-width: 0;
     }
 
     button[role="tab"][aria-selected="true"]::after {
@@ -267,12 +285,15 @@
       position: var(--tab-concealer-position);
       left: var(--tab-concealer-left);
       bottom: var(--tab-concealer-bottom);
+      bottom: -5px;
       z-index: var(--tab-concealer-z-index);
 
       width: var(--tab-concealer-width);
       height: var(--tab-concealer-height);
+      height: 5px;
       
       background-color: var(--background-color);
+      opacity: 0;
     }
 
     button[role="tab"] > span {
@@ -311,6 +332,8 @@
       padding: var(--tabpanel-padding);
 
       border: var(--tabpanel-border) solid var(--text-color);
+
+      /* position: relative; */
     }
 
     .cards-container {

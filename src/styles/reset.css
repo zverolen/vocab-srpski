@@ -56,6 +56,10 @@ a:not([class]) {
   color: currentColor;
 }
 
+a:focus-visible {
+  outline-offset: 0px;
+}
+
 span,
 a,
 input,

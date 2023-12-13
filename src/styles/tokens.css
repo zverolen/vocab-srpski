@@ -91,13 +91,14 @@
   --gap-IV: calc(32 /  16 * 1rem);
   --gap-V: calc(48 / 16 * 1rem);
 
-  --headerMarginMin: 2vw;
+  --headerMarginMin: 5vw;
 
   --iconTriangleWidth: calc(14 / 16 * 1rem);
   --iconTriangleHeight: calc(12 / 16 * 1rem);
 
   --tabBlockPadding: var(--gap-I);
-  --tabBlockPaddingCurrent: calc(12 / 16 * 1rem);
+  /* --tabBlockPaddingCurrent: calc(12 / 16 * 1rem); */
+  --tabBlockPaddingCurrent: calc(16 / 16 * 1rem);
   --tabCaptionPadding: calc(1 / 16 * 1rem);
   
   --tabpanelPaddingMin: var(--gap-I);
