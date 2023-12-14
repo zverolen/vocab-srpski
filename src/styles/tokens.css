@@ -52,9 +52,7 @@
   --textCardMax: calc(22 / 16 * 1rem);
   --textCardIdeal: 7.2cqw;
 
-  --controlMin: 1rem;
-  --controlMax: calc(18 / 16 * 1rem);
-  --controlIdeal: calc(18 / 1512 * 100 * 1vw);
+  --controlOnly: 1rem;
 
   --titleMin: calc(24 / 16 * 1rem);
   --titleMax: calc(44 / 16 * 1rem);

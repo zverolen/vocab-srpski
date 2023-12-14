@@ -69,8 +69,7 @@
   /* --button-withIcon-font-family: var(--text-font-family); */
 
   --text-font-size: clamp(var(--textMin), var(--textIdeal), var(--textMax));
-  --control-font-size: var(--controlMin);
-  /* --button-withIcon-font-size: var(--controlMin); */
+  --control-font-size: var(--controlOnly);
   --title-font-size: clamp(var(--titleMin), var(--titleIdeal), var(--titleMax));
   --title-subheading-text-size: clamp(var(--titleSubheadingMin), var(--titleSubheadingIdeal), var(--titleSubheadingMax));
   --subheading-font-size: clamp(var(--subheadingMin), var(--subheadingIdeal), var(--subheadingMax));

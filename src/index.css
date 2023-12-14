@@ -667,7 +667,8 @@
   } */
 
   button[role="tab"]:is(:focus-visible) {
-    box-shadow: var(--tab-shadow-on-focus);
+    /* box-shadow: var(--tab-shadow-on-focus); */
+    box-shadow: 0px 5px 0 -2px var(--background-color);
     outline: var(--tab-outline-on-focus);
   }
 
