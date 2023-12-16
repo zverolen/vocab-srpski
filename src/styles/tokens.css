@@ -22,6 +22,8 @@
   --updatedCardCoverBorder: calc(4 / 16 * 1rem);
   --innerOutlineOnFocus: calc(1 / 16 * 1rem);
   --innerShadowOnFocus: calc(5 / 16 * 1rem);
+  --concealerShadowOffsetY: calc(5 / 16 * 1rem);
+  --concealerShadowSpread: calc(-2 / 16 * 1rem);
 
   --fullWidth: 100%;
   --fullHeight: 100%;
@@ -98,6 +100,7 @@
   /* --tabBlockPaddingCurrent: calc(12 / 16 * 1rem); */
   --tabBlockPaddingCurrent: calc(16 / 16 * 1rem);
   --tabCaptionPadding: calc(1 / 16 * 1rem);
+  --tabSelectedPadding: calc(10 / 16 * 1rem);
   
   --tabpanelPaddingMin: var(--gap-I);
   --tabpanelPaddingIdeal: 1.5vmax;

@@ -42,6 +42,7 @@
   --tabpanel-padding: clamp(var(--tabpanelPaddingMin), var(--tabpanelPaddingIdeal), var(--tabpanelPaddingMax));
   --tab-icon-gap: var(--gap-I);
   --tab-caption-padding: var(--tabCaptionPadding);
+  --tab-selected-padding: var(--tabSelectedPadding);
 
   --cards-container-gap: clamp(var(--cardsContainerGapMin), var(--cardsContainerGapIdeal), var(--cardsContainerGapMax));
   --card-padding: min(var(--cardPaddingMin), var(--cardPaddingMax));
@@ -64,6 +65,7 @@
   --alert-padding: var(--gap-I);
 
   /* Font */
+
   --text-font-family: var(--sans-I), var(--sans-II), var(--sans-III), var(--sans-IV), sans-serif;
   --heading-font-family: var(--serif-I), var(--serif-II), serif;
   /* --button-withIcon-font-family: var(--text-font-family); */
@@ -123,6 +125,8 @@
   --tab-bottom-border: var(--reset);
   --tab-border: var(--borderWidthPrimary);
   --current-tab-border-width: var(--borderWidthSecondary);
+  --tab-selected-bottom-border: var(--resetNumber);
+  --tab-selected-border: 
   --tabpanel-border: var(--borderWidthSecondary);
   --tab-shadow-on-focus: unset;
   --tab-outline-on-focus: unset;

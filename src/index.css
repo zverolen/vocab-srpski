@@ -266,16 +266,18 @@
       z-index: var(--tab-current-z-index);
 
       padding-block-start: var(--tab-padding-current);
+      padding-block-end: var(--tab-selected-padding);
 
-      border-width: var(--current-tab-border-width);
+      
       
       /* border-bottom-width: 3px;
       box-shadow: 0px 2px 0 0px var(--background-color);
       border-bottom-color: transparent !important; */
-      box-shadow: 0px 5px 0 -2px var(--background-color);
-      padding-bottom: 10px;
-      border-bottom-width: 2px;
-      border-bottom-width: 0;
+      border-width: var(--current-tab-border-width);
+      box-shadow: 0 var(--concealerShadowOffsetY) 0 var(--concealerShadowSpread) var(--background-color);
+      
+      border-bottom-width: var(--tab-selected-bottom-border);
+      /* border-bottom-width: 0; */
     }
 
     button[role="tab"][aria-selected="true"]::after {
