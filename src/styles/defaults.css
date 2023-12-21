@@ -38,7 +38,7 @@
   --tab-padding-current: var(--tabBlockPaddingCurrent);
   --tab-left-margin: var(--marginCorrection-I);
   --tab-concealer-width: var(--fullWidth);
-  --tab-concealer-height: var(--concealer-height);
+  --tab-concealer-height: var(--concealerHeight);
   --tabpanel-padding: clamp(var(--tabpanelPaddingMin), var(--tabpanelPaddingIdeal), var(--tabpanelPaddingMax));
   --tab-icon-gap: var(--gap-I);
   --tab-caption-padding: var(--tabCaptionPadding);
@@ -126,7 +126,7 @@
   --tab-border: var(--borderWidthPrimary);
   --current-tab-border-width: var(--borderWidthSecondary);
   --tab-selected-bottom-border: var(--resetNumber);
-  --tab-selected-border: 
+  /* --tab-selected-border:  */
   --tabpanel-border: var(--borderWidthSecondary);
   --tab-shadow-on-focus: unset;
   --tab-outline-on-focus: unset;
@@ -139,6 +139,7 @@
   --alert-border-width: var(--borderWidthPrimary);
 
   /* Position */
+  --root-position: relative;
   --tab-position: var(--positionInFlow);
   --tab-concealer-position: var(--positionOutOfFlow);
 
@@ -179,6 +180,12 @@
   --tabpanel-empty-grid-column: var(--allColumns);
   --tabpanel-flex: 2;
 
+  --tab-caption-direction-narrow-screen: column;
+  --tab-caption-align-items-narrow-screen: flex-start;
+
+  --tablist-layout: flex;
+  --tablist-align-items: flex-end;
+
   --card-container-layout: grid;
   --cards-container-template: repeat(auto-fit, minmax(min(100%, var(--cardWidthMin)), 1fr));
   --cards-container-auto-rows: auto;
@@ -195,6 +202,7 @@
   /* Opacity */
   --updated-card-content-opacity: 0;
   --updated-card-cover-opacity: 0;
+  /* --tab-concealer-initial-opacity: 0; */
 
   /* Transform */
   --disclosure-button-icon-transform: rotate(var(--disclosure-control-icon-unflip));

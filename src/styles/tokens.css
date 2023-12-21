@@ -41,7 +41,7 @@
   --instructionTextGap: 0.5em;
   /* --instructionTextGap: 0.3em; */
 
-  --concealer-height: calc(2 / 16 * 1rem);
+  --concealerHeight: calc(5 / 16 * 1rem);
 
   --marginCentering: auto;
   --marginCorrection-I: calc(-1 / 16 * 1rem);
@@ -137,7 +137,7 @@
   --positionInFlow: relative;
   --positionOutOfFlow: absolute;
 
-  --shiftDownConcealer: calc(-2 / 16 * 1rem);
+  --shiftDownConcealer: calc(-5 / 16 * 1rem);
   --shiftLeftConcealer: 0;
 
   /* Layers */
