@@ -9,7 +9,7 @@ describe('<Footer />', () => {
     cy.get('footer').find('h2').should('have.text', 'Обратная связь')
     cy.get('footer').find('p:first-of-type')
       .should('have.text', 'Если вы заметили ошибку, сообщите об этом на электронную почту fakeemail@fakeemailserver.com')
-      .and('have.css', 'margin-bottom', '6px')
+      .and('have.css', 'margin-bottom', '10px')
     cy.get('footer').find('p:first-of-type a')
       .should('have.text', 'fakeemail@fakeemailserver.com')
       .and('have.attr', 'href', 'mailto:fakeemail@fakeemailserver.com')
