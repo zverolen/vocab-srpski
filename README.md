@@ -15,30 +15,29 @@ The UI is being designed in Figma using components.
 
 ## Accessibility
 I do my best to make this app to comply with all WCAG 2.2 success criteria. Most things are considered during the development and full audit is performed before the end of each development stage.
-The app is manually tested using screen readers. I don't like how it is working right now. There are a few major issues with the UX. Those issues are probably affecting the visual usage of the app. But, to address them, the full interface has to be redesigned. Which I'm planning to do at some point. Meahwhile, the app is as accessible and as usable as I could do it.
+The app is manually tested using screen readers. It kills me to admit that the current interface version and the whole workflow is not screen-reader friendly. Probably, same issues make it more confusing for any user to use the app. To fix it, I need to totally reimagine the workflow and interface, so I can come up with more usable intreface. This is going to be Stage 2 of the project. The app is quite operable for keyboard users, though.
 
 ## Testing
 I rely a lot on automatic testing during my development process (Cypress). I don't use full-scale TDD but in many cases I start making a feature with writing a test. I try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design and help to design and develop in isolation.
 
 ## Tasks remaining
-1. Simplifying cascade system.
-2. Updating CSS and design tokens.
-3. Documenting everything in the design system in Penpot.
+1. Updating CSS and design tokens.
+2. Documenting everything in the design system in Penpot.
 
 ## Planned Features
-1. Experienced user mode.
-2. No motion / no delay mode.
-3. Button to switch between light and dark theme.
-4. Skipping or hiding phrases.
-5. Shuffling phrases.
-6. Deviding phrases into smaller packs.
+1. New interface.
+2. Experienced user mode.
+3. No motion / no delay mode.
+4. Button to switch between light and dark theme.
+5. Skipping or hiding phrases.
+6. Shuffling phrases.
+7. Deviding phrases into smaller packs.
 
 ## Other ideas
-1. Redesing of UI so that working with phrases became more convenient for mouse, keyboard and screen-reader users.
-2. Moving phrases to a headless CMS.
-3. Personalisation of the experience of a particular user: history, progress, etc.
-4. Autocheck of typed-in phrases and announcement of phrases in Serbian. Maybe even checking the spoken phrases 🫢.
-5. Deeper personalisation: user can add their own phrases for themselves and suggest phrases for the app.
+1. Moving phrases to a headless CMS.
+2. Personalisation of the experience of a particular user: history, progress, etc.
+3. Autocheck of typed-in phrases and announcement of phrases in Serbian. Maybe even checking the spoken phrases 🫢.
+4. Deeper personalisation: user can add their own phrases for themselves and suggest phrases for the app.
 
 ## Me
 Hi, I'm Elena. I'm a fronted developer and my level is middl-ish. In my work I focus on usability and accessibility and a huge part of my process consists of manual testing in screen-readers and writing automatic tests for the UI components. Also, I try to use the Modern CSS features as much as possible and learning those takes a big part of my process as well. A lot has changed since I last worked.
