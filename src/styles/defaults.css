@@ -1,6 +1,6 @@
 
 :root {
-  --ordered-list-left-gap: var(--widthTwoLetters);
+  --ordered-list-left-gap: var(--instructionLeftPadding);
 
   --button-withIcon-border: none;
   
@@ -43,6 +43,7 @@
   --tab-icon-gap: var(--gap-I);
   --tab-caption-padding: var(--tabCaptionPadding);
   --tab-selected-padding: var(--tabSelectedPadding);
+  --tabpanel-min-height: var(--tabpanelHeightMin);
 
   --cards-container-gap: clamp(var(--cardsContainerGapMin), var(--cardsContainerGapIdeal), var(--cardsContainerGapMax));
   --card-padding: min(var(--cardPaddingMin), var(--cardPaddingMax));
@@ -51,7 +52,8 @@
   --card-height: var(--fullHeight);
   --cards-line-height: var(--lineHeightReset);
   --card-check-gap: var(--gap-II);
-  --card-phrase-gap: var(--gap-IV);
+  --card-phrase-gap: var(--gap-III);
+  /* --card-phrase-gap: var(--gap-IV); */
   /* --card-phrase-gap: var(--gap-II); */
 
   --updated-card-cover-width: calc(var(--fullWidth) - (var(--card-padding) * 2));

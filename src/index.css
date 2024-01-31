@@ -327,11 +327,10 @@
     [role="tabpanel"] {
       flex: var(--tabpanel-flex);
 
+      min-height: var(--tabpanel-min-height);
       padding: var(--tabpanel-padding);
 
       border: var(--tabpanel-border) solid var(--text-color);
-
-      /* position: relative; */
     }
 
     .cards-container {
@@ -346,7 +345,7 @@
       grid-column: var(--tabpanel-empty-grid-column);
     }
 
-    .card  {
+    .card {
       container: card/inline-size;
 
       position: var(--card-position);
