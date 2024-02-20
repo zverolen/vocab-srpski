@@ -1,3 +1,4 @@
+
 # VOCAB-SRPSKI
 
 This is a small project I started to enforce my learning process. The main idea is to self-check how good you can say something in Serbian. The phrases allow one to practice both their vocabulary and grammar.
@@ -7,22 +8,27 @@ The tool for that are cards that originally show a phrase in Russian and provide
 The project is in its early stage and more useful features are on their way. Currently all phrases are kept in the file system and added manualy.
 
 ## Technical Information
+
 The project is using Vite.js. The tests are run by Cypress. The styles are written in vanilla CSS and heavily rely on the Modern CSS features and intrinsic design.
 
 The UI is being designed in Figma using components.
 
 ## Accessibility
+
 I do my best to make this app to comply with all WCAG 2.2 success criteria. Most things are considered during the development and full audit is performed before the end of each development stage.
 The app is manually tested using screen readers. It kills me to admit that the current interface version and the whole workflow is not screen-reader friendly. Probably, same issues make it more confusing for any user to use the app. To fix it, I need to totally reimagine the workflow and interface, so I can come up with more usable intreface. This is going to be Stage 2 of the project. The app is quite operable for keyboard users, though.
 
 ## Testing
+
 I rely a lot on automatic testing during my development process (Cypress). I don't use full-scale TDD but in many cases I start making a feature with writing a test. I try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design and help to design and develop in isolation.
 
 ## Tasks remaining
+
 1. Updating CSS and design tokens.
 2. Documenting everything in the design system in Penpot.
 
 ## Planned Features
+
 1. New interface.
 2. Experienced user mode.
 3. No motion / no delay mode.
@@ -32,17 +38,20 @@ I rely a lot on automatic testing during my development process (Cypress). I don
 7. Deviding phrases into smaller packs.
 
 ## Other ideas
+
 1. Moving phrases to a headless CMS.
 2. Personalisation of the experience of a particular user: history, progress, etc.
 3. Autocheck of typed-in phrases and announcement of phrases in Serbian. Maybe even checking the spoken phrases 🫢.
 4. Deeper personalisation: user can add their own phrases for themselves and suggest phrases for the app.
 
 ## Me
+
 Hi, I'm Elena. I'm a fronted developer and my level is middl-ish. In my work I focus on usability and accessibility and a huge part of my process consists of manual testing in screen-readers and writing automatic tests for the UI components. Also, I try to use the Modern CSS features as much as possible and learning those takes a big part of my process as well. A lot has changed since I last worked.
 
 There's a huge gap in my career due to a maternity leave that went south. I've been working on waking up my skills and improving them for about a year with courses and a little bit of practice. This project is one of such efforts.
 
 ## Compliance with the WCAG 2.2 success criteria:
+
 - [x] 1.1.1 Non-text Content (A)
 - [x] 1.2.1 Audio-only and Video-only (Prerecorded) (A) (not present)
 - [x] 1.2.2 Captions (Prerecorded) (A) (not present)
