@@ -118,6 +118,8 @@
   /* --cardPaddingMin: 5%; */
   --cardPaddingMax: calc(22 / 16 * 1rem);
 
+  --cardWidth: 400px;
+
   --wordLengthMin: 5ch;
 
   --alertInset: var(--gap-III);

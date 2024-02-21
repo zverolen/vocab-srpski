@@ -10,7 +10,7 @@ export default function Phrases() {
   const allPhrases = useSelector(selectAllPhrases)
 
   return (
-    <div style={{width: '100%'}}>
+    <div>
       { allPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}} onLanguageChange={() => {}} />) }
     </div>
   )

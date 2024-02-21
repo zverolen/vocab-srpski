@@ -4,6 +4,8 @@ import { useState, useRef } from 'react'
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import { copy } from '../../data/copy';
 
+import style from "./Card.module.css"
+
 export default function CardsItem({ data, onCheckStatusChange, onLanguageChange  }) {
   const [ isRussian, setIsRussian ] = useState(true)
   let cardRef = useRef(null)
@@ -40,7 +42,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
 
   return (
     <div 
-      className={`${data.selfCheckStatus != 'withoutAnswer' ? data.selfCheckStatus : ''} card`}
+      className={`${data.selfCheckStatus != 'withoutAnswer' ? data.selfCheckStatus : ''} ${style.card} card`}
       key={data.id}
       data-testid="container-card"
       ref={cardRef}
