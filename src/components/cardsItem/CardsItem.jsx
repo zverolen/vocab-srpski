@@ -1,44 +1,53 @@
 import PropTypes from 'prop-types'
 import { useState, useRef } from 'react'
+import { useDispatch, useSelector } from "react-redux"
 
+import { setNextPhraseId } from '../../features/phrases/phrasesSlice'
 import ButtonDefault from '../buttonDefault/ButtonDefault'
 import { copy } from '../../data/copy';
 
 import style from "./Card.module.css"
 
 export default function CardsItem({ data, onCheckStatusChange, onLanguageChange  }) {
-  const [ isRussian, setIsRussian ] = useState(true)
+  // const [ isRussian, setIsRussian ] = useState(true)
   let cardRef = useRef(null)
 
-  let selfCheckHint
-  if (data.selfCheckStatus === 'withoutAnswer') {
-    selfCheckHint = 'Без ответа'
-  } else if (data.selfCheckStatus === 'correct') {
-    selfCheckHint = 'Отмечено как знаю'
-  } else {
-    selfCheckHint = 'Отмечено как учу'
+  const dispatch = useDispatch()
+
+  // let selfCheckHint
+  // if (data.selfCheckStatus === 'withoutAnswer') {
+  //   selfCheckHint = 'Без ответа'
+  // } else if (data.selfCheckStatus === 'correct') {
+  //   selfCheckHint = 'Отмечено как знаю'
+  // } else {
+  //   selfCheckHint = 'Отмечено как учу'
+  // }
+
+  function handlePhraseChange() {
+    dispatch(setNextPhraseId())
+    console.log('click')
   }
   
-  function handleChangeView() {
-    // setIsRussian(!isRussian)
-    handleLanguageChange(!data.isRussian)
-  }
+  // function handleChangeView() {
+  //   // setIsRussian(!isRussian)
+  //   handleLanguageChange(!data.isRussian)
+  // }
 
-  function handleCardStatusChange(result) {
-    onCheckStatusChange({id: data.id, selfCheckStatus: result})
+  // function handleCardStatusChange(result) {
+  //   onCheckStatusChange({id: data.id, selfCheckStatus: result})
     // onLanguageChange({id: data.id, isRussian: true})
 
-    cardRef.current.classList.add(result, 'updated')
-    if (result === 'withoutAnswer') {
+    // cardRef.current.classList.add(result, 'updated')
+    // if (result === 'withoutAnswer') {
       // setIsRussian(true);
-      cardRef.current.classList.remove('correct', 'wrong')
+      // cardRef.current.classList.remove('correct', 'wrong')
       // onLanguageChange({id: data.id, isRussian: true})
-    }
-  }
+  //   }
+  // }
 
-  function handleLanguageChange() {
-    onLanguageChange({id: data.id, isRussian: !data.isRussian})
-  }
+  // function handleLanguageChange() {
+  //   onLanguageChange({id: data.id, isRussian: !data.isRussian})
+  // }
 
   return (
     <div 
@@ -55,7 +64,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
         </div>
 
         <div aria-live="off">
-          <ButtonDefault test="button-answer" handleClick={handleLanguageChange}>
+          <ButtonDefault test="button-answer" handleClick={handlePhraseChange}>
             {/* {isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer} */}
             {data.isRussian ? copy.buttons.revealAnswer : copy.buttons.hideAnswer}
           </ButtonDefault>
@@ -68,7 +77,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
           <>
             <ButtonDefault
               test="button-correct" 
-              handleClick={() => handleCardStatusChange('correct')} 
+              handleClick={handlePhraseChange} 
               // disabled={isRussian || data.selfCheckStatus !== 'withoutAnswer'}
               disabled={data.isRussian || data.selfCheckStatus !== 'withoutAnswer'}
               checkStatus="correct"
@@ -77,7 +86,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
             </ButtonDefault>
             <ButtonDefault 
               test="button-wrong" 
-              handleClick={() => handleCardStatusChange('wrong')}  
+              handleClick={handlePhraseChange}  
               // disabled={isRussian || data.selfCheckStatus !== 'withoutAnswer'}
               disabled={data.isRussian || data.selfCheckStatus !== 'withoutAnswer'}
               checkStatus="wrong"
@@ -86,15 +95,15 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
             </ButtonDefault>
           </>
         }
-        <p 
+        {/* <p 
           className="visually-hidden"
           >
           {selfCheckHint}
-        </p>
+        </p> */}
         
         <ButtonDefault 
             test="button-reset" 
-            handleClick={() => handleCardStatusChange('withoutAnswer')}
+            handleClick={handlePhraseChange}
             hidden={data.selfCheckStatus === 'withoutAnswer'}
           >
             {copy.buttons.reset}

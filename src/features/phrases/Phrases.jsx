@@ -1,17 +1,17 @@
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 
-import { selectAllPhrases } from "./phrasesSlice"
+import { 
+          selectCurrentPhrase,
+        } from "./phrasesSlice"
 
 import CardsItem from "../../components/cardsItem/CardsItem"
 
 export default function Phrases() {
-  const dispatch = useDispatch()
-
-  const allPhrases = useSelector(selectAllPhrases)
+  const currentPhrase = useSelector(selectCurrentPhrase)
 
   return (
     <div>
-      { allPhrases.map(phrase => <CardsItem key={phrase.id} data={phrase} onCheckStatusChange={()=>{}} onLanguageChange={() => {}} />) }
+      <CardsItem key={currentPhrase.id} data={currentPhrase} onCheckStatusChange={()=>{}} onLanguageChange={() => {}} />
     </div>
   )
 }

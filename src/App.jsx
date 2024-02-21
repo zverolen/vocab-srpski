@@ -11,7 +11,7 @@ import ContainerOne from './components/containerOne/ContainerOne'
 import Phrases from './features/phrases/Phrases'
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
-  console.log(prefersReducedMotion)
+  // console.log(prefersReducedMotion)
 
 function App() {
   // useEffect(() => {
