@@ -3,8 +3,9 @@ export default function HeaderTwo() {
     <header>
       <h1>Знаю!</h1>
       <div>
-        <p>Инструкция</p>
-        <p>Выход</p>
+        <button>Инструкция</button>
+        <span>|</span>
+        <button>Выход</button>
       </div>
     </header>
   )

@@ -16,6 +16,11 @@
     white-space: nowrap;
     width: 1px;
   }
+
+  .site-frame {
+    width: var(--content-width);
+    margin-inline: var(--marginCentering);
+  }
 }
 
 @media (prefers-color-scheme: light) {
@@ -52,25 +57,31 @@
 
 @layer general {
 
+  :root {
+    --dev_headingFontSizeMin: calc(32 / 16 * 1rem);
+    --dev_headingFontSizeIdeal: calc(1352 / 48 * 1vw);
+    --dev_headingFontSizeMax: calc(48 / 16 * 1rem);
+    --dev_headingFontSize: clamp(var(--dev_headingFontSizeMin), var(--dev_headingFontSizeIdeal), var(--dev_headingFontSizeMax));
+
+    --dev_subheadingFontSizeMin: calc(20 / 16 * 1rem);
+    --dev_subheadingFontSizeIdeal: calc(1352 / 24 * 1vw);
+    --dev_subheadingFontSizeMax: calc(24 / 16 * 1rem);
+    --dev_subheadingFontSize: clamp(var(--dev_subheadingFontSizeMin), var(--dev_subheadingFontSizeIdeal), var(--dev_subheadingFontSizeMax));
+
+    --dev_textFontSizeMin: calc(18 / 16 * 1rem);
+    --dev_textFontSizeIdeal: calc(1352 / 20 * 1vw);
+    --dev_textFontSizeMax: calc(20 / 16 * 1rem);
+    --dev_textFontSize: clamp(var(--dev_textFontSizeMin), var(--dev_textFontSizeIdeal), var(--dev_textFontSizeMax));
+  }
+
     .root {
       position: var(--root-position);
-    }
-  
-    body {
-      background-color: var(--background-color);
-      color: var(--text-color);
-    
-      font-family: var(--text-font-family);
-      font-size: var(--text-font-size);
-      font-weight: var(--body-font-weight);
-      letter-spacing: var(--text-letter-spacing);
-      word-spacing: var(--text-word-spacing);
     }
 
     .layout {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      grid-template-rows: 1fr minmax(60vh, auto) 1fr;
+      grid-template-columns: calc(280 / 16 * 1rem) 1fr;
+      grid-template-rows: none;
 
       min-height: 100vh;
 
@@ -100,6 +111,11 @@
     }
 
     @media screen and (min-width: 560px) {
+
+      .layout {
+        grid-template-rows: auto minmax(80vh, auto) 1fr;
+      }
+
       header {
         grid-row: 1 / 2;
         grid-column: 1 / -1;
@@ -141,12 +157,39 @@
     /* header {
       margin-block: var(--header-margin-block);
     } */
+
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
     
-    h1, h2, h3 {
-      font-family: var(--heading-font-family);
+      font-family: var(--text-font-family);
+      font-size: var(--dev_textFontSize);
+      /* font-weight: var(--body-font-weight); */
+      letter-spacing: var(--text-letter-spacing);
+      word-spacing: var(--text-word-spacing);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      padding-block: calc(16 / 16 * 1rem);
     }
 
     h1 {
+      font-size: var(--dev_headingFontSize);
+    }
+
+    h2, h3 {
+      font-size: var(--dev_subheadingFontSize);
+    }
+    
+    /* h1, h2, h3 {
+      font-family: var(--heading-font-family);
+    } */
+
+    /* h1 {
       margin-block-end: var(--title-margin-bottom);
 
       font-size: var(--title-font-size);
@@ -154,7 +197,7 @@
       line-height: var(--title-line-height);
       text-transform: var(--heading-text-transform);
       letter-spacing: var(--heading-letter-spacing);
-    }
+    } */
 
     p:is(.card p) {
       font-size: var(--card-text-font-size);
@@ -209,6 +252,12 @@
 
     circle {
       stroke: var(--text-color);
+    }
+
+    footer {
+      > div:nth-of-type(2) {
+        display: flex;
+      }
     }
 
     .plus rect:nth-of-type(1) {

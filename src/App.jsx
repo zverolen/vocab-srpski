@@ -78,7 +78,7 @@ function App() {
   // }
 
   return (
-    <div className='layout'>
+    <div className="layout site-frame">
       <HeaderTwo />
       {/* <CardsContainer 
         phrases={allPhrases} 

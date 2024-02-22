@@ -1,0 +1,8 @@
+.workingArea {
+  margin-block: var(--gap-III);
+}
+
+.workingArea > div {
+  display: flex;
+  gap: var(--gap-II);
+}
