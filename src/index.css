@@ -25,7 +25,7 @@
 
 @media (prefers-color-scheme: light) {
   @layer theme.light {
-    :root {
+    /* :root {
       --text-color: var(--colorPrimary);
       --background-color: var(--colorPrimaryInverted);
       --disabled-background-color: var(--colorDisabledLight);
@@ -34,6 +34,17 @@
       --correct-text-color: var(--colorSuccessLightTheme);
       --correct-background-color: var(--background-color);
       --wrong-text-color: var(--colorErrorLightTheme);
+      --wrong-background-color: var(--background-color);
+    } */
+    :root {
+      --text-color: var(--colorPrimaryInverted);
+      --background-color: var(--colorPrimary);
+      --disabled-background-color: var(--colorDisabledDark);
+      --disabled-text-color: var(--colorDisabledMedium);
+
+      --correct-text-color: var(--colorSuccessDarkTheme);
+      --correct-background-color: var(--background-color);
+      --wrong-text-color: var(--colorErrorDarkTheme);
       --wrong-background-color: var(--background-color);
     }
   }

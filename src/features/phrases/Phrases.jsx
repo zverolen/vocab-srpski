@@ -15,7 +15,6 @@ export default function Phrases() {
     <>
       <h2>Как сказать по-сербски?</h2>
       <WorkingArea data={currentPhrase} />
-      {/* <CardsItem key={currentPhrase.id} data={currentPhrase} onCheckStatusChange={()=>{}} onLanguageChange={() => {}} /> */}
       <SessionPhrases />
     </>
   )
