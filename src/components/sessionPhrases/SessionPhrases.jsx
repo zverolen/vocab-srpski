@@ -10,7 +10,7 @@ export default function SessionPhrases() {
 
   return(
     <div className={style.sessionPhrases}>
-      <h3 id="session-phrases-subheading">Фразы в этой сессии</h3>
+      <h3 id="session-phrases-subheading">Фразы в этой сессии:</h3>
       {sessionPhrases.length > 0 && 
         <table role="table" aria-labelledby="session-phrases-subheading">
         <tbody role="rowgroup">

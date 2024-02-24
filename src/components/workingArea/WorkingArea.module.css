@@ -2,7 +2,7 @@
   margin-block: var(--gap-III);
 }
 
-.workingArea > div {
+.workingArea > div > div {
   display: flex;
   gap: var(--gap-II);
 }

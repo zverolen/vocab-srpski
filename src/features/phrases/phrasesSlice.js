@@ -17,8 +17,12 @@ export const phrasesSlice = createSlice({
   reducers: {
     setNextPhraseId: (state) => {
       const currentPhraseIndex = state.phrases.findIndex(phrase => phrase.id === state.currentPhraseId)
-      const nextPhraseId = currentPhraseIndex + 1
-      state.currentPhraseId = state.phrases[nextPhraseId].id
+      const nextPhraseIndex = currentPhraseIndex + 1
+      if (nextPhraseIndex < state.phrases.length) {
+        state.currentPhraseId = state.phrases[nextPhraseIndex].id
+      } else {
+        state.currentPhraseId = null
+      }
     },
     setSessionStatus: (state, action) => {
       const { id, sessionStatus} = action.payload
@@ -33,6 +37,13 @@ export const { setNextPhraseId, setSessionStatus } = phrasesSlice.actions
 export const selectAllPhrases = (state) => state.phrases.phrases
 export const selectSessionPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.sessionStatus !== 'new')
 export const selectCorrectPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.sessionStatus === 'correct')
-export const selectCurrentPhrase = (state) => state.phrases.phrases.find(phrase => phrase.id === state.phrases.currentPhraseId)
+
+export const selectCurrentPhrase = (state) => {
+  if (state.phrases.currentPhraseId) {
+    return state.phrases.phrases.find(phrase => phrase.id === state.phrases.currentPhraseId)
+  } else {
+    return null
+  }
+}
 
 export default phrasesSlice.reducer
