@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSelector, createSlice } from "@reduxjs/toolkit"
 import { phrases } from "../../data/data"
+
 
 const initialState = {
   group: 'all',
@@ -35,8 +36,9 @@ export const phrasesSlice = createSlice({
 export const { setNextPhraseId, setPhraseSessionStatus } = phrasesSlice.actions
 
 export const selectAllPhrases = (state) => state.phrases.phrases
-export const selectSessionPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.phraseSessionStatus !== 'new')
-export const selectCorrectPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.phraseSessionStatus === 'correct')
+
+export const selectPracticedPhrases = createSelector([selectAllPhrases], phrases =>
+  phrases.filter(phrase => phrase.phraseSessionStatus !== 'new'))
 
 export const selectCurrentPhrase = (state) => {
   if (state.phrases.currentPhraseId) {

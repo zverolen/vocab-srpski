@@ -24,7 +24,7 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Это твоя книга?')).toBeInTheDocument()
 
-    await user.click(screen.getByText('Пропустить'))
+    await user.click(screen.getByText('Пропустить', {selector: 'button'}))
 
     expect(screen.getByText('Это не его часы.', {selector: '.phraseContent p'})).toBeInTheDocument()
     expect(screen.queryByText('Это твоя книга?', {selector: '.phraseContent p'})).not.toBeInTheDocument()
@@ -40,9 +40,9 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Это не его часы.')).toBeInTheDocument()
 
-    await user.click(screen.getByText('Проверить'))
-    await user.click(screen.getByText('Знаю!'))
-    await user.click(screen.getByText('Закончить'))
+    await user.click(screen.getByText('Проверить', {selector: 'button'}))
+    await user.click(screen.getByText('Знаю!', {selector: 'button'}))
+    await user.click(screen.getByText('Закончить', {selector: 'button'}))
 
     expect(screen.getByText('Это мой ребёнок.', {selector: '.phraseContent p'})).toBeInTheDocument()
     expect(screen.queryByText('Это не его часы.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
@@ -58,9 +58,9 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Это мой ребёнок.')).toBeInTheDocument()
 
-    await user.click(screen.getByText('Проверить'))
-    await user.click(screen.getByText('Учу!'))
-    await user.click(screen.getByText('Закончить'))
+    await user.click(screen.getByText('Проверить', {selector: 'button'}))
+    await user.click(screen.getByText('Учу!', {selector: 'button'}))
+    await user.click(screen.getByText('Закончить', {selector: 'button'}))
 
     expect(screen.getByText('Это твоя сестра.', {selector: '.phraseContent p'})).toBeInTheDocument()
     expect(screen.queryByText('Это мой ребёнок.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
@@ -76,9 +76,9 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Это твоя сестра.')).toBeInTheDocument()
 
-    await user.click(screen.getByText('Проверить'))
-    await user.click(screen.getByText('Знаю!'))
-    await user.click(screen.getByText('Повторить'))
+    await user.click(screen.getByText('Проверить', {selector: 'button'}))
+    await user.click(screen.getByText('Знаю!', {selector: 'button'}))
+    await user.click(screen.getByText('Повторить', {selector: 'button'}))
 
     expect(screen.getByText('Это его дом.', {selector: '.phraseContent p'})).toBeInTheDocument()
     expect(screen.queryByText('Это твоя сестра.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
@@ -94,9 +94,9 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Это его дом.')).toBeInTheDocument()
 
-    await user.click(screen.getByText('Проверить'))
-    await user.click(screen.getByText('Учу!'))
-    await user.click(screen.getByText('Попробовать снова'))
+    await user.click(screen.getByText('Проверить', {selector: 'button'}))
+    await user.click(screen.getByText('Учу!', {selector: 'button'}))
+    await user.click(screen.getByText('Попробовать снова', {selector: 'button'}))
 
     expect(screen.getByText('Это мой хороший друг.', {selector: '.phraseContent p'})).toBeInTheDocument()
     expect(screen.queryByText('Это его дом.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
@@ -112,11 +112,11 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Это мой хороший друг.')).toBeInTheDocument()
 
-    await user.click(screen.getByText('Пропустить'))
-    await user.click(screen.getByText('Пропустить'))
-    await user.click(screen.getByText('Пропустить'))
-    await user.click(screen.getByText('Пропустить'))
-    await user.click(screen.getByText('Пропустить'))
+    await user.click(screen.getByText('Пропустить', {selector: 'button'}))
+    await user.click(screen.getByText('Пропустить', {selector: 'button'}))
+    await user.click(screen.getByText('Пропустить', {selector: 'button'}))
+    await user.click(screen.getByText('Пропустить', {selector: 'button'}))
+    await user.click(screen.getByText('Пропустить', {selector: 'button'}))
 
     expect(screen.getByText('Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.', {selector: '.phraseContent p'})).toBeInTheDocument()
 

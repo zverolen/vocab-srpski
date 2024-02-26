@@ -38,15 +38,15 @@ export default function Practice() {
       phraseContent = <div><p>Знаю: </p><p><span>{currentPhrase.russian}</span> <span> | </span><span>{currentPhrase.serbian}</span></p></div>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('correct')}>Закончить</button>
-                  <button onClick={() => handlePhraseChange('wrong')}>Повторить</button>
+                  <button onClick={() => handlePhraseChange('new')}>Повторить</button>
                 </div>
   
     } else if (phraseProgress === 'wrong') {
   
       phraseContent = <div><p>Учу: </p><p><span>{currentPhrase.russian}</span> <span> | </span><span>{currentPhrase.serbian}</span></p></div>
       buttons = <div>
-                  <button onClick={() => handlePhraseChange('correct')}>Закончить</button>
-                  <button onClick={() => handlePhraseChange('wrong')}>Попробовать снова</button>
+                  <button onClick={() => handlePhraseChange('wrong')}>Закончить</button>
+                  <button onClick={() => handlePhraseChange('new')}>Попробовать снова</button>
                 </div>
   
     }
