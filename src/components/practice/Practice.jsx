@@ -1,13 +1,13 @@
 import { useDispatch, useSelector } from "react-redux"
 
-import { setNextPhraseId, setSessionStatus, selectCurrentPhrase } from '../../features/phrases/phrasesSlice'
+import { setNextPhraseId, setPhraseSessionStatus, selectCurrentPhrase } from '../../features/phrases/phrasesSlice'
 
-import style from "./WorkingArea.module.css"
+import style from "./Practice.module.css"
 import { useState } from "react"
 
 const note = <p>Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.</p>
 
-export default function WorkingArea() {
+export default function Practice() {
   const [phraseProgress, setPhraseProgress] = useState('new')
 
   const dispatch = useDispatch()
@@ -15,8 +15,6 @@ export default function WorkingArea() {
 
   let phraseContent
   let buttons
-
-  // console.log(currentPhrase.id)
 
   if (currentPhrase) {
     if (phraseProgress === 'new') {
@@ -60,7 +58,7 @@ export default function WorkingArea() {
 
   function handlePhraseChange(status) {
     
-    dispatch(setSessionStatus({id: currentPhrase.id, sessionStatus: status}))
+    dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
     dispatch(setNextPhraseId())
 
     setPhraseProgress('new')

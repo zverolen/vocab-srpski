@@ -4,7 +4,7 @@ import { phrases } from "../../data/data"
 const initialState = {
   group: 'all',
   phrases: phrases.map(phrase => {
-    return {...phrase, sessionStatus: 'new'}
+    return {...phrase, phraseSessionStatus: 'new'}
   }),
   status: 'idle',
   currentPhraseId: phrases[0].id,
@@ -24,19 +24,19 @@ export const phrasesSlice = createSlice({
         state.currentPhraseId = null
       }
     },
-    setSessionStatus: (state, action) => {
-      const { id, sessionStatus} = action.payload
+    setPhraseSessionStatus: (state, action) => {
+      const { id, phraseSessionStatus} = action.payload
       const updatedPhrase = state.phrases.find(phrase => phrase.id === id)
-      updatedPhrase.sessionStatus = sessionStatus
+      updatedPhrase.phraseSessionStatus = phraseSessionStatus
     }
   }
 })
 
-export const { setNextPhraseId, setSessionStatus } = phrasesSlice.actions
+export const { setNextPhraseId, setPhraseSessionStatus } = phrasesSlice.actions
 
 export const selectAllPhrases = (state) => state.phrases.phrases
-export const selectSessionPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.sessionStatus !== 'new')
-export const selectCorrectPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.sessionStatus === 'correct')
+export const selectSessionPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.phraseSessionStatus !== 'new')
+export const selectCorrectPhrases = (state) => state.phrases.phrases.filter(phrase => phrase.phraseSessionStatus === 'correct')
 
 export const selectCurrentPhrase = (state) => {
   if (state.phrases.currentPhraseId) {

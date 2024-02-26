@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
-import WorkingArea from './WorkingArea'
+import Practice from './Practice'
 import { store } from '../../store/store'
 import { Provider } from 'react-redux'
 
-describe('<WorkingArea />', () => {
+describe('<Practice />', () => {
 
   it('Renders correctly',() => {
-    render(<Provider store={store}><WorkingArea /></Provider>)
+    render(<Provider store={store}><Practice /></Provider>)
 
     // screen.debug()
 
@@ -20,7 +20,7 @@ describe('<WorkingArea />', () => {
 
   it('Flow: give correct answer', async ()=> {
     const user = userEvent.setup()
-    render(<Provider store={store}><WorkingArea /></Provider>)
+    render(<Provider store={store}><Practice /></Provider>)
 
     // screen.debug()
 
@@ -50,7 +50,7 @@ describe('<WorkingArea />', () => {
 
 it('Flow: give wrong answer', async ()=> {
   const user = userEvent.setup()
-  render(<Provider store={store}><WorkingArea /></Provider>)
+  render(<Provider store={store}><Practice /></Provider>)
 
   screen.debug()
 

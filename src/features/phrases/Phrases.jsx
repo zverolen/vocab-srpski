@@ -2,8 +2,8 @@
 
 // import { selectCurrentPhrase } from "./phrasesSlice"
 
-import WorkingArea from "../../components/workingArea/WorkingArea"
-import SessionPhrases from "../../components/sessionPhrases/SessionPhrases"
+import Practice from "../../components/practice/Practice"
+import SessionPhrases from "../../components/sessionOverview/SessionOverview"
 
 export default function Phrases() {
   // const currentPhrase = useSelector(selectCurrentPhrase)
@@ -11,8 +11,8 @@ export default function Phrases() {
   return (
     <>
       <h2>Как сказать по-сербски?</h2>
-      {/* <WorkingArea data={currentPhrase} /> */}
-      <WorkingArea />
+      {/* <Practice data={currentPhrase} /> */}
+      <Practice />
       <SessionPhrases />
     </>
   )

@@ -15,7 +15,7 @@ describe('<Phrases />', () => {
     expect(screen.getByText('Фразы в этой сессии:')).toBeInTheDocument()
   })
 
-  it('<WorkingArea />correctly handles skipped phrase', async () => {
+  it('<Practice />correctly handles skipped phrase', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
@@ -31,7 +31,7 @@ describe('<Phrases />', () => {
 
   })
 
-  it('<WorkingArea /> correctly handles finishing phrase (marked "correctly")', async () => {
+  it('<Practice /> correctly handles finishing phrase (marked "correctly")', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
@@ -49,7 +49,7 @@ describe('<Phrases />', () => {
 
   })
 
-  it('<WorkingArea /> correctly handles finishing phrase (marked "incorrectly")', async () => {
+  it('<Practice /> correctly handles finishing phrase (marked "incorrectly")', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
@@ -67,7 +67,7 @@ describe('<Phrases />', () => {
 
   })
 
-  it('<WorkingArea /> correctly handles repeating phrase (marked "correctly")', async () => {
+  it('<Practice /> correctly handles repeating phrase (marked "correctly")', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
@@ -85,7 +85,7 @@ describe('<Phrases />', () => {
 
   })
 
-  it('<WorkingArea /> correctly handles repeating phrase (marked "incorrectly")', async () => {
+  it('<Practice /> correctly handles repeating phrase (marked "incorrectly")', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
@@ -103,7 +103,7 @@ describe('<Phrases />', () => {
 
   })
 
-  it('<WorkingArea /> correctly handles finishing all phrases', async () => {
+  it('<Practice /> correctly handles finishing all phrases', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
