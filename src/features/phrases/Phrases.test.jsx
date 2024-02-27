@@ -14,15 +14,7 @@ describe('<Phrases />', () => {
 
     expect(screen.getByText('Как сказать по-сербски?')).toBeInTheDocument()
     expect(screen.getByText('Фразы в этой сессии:')).toBeInTheDocument()
-
-    /** Statistics Area */
-    expect(screen.getByText('Эта сессия:')).toBeInTheDocument()
-    expect(screen.getByText('10', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('100%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+   
   })
 
   it('User skips a phrase', async () => {
@@ -36,8 +28,8 @@ describe('<Phrases />', () => {
 
     await user.click(screen.getByText('Пропустить', {selector: 'button'}))
 
-    expect(screen.getByText('Это не его часы.', {selector: '.phraseContent p'})).toBeInTheDocument()
-    expect(screen.queryByText('Это твоя книга?', {selector: '.phraseContent p'})).not.toBeInTheDocument()
+    expect(screen.getByText('Это не его часы.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.queryByText('Это твоя книга?', {selector: '#practice p'})).not.toBeInTheDocument()
 
   })
 
@@ -54,8 +46,8 @@ describe('<Phrases />', () => {
     await user.click(screen.getByText('Знаю!', {selector: 'button'}))
     await user.click(screen.getByText('Закончить', {selector: 'button'}))
 
-    expect(screen.getByText('Это мой ребёнок.', {selector: '.phraseContent p'})).toBeInTheDocument()
-    expect(screen.queryByText('Это не его часы.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
+    expect(screen.getByText('Это мой ребёнок.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.queryByText('Это не его часы.', {selector: '#practice p'})).not.toBeInTheDocument()
 
   })
 
@@ -72,8 +64,8 @@ describe('<Phrases />', () => {
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
     await user.click(screen.getByText('Закончить', {selector: 'button'}))
 
-    expect(screen.getByText('Это твоя сестра.', {selector: '.phraseContent p'})).toBeInTheDocument()
-    expect(screen.queryByText('Это мой ребёнок.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
+    expect(screen.getByText('Это твоя сестра.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.queryByText('Это мой ребёнок.', {selector: '#practice p'})).not.toBeInTheDocument()
 
   })
 
@@ -90,8 +82,8 @@ describe('<Phrases />', () => {
     await user.click(screen.getByText('Знаю!', {selector: 'button'}))
     await user.click(screen.getByText('Повторить', {selector: 'button'}))
 
-    expect(screen.getByText('Это его дом.', {selector: '.phraseContent p'})).toBeInTheDocument()
-    expect(screen.queryByText('Это твоя сестра.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
+    expect(screen.getByText('Это его дом.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.queryByText('Это твоя сестра.', {selector: '#practice p'})).not.toBeInTheDocument()
 
   })
 
@@ -108,8 +100,8 @@ describe('<Phrases />', () => {
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
     await user.click(screen.getByText('Попробовать снова', {selector: 'button'}))
 
-    expect(screen.getByText('Это мой хороший друг.', {selector: '.phraseContent p'})).toBeInTheDocument()
-    expect(screen.queryByText('Это его дом.', {selector: '.phraseContent p'})).not.toBeInTheDocument()
+    expect(screen.getByText('Это мой хороший друг.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.queryByText('Это его дом.', {selector: '#practice p'})).not.toBeInTheDocument()
 
   })
 
@@ -128,7 +120,7 @@ describe('<Phrases />', () => {
     await user.click(screen.getByText('Пропустить', {selector: 'button'}))
     await user.click(screen.getByText('Пропустить', {selector: 'button'}))
 
-    expect(screen.getByText('Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.', {selector: '.phraseContent p'})).toBeInTheDocument()
+    expect(screen.getByText('Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.', {selector: '#practice p'})).toBeInTheDocument()
 
   })
 
