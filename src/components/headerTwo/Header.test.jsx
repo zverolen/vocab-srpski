@@ -6,6 +6,6 @@ describe('HeaderTwo', () => {
   it('Renders', () => {
     render(<HeaderTwo />)
 
-    screen.debug()
+    // screen.debug()
   })
 })

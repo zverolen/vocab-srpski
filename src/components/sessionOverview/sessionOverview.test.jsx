@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { describe, it, expect } from 'vitest'
 
 import { store } from '../../store/store'
 import { Provider } from 'react-redux'
@@ -72,7 +73,7 @@ describe('<SessionOverview />', () => {
     const user = userEvent.setup()
     render(<Provider store={store}><Phrases /></Provider>)
 
-    screen.debug()
+    // screen.debug()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
     await user.click(screen.getByText('Знаю!', {selector: 'button'}))
@@ -85,7 +86,7 @@ describe('<SessionOverview />', () => {
     const user = userEvent.setup()
     render(<Provider store={store}><Phrases /></Provider>)
 
-    screen.debug()
+    // screen.debug()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
     await user.click(screen.getByText('Учу!', {selector: 'button'}))

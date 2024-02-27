@@ -9,7 +9,6 @@ const initialState = {
   }),
   status: 'idle',
   currentPhraseId: phrases[0].id,
-  view: 'subreddit'
 }
 
 export const phrasesSlice = createSlice({
@@ -29,7 +28,7 @@ export const phrasesSlice = createSlice({
       const { id, phraseSessionStatus} = action.payload
       const updatedPhrase = state.phrases.find(phrase => phrase.id === id)
       updatedPhrase.phraseSessionStatus = phraseSessionStatus
-    }
+    },
   }
 })
 
@@ -37,8 +36,17 @@ export const { setNextPhraseId, setPhraseSessionStatus } = phrasesSlice.actions
 
 export const selectAllPhrases = (state) => state.phrases.phrases
 
-export const selectPracticedPhrases = createSelector([selectAllPhrases], phrases =>
-  phrases.filter(phrase => phrase.phraseSessionStatus !== 'new'))
+export const selectPracticedPhrases = createSelector([selectAllPhrases], phrases => phrases.filter(phrase => phrase.phraseSessionStatus !== 'new'))
+export const selectNewPhrases = createSelector([selectAllPhrases], phrases => phrases.filter(phrase => phrase.phraseSessionStatus === 'new'))
+export const selectCorrectPhrases = createSelector([selectAllPhrases], phrases => phrases.filter(phrase => phrase.phraseSessionStatus === 'correct'))
+export const selectWrongPhrases = createSelector([selectAllPhrases], phrases => phrases.filter(phrase => phrase.phraseSessionStatus === 'wrong'))
+
+// in research
+export const selectTotalNumberOfPhrases = createSelector([selectAllPhrases], phrases => phrases.length)
+export const selectNumberOfNewPhrases = createSelector([selectNewPhrases], phrases => phrases.length)
+export const selectNumberOfCorrectPhrases = createSelector([selectCorrectPhrases], phrases => phrases.length)
+export const selectNumberOfWrongPhrases = createSelector([selectWrongPhrases], phrases => phrases.length)
+
 
 export const selectCurrentPhrase = (state) => {
   if (state.phrases.currentPhraseId) {

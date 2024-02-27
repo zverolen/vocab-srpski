@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from "react-redux"
 
-import { setNextPhraseId, setPhraseSessionStatus, selectCurrentPhrase } from '../../features/phrases/phrasesSlice'
+import { 
+  setNextPhraseId, 
+  setPhraseSessionStatus,
+  selectCurrentPhrase 
+} from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
 import { useState } from "react"
@@ -65,8 +69,8 @@ export default function Practice() {
   }
 
   return(
-    <div className={style.workingArea}>
-      <div className="phraseContent">
+    <div id="practice" className={style.practice}>
+      <div>
         {currentPhrase && phraseContent}
         <div>
           {currentPhrase && buttons}

@@ -5,7 +5,7 @@
 import Practice from "../../components/practice/Practice"
 import SessionPhrases from "../../components/sessionOverview/SessionOverview"
 
-export default function Phrases() {
+export default function Phrases({ onPhraseFinish }) {
   // const currentPhrase = useSelector(selectCurrentPhrase)
 
   return (

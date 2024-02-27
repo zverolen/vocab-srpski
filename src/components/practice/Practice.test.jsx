@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { describe, it, expect } from 'vitest'
 
 import Practice from './Practice'
 import { store } from '../../store/store'
@@ -52,7 +53,7 @@ it('Flow: give wrong answer', async ()=> {
   const user = userEvent.setup()
   render(<Provider store={store}><Practice /></Provider>)
 
-  screen.debug()
+  // screen.debug()
 
   expect(screen.getByText('Это не его часы.')).toBeInTheDocument()
 

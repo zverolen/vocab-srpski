@@ -1,8 +1,8 @@
-.workingArea {
+.practice {
   margin-block: var(--gap-III);
 }
 
-.workingArea > div > div {
+.practice > div > div {
   display: flex;
   gap: var(--gap-II);
 }

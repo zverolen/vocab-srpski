@@ -1,13 +1,23 @@
+import { useSelector } from "react-redux"
+
+import StatsItem from "../statsItem/StatsItem"
+
 import style from "./Stats.module.css"
 
+
+import { selectNumberOfNewPhrases, selectTotalNumberOfPhrases } from '../../features/phrases/phrasesSlice'
+
 export default function Stats() {
+  const allPhrasesNum = useSelector(selectTotalNumberOfPhrases)
+  const newPhrasesNum = useSelector(selectNumberOfNewPhrases)
+  const newPhrasesPercent = newPhrasesNum * 100 / allPhrasesNum
   return(
-    <div className={style.stats}>
-      <h2>Результаты</h2>
+    <div id="stats" className={style.stats}>
+      <h2>Эта сессия:</h2>
       <div>
-        <a href="#"><span>Осталось</span><span>18 | 50%</span></a>
-        <a href="#"><span>Знаю!</span><span>10 | 26%</span></a>
-        <a href="#"><span>Учу!</span><span>8 | 24%</span></a>
+        <StatsItem id="remaining" name="Осталось" statNum={newPhrasesNum} statPercent={newPhrasesPercent} />
+        <StatsItem id="correct" name="Знаю!" statNum="0" statPercent="0" />
+        <StatsItem id="wrong" name="Учу!" statNum="0" statPercent="0" />
       </div>
       <a href="#">Вся статистика</a>
     </div>

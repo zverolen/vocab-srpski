@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import { describe, it, expect } from 'vitest'
 
 import { store } from '../../store/store'
 import { Provider } from 'react-redux'
@@ -8,19 +9,28 @@ import Phrases from './Phrases'
 
 describe('<Phrases />', () => {
 
-  it('Renders', () => {
+  it('User sees a correct first screen', () => {
     render(<Provider store={store}><Phrases /></Provider>)
 
     expect(screen.getByText('Как сказать по-сербски?')).toBeInTheDocument()
     expect(screen.getByText('Фразы в этой сессии:')).toBeInTheDocument()
+
+    /** Statistics Area */
+    expect(screen.getByText('Эта сессия:')).toBeInTheDocument()
+    expect(screen.getByText('10', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
+    expect(screen.getByText('100%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
+    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
+    expect(screen.getByText('0%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
   })
 
-  it('<Practice />correctly handles skipped phrase', async () => {
+  it('User skips a phrase', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
 
-    screen.debug()
+    // screen.debug()
 
     expect(screen.getByText('Это твоя книга?')).toBeInTheDocument()
 
@@ -31,12 +41,12 @@ describe('<Phrases />', () => {
 
   })
 
-  it('<Practice /> correctly handles finishing phrase (marked "correctly")', async () => {
+  it('User answers correctly and finishes the phrase', async () => {
     const user = userEvent.setup()
 
     render(<Provider store={store}><Phrases /></Provider>)
 
-    screen.debug()
+    // screen.debug()
 
     expect(screen.getByText('Это не его часы.')).toBeInTheDocument()
 
@@ -54,7 +64,7 @@ describe('<Phrases />', () => {
 
     render(<Provider store={store}><Phrases /></Provider>)
 
-    screen.debug()
+    // screen.debug()
 
     expect(screen.getByText('Это мой ребёнок.')).toBeInTheDocument()
 
