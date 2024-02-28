@@ -82,7 +82,7 @@ function App() {
   // }
 
   const allPhrasesNumber = useSelector(selectTotalNumberOfPhrases)
-  console.log(allPhrasesNumber)
+  // console.log(allPhrasesNumber)
 
   const [phraseStatus, setPhraseStatus] = useState(null)
 

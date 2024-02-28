@@ -5,19 +5,33 @@ import StatsItem from "../statsItem/StatsItem"
 import style from "./Stats.module.css"
 
 
-import { selectNumberOfNewPhrases, selectTotalNumberOfPhrases } from '../../features/phrases/phrasesSlice'
+import { 
+  selectTotalNumberOfPhrases,
+  selectNumberOfNewPhrases,
+  selectNumberOfCorrectPhrases,
+  selectNumberOfWrongPhrases,
+} from '../../features/phrases/phrasesSlice'
 
 export default function Stats() {
+  // in research
   const allPhrasesNum = useSelector(selectTotalNumberOfPhrases)
+
   const newPhrasesNum = useSelector(selectNumberOfNewPhrases)
   const newPhrasesPercent = newPhrasesNum * 100 / allPhrasesNum
+  
+  const correctPhrasesNum = useSelector(selectNumberOfCorrectPhrases)
+  const correctPhrasesPercent = correctPhrasesNum * 100 / allPhrasesNum
+
+  const wrongPhrasesNum = useSelector(selectNumberOfWrongPhrases)
+  const wrongPhrasesPercent = wrongPhrasesNum * 100 / allPhrasesNum
+
   return(
     <div id="stats" className={style.stats}>
       <h2>Эта сессия:</h2>
       <div>
         <StatsItem id="remaining" name="Осталось" statNum={newPhrasesNum} statPercent={newPhrasesPercent} />
-        <StatsItem id="correct" name="Знаю!" statNum="0" statPercent="0" />
-        <StatsItem id="wrong" name="Учу!" statNum="0" statPercent="0" />
+        <StatsItem id="correct" name="Знаю!" statNum={correctPhrasesNum} statPercent={correctPhrasesPercent} />
+        <StatsItem id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
       </div>
       <a href="#">Вся статистика</a>
     </div>

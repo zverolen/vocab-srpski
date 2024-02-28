@@ -25,7 +25,7 @@ export default function CardsItem({ data, onCheckStatusChange, onLanguageChange 
 
   function handlePhraseChange() {
     dispatch(setNextPhraseId())
-    console.log('click')
+    // console.log('click')
   }
   
   // function handleChangeView() {
