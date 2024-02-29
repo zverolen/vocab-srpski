@@ -1,11 +1,9 @@
 import { useDispatch, useSelector } from "react-redux"
 
 import { 
-  setNextPhraseId, 
   setPhraseSessionStatus,
   selectCurrentPhrase,
-  setLastStatus,
-  setCurrentPhraseId
+  setOrderForPhrasesInPractice
 } from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
@@ -64,9 +62,8 @@ export default function Practice() {
 
   function handlePhraseChange(status) {
 
-    dispatch(setLastStatus(status))
+    dispatch(setOrderForPhrasesInPractice({id: currentPhrase.id, phraseSessionStatus: status}))
     dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
-    dispatch(setCurrentPhraseId(currentPhrase.id))
     
     setPhraseProgress('new')
   }
