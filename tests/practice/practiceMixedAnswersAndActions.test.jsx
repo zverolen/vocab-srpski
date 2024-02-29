@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
+import {rest} from 'msw'
+import {setupServer} from 'msw/node'
 
 import { store } from '../../src/store/store'
 import { Provider } from 'react-redux'

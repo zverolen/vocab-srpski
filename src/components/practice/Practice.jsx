@@ -23,7 +23,7 @@ export default function Practice() {
   if (currentPhrase) {
     if (phraseProgress === 'new') {
 
-      phraseContent = <div><p>{currentPhrase.russian}</p></div>
+      phraseContent = <div><p>{currentPhrase.attributes.russian}</p></div>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('revealed')}>Проверить</button>
                   <button onClick={() => handlePhraseChange('skipped')}>Пропустить</button>
@@ -31,7 +31,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'revealed') {
   
-      phraseContent = <div><p>{currentPhrase.serbian}</p></div>
+      phraseContent = <div><p>{currentPhrase.attributes.serbian}</p></div>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('correct')}>Знаю!</button>
                   <button onClick={() => handlePhraseCheck('wrong')}>Учу!</button>
@@ -39,7 +39,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'correct') {
   
-      phraseContent = <div><p>Знаю: </p><p><span>{currentPhrase.russian}</span> <span> | </span><span>{currentPhrase.serbian}</span></p></div>
+      phraseContent = <div><p>Знаю: </p><p><span>{currentPhrase.attributes.russian}</span> <span> | </span><span>{currentPhrase.attributes.serbian}</span></p></div>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('correct')}>Закончить</button>
                   <button onClick={() => handlePhraseChange('new')}>Повторить</button>
@@ -47,7 +47,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'wrong') {
   
-      phraseContent = <div><p>Учу: </p><p><span>{currentPhrase.russian}</span> <span> | </span><span>{currentPhrase.serbian}</span></p></div>
+      phraseContent = <div><p>Учу: </p><p><span>{currentPhrase.attributes.russian}</span> <span> | </span><span>{currentPhrase.attributes.serbian}</span></p></div>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('wrong')}>Закончить</button>
                   <button onClick={() => handlePhraseChange('new')}>Попробовать снова</button>

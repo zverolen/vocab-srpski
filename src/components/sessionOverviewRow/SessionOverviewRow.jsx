@@ -16,8 +16,9 @@ export default function SessionOverviewRow({ data }) {
     phraseIcon = null
   }
 
+  // console.log(data)
   return(
-    <tr className={style.sessionOverviewRow} key={data.id} role="row">
+    <tr className={style.sessionOverviewRow} key={data.serbian} role="row">
       <td role="cell">{data.russian}</td>
       <td role="cell">{data.serbian}</td>
       <td role="cell">

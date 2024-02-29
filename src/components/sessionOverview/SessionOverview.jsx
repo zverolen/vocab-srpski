@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 
-import { selectPracticedPhrases } from "../../features/phrases/phrasesSlice"
+import { selectPracticedPhrases, selectAllPhrases } from "../../features/phrases/phrasesSlice"
 
 import SessionOverviewRow from "../sessionOverviewRow/SessionOverviewRow"
 import style from "./SessionOverview.module.css"
@@ -14,7 +14,7 @@ export default function SessionPhrases() {
       {practicedPhrases.length > 0 && 
         <table role="table" aria-labelledby="sessionPhrasesSubheading">
         <tbody role="rowgroup">
-          {practicedPhrases.map(phrase => <SessionOverviewRow key={phrase.id} data={phrase} />)}
+          {practicedPhrases.map(phrase => <SessionOverviewRow key={phrase.id} data={phrase.attributes} />)}
         </tbody>
         </table>
       }
