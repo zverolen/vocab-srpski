@@ -7,6 +7,9 @@ import style from "./SessionOverview.module.css"
 
 export default function SessionPhrases() {
   const practicedPhrases = useSelector(selectPracticedPhrases)
+  // const allPhrases = useSelector(selectAllPhrases)
+
+  // console.log(allPhrases)
 
   return(
     <div className={style.sessionOverview} id="sessionOverview">

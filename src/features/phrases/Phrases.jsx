@@ -22,7 +22,7 @@ export default function Phrases() {
   if (status === 'loading') {
     console.log('loading')
   } else if (status === 'success') {
-
+    
     practiceContent =  <Practice />
     sessionContent = <SessionPhrases /> 
 

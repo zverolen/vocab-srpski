@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import {rest} from 'msw'
@@ -7,15 +7,19 @@ import {setupServer} from 'msw/node'
 import { store } from '../../src/store/store'
 import { Provider } from 'react-redux'
 
+import { phrases } from '../../src/data/mockPhrases'
+
 import App from '../../src/App'
 
 describe('User gives different phrases and skipps and repeats phrases', () => {
-  it('User sees the correct UI', () => {
+  it('User sees the correct UI', async () => {
     render(<Provider store={store}><App /></Provider>)
     /** 1. Sees the correct header */
     /** 2. Sees the correct Practice section */
     /** 3. Sees the correct Statistics section */
     // screen.debug()
+
+    await waitFor(() => expect(screen.getByText('Это твоя книга?')).toBeInTheDocument())
 
     expect(screen.getByText('Эта сессия:', {selector: '#stats h2'})).toBeInTheDocument()
     expect(screen.getByText('10', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
