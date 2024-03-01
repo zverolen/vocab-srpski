@@ -1,15 +1,18 @@
 
 # VOCAB-SRPSKI
 
-This is a small project I started to enforce my learning process. The main idea is to self-check how good you can say something in Serbian. The phrases allow one to practice both their vocabulary and grammar.
+This is a small project I started to enforce my learning process. The main idea is to self-check how good you can say something in Serbian. The phrases allow one to practice both their vocabulary and grammar. The demo of the 2d stage of the project is currenctly available at [Github Pages](https://zverolen.github.io). Stage 3 is currently in developement
 
-The tool for that are cards that originally show a phrase in Russian and provide a way to see it in Serbian and mark it as "correct" or "incorrect". In the UI those groups are called "I know" and "I am learning" to avoid negative emotions when the answer is wrong.
+## Description of stage 2
+The main tool for learning is cards that originally show a phrase in Russian and provide a way to see it in Serbian. Then the user can mark it as "correct" or "incorrect". In the UI those groups are called "I know (Знаю!)" and "I am learning(Учу!)" to avoid negative emotions when the answer is wrong.
 
-The project is in its early stage and more useful features are on their way. Currently all phrases are kept in the file system and added manualy.
+## Technical Information (stage 3)
 
-## Technical Information
-
-The project is using Vite.js. The tests are run by Cypress. The styles are written in vanilla CSS and heavily rely on the Modern CSS features and intrinsic design.
+- React
+- Redux for state management
+- Strapi for the backend
+- CSS Modules
+- Design tokens
 
 The UI is being designed in Figma using components.
 
@@ -20,12 +23,7 @@ The app is manually tested using screen readers. It kills me to admit that the c
 
 ## Testing
 
-I rely a lot on automatic testing during my development process (Cypress). I don't use full-scale TDD but in many cases I start making a feature with writing a test. I try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design and help to design and develop in isolation.
-
-## Tasks remaining
-
-1. Updating CSS and design tokens.
-2. Documenting everything in the design system in Penpot.
+I rely a lot on automatic testing during my development process (React Testing LIbrary). I don't use full-scale TDD but in many cases I start making a feature with writing a test. I try to cover all interactive functionality in component tests and in end-to-end tests. Test files also serve as documentation and fix the current design and help to design and develop in isolation.
 
 ## Planned Features
 
@@ -39,10 +37,9 @@ I rely a lot on automatic testing during my development process (Cypress). I don
 
 ## Other ideas
 
-1. Moving phrases to a headless CMS.
-2. Personalisation of the experience of a particular user: history, progress, etc.
-3. Autocheck of typed-in phrases and announcement of phrases in Serbian. Maybe even checking the spoken phrases 🫢.
-4. Deeper personalisation: user can add their own phrases for themselves and suggest phrases for the app.
+1. Personalisation of the experience of a particular user: history, progress, etc.
+2. Autocheck of typed-in phrases and announcement of phrases in Serbian. Maybe even checking the spoken phrases 🫢.
+3. Deeper personalisation: user can add their own phrases for themselves and suggest phrases for the app.
 
 ## Me
 
