@@ -4,6 +4,7 @@ import StatsItem from "../statsItem/StatsItem"
 
 import style from "./Stats.module.css"
 
+import TestNav from "../testNav/TestNav"
 
 import { 
   selectTotalNumberOfPhrases,
@@ -34,6 +35,7 @@ export default function Stats() {
         <StatsItem id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
       </div>
       <a href="#">Вся статистика</a>
+      <TestNav />
     </div>
   )
 }
