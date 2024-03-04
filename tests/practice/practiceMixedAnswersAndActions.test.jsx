@@ -3,6 +3,12 @@ import userEvent from '@testing-library/user-event'
 import { describe, it, expect } from 'vitest'
 import {rest} from 'msw'
 import {setupServer} from 'msw/node'
+import { RouterProvider, Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import Phrases from '../../src/features/phrases/Phrases'
+import PhrasesAll from '../../src/components/phrasesAll/PhrasesAll'
+import PhrasesRemaining from '../../src/components/phrasesRemaining/phrasesRemaining'
+import PhrasesCorrect from '../../src/components/phrasesCorrect/PhrasesCorrect'
+import PhrasesWrong from '../../src/components/PhrasesWrong/PhrasesWrong'
 
 import { store } from '../../src/store/store'
 import { Provider } from 'react-redux'
@@ -11,9 +17,23 @@ import { phrases } from '../../src/data/mockPhrases'
 
 import App from '../../src/App'
 
+const router = createBrowserRouter( createRoutesFromElements(
+  <Route path="/" element={ <App/> }>
+    <Route index element={ <Phrases />} />
+    <Route path="remaining" element={ <PhrasesRemaining />} />
+    <Route path="know" element={ <PhrasesCorrect />} />
+    <Route path="learn" element={ <PhrasesWrong />} />
+    <Route path="all" element={ <PhrasesAll />} />
+  </Route>
+))
+
 describe('User gives different phrases and skipps and repeats phrases', () => {
   it('User sees the correct UI', async () => {
-    render(<Provider store={store}><App /></Provider>)
+    render(
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    )
     /** 1. Sees the correct header */
     /** 2. Sees the correct Practice section */
     /** 3. Sees the correct Statistics section */
@@ -38,7 +58,11 @@ describe('User gives different phrases and skipps and repeats phrases', () => {
 
   it('User performs the flow', async () => {
     const user = userEvent.setup()
-    render(<Provider store={store}><App /></Provider>)
+    render(
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
+    )
 
     /** 1. First phrase practice / SKIP */
     // screen.debug()

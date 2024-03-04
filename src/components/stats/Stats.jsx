@@ -5,6 +5,7 @@ import StatsItem from "../statsItem/StatsItem"
 import style from "./Stats.module.css"
 
 import TestNav from "../testNav/TestNav"
+import { Link, NavLink } from "react-router-dom"
 
 import { 
   selectTotalNumberOfPhrases,
@@ -30,12 +31,11 @@ export default function Stats() {
     <div id="stats" className={style.stats}>
       <h2>Эта сессия:</h2>
       <div>
-        <StatsItem id="remaining" name="Осталось" statNum={newPhrasesNum} statPercent={newPhrasesPercent} />
-        <StatsItem id="correct" name="Знаю!" statNum={correctPhrasesNum} statPercent={correctPhrasesPercent} />
-        <StatsItem id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
+        <StatsItem route="/remaining" id="remaining" name="Осталось" statNum={newPhrasesNum} statPercent={newPhrasesPercent} />
+        <StatsItem route="/know" id="correct" name="Знаю!" statNum={correctPhrasesNum} statPercent={correctPhrasesPercent} />
+        <StatsItem route="/learn" id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
       </div>
-      <a href="#">Вся статистика</a>
-      <TestNav />
+      <NavLink to="/all">Вся статистика</NavLink>
     </div>
   )
 }

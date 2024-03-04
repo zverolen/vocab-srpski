@@ -9,7 +9,12 @@ import {
 } from "react-router-dom"
 import { store } from './store/store.js'
 import ErrorPage from './components/errorPage/ErrorPage.jsx'
-import AllCorrectPhrase from './routes/allCorrectPhrases.jsx'
+import PhrasesPractice from './components/phrasesPractice/PhrasesPractice.jsx'
+import PhrasesRemaining from './components/phrasesRemaining/phrasesRemaining.jsx'
+import PhrasesAll from './components/phrasesAll/PhrasesAll.jsx'
+import PhrasesCorrect from './components/phrasesCorrect/PhrasesCorrect.jsx'
+import PhrasesWrong from './components/PhrasesWrong/PhrasesWrong.jsx'
+import Phrases from './features/phrases/Phrases.jsx'
 import App from './App.jsx'
 import './index.css'
 
@@ -27,11 +32,13 @@ import './index.css'
 //   },
 // ])
 
-//practice, know, learn, all-stats, error, user (+form)
 const router = createBrowserRouter( createRoutesFromElements(
   <Route path="/" element={ <App/> }>
-    <Route path="know" element={ <AllCorrectPhrase />} />
-    
+    <Route index element={ <Phrases />} />
+    <Route path="remaining" element={ <PhrasesRemaining />} />
+    <Route path="know" element={ <PhrasesCorrect />} />
+    <Route path="learn" element={ <PhrasesWrong />} />
+    <Route path="all" element={ <PhrasesAll />} />
   </Route>
 ))
 

@@ -18,7 +18,8 @@ function App() {
       </aside>
 
       <main>
-        <Phrases />
+        {/* <Phrases /> */}
+        <Outlet />
       </main>
 
       <FooterTwo />
