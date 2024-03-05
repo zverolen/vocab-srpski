@@ -1,17 +1,17 @@
 import style from './SessionOverviewRow.module.css'
 
-export default function SessionOverviewRow({ data }) {
+export default function SessionOverviewRow({ data, status }) {
 
   let phraseSessionStatus
   let phraseIcon
 
-  if (data.phraseSessionStatus === 'correct') {
+  if (status === 'correct') {
     phraseSessionStatus = 'Знаю!'
     phraseIcon = '🧐'
-  } else if (data.phraseSessionStatus === 'wrong')  {
+  } else if (status === 'wrong')  {
     phraseSessionStatus = 'Учу!'
     phraseIcon = '🤔'
-  } else if (data.phraseSessionStatus === 'skipped')  {
+  } else if (status === 'skipped')  {
     phraseSessionStatus = 'Пропущено'
     phraseIcon = null
   }

@@ -70,6 +70,7 @@ export default function Practice() {
 
   return(
     <div id="practice" className={style.practice}>
+      <h2>{phraseProgress === 'correct' || phraseProgress === 'wrong' ? 'Результат' : 'Как сказать по-сербски?'}</h2>
       <div>
         {currentPhrase && phraseContent}
         <div>

@@ -32,7 +32,6 @@ export default function Phrases() {
 
   return (
     <>
-      <h2>Как сказать по-сербски?</h2>
       {practiceContent}
       {sessionContent}
     </>

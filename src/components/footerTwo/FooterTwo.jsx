@@ -3,11 +3,11 @@ export default function FooterTwo() {
     <footer>
       <div>
         <p>Project Stage 3</p>
-        <a href="#">Repository on GitHub</a>
+        <a href="https://github.com/zverolen/vocab-srpski">Repository on GitHub</a>
       </div>
 
       <div>
-        <p>Previous Stages:</p>
+        <p>Previous stages:</p>
         <a href="#">Stage 2</a>
       </div>
     </footer>
