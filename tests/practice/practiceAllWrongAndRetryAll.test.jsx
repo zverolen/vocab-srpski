@@ -40,19 +40,19 @@ describe('User answers all phrases in a session wrongly and retries the whole se
     /** 2. Sees the correct Practice section */
 
     expect(screen.getByText('Как сказать по-сербски?', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Это твоя книга?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это твоя книга?', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Проверить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Пропустить', {selector: 'button'})).toBeInTheDocument()
 
     /** 3. Sees the correct Statistics section */
 
     expect(screen.getByText('Эта сессия:', {selector: '#stats h2'})).toBeInTheDocument()
-    expect(screen.getByText('10', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('100%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('10', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(100%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 4. Sees the correct Session section */
 
@@ -77,24 +77,25 @@ describe('User answers all phrases in a session wrongly and retries the whole se
     /** 1. First phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это твоя книга?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это твоя книга?', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('Da li je ovo tvoja knjiga?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Da li je ovo tvoja knjiga?', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это твоя книга?', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это твоя книга?', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это твоя книга?', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('Da li je ovo tvoja knjiga?', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('Da li je ovo tvoja knjiga?', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это твоя книга?)', {selector: '#practice span'})).toBeInTheDocument()
+    
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -105,9 +106,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Это не его часы.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это не его часы.', {selector: '#practice span'})).toBeInTheDocument()
     
-    expect(screen.queryByText('Это твоя книга?', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это твоя книга?', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -118,34 +119,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('9', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('90%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('1', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('10%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('9', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(90%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('1', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(10%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 2. Second phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это не его часы.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это не его часы.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('To nije njegov sat.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('To nije njegov sat.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это не его часы.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это не его часы.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это не его часы.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('To nije njegov sat.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('To nije njegov sat.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это не его часы.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -156,9 +157,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Это мой ребёнок.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это мой ребёнок.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это не его часы.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это не его часы.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -168,34 +169,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('8', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('80%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('2', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('20%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('8', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(80%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('2', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(20%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 3. Third phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это мой ребёнок.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это мой ребёнок.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('To je moje dete.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('To je moje dete.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это мой ребёнок.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это мой ребёнок.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это мой ребёнок.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('To je moje dete.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('To je moje dete.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это мой ребёнок.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -206,9 +207,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Это твоя сестра.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это твоя сестра.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это мой ребёнок.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это мой ребёнок.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -216,34 +217,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('7', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('70%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('3', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('30%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('7', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(70%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('3', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(30%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 4. Fourth phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это твоя сестра.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это твоя сестра.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('To je tvoja sestra.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('To je tvoja sestra.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это твоя сестра.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это твоя сестра.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это твоя сестра.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('To je tvoja sestra.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('To je tvoja sestra.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это твоя сестра.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -254,9 +255,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Это его дом.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это его дом.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это твоя сестра.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это твоя сестра.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -264,34 +265,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('6', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('60%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('4', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('40%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('6', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(60%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('4', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(40%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 5. Fifth phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это его дом.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это его дом.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('To je njegova kuća.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('To je njegova kuća.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это его дом.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это его дом.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это его дом.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('To je njegova kuća.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('To je njegova kuća.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это его дом.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -302,9 +303,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Это мой хороший друг.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это мой хороший друг.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это его дом.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это его дом.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -312,34 +313,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('5', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('50%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('5', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('50%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('5', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(50%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('5', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(50%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 6. Sixth phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это мой хороший друг.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это мой хороший друг.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('Ovo je moj dobar drug.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Ovo je moj dobar drug.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это мой хороший друг.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это мой хороший друг.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это мой хороший друг.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('Ovo je moj dobar drug.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('Ovo je moj dobar drug.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это мой хороший друг.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -350,9 +351,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Кем работает твоя сестра?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Кем работает твоя сестра?', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это мой хороший друг.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это мой хороший друг.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -360,34 +361,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('4', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('40%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('6', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('60%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('4', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(40%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('6', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(60%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 7. Seventh phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Кем работает твоя сестра?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Кем работает твоя сестра?', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('Šta je tvoja sestra?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Šta je tvoja sestra?', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Кем работает твоя сестра?', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Кем работает твоя сестра?', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Кем работает твоя сестра?', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('Šta je tvoja sestra?', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('Šta je tvoja sestra?', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Кем работает твоя сестра?)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -398,9 +399,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Это её подруга.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это её подруга.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Кем работает твоя сестра?', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Кем работает твоя сестра?', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -408,34 +409,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('3', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('30%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('7', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('70%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('3', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(30%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('7', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(70%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 8. Eighth phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Это её подруга.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Это её подруга.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('Ovo je njena drugarica.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Ovo je njena drugarica.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это её подруга.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это её подруга.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Это её подруга.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('Ovo je njena drugarica.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('Ovo je njena drugarica.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Это её подруга.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -446,9 +447,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Моя сестра красивая.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Моя сестра красивая.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Это её подруга.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Это её подруга.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -456,34 +457,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('2', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('20%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('8', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('80%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('2', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(20%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('8', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(80%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 9. Ninth phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Моя сестра красивая.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Моя сестра красивая.', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('Moja sestra je lepa.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Moja sestra je lepa.', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Моя сестра красивая.', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Моя сестра красивая.', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Моя сестра красивая.', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('Moja sestra je lepa.', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('Moja sestra je lepa.', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Моя сестра красивая.)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -494,9 +495,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Practice section changes */
 
-    expect(screen.getByText('Кто доктор?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Кто доктор?', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Моя сестра красивая.', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Моя сестра красивая.', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -504,34 +505,34 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('1', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('10%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('9', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('90%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('1', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(10%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('9', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(90%)', {selector: '#wrong span'})).toBeInTheDocument()
 
     /** 10. Tenth phrase practice */
     // screen.debug()
 
-    expect(screen.getByText('Кто доктор?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Кто доктор?', {selector: '#practice span'})).toBeInTheDocument()
 
     await user.click(screen.getByText('Проверить', {selector: 'button'}))
 
-    expect(screen.getByText('Ko je lekar?', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Ko je lekar?', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Знаю!', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Учу!', {selector: 'button'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Кто доктор?', {selector: '#practice p'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Кто доктор?', {selector: '#practice span'})).not.toBeInTheDocument()
     expect(screen.queryByText('Проверить', {selector: 'button'})).not.toBeInTheDocument()
     expect(screen.queryByText('Пропустить', {selector: 'button'})).not.toBeInTheDocument()
 
     await user.click(screen.getByText('Учу!', {selector: 'button'}))
 
     expect(screen.getByText('Результат', {selector: '#practice h2'})).toBeInTheDocument()
-    expect(screen.getByText('Учу:', {selector: '#practice p'})).toBeInTheDocument()
-    expect(screen.getByText('Кто доктор?', {selector: '#practice span:nth-child(1)'})).toBeInTheDocument()
-    expect(screen.getByText('Ko je lekar?', {selector: '#practice span:nth-child(3)'})).toBeInTheDocument()
+    expect(screen.getByText('Учу:', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('Ko je lekar?', {selector: '#practice span'})).toBeInTheDocument()
+    expect(screen.getByText('(Кто доктор?)', {selector: '#practice span'})).toBeInTheDocument()
     expect(screen.getByText('Закончить', {selector: 'button'})).toBeInTheDocument()
     expect(screen.getByText('Попробовать снова', {selector: 'button'})).toBeInTheDocument()
 
@@ -541,9 +542,9 @@ describe('User answers all phrases in a session wrongly and retries the whole se
     await user.click(screen.getByText('Закончить', {selector: 'button'}))
 
     /** Practice section changes */
-    expect(screen.getByText('Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.', {selector: '#practice p'})).toBeInTheDocument()
+    expect(screen.getByText('Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.', {selector: '#practice span'})).toBeInTheDocument()
 
-    expect(screen.queryByText('Кто доктор?', {selector: '#practice span:nth-child(1)'})).not.toBeInTheDocument()
+    expect(screen.queryByText('Кто доктор?', {selector: '#practice span'})).not.toBeInTheDocument()
 
     /** Sessioin section changes */
 
@@ -551,12 +552,12 @@ describe('User answers all phrases in a session wrongly and retries the whole se
 
     /** Statistics section changes */
 
-    expect(screen.getByText('0', {selector: '#remaining span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#remaining span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('0', {selector: '#correct span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('0%', {selector: '#correct span:nth-child(4)'})).toBeInTheDocument()
-    expect(screen.getByText('10', {selector: '#wrong span:nth-child(2)'})).toBeInTheDocument()
-    expect(screen.getByText('100%', {selector: '#wrong span:nth-child(4)'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#remaining span'})).toBeInTheDocument()
+    expect(screen.getByText('0', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('(0%)', {selector: '#correct span'})).toBeInTheDocument()
+    expect(screen.getByText('10', {selector: '#wrong span'})).toBeInTheDocument()
+    expect(screen.getByText('(100%)', {selector: '#wrong span'})).toBeInTheDocument()
   })
 })
 

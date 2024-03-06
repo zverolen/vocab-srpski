@@ -20,7 +20,7 @@ export default function SessionOverviewRow({ data, status }) {
   return(
     <tr className={style.sessionOverviewRow} key={data.serbian} role="row">
       <td role="cell">{data.russian}</td>
-      <td role="cell">{data.serbian}</td>
+      <td role="cell" translate='no' lang="sr-RS" >{data.serbian}</td>
       <td role="cell">
       {phraseIcon && <span>{phraseIcon}</span>}
         <span>{phraseSessionStatus}</span>

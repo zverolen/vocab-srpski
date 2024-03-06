@@ -84,7 +84,7 @@ export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () =>
   const response = await fetch(`http://localhost:1337/api/phrases`)
   const phrases = await response.json()
 
-  console.log(phrases)
+  // console.log(phrases)
   
   return phrases
 })

@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 
 import { 
@@ -7,9 +8,6 @@ import {
 } from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
-import { useState } from "react"
-
-const note = <p>Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.</p>
 
 export default function Practice() {
   const [phraseProgress, setPhraseProgress] = useState('new')
@@ -17,13 +15,16 @@ export default function Practice() {
   const dispatch = useDispatch()
   const currentPhrase = useSelector(selectCurrentPhrase)
 
+  const practiceRef = useRef(null)
+
   let phraseContent
   let buttons
+  const note = <span>Фразы закончились! Начните сессию снова или поработайте с отдельными фразами.</span>
 
   if (currentPhrase) {
     if (phraseProgress === 'new') {
 
-      phraseContent = <div><p>{currentPhrase.attributes.russian}</p></div>
+      phraseContent = <span>{currentPhrase.attributes.russian}</span>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('revealed')}>Проверить</button>
                   <button onClick={() => handlePhraseChange('skipped')}>Пропустить</button>
@@ -31,7 +32,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'revealed') {
   
-      phraseContent = <div><p>{currentPhrase.attributes.serbian}</p></div>
+      phraseContent = <span lang='sr-RS'>{currentPhrase.attributes.serbian}</span>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('correct')}>Знаю!</button>
                   <button onClick={() => handlePhraseCheck('wrong')}>Учу!</button>
@@ -39,7 +40,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'correct') {
   
-      phraseContent = <div><p>Знаю: </p><p><span>{currentPhrase.attributes.russian}</span> <span> | </span><span>{currentPhrase.attributes.serbian}</span></p></div>
+      phraseContent = <><span>Знаю: </span><span lang='sr-RS'>{currentPhrase.attributes.serbian} </span><span>{`(${currentPhrase.attributes.russian})`}</span></>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('correct')}>Закончить</button>
                   <button onClick={() => handlePhraseChange('new')}>Повторить</button>
@@ -47,7 +48,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'wrong') {
   
-      phraseContent = <div><p>Учу: </p><p><span>{currentPhrase.attributes.russian}</span> <span> | </span><span>{currentPhrase.attributes.serbian}</span></p></div>
+      phraseContent = <><span>Учу: </span><span lang='sr-RS'>{currentPhrase.attributes.serbian} </span><span>{`(${currentPhrase.attributes.russian})`}</span></>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('wrong')}>Закончить</button>
                   <button onClick={() => handlePhraseChange('new')}>Попробовать снова</button>
@@ -58,6 +59,7 @@ export default function Practice() {
 
   function handlePhraseCheck(step) {
     setPhraseProgress(step)
+    practiceRef.current.focus()
   }
 
   function handlePhraseChange(status) {
@@ -66,16 +68,21 @@ export default function Practice() {
     dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
     
     setPhraseProgress('new')
+
+    practiceRef.current.focus()
   }
 
   return(
-    <div id="practice" className={style.practice}>
+    <div id="practice" className={style.practice} >
       <h2>{phraseProgress === 'correct' || phraseProgress === 'wrong' ? 'Результат' : 'Как сказать по-сербски?'}</h2>
       <div>
-        {currentPhrase && phraseContent}
+        <div>
+          <p tabIndex="0" ref={practiceRef}>
+            {currentPhrase ? phraseContent : note}
+          </p>
+        </div>
         <div>
           {currentPhrase && buttons}
-          {!currentPhrase && note}
         </div>
       </div>
     </div>
