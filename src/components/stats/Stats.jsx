@@ -4,8 +4,7 @@ import StatsItem from "../statsItem/StatsItem"
 
 import style from "./Stats.module.css"
 
-import TestNav from "../testNav/TestNav"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import { 
   selectTotalNumberOfPhrases,
