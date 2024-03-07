@@ -32,6 +32,10 @@ export const phrasesSlice = createSlice({
       const { id, phraseSessionStatus} = action.payload
       const updatedPhrase = state.phrases.find(phrase => phrase.id === id)
         updatedPhrase.phraseSessionStatus = phraseSessionStatus
+    },
+    setPhraseTimesPracticed: (state, action) => {
+      const practicedPhrase = state.phrases.find(phrase => phrase.id === action.payload)
+      practicedPhrase.attributes.timesPracticed += 1
     }
   },
   extraReducers(builder) {
@@ -53,7 +57,13 @@ export const phrasesSlice = createSlice({
   }
 })
 
-export const { setPhraseSessionStatus, setCurrentPhraseId, setOrderForPhrasesInPractice, setPhrasesInPractice } = phrasesSlice.actions
+export const { 
+  setPhraseSessionStatus, 
+  setCurrentPhraseId, 
+  setOrderForPhrasesInPractice, 
+  setPhrasesInPractice,
+  setPhraseTimesPracticed
+} = phrasesSlice.actions
 
 export const selectAllPhrases = (state) => state.phrases.phrases
 
@@ -84,9 +94,19 @@ export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () =>
   const response = await fetch(`http://localhost:1337/api/phrases`)
   const phrases = await response.json()
 
-  // console.log(phrases)
+  console.log(phrases)
   
   return phrases
 })
+
+// export const updatePhraseTimesPracticed = createAsyncThunk(
+//   'phrases/updatePhraseTimesPracticed', 
+//   async id => {
+//   const url = `/api/restaurants/${id}`
+//   const newData = {"data": {
+//                    "timesPracticed": 
+// }}
+//   const response = await
+// })
 
 export default phrasesSlice.reducer
