@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 export default function StatsItem({ name, statNum, statPercent, id, route }) {
   return (
-    <NavLink id={id} to={route}>
+    <NavLink id={id} to={route} data-testid={id}>
       {/* {`${name} ${statNum} (${statPercent}%)`} */}
       <span>{name} </span>
       <span>{statNum} </span>

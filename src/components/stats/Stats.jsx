@@ -34,7 +34,7 @@ export default function Stats() {
         <StatsItem route="/know" id="correct" name="Знаю!" statNum={correctPhrasesNum} statPercent={correctPhrasesPercent} />
         <StatsItem route="/learn" id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
       </div>
-      <NavLink to="/all">Вся статистика</NavLink>
+      <NavLink data-testid="all" to="/all">Вся статистика</NavLink>
     </div>
   )
 }

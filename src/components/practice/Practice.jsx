@@ -79,7 +79,7 @@ export default function Practice() {
       <h2>{phraseProgress === 'correct' || phraseProgress === 'wrong' ? 'Результат' : 'Как сказать по-сербски?'}</h2>
       <div>
         <div>
-          <p tabIndex="0" ref={practiceRef}>
+          <p tabIndex="0" ref={practiceRef}  data-testid="practice-phrase">
             {currentPhrase ? phraseContent : note}
           </p>
         </div>

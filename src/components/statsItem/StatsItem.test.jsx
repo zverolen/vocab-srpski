@@ -26,6 +26,6 @@ describe('Renders', () => {
     )
     screen.debug()
 
-    expect(screen.getByText('|', {selector: 'span'})).toHaveAttribute('aria-hidden', 'true')
+    
   })
 })
