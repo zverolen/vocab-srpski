@@ -1,5 +1,6 @@
 import { createSelector, createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { phrases } from "../../data/data"
+import { supabase } from "../../supabaseClient"
 
 const initialState = {
   phrases: [],
@@ -45,14 +46,17 @@ export const phrasesSlice = createSlice({
       })
       .addCase(fetchPhrases.fulfilled, (state, action) => {
         state.status = 'success'
-        state.phrases = action.payload.data.map(phrase => {
+        state.phrases = action.payload.map(phrase => {
           return {...phrase, phraseSessionStatus: 'new'}
         })
-        state.phrasesInPractice = action.payload.data.map(phrase => phrase.id)
+        state.phrasesInPractice = action.payload.map(phrase => phrase.id)
       })
       .addCase(fetchPhrases.rejected, (state, action) => {
         state.status = 'failed'
         state.error = action.error.message
+      })
+      .addCase(updatePhraseTimesPracticed.fulfilled, (state, action) => {
+        console.log('Reducer worked')
       })
   }
 })
@@ -91,22 +95,33 @@ export const selectCurrentPhrase = createSelector([selectAllPhrases, selectPract
 
 export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () => {  
   
-  const response = await fetch(`http://localhost:1337/api/phrases`)
-  const phrases = await response.json()
+  const { data } = await supabase.from("phrases").select('*')
 
-  // console.log(phrases)
+  console.log(data)
   
-  return phrases
+  return data
 })
 
-// export const updatePhraseTimesPracticed = createAsyncThunk(
-//   'phrases/updatePhraseTimesPracticed', 
-//   async id => {
-//   const url = `/api/restaurants/${id}`
-//   const newData = {"data": {
-//                    "timesPracticed": 
-// }}
-//   const response = await
-// })
+export const updatePhraseTimesPracticed = createAsyncThunk(
+  'phrases/updatePhraseTimesPracticed', 
+  async (id) => 
+  {
+  
+  const request = new Request(`http://localhost:1337/api/phrases/${id}`)
+  const init = {
+    method: "PUT",
+    body: {
+      "data": {
+        "attributes": {
+          "timesPracticed": 8
+        }
+      }
+    }
+  }
+  const response = await fetch(request, init)
+  const response2 = await fetch("http://localhost:1337/api/phrases/1")
+  console.log(response)
+  console.log(await response2.json())
+})
 
 export default phrasesSlice.reducer

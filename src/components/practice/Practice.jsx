@@ -5,7 +5,8 @@ import {
   setPhraseSessionStatus,
   selectCurrentPhrase,
   setOrderForPhrasesInPractice,
-  setPhraseTimesPracticed
+  setPhraseTimesPracticed,
+  updatePhraseTimesPracticed
 } from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
@@ -24,8 +25,8 @@ export default function Practice() {
 
   if (currentPhrase) {
     if (phraseProgress === 'new') {
-
-      phraseContent = <span>{currentPhrase.attributes.russian}</span>
+      console.log(currentPhrase)
+      phraseContent = <span>{currentPhrase.russian}</span>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('revealed')}>Проверить</button>
                   <button onClick={() => handlePhraseChange('skipped')}>Пропустить</button>
@@ -33,7 +34,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'revealed') {
   
-      phraseContent = <span lang='sr-RS'>{currentPhrase.attributes.serbian}</span>
+      phraseContent = <span lang='sr-RS'>{currentPhrase.serbian}</span>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('correct')}>Знаю!</button>
                   <button onClick={() => handlePhraseCheck('wrong')}>Учу!</button>
@@ -41,7 +42,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'correct') {
   
-      phraseContent = <><span>Знаю: </span><span lang='sr-RS'>{currentPhrase.attributes.serbian} </span><span>{`(${currentPhrase.attributes.russian})`}</span></>
+      phraseContent = <><span>Знаю: </span><span lang='sr-RS'>{currentPhrase.serbian} </span><span>{`(${currentPhrase.russian})`}</span></>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('correct')}>Закончить</button>
                   <button onClick={() => handlePhraseChange('new')}>Повторить</button>
@@ -49,7 +50,7 @@ export default function Practice() {
   
     } else if (phraseProgress === 'wrong') {
   
-      phraseContent = <><span>Учу: </span><span lang='sr-RS'>{currentPhrase.attributes.serbian} </span><span>{`(${currentPhrase.attributes.russian})`}</span></>
+      phraseContent = <><span>Учу: </span><span lang='sr-RS'>{currentPhrase.serbian} </span><span>{`(${currentPhrase.russian})`}</span></>
       buttons = <div>
                   <button onClick={() => handlePhraseChange('wrong')}>Закончить</button>
                   <button onClick={() => handlePhraseChange('new')}>Попробовать снова</button>
@@ -67,7 +68,8 @@ export default function Practice() {
 
     dispatch(setOrderForPhrasesInPractice({id: currentPhrase.id, phraseSessionStatus: status}))
     dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
-    dispatch(setPhraseTimesPracticed(currentPhrase.id))
+    // dispatch(setPhraseTimesPracticed(currentPhrase.id))
+    dispatch(updatePhraseTimesPracticed(currentPhrase.id))
     
     setPhraseProgress('new')
 
@@ -88,5 +90,5 @@ export default function Practice() {
         </div>
       </div>
     </div>
-  )
+  ) 
 }
