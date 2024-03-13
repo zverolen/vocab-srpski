@@ -10,7 +10,7 @@ The main tool for learning is cards that originally show a phrase in Russian and
 
 - React
 - Redux for state management
-- Strapi for the backend
+- Supabase for the backend
 - CSS Modules
 - Design tokens
 
