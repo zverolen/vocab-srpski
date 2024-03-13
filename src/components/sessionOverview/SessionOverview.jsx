@@ -17,7 +17,7 @@ export default function SessionPhrases() {
       {practicedPhrases.length > 0 && 
         <table role="table" aria-labelledby="sessionPhrasesSubheading">
         <tbody role="rowgroup">
-          {practicedPhrases.map(phrase => <SessionOverviewRow key={phrase.id} data={phrase.attributes} status={phrase.phraseSessionStatus} />)}
+          {practicedPhrases.map(phrase => <SessionOverviewRow key={phrase.id} data={phrase} status={phrase.phraseSessionStatus} />)}
         </tbody>
         </table>
       }

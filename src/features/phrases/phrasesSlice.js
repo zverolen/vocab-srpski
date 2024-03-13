@@ -1,5 +1,6 @@
 import { createSelector, createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import { phrases } from "../../data/data"
+import { supabase } from "../../supabaseClient"
 
 const initialState = {
   phrases: [],
@@ -45,10 +46,10 @@ export const phrasesSlice = createSlice({
       })
       .addCase(fetchPhrases.fulfilled, (state, action) => {
         state.status = 'success'
-        state.phrases = action.payload.data.map(phrase => {
+        state.phrases = action.payload.map(phrase => {
           return {...phrase, phraseSessionStatus: 'new'}
         })
-        state.phrasesInPractice = action.payload.data.map(phrase => phrase.id)
+        state.phrasesInPractice = action.payload.map(phrase => phrase.id)
       })
       .addCase(fetchPhrases.rejected, (state, action) => {
         state.status = 'failed'
@@ -94,12 +95,11 @@ export const selectCurrentPhrase = createSelector([selectAllPhrases, selectPract
 
 export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () => {  
   
-  const response = await fetch(`http://localhost:1337/api/phrases`)
-  const phrases = await response.json()
+  const { data } = await supabase.from("phrases").select('*')
 
-  console.log(phrases)
+  console.log(data)
   
-  return phrases
+  return data
 })
 
 export const updatePhraseTimesPracticed = createAsyncThunk(

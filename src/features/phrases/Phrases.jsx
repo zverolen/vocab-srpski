@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
+import { supabase } from '../../supabaseClient'
 import { fetchPhrases, selectPhrasesStatus, } from "./phrasesSlice"
 
 import Practice from "../../components/practice/Practice"
@@ -13,6 +14,7 @@ export default function Phrases() {
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchPhrases())
+      console.log('dispatch(fetchPhrases()')
     }
   }, [status, dispatch])
 
