@@ -5,7 +5,8 @@ import {
   setPhraseSessionStatus,
   selectCurrentPhrase,
   setOrderForPhrasesInPractice,
-  setPhraseTimesPracticed
+  setPhraseTimesPracticed,
+  updatePhraseTimesPracticed
 } from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
@@ -67,7 +68,8 @@ export default function Practice() {
 
     dispatch(setOrderForPhrasesInPractice({id: currentPhrase.id, phraseSessionStatus: status}))
     dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
-    dispatch(setPhraseTimesPracticed(currentPhrase.id))
+    // dispatch(setPhraseTimesPracticed(currentPhrase.id))
+    dispatch(updatePhraseTimesPracticed(currentPhrase.id))
     
     setPhraseProgress('new')
 
