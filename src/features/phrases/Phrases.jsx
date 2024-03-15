@@ -14,7 +14,6 @@ export default function Phrases() {
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchPhrases())
-      console.log('dispatch(fetchPhrases()')
     }
   }, [status, dispatch])
 

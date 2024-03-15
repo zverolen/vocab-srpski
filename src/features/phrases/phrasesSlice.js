@@ -55,7 +55,7 @@ export const phrasesSlice = createSlice({
         state.status = 'failed'
         state.error = action.error.message
       })
-      .addCase(updatePhraseTimesPracticed.fulfilled, (state, action) => {
+      .addCase(updatePhrasePracticedCount.fulfilled, (state, action) => {
         console.log('Reducer worked')
       })
   }
@@ -96,32 +96,25 @@ export const selectCurrentPhrase = createSelector([selectAllPhrases, selectPract
 export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () => {  
   
   const { data } = await supabase.from("phrases").select('*')
-
-  console.log(data)
-  
   return data
 })
 
-export const updatePhraseTimesPracticed = createAsyncThunk(
-  'phrases/updatePhraseTimesPracticed', 
+export const updatePhrasePracticedCount = createAsyncThunk(
+  'phrases/updatePhrasePracticedCount', 
   async (id) => 
   {
+    // 1. Figure out the current practiced_count
+    const practicedCountData = await supabase.from("phrases").select('practiced_count').eq('id', id)
+    const practicedCount = practicedCountData.data[0].practiced_count
+    
+    // 2. Update the practiced_count with + 1
+
+    const { data, error } = await supabase.from("phrases").update({practiced_count: practicedCount + 1}).eq('id', id).select()
+
+    if (error) { console.log(error) }
+
+    //3. Update the apps state (the corresponding phrase in the state)
   
-  const request = new Request(`http://localhost:1337/api/phrases/${id}`)
-  const init = {
-    method: "PUT",
-    body: {
-      "data": {
-        "attributes": {
-          "timesPracticed": 8
-        }
-      }
-    }
-  }
-  const response = await fetch(request, init)
-  const response2 = await fetch("http://localhost:1337/api/phrases/1")
-  console.log(response)
-  console.log(await response2.json())
 })
 
 export default phrasesSlice.reducer
