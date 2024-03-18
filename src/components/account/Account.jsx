@@ -1,7 +1,8 @@
-import { useState } from 'react'
-import { supabase } from './supabaseClient' 
+import { useState } from "react"
+import { supabase } from "../../supabaseClient"
 
-export default function Auth() {
+export default function Account() {
+
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
 
@@ -19,15 +20,15 @@ export default function Auth() {
     setLoading(false)
   }
 
-  return (
+  return(
     <div>
-      <div>
-        <p>Sign in via magic link with your email below</p>
+      <h2>Страница аккаунта</h2>
+      <p>Войдите при помощи ссылки, отправленной на email.</p>
         <form onSubmit={handleLogin}>
           <div>
             <input
               type="email"
-              placeholder="Your email"
+              placeholder="Ваш email"
               value={email}
               required={true}
               onChange={(e) => setEmail(e.target.value)}
@@ -35,11 +36,11 @@ export default function Auth() {
           </div>
           <div>
             <button disabled={loading}>
-              {loading ? <span>Loading</span> : <span>Send magic link</span>}
+              {loading ? <span>Загрузка</span> : <span>Отправить ссылку</span>}
             </button>
           </div>
         </form>
-      </div>
+      <button onClick={() => supabase.auth.signOut()} >Выйти</button>
     </div>
   )
 }

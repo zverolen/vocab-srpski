@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from './supabaseClient'
-import Auth from './tempAuth'
-import Account from './tempAccount'
+// import Auth from './tempAuth'
+// import Account from './tempAccount'
 
 export default function TempPage() {
   const [session, setSession] = useState(null)

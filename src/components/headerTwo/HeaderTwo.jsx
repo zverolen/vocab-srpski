@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export default function HeaderTwo() {
   return (
     <header>
@@ -5,7 +7,7 @@ export default function HeaderTwo() {
       <div>
         <button>Инструкция</button>
         <span>|</span>
-        <button>Выход</button>
+        <NavLink to="/account">Аккаунт</NavLink>
       </div>
     </header>
   )
