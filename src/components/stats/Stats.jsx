@@ -6,6 +6,8 @@ import style from "./Stats.module.css"
 
 import { NavLink } from "react-router-dom"
 
+// import Account from "../account/Account"
+
 import { 
   selectTotalNumberOfPhrases,
   selectNumberOfNewPhrases,
@@ -35,6 +37,7 @@ export default function Stats() {
         <StatsItem route="/learn" id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
       </div>
       <NavLink data-testid="all" to="/all">Вся статистика</NavLink>
+      {/* <Account /> */}
     </div>
   )
 }
