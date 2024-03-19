@@ -55,7 +55,7 @@ export const phrasesSlice = createSlice({
         state.status = 'failed'
         state.error = action.error.message
       })
-      .addCase(updatePhrasePracticedCount.fulfilled, (state, action) => {
+      .addCase(updatePhraseCount.fulfilled, (state, action) => {
         console.log('Reducer worked')
       })
   }
@@ -99,17 +99,23 @@ export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () =>
   return data
 })
 
-export const updatePhrasePracticedCount = createAsyncThunk(
-  'phrases/updatePhrasePracticedCount', 
-  async (id) => 
+export const updatePhraseCount = createAsyncThunk(
+  'phrases/updatePhraseCount', 
+  async ({ id, status }) => 
   {
-    // 1. Figure out the current practiced_count
-    const practicedCountData = await supabase.from("phrases").select('practiced_count').eq('id', id)
-    const practicedCount = practicedCountData.data[0].practiced_count
+    // 1. Figure out the current practiced_count and correct_count
+    const countData = await supabase.from("phrases").select('practiced_count, correct_count').eq('id', id)
+    const practicedCount = countData.data[0].practiced_count + 1
+    const correctCount = status === 'correct' ? countData.data[0].correct_count + 1 : countData.data[0].correct_count
     
+    console.log(status)
     // 2. Update the practiced_count with + 1
+    const updates = {
+      practiced_count: practicedCount,
+      correct_count: correctCount
+    }
 
-    const { data, error } = await supabase.from("phrases").update({practiced_count: practicedCount + 1}).eq('id', id).select()
+    const { data, error } = await supabase.from("phrases").update(updates).eq('id', id).select()
 
     if (error) { console.log(error) }
 

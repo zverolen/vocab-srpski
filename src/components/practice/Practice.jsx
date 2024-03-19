@@ -6,7 +6,7 @@ import {
   selectCurrentPhrase,
   setOrderForPhrasesInPractice,
   setPhraseTimesPracticed,
-  updatePhrasePracticedCount
+  updatePhraseCount
 } from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
@@ -70,7 +70,7 @@ export default function Practice() {
     dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
 
     if (status === 'correct' || status === 'wrong') {
-      dispatch(updatePhrasePracticedCount(currentPhrase.id))
+      dispatch(updatePhraseCount({id: currentPhrase.id, status: status}))
     }
     
     setPhraseProgress('new')
