@@ -52,7 +52,6 @@ export const phrasesSlice = createSlice({
       .addCase(updatePhraseCount.fulfilled, (state, action) => {
         const { id, correct_count, practiced_count } = action.payload[0]
         let practicedPhrase = state.phrases.find(phrase => phrase.id === id)
-        console.log(practicedPhrase)
         practicedPhrase.correct_count = correct_count
         practicedPhrase.practiced_count = practiced_count
       })
@@ -91,6 +90,7 @@ export const selectCurrentPhrase = createSelector([selectAllPhrases, selectPract
 
 export const fetchPhrases = createAsyncThunk('phrases/fetchPhrases', async () => {  
   const { data } = await supabase.from("phrases").select('*')
+  // console.log(data)
   return data
 })
 
@@ -110,6 +110,7 @@ export const updatePhraseCount = createAsyncThunk(
     const { data, error } = await supabase.from("phrases").update(updates).eq('id', id).select()
 
     if (error) { console.log(error) }
+    console.log(data)
     return data
 })
 
