@@ -21,7 +21,7 @@ export const phrasesSlice = createSlice({
       state.currentPhraseId = action.payload
     },
     setOrderForPhrasesInPractice: (state, action) => {
-      const { id, phraseSessionStatus} = action.payload
+      const { phraseSessionStatus} = action.payload
       if (phraseSessionStatus === 'new') {
         const repeatedId = state.phrasesInPractice.shift()
         state.phrasesInPractice.push(repeatedId)

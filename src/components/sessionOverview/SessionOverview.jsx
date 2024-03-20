@@ -1,15 +1,12 @@
 import { useSelector } from "react-redux"
 
-import { selectPracticedPhrases, selectAllPhrases } from "../../features/phrases/phrasesSlice"
+import { selectPracticedPhrases } from "../../features/phrases/phrasesSlice"
 
 import SessionOverviewRow from "../sessionOverviewRow/SessionOverviewRow"
 import style from "./SessionOverview.module.css"
 
-export default function SessionPhrases() {
+export default function SessionOverview() {
   const practicedPhrases = useSelector(selectPracticedPhrases)
-  // const allPhrases = useSelector(selectAllPhrases)
-
-  // console.log(allPhrases)
 
   return(
     <div className={style.sessionOverview} id="sessionOverview">

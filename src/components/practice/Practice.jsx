@@ -5,8 +5,7 @@ import {
   setPhraseSessionStatus,
   selectCurrentPhrase,
   setOrderForPhrasesInPractice,
-  setPhraseTimesPracticed,
-  updatePhraseTimesPracticed
+  updatePhraseCount
 } from '../../features/phrases/phrasesSlice'
 
 import style from "./Practice.module.css"
@@ -25,7 +24,7 @@ export default function Practice() {
 
   if (currentPhrase) {
     if (phraseProgress === 'new') {
-      console.log(currentPhrase)
+      // console.log(currentPhrase)
       phraseContent = <span>{currentPhrase.russian}</span>
       buttons = <div>
                   <button onClick={() => handlePhraseCheck('revealed')}>Проверить</button>
@@ -68,8 +67,10 @@ export default function Practice() {
 
     dispatch(setOrderForPhrasesInPractice({id: currentPhrase.id, phraseSessionStatus: status}))
     dispatch(setPhraseSessionStatus({id: currentPhrase.id, phraseSessionStatus: status}))
-    // dispatch(setPhraseTimesPracticed(currentPhrase.id))
-    dispatch(updatePhraseTimesPracticed(currentPhrase.id))
+
+    if (status === 'correct' || status === 'wrong') {
+      dispatch(updatePhraseCount({id: currentPhrase.id, status: status}))
+    }
     
     setPhraseProgress('new')
 
