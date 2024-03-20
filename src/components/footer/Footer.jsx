@@ -1,4 +1,4 @@
-export default function FooterTwo() {
+export default function Footer() {
   return(
     <footer>
       <div>

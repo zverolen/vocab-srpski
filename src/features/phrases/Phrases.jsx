@@ -1,10 +1,9 @@
-import { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
-import { fetchPhrases, selectPhrasesStatus, } from "./phrasesSlice"
+import { selectPhrasesStatus, } from "./phrasesSlice"
 
 import Practice from "../../components/practice/Practice"
-import SessionPhrases from "../../components/sessionOverview/SessionOverview"
+import SessionOverview from "../../components/sessionOverview/SessionOverview"
 
 export default function Phrases() {
   const status = useSelector(selectPhrasesStatus)
@@ -17,7 +16,7 @@ export default function Phrases() {
   } else if (status === 'success') {
     
     practiceContent =  <Practice />
-    sessionContent = <SessionPhrases /> 
+    sessionContent = <SessionOverview /> 
 
   } else if (status === 'failed') {
     console.log('error')

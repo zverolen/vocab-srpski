@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-export default function HeaderTwo() {
+export default function Header() {
   return (
     <header>
       <h1>Знаю!</h1>

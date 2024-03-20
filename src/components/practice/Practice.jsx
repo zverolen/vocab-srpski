@@ -5,7 +5,6 @@ import {
   setPhraseSessionStatus,
   selectCurrentPhrase,
   setOrderForPhrasesInPractice,
-  setPhraseTimesPracticed,
   updatePhraseCount
 } from '../../features/phrases/phrasesSlice'
 

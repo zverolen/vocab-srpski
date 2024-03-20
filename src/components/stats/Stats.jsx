@@ -6,8 +6,6 @@ import style from "./Stats.module.css"
 
 import { NavLink } from "react-router-dom"
 
-// import Account from "../account/Account"
-
 import { 
   selectTotalNumberOfPhrases,
   selectNumberOfNewPhrases,
@@ -31,13 +29,12 @@ export default function Stats() {
   return(
     <div id="stats" className={style.stats}>
       <h2>Эта сессия:</h2>
-      <div>
+      <nav>
         <StatsItem route="/remaining" id="remaining" name="Осталось" statNum={newPhrasesNum} statPercent={newPhrasesPercent} />
         <StatsItem route="/know" id="correct" name="Знаю!" statNum={correctPhrasesNum} statPercent={correctPhrasesPercent} />
         <StatsItem route="/learn" id="wrong" name="Учу!" statNum={wrongPhrasesNum} statPercent={wrongPhrasesPercent} />
-      </div>
-      <NavLink data-testid="all" to="/all">Вся статистика</NavLink>
-      {/* <Account /> */}
+        <NavLink data-testid="all" to="/all">Вся статистика</NavLink>
+      </nav>
     </div>
   )
 }

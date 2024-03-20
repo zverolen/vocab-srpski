@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom'
 
 import { fetchPhrases, selectPhrasesStatus } from './features/phrases/phrasesSlice'
 
-import HeaderTwo from './components/headerTwo/HeaderTwo'
-import FooterTwo from './components/footerTwo/FooterTwo'
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 import Stats from './components/stats/Stats'
 
@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="layout site-frame">
-      <HeaderTwo />
+      <Header />
      
       <aside>
         <Stats />
@@ -32,7 +32,7 @@ function App() {
         <Outlet />
       </main>
 
-      <FooterTwo />
+      <Footer />
     </div>
   )
 }

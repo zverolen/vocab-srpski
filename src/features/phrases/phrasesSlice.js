@@ -17,9 +17,6 @@ export const phrasesSlice = createSlice({
     setCurrentPhraseId: (state, action) => {
       state.currentPhraseId = action.payload
     },
-    setPhrasesInPractice: (state) => {
-      state.phrases.map(phrase => phrase.id)
-    },
     setOrderForPhrasesInPractice: (state, action) => {
       const { phraseSessionStatus} = action.payload
       if (phraseSessionStatus === 'new') {
@@ -33,10 +30,6 @@ export const phrasesSlice = createSlice({
       const { id, phraseSessionStatus} = action.payload
       const updatedPhrase = state.phrases.find(phrase => phrase.id === id)
         updatedPhrase.phraseSessionStatus = phraseSessionStatus
-    },
-    setPhraseTimesPracticed: (state, action) => {
-      const practicedPhrase = state.phrases.find(phrase => phrase.id === action.payload)
-      practicedPhrase.attributes.timesPracticed += 1
     }
   },
   extraReducers(builder) {
@@ -45,11 +38,11 @@ export const phrasesSlice = createSlice({
         state.status = 'loading'
       })
       .addCase(fetchPhrases.fulfilled, (state, action) => {
+        // Updates state in two places :(
         state.status = 'success'
         state.phrases = action.payload.map(phrase => {
           return {...phrase, phraseSessionStatus: 'new'}
         })
-
         state.phrasesInPractice = action.payload.map(phrase => phrase.id)
       })
       .addCase(fetchPhrases.rejected, (state, action) => {
@@ -69,9 +62,7 @@ export const phrasesSlice = createSlice({
 export const { 
   setPhraseSessionStatus, 
   setCurrentPhraseId, 
-  setOrderForPhrasesInPractice, 
-  setPhrasesInPractice,
-  setPhraseTimesPracticed
+  setOrderForPhrasesInPractice
 } = phrasesSlice.actions
 
 export const selectAllPhrases = (state) => state.phrases.phrases
