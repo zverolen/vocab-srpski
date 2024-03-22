@@ -1,7 +1,7 @@
 
 # VOCAB-SRPSKI
 
-This is a small project I started to enforce my learning process. The main idea is to self-check how good you can say something in Serbian. The phrases allow one to practice both their vocabulary and grammar. The demo of the 2d stage of the project is currenctly available at [Github Pages](https://zverolen.github.io). Stage 3 is currently in developement
+This is a small project I started to enforce my learning process. The main idea is to self-check how good you can say something in Serbian. The phrases allow one to practice both their vocabulary and grammar. The demo of the 2d stage of the project is currenctly available at [Github Pages](https://zverolen.github.io/znaju/znaju). Stage 3 is currently in developement
 
 ## Description of stage 2
 The main tool for learning is cards that originally show a phrase in Russian and provide a way to see it in Serbian. Then the user can mark it as "correct" or "incorrect". In the UI those groups are called "I know (Знаю!)" and "I am learning(Учу!)" to avoid negative emotions when the answer is wrong.
